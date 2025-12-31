@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surface Chemistry - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ff6f00;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #ff6f00;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ff6f00;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ff6f00;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .math {
+      font-family: "Cambria Math", serif;
+      color: #ff9800;
+    }
+    .disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .equation {
+      text-align: center;
+      margin: 15px 0;
+      font-size: 1.1rem;
+      color: #ff9800;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    table, th, td {
+      border: 1px solid #444;
+    }
+    th, td {
+      padding: 8px 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #333;
+      color: #ff6f00;
+    }
+    .comparison {
+      width: 100%;
+      margin: 15px 0;
+    }
+    .comparison th, .comparison td {
+      text-align: left;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Surface Chemistry - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Introduction to Surface Chemistry</h2>
+      <ul>
+        <li>Surface chemistry is the study of chemical phenomena that occur at the interface of two phases.</li>
+        <li>It deals with concepts like adsorption, catalysis, colloids, and emulsions.</li>
+        <li>Surface chemistry has numerous applications in industry, medicine, and daily life.</li>
+        <li>Key processes include:
+          <ul>
+            <li>Adsorption (solid-gas and solid-liquid interfaces)</li>
+            <li>Catalysis (heterogeneous and homogeneous)</li>
+            <li>Formation and properties of colloids</li>
+            <li>Emulsification and emulsion stability</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Adsorption</h2>
+      <ul>
+        <li><strong>Definition:</strong> The phenomenon of accumulation of molecules of a substance on the surface of a solid or liquid.</li>
+        <li><strong>Adsorbate:</strong> The substance that gets adsorbed</li>
+        <li><strong>Adsorbent:</strong> The substance on whose surface adsorption occurs</li>
+        <li><strong>Types of Adsorption:</strong>
+          <ul>
+            <li><strong>Physical Adsorption (Physisorption):</strong> Involves weak van der Waals forces</li>
+            <li><strong>Chemical Adsorption (Chemisorption):</strong> Involves formation of chemical bonds</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <table class="comparison">
+        <tr>
+          <th>Physical Adsorption</th>
+          <th>Chemical Adsorption</th>
+        </tr>
+        <tr>
+          <td>Weak van der Waals forces</td>
+          <td>Strong chemical bonds</td>
+        </tr>
+        <tr>
+          <td>Low heat of adsorption (20-40 kJ/mol)</td>
+          <td>High heat of adsorption (80-240 kJ/mol)</td>
+        </tr>
+        <tr>
+          <td>Reversible process</td>
+          <td>Irreversible process</td>
+        </tr>
+        <tr>
+          <td>Not specific in nature</td>
+          <td>Highly specific in nature</td>
+        </tr>
+        <tr>
+          <td>Forms multilayers at high pressure</td>
+          <td>Forms only monolayer</td>
+        </tr>
+        <tr>
+          <td>Increases with decrease in temperature</td>
+          <td>Increases with increase in temperature initially</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>3. Adsorption Isotherms</h2>
+      <ul>
+        <li>Adsorption isotherms describe the relationship between the amount of gas adsorbed and pressure at constant temperature.</li>
+        <li><strong>Freundlich Adsorption Isotherm:</strong>
+          <div class="equation">x/m = kP<sup>1/n</sup></div>
+          <li>Where x/m is amount adsorbed per unit mass, P is pressure, k and n are constants</li>
+          <li>In log form: log(x/m) = log k + (1/n)log P</li>
+        </li>
+        <li><strong>Langmuir Adsorption Isotherm:</strong>
+          <div class="equation">x/m = (abP)/(1 + bP)</div>
+          <li>Where a and b are constants related to adsorption capacity and energy</li>
+          <li>Assumes monolayer adsorption on homogeneous surfaces</li>
+        </li>
+        <li><strong>BET Theory:</strong> Extension of Langmuir isotherm for multilayer adsorption</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. Catalysis</h2>
+      <ul>
+        <li><strong>Definition:</strong> A catalyst is a substance that increases the rate of a reaction without being consumed in the reaction.</li>
+        <li><strong>Types of Catalysis:</strong>
+          <ul>
+            <li><strong>Homogeneous Catalysis:</strong> Catalyst and reactants are in the same phase</li>
+            <li><strong>Heterogeneous Catalysis:</strong> Catalyst and reactants are in different phases</li>
+            <li><strong>Enzyme Catalysis:</strong> Catalysis by biological enzymes</li>
+          </ul>
+        </li>
+        <li><strong>Characteristics of Catalysts:</strong>
+          <ul>
+            <li>Small amounts are sufficient</li>
+            <li>Remain unchanged in mass and chemical composition</li>
+            <li>Cannot initiate a reaction</li>
+            <li>Highly specific in action</li>
+            <li>Can be inhibited (poisoned) by certain substances</li>
+          </ul>
+        </li>
+        <li><strong>Mechanism of Heterogeneous Catalysis:</strong>
+          <ul>
+            <li>Adsorption of reactants on catalyst surface</li>
+            <li>Formation of activated complex</li>
+            <li>Rearrangement of atoms</li>
+            <li>Desorption of products</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>5. Colloids</h2>
+      <ul>
+        <li><strong>Definition:</strong> Heterogeneous mixtures where one substance is dispersed (dispersed phase) in another (dispersion medium).</li>
+        <li>Particle size ranges from 1 nm to 1000 nm (1 μm)</li>
+        <li><strong>Types of Colloids:</strong></li>
+      </ul>
+      <table>
+        <tr>
+          <th>Dispersed Phase</th>
+          <th>Dispersion Medium</th>
+          <th>Type of Colloid</th>
+          <th>Example</th>
+        </tr>
+        <tr>
+          <td>Solid</td>
+          <td>Liquid</td>
+          <td>Sol</td>
+          <td>Mud, paint, starch in water</td>
+        </tr>
+        <tr>
+          <td>Liquid</td>
+          <td>Liquid</td>
+          <td>Emulsion</td>
+          <td>Milk, mayonnaise</td>
+        </tr>
+        <tr>
+          <td>Gas</td>
+          <td>Liquid</td>
+          <td>Foam</td>
+          <td>Whipped cream, soap lather</td>
+        </tr>
+        <tr>
+          <td>Solid</td>
+          <td>Gas</td>
+          <td>Aerosol</td>
+          <td>Smoke, dust</td>
+        </tr>
+        <tr>
+          <td>Liquid</td>
+          <td>Gas</td>
+          <td>Aerosol</td>
+          <td>Fog, clouds, hair spray</td>
+        </tr>
+        <tr>
+          <td>Solid</td>
+          <td>Solid</td>
+          <td>Solid Sol</td>
+          <td>Colored gemstones, ruby glass</td>
+        </tr>
+        <tr>
+          <td>Liquid</td>
+          <td>Solid</td>
+          <td>Gel</td>
+          <td>Butter, cheese, jelly</td>
+        </tr>
+        <tr>
+          <td>Gas</td>
+          <td>Solid</td>
+          <td>Solid Foam</td>
+          <td>Pumice stone, styrofoam</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>6. Properties of Colloids</h2>
+      <ul>
+        <li><strong>Tyndall Effect:</strong> Scattering of light by colloidal particles</li>
+        <li><strong>Brownian Movement:</strong> Random zigzag movement of colloidal particles</li>
+        <li><strong>Electrophoresis:</strong> Movement of colloidal particles under the influence of an electric field</li>
+        <li><strong>Coagulation/Flocculation:</strong> Process of settling down of colloidal particles</li>
+        <li><strong>Dialysis:</strong> Removal of dissolved substances from a colloidal solution</li>
+        <li><strong>Electro-osmosis:</strong> Movement of dispersion medium under the influence of an electric field</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. Preparation of Colloids</h2>
+      <ul>
+        <li><strong>Dispersion Methods:</strong> Breaking larger particles into colloidal size
+          <ul>
+            <li>Mechanical dispersion</li>
+            <li>Electro-dispersion (Bredig's Arc method)</li>
+            <li>Ultrasonic dispersion</li>
+            <li>Peptization</li>
+          </ul>
+        </li>
+        <li><strong>Condensation Methods:</strong> Aggregation of smaller particles to colloidal size
+          <ul>
+            <li>Chemical methods (oxidation, reduction, hydrolysis, double decomposition)</li>
+            <li>Exchange of solvent</li>
+            <li>Excessive cooling</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>8. Purification of Colloids</h2>
+      <ul>
+        <li><strong>Dialysis:</strong> Removal of impurities by diffusion through a semipermeable membrane</li>
+        <li><strong>Electro-dialysis:</strong> Dialysis accelerated by applying an electric field</li>
+        <li><strong>Ultrafiltration:</strong> Filtration under pressure through special filters</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>9. Emulsions</h2>
+      <ul>
+        <li><strong>Definition:</strong> Liquid-liquid colloidal systems where one liquid is dispersed in another immiscible liquid.</li>
+        <li><strong>Types:</strong>
+          <ul>
+            <li><strong>Oil-in-Water (O/W):</strong> Oil droplets dispersed in water (e.g., milk, vanishing cream)</li>
+            <li><strong>Water-in-Oil (W/O):</strong> Water droplets dispersed in oil (e.g., butter, cod liver oil)</li>
+          </ul>
+        </li>
+        <li><strong>Emulsifiers:</strong> Substances that stabilize emulsions by forming a film around dispersed droplets (e.g., soap, detergents, proteins)</li>
+      </ul>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Understand the differences between physical and chemical adsorption thoroughly.</li>
+        <li>Know how to apply adsorption isotherms (Freundlich and Langmuir) to solve numerical problems.</li>
+        <li>Remember the classification of colloids based on dispersed phase and dispersing medium.</li>
+        <li>Focus on properties of colloids like Tyndall effect, Brownian movement, and electrophoresis.</li>
+        <li>Understand the mechanisms of catalysis, especially heterogeneous catalysis.</li>
+        <li>Learn about preparation methods for colloids and how to distinguish between them.</li>
+        <li>Practice problems related to adsorption isotherms and Hardy-Schulze rule.</li>
+        <li>Know how to identify different types of emulsions and their applications.</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+
+    <script>
+      const quizData = [
+        { 
+          question: "Which of the following is NOT a characteristic of physisorption?", 
+          options: [
+            "Low heat of adsorption", 
+            "Formation of chemical bonds", 
+            "Reversible process", 
+            "Multilayer formation"
+          ], 
+          answer: "Formation of chemical bonds" 
+        },
+        { 
+          question: "The Tyndall effect is observed in:", 
+          options: [
+            "True solutions only", 
+            "Colloids only", 
+            "Suspensions only", 
+            "Both colloids and suspensions"
+          ], 
+          answer: "Both colloids and suspensions" 
+        },
+        { 
+          question: "Which adsorption isotherm assumes monolayer formation on homogeneous surfaces?", 
+          options: [
+            "Freundlich isotherm", 
+            "Langmuir isotherm", 
+            "BET isotherm", 
+            "Henry's isotherm"
+          ], 
+          answer: "Langmuir isotherm" 
+        },
+        { 
+          question: "The coagulation of a negatively charged colloidal solution is most effective with:", 
+          options: [
+            "Na⁺ ions", 
+            "K⁺ ions", 
+            "Ca²⁺ ions", 
+            "Al³⁺ ions"
+          ], 
+          answer: "Al³⁺ ions" 
+        },
+        { 
+          question: "Milk is an example of which type of colloid?", 
+          options: [
+            "Sol", 
+            "Emulsion", 
+            "Gel", 
+            "Foam"
+          ], 
+          answer: "Emulsion" 
+        },
+        { 
+          question: "In heterogeneous catalysis, the rate of reaction is maximum at:", 
+          options: [
+            "Very low temperatures", 
+            "Very high temperatures", 
+            "Optimum temperature", 
+            "Temperature doesn't affect heterogeneous catalysis"
+          ], 
+          answer: "Optimum temperature" 
+        }
+      ];
+
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerText = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerText = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+
+      function tryAgain() {
+        loadQuestion();
+      }
+
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+
+      window.onload = loadQuestion;
+    </script>
+
+  </body>
+</html>

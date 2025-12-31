@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wave Optics - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .formula {
+      background-color: #262626;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      margin: 10px 0;
+      color: white;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .diagram {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .diagram img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Wave Optics - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Huygens Principle</h2>
+      <ul>
+        <li>Every point on a wavefront acts as a source of secondary wavelets</li>
+        <li>New wavefront is the tangent to all secondary wavelets</li>
+        <li>Explains reflection, refraction and diffraction</li>
+      </ul>
+      <div class="diagram">
+        <img src="https://www.physicsclassroom.com/Class/light/U12L3a1.gif" alt="Huygens Principle" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Interference of Light</h2>
+      <ul>
+        <li>Superposition of two coherent waves</li>
+        <li>Constructive interference: Path difference = nλ</li>
+        <li>Destructive interference: Path difference = (n+½)λ</li>
+        <li>Young's double slit experiment demonstrates interference</li>
+      </ul>
+      <div class="formula">Fringe width: β = λD/d</div>
+      <div class="formula">Path difference: Δx = yd/D</div>
+    </div>
+
+    <div class="section">
+      <h2>3. Diffraction of Light</h2>
+      <ul>
+        <li>Bending of light around obstacles</li>
+        <li>Single slit diffraction produces central bright fringe</li>
+        <li>Diffraction grating produces sharper maxima</li>
+      </ul>
+      <div class="formula">Single slit minima: a sinθ = nλ</div>
+      <div class="formula">Diffraction grating maxima: d sinθ = nλ</div>
+    </div>
+
+    <div class="section">
+      <h2>4. Polarization</h2>
+      <ul>
+        <li>Light waves oscillate in single plane</li>
+        <li>Methods: Reflection, scattering, dichroism, birefringence</li>
+        <li>Malus' law gives intensity of polarized light</li>
+      </ul>
+      <div class="formula">Malus' Law: I = I₀cos²θ</div>
+      <div class="formula">Brewster's Law: tan ip = μ</div>
+    </div>
+
+    <div class="section">
+      <h2>5. Important Phenomena</h2>
+      <table>
+        <tr>
+          <th>Phenomenon</th>
+          <th>Description</th>
+          <th>Key Formula</th>
+        </tr>
+        <tr>
+          <td>Thin film interference</td>
+          <td>Colors in soap bubbles</td>
+          <td>2μt = (n+½)λ</td>
+        </tr>
+        <tr>
+          <td>Resolving power</td>
+          <td>Ability to distinguish close objects</td>
+          <td>R = λ/Δλ</td>
+        </tr>
+        <tr>
+          <td>Doppler effect</td>
+          <td>Frequency change due to motion</td>
+          <td>Δf/f = v/c</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>6. Important Formulas</h2>
+      <div class="formula">Young's experiment: β = λD/d</div>
+      <div class="formula">Single slit: a sinθ = nλ</div>
+      <div class="formula">Diffraction grating: d sinθ = nλ</div>
+      <div class="formula">Malus' Law: I = I₀cos²θ</div>
+      <div class="formula">Brewster's Law: tan ip = μ</div>
+      <div class="formula">Thin film: 2μt = (n+½)λ</div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Understand the difference between interference and diffraction</li>
+        <li>Practice numericals on Young's double slit experiment</li>
+        <li>Memorize all formulas and their applications</li>
+        <li>Learn polarization methods and Malus' law</li>
+        <li>Understand conditions for constructive/destructive interference</li>
+        <li>Practice problems on resolving power and thin films</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "In Young's double slit experiment, what happens to fringe width if distance between slits is halved?", 
+        options: ["Halves", "Doubles", "Remains same", "Becomes four times"], 
+        answer: "Doubles" 
+      },
+      { 
+        question: "Which phenomenon cannot be explained by wave theory of light?", 
+        options: ["Interference", "Diffraction", "Photoelectric effect", "Polarization"], 
+        answer: "Photoelectric effect" 
+      },
+      { 
+        question: "For constructive interference in thin films, the path difference should be:", 
+        options: ["nλ", "(n+½)λ", "(n+¼)λ", "(n+¾)λ"], 
+        answer: "nλ" 
+      },
+      { 
+        question: "What is the angle of polarization when light reflects from water (μ=1.33)?", 
+        options: ["45°", "53°", "37°", "90°"], 
+        answer: "53°" 
+      },
+      { 
+        question: "In single slit diffraction, the width of central maximum is:", 
+        options: ["Directly proportional to slit width", "Inversely proportional to slit width", "Independent of slit width", "Proportional to square of slit width"], 
+        answer: "Inversely proportional to slit width" 
+      },
+      { 
+        question: "Which optical instrument uses diffraction grating?", 
+        options: ["Microscope", "Telescope", "Spectrometer", "Periscope"], 
+        answer: "Spectrometer" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = () => {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        alert("✅ You've reached the end. Click 'Submit All Answers'.");
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+  
+</body>
+</html>

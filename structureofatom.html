@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atomic Structure - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .diagram {
+      max-width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .formula {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+    
+    .svg-container {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: center;
+    }
+    
+    th {
+      background-color: #333;
+      color: #ff6f00;
+    }
+    
+    .element-box {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #ff6f00;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 5px;
+      border-radius: 5px;
+      background-color: #333;
+    }
+    
+    .atom-number {
+      font-size: 10px;
+      align-self: flex-start;
+      padding-left: 5px;
+    }
+    
+    .element-symbol {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+    .element-name {
+      font-size: 10px;
+    }
+    
+    .element-mass {
+      font-size: 10px;
+      align-self: flex-end;
+      padding-right: 5px;
+    }
+    
+    .important-note {
+      background-color: #333;
+      border-left: 5px solid #ff0000;
+      padding: 10px;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+    
+    .example-box {
+      background-color: #262626;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+      border-left: 5px solid #00bfff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Atomic Structure - EAMCET Detailed Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Historical Development Section -->
+    <div class="section">
+      <h2>1. Historical Development of Atomic Theory</h2>
+      <ul>
+        <li><strong>Dalton's Atomic Theory (1808):</strong>
+          <ul>
+            <li>Matter consists of indivisible atoms</li>
+            <li>Atoms of same element are identical</li>
+            <li>Compounds form when atoms combine in simple ratios</li>
+            <li>Chemical reactions involve rearrangement of atoms</li>
+          </ul>
+        </li>
+        <li><strong>Thomson's Model (1897):</strong>
+          <ul>
+            <li>Discovered electrons using cathode ray experiments</li>
+            <li>Proposed "Plum Pudding Model" – negative electrons embedded in positive sphere</li>
+          </ul>
+        </li>
+        <li><strong>Rutherford's Model (1911):</strong>
+          <ul>
+            <li>Gold foil experiment – discovered nucleus</li>
+            <li>Most of atom is empty space with dense, positive nucleus</li>
+            <li>Electrons orbit the nucleus like planets around sun</li>
+          </ul>
+        </li>
+        <li><strong>Bohr's Model (1913):</strong>
+          <ul>
+            <li>Electrons move in fixed circular orbits (energy levels)</li>
+            <li>Each orbit has fixed energy (quantized)</li>
+            <li>Electrons emit/absorb energy when jumping between orbits</li>
+          </ul>
+        </li>
+        <li><strong>Modern Quantum Model:</strong>
+          <ul>
+            <li>Electrons exist in electron clouds (orbitals)</li>
+            <li>Position and momentum cannot be precisely determined (Heisenberg's uncertainty principle)</li>
+            <li>Electrons described by wave functions (probability distributions)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="svg-container">
+        <svg width="600" height="200" viewBox="0 0 600 200">
+          <!-- Dalton's Model -->
+          <circle cx="75" cy="100" r="40" fill="#aaa" stroke="black" stroke-width="2"/>
+          <text x="75" y="100" text-anchor="middle" fill="black">Solid Sphere</text>
+          <text x="75" y="170" text-anchor="middle" fill="black">Dalton (1808)</text>
+          
+          <!-- Thomson's Model -->
+          <circle cx="225" cy="100" r="40" fill="#ffd700" stroke="black" stroke-width="2"/>
+          <circle cx="210" cy="90" r="5" fill="black"/>
+          <circle cx="240" cy="110" r="5" fill="black"/>
+          <circle cx="225" cy="80" r="5" fill="black"/>
+          <circle cx="215" cy="115" r="5" fill="black"/>
+          <circle cx="245" cy="85" r="5" fill="black"/>
+          <text x="225" y="170" text-anchor="middle" fill="black">Thomson (1897)</text>
+          
+          <!-- Rutherford's Model -->
+          <circle cx="375" cy="100" r="10" fill="#ff4500" stroke="black" stroke-width="2"/>
+          <circle cx="375" cy="100" r="40" fill="none" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+          <circle cx="375" cy="60" r="5" fill="blue"/>
+          <text x="375" cy="170" text-anchor="middle" fill="black">Rutherford (1911)</text>
+          
+          <!-- Bohr's Model -->
+          <circle cx="525" cy="100" r="10" fill="#ff4500" stroke="black" stroke-width="2"/>
+          <circle cx="525" cy="100" r="30" fill="none" stroke="black" stroke-width="1"/>
+          <circle cx="525" cy="100" r="50" fill="none" stroke="black" stroke-width="1"/>
+          <circle cx="525" cy="70" r="5" fill="blue"/>
+          <circle cx="575" cy="100" r="5" fill="blue"/>
+          <text x="525" y="170" text-anchor="middle" fill="black">Bohr (1913)</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Subatomic Particles Section -->
+    <div class="section">
+      <h2>2. Subatomic Particles</h2>
+      <table>
+        <tr>
+          <th>Particle</th>
+          <th>Symbol</th>
+          <th>Relative Charge</th>
+          <th>Actual Charge</th>
+          <th>Mass (kg)</th>
+          <th>Relative Mass</th>
+          <th>Discovery</th>
+        </tr>
+        <tr>
+          <td>Proton</td>
+          <td>p</td>
+          <td>+1</td>
+          <td>1.602 × 10⁻¹⁹ C</td>
+          <td>1.673 × 10⁻²⁷</td>
+          <td>1.0073 amu</td>
+          <td>Rutherford (1919)</td>
+        </tr>
+        <tr>
+          <td>Neutron</td>
+          <td>n</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1.675 × 10⁻²⁷</td>
+          <td>1.0087 amu</td>
+          <td>Chadwick (1932)</td>
+        </tr>
+        <tr>
+          <td>Electron</td>
+          <td>e⁻</td>
+          <td>-1</td>
+          <td>-1.602 × 10⁻¹⁹ C</td>
+          <td>9.109 × 10⁻³¹</td>
+          <td>0.0005486 amu</td>
+          <td>Thomson (1897)</td>
+        </tr>
+      </table>
+
+      <div class="important-note">
+        Remember: The mass of an electron is approximately 1/1836 times the mass of a proton! This is often asked in EAMCET.
+      </div>
+
+      <div class="svg-container">
+        <svg width="400" height="150" viewBox="0 0 400 150">
+          <!-- Atom representation -->
+          <circle cx="200" cy="75" r="50" fill="none" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+          
+          <!-- Nucleus -->
+          <circle cx="200" cy="75" r="15" fill="#ff4500" stroke="black" stroke-width="1"/>
+          
+          <!-- Protons and neutrons -->
+          <circle cx="195" cy="70" r="5" fill="red"/>
+          <text x="195" cy="70" text-anchor="middle" fill="white" font-size="8">p+</text>
+          
+          <circle cx="205" cy="80" r="5" fill="blue"/>
+          <text x="205" cy="80" text-anchor="middle" fill="white" font-size="8">n</text>
+          
+          <circle cx="195" cy="80" r="5" fill="red"/>
+          <text x="195" cy="80" text-anchor="middle" fill="white" font-size="8">p+</text>
+          
+          <circle cx="205" cy="70" r="5" fill="blue"/>
+          <text x="205" cy="70" text-anchor="middle" fill="white" font-size="8">n</text>
+          
+          <!-- Electron -->
+          <circle cx="200" cy="25" r="3" fill="black"/>
+          <text x="205" cy="25" text-anchor="middle" fill="black" font-size="10">e⁻</text>
+          
+          <text x="200" y="140" text-anchor="middle" fill="black">Basic Structure of an Atom</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Fundamental Concepts Section -->
+    <div class="section">
+      <h2>3. Fundamental Concepts</h2>
+      <ul>
+        <li><strong>Atomic Number (Z):</strong> Number of protons in nucleus
+          <div class="formula">Z = Number of protons = Number of electrons (in neutral atom)</div>
+        </li>
+        <li><strong>Mass Number (A):</strong> Total number of nucleons (protons + neutrons)
+          <div class="formula">A = Number of protons + Number of neutrons</div>
+        </li>
+        <li><strong>Notation:</strong> <sup>A</sup><sub>Z</sub>X (where X is element symbol)
+          <div class="example-box">
+            Example: <sup>16</sup><sub>8</sub>O means oxygen with 8 protons and 8 neutrons
+          </div>
+        </li>
+        <li><strong>Isotopes:</strong> Atoms with same Z but different neutron count (different A)
+          <div class="example-box">
+            Examples: <sup>1</sup><sub>1</sub>H, <sup>2</sup><sub>1</sub>H (deuterium), <sup>3</sup><sub>1</sub>H (tritium) - all hydrogen isotopes
+          </div>
+        </li>
+        <li><strong>Isobars:</strong> Atoms of different elements with same A but different Z
+          <div class="example-box">
+            Examples: <sup>40</sup><sub>20</sub>Ca and <sup>40</sup><sub>19</sub>K - both have mass number 40
+          </div>
+        </li>
+        <li><strong>Isotones:</strong> Atoms with same number of neutrons but different Z values
+          <div class="example-box">
+            Examples: <sup>13</sup><sub>6</sub>C and <sup>14</sup><sub>7</sub>N - both have 7 neutrons
+          </div>
+        </li>
+        <li><strong>Isoelectronic Species:</strong> Atoms/ions with same number of electrons
+          <div class="example-box">
+            Examples: F⁻, Ne, Na⁺, Mg²⁺ - all have 10 electrons
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Atomic Models and Electronic Structure Section -->
+    <div class="section">
+      <h2>4. Bohr's Model and Electronic Structure</h2>
+      <ul>
+        <li><strong>Key Postulates:</strong>
+          <ul>
+            <li>Electrons revolve in specific circular orbits (shells) around nucleus</li>
+            <li>Each orbit has fixed energy (quantized)</li>
+            <li>Electrons can jump between orbits by absorbing/emitting energy</li>
+          </ul>
+        </li>
+        <li><strong>Energy Levels (n):</strong> Principal quantum number (n = 1, 2, 3, ...)</li>
+        <li><strong>Energy of Electron:</strong> E<sub>n</sub> = -R<sub>H</sub> × (Z²/n²) where R<sub>H</sub> = 2.18 × 10⁻¹⁸ J (Rydberg constant)</li>
+        <li><strong>Shell Capacity:</strong> Maximum electrons in a shell = 2n²</li>
+        <li><strong>Shells (K, L, M, N...):</strong> Correspond to n = 1, 2, 3, 4...</li>
+      </ul>
+
+      <table>
+        <tr>
+          <th>Shell</th>
+          <th>Principal Quantum Number (n)</th>
+          <th>Maximum Electrons (2n²)</th>
+        </tr>
+        <tr>
+          <td>K</td>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>L</td>
+          <td>2</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>M</td>
+          <td>3</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>N</td>
+          <td>4</td>
+          <td>32</td>
+        </tr>
+      </table>
+
+      <div class="svg-container">
+        <svg width="400" height="300" viewBox="0 0 400 300">
+          <!-- Nucleus -->
+          <circle cx="200" cy="150" r="20" fill="#ff4500" stroke="black" stroke-width="2"/>
+          <text x="200" y="155" text-anchor="middle" fill="white">Nucleus</text>
+          
+          <!-- K Shell (n=1) -->
+          <circle cx="200" cy="150" r="50" fill="none" stroke="black" stroke-width="1"/>
+          <text x="200" y="90" text-anchor="middle" fill="black">K Shell (n=1)</text>
+          <text x="200" y="105" text-anchor="middle" fill="black">2 electrons</text>
+          <circle cx="200" cy="100" r="5" fill="blue"/>
+          <circle cx="200" cy="200" r="5" fill="blue"/>
+          
+          <!-- L Shell (n=2) -->
+          <circle cx="200" cy="150" r="100" fill="none" stroke="black" stroke-width="1"/>
+          <text x="200" y="40" text-anchor="middle" fill="black">L Shell (n=2)</text>
+          <text x="200" y="55" text-anchor="middle" fill="black">8 electrons</text>
+          <circle cx="150" cy="100" r="5" fill="blue"/>
+          <circle cx="250" cy="100" r="5" fill="blue"/>
+          <circle cx="150" cy="200" r="5" fill="blue"/>
+          <circle cx="250" cy="200" r="5" fill="blue"/>
+          <circle cx="100" cy="150" r="5" fill="blue"/>
+          <circle cx="300" cy="150" r="5" fill="blue"/>
+          <circle cx="175" cy="75" r="5" fill="blue"/>
+          <circle cx="225" cy="225" r="5" fill="blue"/>
+          
+          <!-- M Shell (n=3) -->
+          <circle cx="200" cy="150" r="150" fill="none" stroke="black" stroke-width="1"/>
+          <text x="340" y="150" text-anchor="start" fill="black">M Shell (n=3)</text>
+          <text x="340" y="165" text-anchor="start" fill="black">18 electrons</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Quantum Model Section -->
+    <div class="section">
+      <h2>5. Quantum Mechanical Model</h2>
+      <ul>
+        <li><strong>Quantum Numbers:</strong>
+          <ul>
+            <li><strong>Principal Quantum Number (n):</strong> Energy level, shell (1, 2, 3...)</li>
+            <li><strong>Azimuthal Quantum Number (l):</strong> Subshell, orbital shape (0 to n-1)
+              <ul>
+                <li>l = 0 (s orbital), l = 1 (p orbital), l = 2 (d orbital), l = 3 (f orbital)</li>
+              </ul>
+            </li>
+            <li><strong>Magnetic Quantum Number (m<sub>l</sub>):</strong> Orbital orientation (-l to +l)</li>
+            <li><strong>Spin Quantum Number (m<sub>s</sub>):</strong> Spin direction (+½ or -½)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <table>
+        <tr>
+          <th>Subshell</th>
+          <th>l value</th>
+          <th>m<sub>l</sub> values</th>
+          <th>Number of orbitals</th>
+          <th>Max electrons</th>
+        </tr>
+        <tr>
+          <td>s</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>p</td>
+          <td>1</td>
+          <td>-1, 0, +1</td>
+          <td>3</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>d</td>
+          <td>2</td>
+          <td>-2, -1, 0, +1, +2</td>
+          <td>5</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>f</td>
+          <td>3</td>
+          <td>-3, -2, -1, 0, +1, +2, +3</td>
+          <td>7</td>
+          <td>14</td>
+        </tr>
+      </table>
+
+      <div class="svg-container">
+        <svg width="600" height="200" viewBox="0 0 600 200">
+          <!-- s orbital -->
+          <circle cx="100" cy="100" r="50" fill="blue" opacity="0.5"/>
+          <text x="100" y="180" text-anchor="middle" fill="black">s orbital</text>
+          <text x="100" y="195" text-anchor="middle" fill="black">spherical</text>
+          
+          <!-- p orbitals -->
+          <ellipse cx="250" cy="100" rx="30" ry="50" fill="green" opacity="0.5"/>
+          <ellipse cx="350" cy="100" rx="30" ry="50" fill="green" opacity="0.5"/>
+          <text x="300" y="180" text-anchor="middle" fill="black">p orbitals</text>
+          <text x="300" y="195" text-anchor="middle" fill="black">dumbbell shaped</text>
+          
+          <!-- d orbital (simplified) -->
+          <path d="M 470,70 C 500,50 550,50 580,70 C 600,90 600,110 580,130 C 550,150 500,150 470,130 C 450,110 450,90 470,70 Z" fill="red" opacity="0.5"/>
+          <text x="525" y="180" text-anchor="middle" fill="black">d orbital</text>
+          <text x="525" y="195" text-anchor="middle" fill="black">complex shapes</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Electron Configuration Section -->
+    <div class="section">
+      <h2>6. Electron Configuration</h2>
+      <ul>
+        <li><strong>Electronic Configuration:</strong> Arrangement of electrons in orbitals</li>
+        <li><strong>Aufbau Principle:</strong> Electrons fill lowest energy orbitals first</li>
+        <li><strong>Pauli's Exclusion Principle:</strong> No two electrons can have all four quantum numbers the same</li>
+        <li><strong>Hund's Rule:</strong> Electrons occupy degenerate orbitals singly before pairing</li>
+        <li><strong>Orbital Filling Order:</strong> 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → 5s → 4d → 5p → 6s → 4f → 5d → 6p → 7s → 5f → 6d → 7p</li>
+      </ul>
+
+      <div class="example-box">
+        <strong>Example:</strong> Electronic configuration of some elements<br>
+        <ul>
+          <li>Hydrogen (Z=1): 1s¹</li>
+          <li>Helium (Z=2): 1s²</li>
+          <li>Lithium (Z=3): 1s² 2s¹</li>
+          <li>Carbon (Z=6): 1s² 2s² 2p²</li>
+          <li>Sodium (Z=11): 1s² 2s² 2p⁶ 3s¹</li>
+          <li>Chlorine (Z=17): 1s² 2s² 2p⁶ 3s² 3p⁵</li>
+          <li>Iron (Z=26): 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶</li>
+        </ul>
+      </div>
+
+      <div class="svg-container">
+        <svg width="500" height="300" viewBox="0 0 500 300">
+          <!-- Diagonal energy level rule -->
+          <line x1="50" y1="50" x2="450" y2="250" stroke="gray" stroke-width="1"/>
+          
+          <!-- Energy levels -->
+          <line x1="50" y1="50" x2="450" y2="50" stroke="black" stroke-width="2"/>
+          <text x="30" y="55" text-anchor="end" fill="black">1</text>
+          
+          <line x1="50" y1="100" x2="450" y2="100" stroke="black" stroke-width="2"/>
+          <text x="30" y="105" text-anchor="end" fill="black">2</text>
+          
+          <line x1="50" y1="150" x2="450" y2="150" stroke="black" stroke-width="2"/>
+          <text x="30" y="155" text-anchor="end" fill="black">3</text>
+          
+          <line x1="50" y1="200" x2="450" y2="200" stroke="black" stroke-width="2"/>
+          <text x="30" y="205" text-anchor="end" fill="black">4</text>
+          
+          <line x1="50" y1="250" x2="450" y2="250" stroke="black" stroke-width="2"/>
+          <text x="30" y="255" text-anchor="end" fill="black">5</text>
+          
+          <!-- Orbital blocks -->
+          <rect x="100" y="40" width="30" height="20" fill="blue" opacity="0.5"/>
+          <text x="115" y="55" text-anchor="middle" fill="black">1s</text>
+          
+          <rect x="150" y="90" width="30" height="20" fill="blue" opacity="0.5"/>
+          <text x="165" y="105" text-anchor="middle" fill="black">2s</text>
+          
+          <rect x="200" y="90" width="90" height="20" fill="green" opacity="0.5"/>
+          <text x="245" y="105" text-anchor="middle" fill="black">2p</text>
+          
+          <rect x="200" y="140" width="30" height="20" fill="blue" opacity="0.5"/>
+          <text x="215" y="155" text-anchor="middle" fill="black">3s</text>
+          
+          <rect x="250" y="140" width="90" height="20" fill="green" opacity="0.5"/>
+          <text x="295" y="155" text-anchor="middle" fill="black">3p</text>
+          
+          <rect x="250" y="190" width="30" height="20" fill="blue" opacity="0.5"/>
+          <text x="265" y="205" text-anchor="middle" fill="black">4s</text>
+          
+          <rect x="350" y="140" width="150" height="20" fill="red" opacity="0.5"/>
+          <text x="425" y="155" text-anchor="middle" fill="black">3d</text>
+          
+          <text x="250" y="280" text-anchor="middle" fill="black">Orbital Filling Order (Aufbau Principle)</text>
+        </svg>
+      </div>
+
+      <div class="important-note">
+        Remember these exceptions to expected configuration (common in EAMCET):
+        <ul>
+          <li>Cr (Z=24): [Ar] 4s¹ 3d⁵ (instead of [Ar] 4s² 3d⁴)</li>
+            <li>Cu (Z=29): [Ar] 4s¹ 3d¹⁰ (instead of [Ar] 4s² 3d⁹)</li>
+            <li>Nb (Z=41): [Kr] 5s¹ 4d⁴ (instead of [Kr] 5s² 4d³)</li>
+            <li>Mo (Z=42): [Kr] 5s¹ 4d⁵ (instead of [Kr] 5s² 4d⁴)</li>
+            <li>Ag (Z=47): [Kr] 5s¹ 4d¹⁰ (instead of [Kr] 5s² 4d⁹)</li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- Properties of Atoms Section -->
+      <div class="section">
+        <h2>7. Atomic Properties</h2>
+        
+        <h3>Atomic Radius</h3>
+        <ul>
+          <li><strong>Definition:</strong> Half the distance between nuclei of two adjacent atoms</li>
+          <li><strong>Types:</strong> Covalent radius, Van der Waals radius, Metallic radius, Ionic radius</li>
+          <li><strong>Trends:</strong>
+            <ul>
+              <li>Decreases across period (left to right)</li>
+              <li>Increases down group (top to bottom)</li>
+            </ul>
+          </li>
+          <li><strong>Reason:</strong> Across period → Nuclear charge increases → Greater pull on electrons<br>
+                          Down group → New shells added → Greater distance from nucleus</li>
+        </ul>
+  
+        <h3>Ionization Energy</h3>
+        <ul>
+          <li><strong>Definition:</strong> Energy required to remove an electron from gaseous atom</li>
+          <li><strong>First Ionization Energy:</strong> Energy to remove 1st electron</li>
+          <li><strong>Second Ionization Energy:</strong> Energy to remove 2nd electron (always higher)</li>
+          <li><strong>Trends:</strong>
+            <ul>
+              <li>Increases across period (left to right)</li>
+              <li>Decreases down group (top to bottom)</li>
+            </ul>
+          </li>
+          <li><strong>Exceptions:</strong> Be > B and N > O in first ionization energy</li>
+          <li><strong>Reason:</strong> Across period → Nuclear charge increases → Stronger attraction<br>
+                           Down group → Distance increases → Weaker attraction</li>
+        </ul>
+  
+        <h3>Electron Affinity</h3>
+        <ul>
+          <li><strong>Definition:</strong> Energy released when an electron is added to a gaseous atom</li>
+          <li><strong>Trends:</strong>
+            <ul>
+              <li>Generally increases across period (left to right)</li>
+              <li>Generally decreases down group (top to bottom)</li>
+            </ul>
+          </li>
+          <li><strong>Highest:</strong> Halogens (Group 17)</li>
+          <li><strong>Lowest:</strong> Noble gases (Group 18) - very low or negative values</li>
+        </ul>
+  
+        <h3>Electronegativity</h3>
+        <ul>
+          <li><strong>Definition:</strong> Tendency of an atom to attract shared electrons in a bond</li>
+          <li><strong>Pauling Scale:</strong> Most common scale (F = 4.0, highest)</li>
+          <li><strong>Trends:</strong>
+            <ul>
+              <li>Increases across period (left to right)</li>
+              <li>Decreases down group (top to bottom)</li>
+            </ul>
+          </li>
+          <li><strong>Highest:</strong> F > O > N > Cl</li>
+          <li><strong>Lowest:</strong> Alkali metals (Group 1)</li>
+        </ul>
+  
+        <div class="svg-container">
+          <svg width="500" height="300" viewBox="0 0 500 300">
+            <!-- Periodic table trends -->
+            <!-- Atomic radius trend -->
+            <rect x="50" y="50" width="400" height="100" fill="lightblue" opacity="0.3"/>
+            <text x="250" y="40" text-anchor="middle" fill="black" font-weight="bold">Atomic Radius Trend</text>
+            
+            <!-- Arrows indicating increase -->
+            <line x1="450" y1="100" x2="50" y2="100" stroke="blue" stroke-width="3" marker-end="url(#arrowhead)"/>
+            <text x="250" y="85" text-anchor="middle" fill="blue">Increases ←</text>
+            
+            <line x1="250" y1="50" x2="250" y2="150" stroke="blue" stroke-width="3" marker-end="url(#arrowhead)"/>
+            <text x="270" y="100" text-anchor="start" fill="blue">Increases ↓</text>
+            
+            <!-- Ionization energy trend -->
+            <rect x="50" y="170" width="400" height="100" fill="lightsalmon" opacity="0.3"/>
+            <text x="250" y="160" text-anchor="middle" fill="black" font-weight="bold">Ionization Energy Trend</text>
+            
+            <!-- Arrows indicating increase -->
+            <line x1="50" y1="220" x2="450" y2="220" stroke="red" stroke-width="3" marker-end="url(#arrowhead)"/>
+            <text x="250" y="205" text-anchor="middle" fill="red">Increases →</text>
+            
+            <line x1="250" y1="270" x2="250" y2="170" stroke="red" stroke-width="3" marker-end="url(#arrowhead)"/>
+            <text x="270" y="220" text-anchor="start" fill="red">Increases ↑</text>
+            
+            <!-- Define arrowhead marker -->
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="currentColor"/>
+              </marker>
+            </defs>
+            
+            <text x="250" y="290" text-anchor="middle" fill="black">Periodic Trends</text>
+          </svg>
+        </div>
+      </div>
+  
+      <!-- Isotopes and Applications Section -->
+      <div class="section">
+        <h2>8. Isotopes and Their Applications</h2>
+        <ul>
+          <li><strong>Natural Isotopes:</strong>
+            <ul>
+              <li>Hydrogen: ¹H (99.985%), ²H (0.015%), ³H (trace)</li>
+              <li>Carbon: ¹²C (98.89%), ¹³C (1.11%), ¹⁴C (trace)</li>
+              <li>Chlorine: ³⁵Cl (75.77%), ³⁷Cl (24.23%)</li>
+              <li>Uranium: ²³⁸U (99.3%), ²³⁵U (0.7%)</li>
+            </ul>
+          </li>
+          <li><strong>Applications:</strong>
+            <ul>
+              <li><strong>¹⁴C (Carbon-14):</strong> Dating archaeological specimens (half-life 5730 years)</li>
+              <li><strong>⁶⁰Co (Cobalt-60):</strong> Cancer treatment, food irradiation</li>
+              <li><strong>¹³¹I (Iodine-131):</strong> Thyroid disorders diagnosis and treatment</li>
+              <li><strong>²³⁵U (Uranium-235):</strong> Nuclear power, nuclear weapons</li>
+              <li><strong>²H (Deuterium):</strong> Heavy water production, nuclear reactors</li>
+              <li><strong>⁹⁹mTc (Technetium-99m):</strong> Medical imaging</li>
+            </ul>
+          </li>
+          <li><strong>Relative Atomic Mass:</strong> Weighted average of all naturally occurring isotopes</li>
+          <div class="formula">
+            Relative Atomic Mass = (Mass of isotope 1 × % abundance) + (Mass of isotope 2 × % abundance) + ...
+          </div>
+          <div class="example-box">
+            <strong>Example:</strong> Calculating relative atomic mass of chlorine<br>
+            Cl has two isotopes: ³⁵Cl (75.77%) and ³⁷Cl (24.23%)<br>
+            Relative atomic mass = (35 × 0.7577) + (37 × 0.2423) = 35.48
+          </div>
+        </ul>
+      </div>
+  
+      <!-- Electronic Configurations and Periodic Table Section -->
+      <div class="section">
+        <h2>9. Electronic Configurations and the Periodic Table</h2>
+        <ul>
+          <li><strong>Blocks of the Periodic Table:</strong>
+            <ul>
+              <li><strong>s-block:</strong> Groups 1 and 2 (filling of s-orbitals)</li>
+              <li><strong>p-block:</strong> Groups 13 to 18 (filling of p-orbitals)</li>
+              <li><strong>d-block:</strong> Groups 3 to 12 (filling of d-orbitals)</li>
+              <li><strong>f-block:</strong> Lanthanides and Actinides (filling of f-orbitals)</li>
+            </ul>
+          </li>
+          <li><strong>Valence Electrons:</strong> Electrons in outermost shell</li>
+          <li><strong>Octet Rule:</strong> Atoms tend to gain, lose, or share electrons to get 8 valence electrons</li>
+          <li><strong>Noble Gas Configuration:</strong> Full outer shell (stable configuration)</li>
+          <li><strong>Electronic Configuration and Periodicity:</strong>
+            <ul>
+              <li>Group 1 (Alkali metals): ns¹</li>
+              <li>Group 2 (Alkaline earth metals): ns²</li>
+              <li>Group 13 (Boron group): ns² np¹</li>
+              <li>Group 14 (Carbon group): ns² np²</li>
+              <li>Group 15 (Pnictogens): ns² np³</li>
+              <li>Group 16 (Chalcogens): ns² np⁴</li>
+              <li>Group 17 (Halogens): ns² np⁵</li>
+              <li>Group 18 (Noble gases): ns² np⁶ (except He: 1s²)</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="svg-container">
+          <svg width="500" height="300" viewBox="0 0 500 300">
+            <!-- Simplified periodic table with blocks -->
+            <rect x="50" y="50" width="50" height="100" fill="#ff9999" stroke="black"/>
+            <text x="75" y="100" text-anchor="middle" fill="black">s</text>
+            
+            <rect x="300" y="50" width="150" height="100" fill="#99ff99" stroke="black"/>
+            <text x="375" y="100" text-anchor="middle" fill="black">p</text>
+            
+            <rect x="100" y="50" width="200" height="100" fill="#9999ff" stroke="black"/>
+            <text x="200" y="100" text-anchor="middle" fill="black">d</text>
+            
+            <rect x="100" y="170" width="350" height="50" fill="#ffff99" stroke="black"/>
+            <text x="275" y="195" text-anchor="middle" fill="black">f</text>
+            
+            <text x="250" y="30" text-anchor="middle" fill="black" font-weight="bold">Blocks of the Periodic Table</text>
+            
+            <!-- Group numbers -->
+            <text x="75" y="40" text-anchor="middle" fill="black">1-2</text>
+            <text x="200" y="40" text-anchor="middle" fill="black">3-12</text>
+            <text x="375" y="40" text-anchor="middle" fill="black">13-18</text>
+            
+            <!-- Legend -->
+            <rect x="75" y="240" width="20" height="20" fill="#ff9999" stroke="black"/>
+            <text x="105" y="255" text-anchor="start" fill="black">s-block: Groups 1-2</text>
+            
+            <rect x="225" y="240" width="20" height="20" fill="#9999ff" stroke="black"/>
+            <text x="255" y="255" text-anchor="start" fill="black">d-block: Groups 3-12</text>
+            
+            <rect x="75" y="270" width="20" height="20" fill="#99ff99" stroke="black"/>
+            <text x="105" y="285" text-anchor="start" fill="black">p-block: Groups 13-18</text>
+            
+            <rect x="225" y="270" width="20" height="20" fill="#ffff99" stroke="black"/>
+            <text x="255" y="285" text-anchor="start" fill="black">f-block: Lanthanides & Actinides</text>
+          </svg>
+        </div>
+      </div>
+  
+      <!-- Special Focus Section -->
+      <div class="section tips">
+        <h2>10. Special Focus for EAMCET</h2>
+        <ul>
+          <li><strong>De Broglie Relation:</strong> λ = h/mv (Wave nature of particles)</li>
+          <li><strong>Heisenberg's Uncertainty Principle:</strong> Cannot precisely know both position and momentum</li>
+          <li><strong>Quantum Numbers:</strong> Remember the allowed values and their meaning</li>
+          <li><strong>Hund's Rule:</strong> Important for determining ground state configurations</li>
+          <li><strong>Effective Nuclear Charge:</strong> Z<sub>eff</sub> = Z - σ (where σ is shielding constant)</li>
+          <li><strong>Lanthanide Contraction:</strong> Decrease in size of elements after lanthanides due to poor shielding</li>
+          <li><strong>Atomic Structure Calculations:</strong> Practice problems involving:
+            <ul>
+              <li>Finding number of electrons, protons, neutrons</li>
+              <li>Calculating average atomic mass</li>
+              <li>Determining electronic configurations</li>
+              <li>Identifying elements from their electronic configurations</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="important-note">
+          Common EAMCET questions involve calculations related to isotopic abundance, quantum numbers, and exceptions to electron configurations. Practice these regularly!
+        </div>
+      </div>
+  
+      <!-- Quiz Section -->
+      <div class="quiz">
+        <h2>Quiz: Atomic Structure</h2>
+        <div id="quiz-box">
+          <div class="question" id="question">Loading...</div>
+          <ul class="options" id="options"></ul>
+          <div class="message" id="message"></div>
+          <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+          <div class="button-group">
+            <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+            <button class="next-btn" onclick="nextQuestion()">Next</button>
+            <button onclick="tryAgain()">Try Again</button>
+            <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+          </div>
+          <div class="slider-bar" id="progress">Question 1 of 6</div>
+          <div id="finalScore"></div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+    
+    <script>
+      const quizData = [
+        { 
+          question: "Which quantum number determines the shape of an orbital?", 
+          options: ["Principal quantum number (n)", "Azimuthal quantum number (l)", "Magnetic quantum number (m)", "Spin quantum number (ms)"], 
+          answer: "Azimuthal quantum number (l)" 
+        },
+        { 
+          question: "The electronic configuration of Fe (Z=26) is:", 
+          options: ["1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶", "1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁸", "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 4p⁴", "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹ 3d⁷"], 
+          answer: "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶" 
+        },
+        { 
+          question: "Calculate the number of neutrons in an atom of ³⁹K.", 
+          options: ["19", "20", "39", "58"], 
+          answer: "20" 
+        },
+        { 
+          question: "Which of the following is an exception to the Aufbau principle?", 
+          options: ["Sodium (Na)", "Calcium (Ca)", "Chromium (Cr)", "Argon (Ar)"], 
+          answer: "Chromium (Cr)" 
+        },
+        { 
+          question: "The maximum number of electrons that can be accommodated in the 3rd shell (n=3) is:", 
+          options: ["8", "10", "18", "32"], 
+          answer: "18" 
+        },
+        { 
+          question: "Chlorine has two naturally occurring isotopes: ³⁵Cl (75.77%) and ³⁷Cl (24.23%). The average atomic mass of chlorine is closest to:", 
+          options: ["35.0 amu", "35.5 amu", "36.0 amu", "37.0 amu"], 
+          answer: "35.5 amu" 
+        }
+      ];
+  
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+  
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerText = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+  
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerText = opt;
+          li.onclick = function() {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              document.getElementById("message").style.color = "lime";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+              document.getElementById("message").style.color = "red";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => {
+              el.classList.add("disabled");
+              if (el.innerText === q.answer) el.classList.add("correct");
+            });
+          };
+          optionList.appendChild(li);
+        });
+  
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+        document.getElementById("submitBtn").style.display = currentIndex === quizData.length - 1 ? "block" : "none";
+      }
+  
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          document.getElementById("submitBtn").style.display = "block";
+        }
+      }
+  
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+  
+      function tryAgain() {
+        loadQuestion();
+      }
+  
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+  
+      window.onload = loadQuestion;
+    </script>
+    </body>
+    </html>

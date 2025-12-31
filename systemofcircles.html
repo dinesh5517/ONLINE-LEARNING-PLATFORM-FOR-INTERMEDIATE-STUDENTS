@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>System of Circles - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #FFC107;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #FFC107;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #FFC107;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #FFC107;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .formula {
+      background-color: #262626;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      margin: 10px 0;
+      color: white;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #FFC107;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #FFC107;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #FFC107;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #FFC107;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #FFC107;
+    }
+
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .diagram {
+      background-color: #262626;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    svg {
+      background-color: #1a1a1a;
+      border-radius: 5px;
+      max-width: 100%;
+    }
+
+    .circle-system {
+      stroke-width: 2;
+      fill: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>System of Circles - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Family of Circles</h2>
+      <ul>
+        <li><strong>Through intersection of two circles:</strong> S₁ + λS₂ = 0 (λ ≠ -1)</li>
+        <li>Passes through the common points of S₁ = 0 and S₂ = 0</li>
+        <li>For different values of λ, we get different circles of the family</li>
+      </ul>
+      <div class="formula">Family of Circles: S₁ + λS₂ = 0 (λ ≠ -1)</div>
+      
+      <div class="diagram">
+        <h3>Family of Circles Through Two Points</h3>
+        <svg width="300" height="300" viewBox="0 0 300 300">
+          <!-- Two base circles -->
+          <circle cx="100" cy="150" r="80" stroke="#9C27B0" class="circle-system" />
+          <circle cx="200" cy="150" r="60" stroke="#2196F3" class="circle-system" />
+          
+          <!-- Intersection points -->
+          <circle cx="150" cy="100" r="3" fill="lime" />
+          <circle cx="150" cy="200" r="3" fill="lime" />
+          
+          <!-- Family members -->
+          <circle cx="150" cy="150" r="50" stroke="#FF5722" class="circle-system" stroke-dasharray="5,5" />
+          <circle cx="150" cy="150" r="70" stroke="#FFC107" class="circle-system" stroke-dasharray="5,5" />
+          
+          <text x="150" y="90" fill="lime" font-size="12">Points of Intersection</text>
+          <text x="80" y="80" fill="#9C27B0" font-size="12">S₁</text>
+          <text x="220" y="80" fill="#2196F3" font-size="12">S₂</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Radical Axis</h2>
+      <ul>
+        <li><strong>Definition:</strong> Locus of points with equal power with respect to two circles</li>
+        <li><strong>Equation:</strong> S₁ - S₂ = 0 (coefficients of x², y² must be same)</li>
+        <li>For concentric circles, radical axis doesn't exist</li>
+        <li>Radical axis is perpendicular to line joining centers</li>
+      </ul>
+      <div class="formula">Radical Axis: S₁ - S₂ = 0</div>
+      
+      <div class="diagram">
+        <h3>Radical Axis of Two Circles</h3>
+        <svg width="300" height="300" viewBox="0 0 300 300">
+          <!-- Two circles -->
+          <circle cx="100" cy="150" r="60" stroke="#9C27B0" class="circle-system" />
+          <circle cx="200" cy="150" r="40" stroke="#2196F3" class="circle-system" />
+          
+          <!-- Centers -->
+          <circle cx="100" cy="150" r="3" fill="red" />
+          <circle cx="200" cy="150" r="3" fill="red" />
+          
+          <!-- Radical axis -->
+          <line x1="50" y1="100" x2="250" y2="200" stroke="lime" stroke-width="2" />
+          
+          <text x="150" y="120" fill="lime" font-size="12">Radical Axis</text>
+          <text x="80" y="140" fill="red" font-size="12">C₁</text>
+          <text x="180" y="140" fill="red" font-size="12">C₂</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Orthogonal Circles</h2>
+      <ul>
+        <li><strong>Condition:</strong> Two circles cut orthogonally if 2g₁g₂ + 2f₁f₂ = c₁ + c₂</li>
+        <li>Angle of intersection is 90°</li>
+        <li>Tangents at point of intersection are perpendicular to each other</li>
+      </ul>
+      <div class="formula">Orthogonal Condition: 2g₁g₂ + 2f₁f₂ = c₁ + c₂</div>
+      
+      <div class="diagram">
+        <h3>Orthogonal Circles</h3>
+        <svg width="300" height="300" viewBox="0 0 300 300">
+          <!-- First circle -->
+          <circle cx="150" cy="150" r="80" stroke="#9C27B0" class="circle-system" />
+          
+          <!-- Second orthogonal circle -->
+          <circle cx="210" cy="150" r="60" stroke="#2196F3" class="circle-system" />
+          
+          <!-- Point of intersection -->
+          <circle cx="180" cy="110" r="3" fill="lime" />
+          
+          <!-- Tangents -->
+          <line x1="150" y1="150" x2="180" y2="110" stroke="red" stroke-width="2" stroke-dasharray="5,5" />
+          <line x1="210" y1="150" x2="180" y2="110" stroke="red" stroke-width="2" stroke-dasharray="5,5" />
+          
+          <!-- Right angle symbol -->
+          <path d="M175 115 L175 120 L180 120" stroke="lime" stroke-width="1.5" fill="none" />
+          
+          <text x="180" y="100" fill="lime" font-size="12">90°</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. Coaxial System</h2>
+      <ul>
+        <li><strong>Definition:</strong> Family of circles where every pair has same radical axis</li>
+        <li><strong>Type 1:</strong> Circles pass through two fixed points (radical axis is common chord)</li>
+        <li><strong>Type 2:</strong> Circles touch a given line at a fixed point</li>
+      </ul>
+      
+      <div class="diagram">
+        <h3>Coaxial System of Circles</h3>
+        <svg width="400" height="300" viewBox="0 0 400 300">
+          <!-- Common radical axis -->
+          <line x1="50" y1="150" x2="350" y2="150" stroke="lime" stroke-width="2" />
+          
+          <!-- Coaxial circles -->
+          <circle cx="200" cy="100" r="60" stroke="#9C27B0" class="circle-system" stroke-dasharray="5,5" />
+          <circle cx="200" cy="120" r="70" stroke="#2196F3" class="circle-system" stroke-dasharray="5,5" />
+          <circle cx="200" cy="80" r="50" stroke="#FF5722" class="circle-system" stroke-dasharray="5,5" />
+          
+          <!-- Points of intersection with radical axis -->
+          <circle cx="140" cy="150" r="3" fill="white" />
+          <circle cx="260" cy="150" r="3" fill="white" />
+          
+          <text x="200" y="180" fill="lime" font-size="12">Common Radical Axis</text>
+          <text x="140" cy="160" fill="white" font-size="10">Limiting Points</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Memorize the condition for orthogonal circles</li>
+        <li>Practice finding radical axis between two circles</li>
+        <li>Understand the concept of limiting points in coaxial system</li>
+        <li>Learn to form equations of family of circles through intersections</li>
+        <li>Solve previous EAMCET problems on system of circles</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+
+  <script>
+    const quizData = [
+      { 
+        question: "The equation of the family of circles passing through the intersection of x²+y²-4=0 and x²+y²-2x-4y+4=0 is:", 
+        options: [
+          "x²+y²-2x-4y+4 + λ(x²+y²-4) = 0", 
+          "x²+y²-4 + λ(x²+y²-2x-4y+4) = 0", 
+          "x²+y²-2x-4y = 0", 
+          "x²+y²-4x-8y+8 = 0"
+        ], 
+        answer: "x²+y²-4 + λ(x²+y²-2x-4y+4) = 0" 
+      },
+      { 
+        question: "The radical axis of two circles x²+y²+4x+6y-3=0 and x²+y²+6x+8y-5=0 is:", 
+        options: [
+          "2x+2y+2=0", 
+          "2x+2y-2=0", 
+          "x+y+1=0", 
+          "x+y-1=0"
+        ], 
+        answer: "2x+2y+2=0" 
+      },
+      { 
+        question: "Two circles x²+y²+2g₁x+2f₁y+c₁=0 and x²+y²+2g₂x+2f₂y+c₂=0 cut orthogonally if:", 
+        options: [
+          "g₁g₂ + f₁f₂ = c₁ + c₂", 
+          "2(g₁g₂ + f₁f₂) = c₁ + c₂", 
+          "g₁g₂ - f₁f₂ = c₁ + c₂", 
+          "2(g₁g₂ - f₁f₂) = c₁ + c₂"
+        ], 
+        answer: "2(g₁g₂ + f₁f₂) = c₁ + c₂" 
+      },
+      { 
+        question: "The condition that the circles x²+y²+2gx+c=0 and x²+y²+2fy+c=0 may touch each other is:", 
+        options: [
+          "g²+f²=c", 
+          "g²+f²=2c", 
+          "g²-f²=c", 
+          "g²-f²=2c"
+        ], 
+        answer: "g²+f²=2c" 
+      },
+      { 
+        question: "The number of common tangents to the circles x²+y²=4 and x²+y²-6x-8y-24=0 is:", 
+        options: [
+          "0", 
+          "1", 
+          "2", 
+          "4"
+        ], 
+        answer: "1" 
+      },
+      { 
+        question: "The equation of the circle which passes through (1,0) and (0,1) and has radius 1 is:", 
+        options: [
+          "x²+y²=1", 
+          "x²+y²-2x-2y+1=0", 
+          "x²+y²-x-y=0", 
+          "Both A and B"
+        ], 
+        answer: "Both A and B" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = () => {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        alert("✅ You've reached the end. Click 'Submit All Answers'.");
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      currentIndex = 0;
+      score = 0;
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

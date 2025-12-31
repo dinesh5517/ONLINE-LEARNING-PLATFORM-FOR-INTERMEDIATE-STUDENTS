@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Straight Lines - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #FF6D00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #FF6D00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #FF9100;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #FF9100;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #FF9100;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #FF9100;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #FF9100;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #FF6D00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #64B5F6;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #FF6D00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #FF9100;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #FF6D00;
+    }
+    .formula {
+      font-family: 'Courier New', monospace;
+      color: #FFC107;
+      background-color: #333;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .line-box {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      font-family: 'Courier New', monospace;
+    }
+    .graph {
+      text-align: center;
+      margin: 15px 0;
+      color: #FF9100;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Straight Lines - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Basic Concepts -->
+    <div class="section">
+      <h2>1. Fundamental Forms</h2>
+      <table>
+        <tr>
+          <th>Form</th>
+          <th>Equation</th>
+          <th>Key Features</th>
+        </tr>
+        <tr>
+          <td>Slope-Intercept</td>
+          <td class="formula">y = mx + c</td>
+          <td>m = slope, c = y-intercept</td>
+        </tr>
+        <tr>
+          <td>Point-Slope</td>
+          <td class="formula">y - y₁ = m(x - x₁)</td>
+          <td>Passes through (x₁,y₁) with slope m</td>
+        </tr>
+        <tr>
+          <td>Two-Point</td>
+          <td class="formula">(y-y₁)/(y₂-y₁) = (x-x₁)/(x₂-x₁)</td>
+          <td>Passes through (x₁,y₁) and (x₂,y₂)</td>
+        </tr>
+        <tr>
+          <td>Intercept</td>
+          <td class="formula">x/a + y/b = 1</td>
+          <td>x-intercept = a, y-intercept = b</td>
+        </tr>
+        <tr>
+          <td>General</td>
+          <td class="formula">Ax + By + C = 0</td>
+          <td>Slope = -A/B, y-intercept = -C/B</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Angle and Slope -->
+    <div class="section">
+      <h2>2. Angle and Slope</h2>
+      <ul>
+        <li>Slope (m) = tanθ, where θ is angle with positive x-axis</li>
+        <li>For parallel lines: m₁ = m₂</li>
+        <li>For perpendicular lines: m₁ × m₂ = -1</li>
+        <li>Angle between two lines: tanθ = |(m₂-m₁)/(1+m₁m₂)|</li>
+      </ul>
+      
+      <div class="line-box">
+        <strong>Example:</strong>
+        <div>Find angle between y = 2x + 1 and y = -0.5x + 3</div>
+        <div class="formula">m₁ = 2, m₂ = -0.5</div>
+        <div class="formula">tanθ = |(-0.5-2)/(1+(2)(-0.5))| = ∞ ⇒ θ = 90°</div>
+      </div>
+    </div>
+
+    <!-- Distance Formulas -->
+    <div class="section">
+      <h2>3. Distance Formulas</h2>
+      <table>
+        <tr>
+          <th>Distance Between</th>
+          <th>Formula</th>
+        </tr>
+        <tr>
+          <td>Two points (x₁,y₁), (x₂,y₂)</td>
+          <td class="formula">√[(x₂-x₁)² + (y₂-y₁)²]</td>
+        </tr>
+        <tr>
+          <td>Point (x₀,y₀) and line Ax+By+C=0</td>
+          <td class="formula">|Ax₀ + By₀ + C|/√(A² + B²)</td>
+        </tr>
+        <tr>
+          <td>Parallel lines Ax+By+C₁=0, Ax+By+C₂=0</td>
+          <td class="formula">|C₂ - C₁|/√(A² + B²)</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Pair of Lines -->
+    <div class="section">
+      <h2>4. Pair of Straight Lines</h2>
+      <ul>
+        <li>General equation: ax² + 2hxy + by² + 2gx + 2fy + c = 0</li>
+        <li>Represents two lines if: abc + 2fgh - af² - bg² - ch² = 0</li>
+        <li>Angle between lines: tanθ = 2√(h²-ab)/|a+b|</li>
+        <li>Lines are:
+          <ul>
+            <li>Parallel if h² = ab</li>
+            <li>Perpendicular if a + b = 0</li>
+            <li>Coincident if h² = ab and bg² = af²</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Special Cases -->
+    <div class="section">
+      <h2>5. Special Cases</h2>
+      <div class="line-box">
+        <strong>Family of Lines:</strong>
+        <div class="formula">Through intersection of L₁=0 and L₂=0: L₁ + kL₂ = 0</div>
+      </div>
+      
+      <div class="line-box">
+        <strong>Concurrency Condition:</strong>
+        <div>Three lines a₁x+b₁y+c₁=0, a₂x+b₂y+c₂=0, a₃x+b₃y+c₃=0 are concurrent if:</div>
+        <div class="formula">|a₁ b₁ c₁|
+|a₂ b₂ c₂| = 0
+|a₃ b₃ c₃|</div>
+      </div>
+      
+      <div class="line-box">
+        <strong>Foot of Perpendicular:</strong>
+        <div>From (x₁,y₁) to line ax+by+c=0:</div>
+        <div class="formula">(x-x₁)/a = (y-y₁)/b = -(ax₁+by₁+c)/(a²+b²)</div>
+      </div>
+    </div>
+
+    <!-- Applications -->
+    <div class="section">
+      <h2>6. Applications</h2>
+      <ul>
+        <li>Finding equations of medians, altitudes in triangles</li>
+        <li>Reflection of points over lines</li>
+        <li>Solving geometric optimization problems</li>
+        <li>Computer graphics and game development</li>
+        <li>Engineering design and architecture</li>
+      </ul>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Memorize all forms of line equations</li>
+        <li>Practice converting between different forms</li>
+        <li>Master distance and angle formulas</li>
+        <li>Learn quick methods to find foot of perpendicular</li>
+        <li>Understand condition for pair of lines</li>
+        <li>Practice problems involving family of lines</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+        <h2>Quiz: Test Your Knowledge</h2>
+        <div id="quiz-box">
+          <div class="question" id="question">Loading...</div>
+          <ul class="options" id="options"></ul>
+          <div class="message" id="message"></div>
+          <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+          <div class="button-group">
+            <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="tryAgain()">Try Again</button>
+            <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+          </div>
+          <div class="slider-bar" id="progress">Question 1 of 6</div>
+          <div id="finalScore"></div>
+        </div>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+  
+    <script>
+      const quizData = [
+        { question: "What is the slope of line 3x - 4y + 7 = 0?", options: ["3/4", "-3/4", "4/3", "-4/3"], answer: "3/4" },
+        { question: "The distance between (2,3) and line 4x - 3y + 5 = 0 is:", options: ["2", "4", "6", "8"], answer: "4" },
+        { question: "Lines 2x + 3y = 5 and 4x + 6y = 7 are:", options: ["Parallel", "Perpendicular", "Coincident", "Intersecting"], answer: "Parallel" },
+        { question: "The equation of line passing through (1,2) and perpendicular to x - y = 0 is:", options: ["x + y = 3", "x - y = -1", "x + y = -3", "x - y = 1"], answer: "x + y = 3" },
+        { question: "For what value of k are lines 3x + 4y = 7 and kx + 8y = 5 parallel?", options: ["3", "6", "-6", "3/2"], answer: "6" },
+        { question: "The angle between lines y = √3x + 2 and y = -√3x + 5 is:", options: ["30°", "45°", "60°", "90°"], answer: "60°" }
+      ];
+  
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+  
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerHTML = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+  
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerHTML = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+  
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+  
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+  
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+  
+      function tryAgain() {
+        loadQuestion();
+      }
+  
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+  
+      window.onload = loadQuestion;
+    </script>
+  
+  </body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trigonometric Ratios and Transformations - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ffa500;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ffa500;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ffa500;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ffa500;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .formula {
+      background-color: #262626;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      margin: 10px 0;
+      color: white;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ffa500;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ffa500;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #00838f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .diagram {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .diagram img {
+      max-width: 100%;
+      border-radius: 5px;
+      border: 1px solid #444;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #333;
+    }
+    .svg-container {
+      background-color: white;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 15px 0;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Trigonometric Ratios and Transformations - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Basic Trigonometric Ratios</h2>
+      <ul>
+        <li><strong>Right-angled triangle:</strong></li>
+        <li><strong>Sine:</strong> sin θ = Opposite side / Hypotenuse</li>
+        <li><strong>Cosine:</strong> cos θ = Adjacent side / Hypotenuse</li>
+        <li><strong>Tangent:</strong> tan θ = Opposite side / Adjacent side = sin θ / cos θ</li>
+        <li><strong>Cosecant:</strong> cosec θ = 1/sin θ = Hypotenuse / Opposite side</li>
+        <li><strong>Secant:</strong> sec θ = 1/cos θ = Hypotenuse / Adjacent side</li>
+        <li><strong>Cotangent:</strong> cot θ = 1/tan θ = Adjacent side / Opposite side</li>
+      </ul>
+      <div class="formula">sin² θ + cos² θ = 1</div>
+      <div class="formula">1 + tan² θ = sec² θ</div>
+      <div class="formula">1 + cot² θ = cosec² θ</div>
+      
+      <div class="diagram">
+        <div class="svg-container">
+          <svg width="300" height="200" viewBox="0 0 300 200">
+            <!-- Right-angled Triangle -->
+            <polygon points="60,150 240,150 60,50" fill="none" stroke="#333" stroke-width="2"/>
+            
+            <!-- Angle theta -->
+            <path d="M 80,150 A 20,20 0 0,1 60,130" fill="none" stroke="#ff9800" stroke-width="2"/>
+            <text x="75" y="135" fill="#333" font-size="12">θ</text>
+            
+            <!-- Right angle -->
+            <path d="M 60,130 L 60,150 L 80,150" fill="none" stroke="#333" stroke-width="1"/>
+            
+            <!-- Labels -->
+            <text x="150" y="165" fill="#333" font-size="12" text-anchor="middle">Adjacent</text>
+            <text x="45" y="100" fill="#333" font-size="12" text-anchor="end">Opposite</text>
+            <text x="150" y="90" fill="#333" font-size="12" text-anchor="middle" transform="rotate(-22, 150, 90)">Hypotenuse</text>
+          </svg>
+        </div>
+        <p>Right-angled triangle showing trigonometric ratios</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Trigonometric Ratios of Standard Angles</h2>
+      <table>
+        <tr>
+          <th>Angle (θ)</th>
+          <th>0°</th>
+          <th>30°</th>
+          <th>45°</th>
+          <th>60°</th>
+          <th>90°</th>
+        </tr>
+        <tr>
+          <td>sin θ</td>
+          <td>0</td>
+          <td>1/2</td>
+          <td>1/√2</td>
+          <td>√3/2</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>cos θ</td>
+          <td>1</td>
+          <td>√3/2</td>
+          <td>1/√2</td>
+          <td>1/2</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>tan θ</td>
+          <td>0</td>
+          <td>1/√3</td>
+          <td>1</td>
+          <td>√3</td>
+          <td>∞</td>
+        </tr>
+      </table>
+      
+      <div class="formula">sin(π/4) = cos(π/4) = 1/√2 = √2/2</div>
+      <div class="formula">sin(π/6) = 1/2, cos(π/6) = √3/2</div>
+      <div class="formula">sin(π/3) = √3/2, cos(π/3) = 1/2</div>
+    </div>
+
+    <div class="section">
+      <h2>3. Trigonometric Functions in Different Quadrants</h2>
+      <div class="diagram">
+        <div class="svg-container">
+          <svg width="300" height="300" viewBox="0 0 300 300">
+            <!-- Coordinate System -->
+            <line x1="50" y1="150" x2="250" y1="150" stroke="#333" stroke-width="2"/>
+            <line x1="150" y1="50" x2="150" y1="250" stroke="#333" stroke-width="2"/>
+            
+            <!-- Arrow heads -->
+            <polygon points="250,150 245,145 245,155" fill="#333"/>
+            <polygon points="150,50 145,55 155,55" fill="#333"/>
+            
+            <!-- Quadrants -->
+            <text x="200" y="100" fill="#4caf50" font-size="14">Quadrant I</text>
+            <text x="80" y="100" fill="#ff5252" font-size="14">Quadrant II</text>
+            <text x="80" y="200" fill="#2196f3" font-size="14">Quadrant III</text>
+            <text x="200" y="200" fill="#ff9800" font-size="14">Quadrant IV</text>
+            
+            <!-- Signs -->
+            <text x="205" y="85" fill="#333" font-size="12">(+,+)</text>
+            <text x="85" y="85" fill="#333" font-size="12">(-,+)</text>
+            <text x="85" y="215" fill="#333" font-size="12">(-,-)</text>
+            <text x="205" y="215" fill="#333" font-size="12">(+,-)</text>
+            
+            <!-- Origin -->
+            <text x="140" y="165" fill="#333" font-size="12">O</text>
+            
+            <!-- Axes labels -->
+            <text x="260" y="150" fill="#333" font-size="12">x</text>
+            <text x="150" y="40" fill="#333" font-size="12">y</text>
+          </svg>
+        </div>
+        <p>Quadrants and signs of coordinates</p>
+      </div>
+      
+      <div class="formula">ASTC Rule (All Silver Tea Cups)</div>
+      <table>
+        <tr>
+          <th>Quadrant</th>
+          <th>Angle Range</th>
+          <th>Positive Functions</th>
+        </tr>
+        <tr>
+          <td>I</td>
+          <td>0° to 90°</td>
+          <td><strong>A</strong>ll functions are positive</td>
+        </tr>
+        <tr>
+          <td>II</td>
+          <td>90° to 180°</td>
+          <td><strong>S</strong>ine and cosec are positive</td>
+        </tr>
+        <tr>
+          <td>III</td>
+          <td>180° to 270°</td>
+          <td><strong>T</strong>angent and cot are positive</td>
+        </tr>
+        <tr>
+          <td>IV</td>
+          <td>270° to 360°</td>
+          <td><strong>C</strong>osine and sec are positive</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>4. Trigonometric Identities</h2>
+      <ul>
+        <li><strong>Reciprocal identities:</strong></li>
+        <li>sin θ = 1/cosec θ, cos θ = 1/sec θ, tan θ = 1/cot θ</li>
+        <li><strong>Quotient identities:</strong></li>
+        <li>tan θ = sin θ/cos θ, cot θ = cos θ/sin θ</li>
+        <li><strong>Pythagorean identities:</strong></li>
+        <li>sin² θ + cos² θ = 1</li>
+        <li>1 + tan² θ = sec² θ</li>
+        <li>1 + cot² θ = cosec² θ</li>
+      </ul>
+      <div class="formula">sin(-θ) = -sin θ (odd function)</div>
+      <div class="formula">cos(-θ) = cos θ (even function)</div>
+      <div class="formula">tan(-θ) = -tan θ (odd function)</div>
+    </div>
+
+    <div class="section">
+      <h2>5. Compound Angle Formulas</h2>
+      <div class="formula">sin(A+B) = sin A cos B + cos A sin B</div>
+      <div class="formula">sin(A-B) = sin A cos B - cos A sin B</div>
+      <div class="formula">cos(A+B) = cos A cos B - sin A sin B</div>
+      <div class="formula">cos(A-B) = cos A cos B + sin A sin B</div>
+      <div class="formula">tan(A+B) = (tan A + tan B)/(1 - tan A tan B)</div>
+      <div class="formula">tan(A-B) = (tan A - tan B)/(1 + tan A tan B)</div>
+    </div>
+
+    <div class="section">
+      <h2>6. Double Angle Formulas</h2>
+      <div class="formula">sin 2A = 2 sin A cos A</div>
+      <div class="formula">cos 2A = cos² A - sin² A = 2cos² A - 1 = 1 - 2sin² A</div>
+      <div class="formula">tan 2A = 2 tan A/(1 - tan² A)</div>
+    </div>
+
+    <div class="section">
+      <h2>7. Triple Angle Formulas</h2>
+      <div class="formula">sin 3A = 3 sin A - 4 sin³ A</div>
+      <div class="formula">cos 3A = 4 cos³ A - 3 cos A</div>
+      <div class="formula">tan 3A = (3 tan A - tan³ A)/(1 - 3 tan² A)</div>
+    </div>
+
+    <div class="section">
+      <h2>8. Half Angle Formulas</h2>
+      <div class="formula">sin(A/2) = ±√[(1 - cos A)/2]</div>
+      <div class="formula">cos(A/2) = ±√[(1 + cos A)/2]</div>
+      <div class="formula">tan(A/2) = (1 - cos A)/sin A = sin A/(1 + cos A)</div>
+    </div>
+
+    <div class="section">
+      <h2>9. Product to Sum Formulas</h2>
+      <div class="formula">sin A sin B = ½[cos(A-B) - cos(A+B)]</div>
+      <div class="formula">cos A cos B = ½[cos(A-B) + cos(A+B)]</div>
+      <div class="formula">sin A cos B = ½[sin(A+B) + sin(A-B)]</div>
+    </div>
+
+    <div class="section">
+      <h2>10. Sum to Product Formulas</h2>
+      <div class="formula">sin A + sin B = 2 sin[(A+B)/2] cos[(A-B)/2]</div>
+      <div class="formula">sin A - sin B = 2 cos[(A+B)/2] sin[(A-B)/2]</div>
+      <div class="formula">cos A + cos B = 2 cos[(A+B)/2] cos[(A-B)/2]</div>
+      <div class="formula">cos A - cos B = -2 sin[(A+B)/2] sin[(A-B)/2]</div>
+    </div>
+
+    <div class="section">
+      <h2>11. Trigonometric Transformations</h2>
+      <ul>
+        <li><strong>Phase shift:</strong> f(θ + φ) shifts the graph to the left by φ</li>
+        <li><strong>Amplitude:</strong> A·f(θ) changes the amplitude to A</li>
+        <li><strong>Period:</strong> f(nθ) changes the period to 2π/n</li>
+        <li><strong>Vertical shift:</strong> f(θ) + k shifts the graph up by k</li>
+      </ul>
+      
+      <div class="diagram">
+        <div class="svg-container">
+          <svg width="300" height="200" viewBox="0 0 300 200">
+            <!-- Coordinate System -->
+            <line x1="40" y1="100" x2="280" y1="100" stroke="#333" stroke-width="1"/>
+            <line x1="40" y1="40" x2="40" y1="160" stroke="#333" stroke-width="1"/>
+            
+            <!-- Axis Labels -->
+            <text x="280" y="115" fill="#333" font-size="12">θ</text>
+            <text x="25" y="40" fill="#333" font-size="12">y</text>
+            
+            <!-- Sine Wave (original) -->
+            <path d="M40,100 Q65,40 90,100 Q115,160 140,100 Q165,40 190,100 Q215,160 240,100 Q265,40 290,100" 
+                  fill="none" stroke="#2196f3" stroke-width="2"/>
+            
+            <!-- Transformed Sine Wave (amplitude change) -->
+            <path d="M40,100 Q65,60 90,100 Q115,140 140,100 Q165,60 190,100 Q215,140 240,100 Q265,60 290,100" 
+                  fill="none" stroke="#ff5252" stroke-width="2" stroke-dasharray="4,2"/>
+            
+            <!-- Legend -->
+            <text x="200" y="180" fill="#2196f3" font-size="10">y = sin θ</text>
+            <text x="200" y="195" fill="#ff5252" font-size="10">y = 0.5sin θ</text>
+          </svg>
+        </div>
+        <p>Sine function with amplitude transformation</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>12. Inverse Trigonometric Functions</h2>
+      <ul>
+        <li><strong>arcsin x:</strong> sin⁻¹ x = θ such that sin θ = x, where -1 ≤ x ≤ 1</li>
+        <li><strong>arccos x:</strong> cos⁻¹ x = θ such that cos θ = x, where -1 ≤ x ≤ 1</li>
+        <li><strong>arctan x:</strong> tan⁻¹ x = θ such that tan θ = x, where -∞ < x < ∞</li>
+      </ul>
+      <div class="formula">arcsin(-x) = -arcsin x</div>
+      <div class="formula">arccos(-x) = π - arccos x</div>
+      <div class="formula">arctan(-x) = -arctan x</div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Memorize the values of trigonometric ratios for standard angles (0°, 30°, 45°, 60°, 90°)</li>
+        <li>Remember the ASTC rule for determining signs in different quadrants</li>
+        <li>Practice using compound angle formulas for solving complex problems</li>
+        <li>Learn to convert product to sum and sum to product forms</li>
+        <li>Understand the transformations of trigonometric functions and their graphical representations</li>
+        <li>Focus on applying identities rather than just memorizing them</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "If sin θ = 3/5, what is the value of cos θ?", 
+        options: ["4/5", "5/3", "5/4", "√(16/25)"], 
+        answer: "4/5" 
+      },
+      { 
+        question: "Which of the following is equal to sin 75°?", 
+        options: ["sin 45° + sin 30°", "sin 45° cos 30° + cos 45° sin 30°", "sin 45° - sin 30°", "2 sin 37.5° cos 37.5°"], 
+        answer: "sin 45° cos 30° + cos 45° sin 30°" 
+      },
+      { 
+        question: "If sin A = 3/5 and sin B = 5/13, then the value of sin(A+B) is:", 
+        options: ["8/65", "39/65", "63/65", "64/65"], 
+        answer: "39/65" 
+      },
+      { 
+        question: "The trigonometric functions that are positive in the third quadrant are:", 
+        options: ["sin and cos", "cos and tan", "tan and cot", "sin and sec"], 
+        answer: "tan and cot" 
+      },
+      { 
+        question: "The value of cos 15° can be written as:", 
+        options: ["(√3 + 1)/2√2", "(√3 - 1)/2√2", "(√6 + √2)/4", "(√3 + 1)/2"], 
+        answer: "(√3 + 1)/2√2" 
+      },
+      { 
+        question: "If y = 3 sin(2x + π/3), the period of the function is:", 
+        options: ["π", "2π", "π/2", "3π"], 
+        answer: "π" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = () => {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        alert("✅ You've reached the end. Click 'Submit All Answers'.");
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Basic Concepts of Chemistry - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .diagram {
+      max-width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .formula {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+    
+    .svg-container {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: center;
+    }
+    
+    th {
+      background-color: #333;
+      color: #ff6f00;
+    }
+    
+    .element-box {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #ff6f00;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 5px;
+      border-radius: 5px;
+      background-color: #333;
+    }
+    
+    .atom-number {
+      font-size: 10px;
+      align-self: flex-start;
+      padding-left: 5px;
+    }
+    
+    .element-symbol {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+    .element-name {
+      font-size: 10px;
+    }
+    
+    .element-mass {
+      font-size: 10px;
+      align-self: flex-end;
+      padding-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Basic Concepts of Chemistry - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Matter and Its Classification</h2>
+      <ul>
+        <li><strong>Matter:</strong> Anything that occupies space and has mass</li>
+        <li><strong>States of Matter:</strong> Solid, Liquid, Gas (and Plasma)</li>
+        <li><strong>Classification Based on Composition:</strong>
+          <ul>
+            <li><strong>Pure Substances:</strong> Elements and Compounds</li>
+            <li><strong>Mixtures:</strong> Homogeneous and Heterogeneous</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="svg-container">
+        <svg width="600" height="400" viewBox="0 0 600 300">
+          <!-- Main classification -->
+          <rect x="250" y="20" width="100" height="30" fill="none" stroke="black" stroke-width="2"/>
+          <text x="300" y="40" text-anchor="middle" fill="black">MATTER</text>
+          
+          <!-- Central line down -->
+          <line x1="300" y1="50" x2="300" y2="80" stroke="black" stroke-width="2"/>
+          
+          <!-- First level branches -->
+          <line x1="200" y1="80" x2="400" y2="80" stroke="black" stroke-width="2"/>
+          
+          <!-- Pure Substances branch -->
+          <line x1="200" y1="80" x2="200" y2="110" stroke="black" stroke-width="2"/>
+          <rect x="150" y="110" width="130" height="30" fill="none" stroke="black" stroke-width="2"/>
+          <text x="220" y="130" text-anchor="middle" fill="black">Pure Substances</text>
+          
+          <!-- Mixtures branch -->
+          <line x1="400" y1="80" x2="400" y2="110" stroke="black" stroke-width="2"/>
+          <rect x="350" y="110" width="100" height="30" fill="none" stroke="black" stroke-width="2"/>
+          <text x="400" y="130" text-anchor="middle" fill="black">Mixtures</text>
+          
+          <!-- Pure substances branches -->
+          <line x1="200" y1="140" x2="200" y2="170" stroke="black" stroke-width="2"/>
+          <line x1="150" y1="170" x2="250" y2="170" stroke="black" stroke-width="2"/>
+          
+          <!-- Elements branch -->
+          <line x1="150" y1="170" x2="150" y2="200" stroke="black" stroke-width="2"/>
+          <rect x="100" y="200" width="100" height="30" fill="none" stroke="black" stroke-width="2"/>
+          <text x="150" y="220" text-anchor="middle" fill="black">Elements</text>
+          
+          <!-- Compounds branch -->
+          <line x1="250" y1="170" x2="250" y2="200" stroke="black" stroke-width="2"/>
+          <rect x="200" y="200" width="100" height="30" fill="none" stroke="black" stroke-width="2"/>
+          <text x="250" y="220" text-anchor="middle" fill="black">Compounds</text>
+          
+          <!-- Mixtures branches -->
+          <line x1="400" y1="140" x2="400" y2="170" stroke="black" stroke-width="2"/>
+          <line x1="350" y1="170" x2="450" y2="170" stroke="black" stroke-width="2"/>
+          
+          <!-- Homogeneous branch -->
+          <line x1="350" y1="170" x2="350" y2="200" stroke="black" stroke-width="2"/>
+          <rect x="300" y="200" width="100" height="30" fill="none" stroke="black" stroke-width="2"/>
+          <text x="350" y="220" text-anchor="middle" fill="black">Homogeneous</text>
+          
+          <!-- Heterogeneous branch -->
+          <line x1="450" y1="170" x2="450" y2="200" stroke="black" stroke-width="2"/>
+          <rect x="400" y="200" width="100" height="30" fill="none" stroke="black" stroke-width="2"/>
+          <text x="450" y="220" text-anchor="middle" fill="black">Heterogeneous</text>
+          
+          <!-- Elements branches -->
+          <line x1="150" y1="230" x2="150" y2="260" stroke="black" stroke-width="2"/>
+          <line x1="100" y1="260" x2="200" y2="260" stroke="black" stroke-width="2"/>
+          
+          <!-- Metals branch -->
+          <line x1="100" y1="260" x2="100" y2="290" stroke="black" stroke-width="2"/>
+          <rect x="50" y="290" width="100" height="30" fill="none" stroke="black" stroke-width="2"/>
+          <text x="100" y="310" text-anchor="middle" fill="black">Metals</text>
+          
+          <!-- Non-metals branch -->
+          <line x1="200" y1="260" x2="200" y2="290" stroke="black" stroke-width="2"/>
+          <rect x="150" y="290" width="100" height="30" fill="none" stroke="black" stroke-width="2"/>
+          <text x="200" y="310" text-anchor="middle" fill="black">Non-metals</text>
+        </svg>
+      </div>
+    <div class="section">
+      <h2>2. Atoms, Molecules, and Mole Concept</h2>
+      <ul>
+        <li><strong>Atoms:</strong> Basic unit of matter (diameter ~10⁻¹⁰m)</li>
+        <li><strong>Molecules:</strong> Groups of atoms bonded together</li>
+        <li><strong>Atomicity:</strong> Number of atoms in a molecule (H₂, O₂, P₄)</li>
+        <li><strong>Mole:</strong> 6.022 × 10²³ particles (Avogadro's number)</li>
+        <li><strong>Molar Mass:</strong> Mass of one mole of substance (g/mol)</li>
+      </ul>
+      <div class="formula">Number of moles (n) = Mass (m) / Molar mass (M)<br>Number of moles (n) = Number of particles (N) / Avogadro number (N<sub>A</sub>)</div>
+      
+      <div style="display: flex; justify-content: center; margin: 15px 0;">
+        <div class="element-box">
+          <span class="atom-number">1</span>
+          <span class="element-symbol">H</span>
+          <span class="element-name">Hydrogen</span>
+          <span class="element-mass">1.01</span>
+        </div>
+        <div class="element-box">
+          <span class="atom-number">8</span>
+          <span class="element-symbol">O</span>
+          <span class="element-name">Oxygen</span>
+          <span class="element-mass">16.00</span>
+        </div>
+        <div class="element-box">
+          <span class="atom-number">6</span>
+          <span class="element-symbol">C</span>
+          <span class="element-name">Carbon</span>
+          <span class="element-mass">12.01</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Atomic Structure</h2>
+      <ul>
+        <li><strong>Subatomic Particles:</strong></li>
+      </ul>
+      <table>
+        <tr>
+          <th>Particle</th>
+          <th>Symbol</th>
+          <th>Charge</th>
+          <th>Mass</th>
+          <th>Location</th>
+        </tr>
+        <tr>
+          <td>Proton</td>
+          <td>p</td>
+          <td>+1</td>
+          <td>1.0073 amu</td>
+          <td>Nucleus</td>
+        </tr>
+        <tr>
+          <td>Neutron</td>
+          <td>n</td>
+          <td>0</td>
+          <td>1.0087 amu</td>
+          <td>Nucleus</td>
+        </tr>
+        <tr>
+          <td>Electron</td>
+          <td>e</td>
+          <td>-1</td>
+          <td>0.0005 amu</td>
+          <td>Orbitals</td>
+        </tr>
+      </table>
+      <ul>
+        <li><strong>Atomic Number (Z):</strong> Number of protons</li>
+        <li><strong>Mass Number (A):</strong> Protons + Neutrons</li>
+        <li><strong>Isotopes:</strong> Same Z, different neutron count</li>
+        <li><strong>Isobars:</strong> Same A, different Z</li>
+        <li><strong>Bohr's Model:</strong> Electrons revolve in fixed energy levels</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="300" height="300" viewBox="0 0 300 300">
+          <!-- Nucleus -->
+          <circle cx="150" cy="150" r="30" fill="#666"/>
+          <text x="150" y="155" text-anchor="middle" fill="white">Nucleus</text>
+          
+          <!-- Electron shells -->
+          <circle cx="150" cy="150" r="70" fill="none" stroke="black" stroke-width="1"/>
+          <text x="150" y="70" text-anchor="middle" fill="black">n=1</text>
+          
+          <circle cx="150" cy="150" r="120" fill="none" stroke="black" stroke-width="1"/>
+          <text x="150" y="20" text-anchor="middle" fill="black">n=2</text>
+          
+          <circle cx="150" cy="150" r="180" fill="none" stroke="black" stroke-width="1"/>
+          <text x="150" y="300" text-anchor="middle" fill="black">n=3</text>
+          
+          <!-- Electrons -->
+          <circle cx="150" cy="80" r="5" fill="blue"/>
+          <circle cx="150" cy="220" r="5" fill="blue"/>
+          
+          <circle cx="70" cy="150" r="5" fill="blue"/>
+          <circle cx="230" cy="150" r="5" fill="blue"/>
+          
+          <circle cx="110" cy="110" r="5" fill="blue"/>
+          <circle cx="190" cy="190" r="5" fill="blue"/>
+          
+          <circle cx="110" cy="190" r="5" fill="blue"/>
+          <circle cx="190" cy="110" r="5" fill="blue"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. Chemical Formulas and Equations</h2>
+      <ul>
+        <li><strong>Chemical Formula:</strong> Representation using element symbols and subscripts</li>
+        <li><strong>Molecular Formula:</strong> Shows actual number of atoms (C₆H₁₂O₆)</li>
+        <li><strong>Empirical Formula:</strong> Simplest whole-number ratio (CH₂O)</li>
+        <li><strong>Chemical Equation:</strong> Representation of chemical reaction</li>
+        <li><strong>Balancing:</strong> Same number of atoms on both sides</li>
+      </ul>
+      <div class="formula">
+        2H₂ + O₂ → 2H₂O (Balanced equation)<br>
+        CaCO₃ → CaO + CO₂ (Thermal decomposition)
+      </div>
+      <div class="svg-container">
+        <svg width="400" height="100" viewBox="0 0 400 100">
+          <!-- Reactants -->
+          <circle cx="50" cy="50" r="15" fill="lightblue"/>
+          <text x="50" y="55" text-anchor="middle" fill="black">H₂</text>
+          
+          <circle cx="50" cy="85" r="15" fill="lightblue"/>
+          <text x="50" y="90" text-anchor="middle" fill="black">H₂</text>
+          
+          <circle cx="100" cy="65" r="20" fill="lightcoral"/>
+          <text x="100" y="70" text-anchor="middle" fill="black">O₂</text>
+          
+          <text x="150" y="65" text-anchor="middle" font-size="24">→</text>
+          
+          <!-- Products -->
+          <circle cx="230" cy="50" r="20" fill="lightgreen"/>
+          <text x="230" y="55" text-anchor="middle" fill="black">H₂O</text>
+          
+          <circle cx="230" cy="85" r="20" fill="lightgreen"/>
+          <text x="230" y="90" text-anchor="middle" fill="black">H₂O</text>
+          
+          <text x="320" y="65" text-anchor="middle" fill="black">2H₂ + O₂ → 2H₂O</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>5. Stoichiometry and Chemical Calculations</h2>
+      <ul>
+        <li><strong>Stoichiometry:</strong> Quantitative relationship in chemical reactions</li>
+        <li><strong>Percentage Composition:</strong> % of each element by mass</li>
+        <li><strong>Limiting Reagent:</strong> Reactant that gets consumed first</li>
+        <li><strong>Theoretical Yield:</strong> Maximum amount of product possible</li>
+        <li><strong>Actual Yield:</strong> Amount actually produced in lab</li>
+        <li><strong>Percent Yield:</strong> (Actual/Theoretical) × 100%</li>
+      </ul>
+      <div class="formula">
+        % Composition = (Mass of element / Total mass of compound) × 100%<br>
+        % Yield = (Actual yield / Theoretical yield) × 100%
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>6. Solutions and Concentration</h2>
+      <ul>
+        <li><strong>Solution:</strong> Homogeneous mixture of solute in solvent</li>
+        <li><strong>Concentration Units:</strong></li>
+        <ul>
+          <li><strong>Molarity (M):</strong> Moles of solute per liter of solution</li>
+          <li><strong>Molality (m):</strong> Moles of solute per kg of solvent</li>
+          <li><strong>Normality (N):</strong> Gram-equivalents per liter</li>
+          <li><strong>Parts per million (ppm):</strong> 1 part in 10⁶ parts</li>
+        </ul>
+        <li><strong>Solution Dilution:</strong> M₁V₁ = M₂V₂</li>
+      </ul>
+      <div class="formula">
+        Molarity (M) = Moles of solute / Volume of solution (L)<br>
+        Molality (m) = Moles of solute / Mass of solvent (kg)<br>
+        Normality (N) = Gram-equivalents / Volume of solution (L)
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Beaker -->
+          <path d="M100 50 L100 150 L90 170 L210 170 L200 150 L200 50 Z" fill="none" stroke="black" stroke-width="2"/>
+          
+          <!-- Solution -->
+          <path d="M100 70 L200 70 L200 150 L90 170 L210 170 L200 150 L200 70 L100 70 Z" fill="lightblue" opacity="0.5"/>
+          
+          <!-- Solute particles -->
+          <circle cx="120" cy="100" r="5" fill="red"/>
+          <circle cx="150" cy="90" r="5" fill="red"/>
+          <circle cx="180" cy="110" r="5" fill="red"/>
+          <circle cx="130" cy="130" r="5" fill="red"/>
+          <circle cx="170" cy="140" r="5" fill="red"/>
+          <circle cx="160" cy="120" r="5" fill="red"/>
+          <circle cx="140" cy="150" r="5" fill="red"/>
+          
+          <text x="150" y="190" text-anchor="middle" fill="black">Solution (Solute + Solvent)</text>
+          
+          <!-- Concentration formula -->
+          <text x="280" y="100" text-anchor="middle" fill="black">M = n/V</text>
+          <text x="280" y="120" text-anchor="middle" fill="black">m = n/w</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Practice unit conversions and dimensional analysis</li>
+        <li>Memorize common polyatomic ions and their charges</li>
+        <li>Be familiar with mole concept calculations and balancing equations</li>
+        <li>Remember the differences between empirical vs. molecular formulas</li>
+        <li>Practice limiting reagent problems with multiple-step calculations</li>
+        <li>Learn to interconvert between concentration units</li>
+        <li>Memorize atomic weights of common elements (H, C, N, O, Na, Mg, Al, S, Cl, K, Ca, Fe)</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button class="next-btn" onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "Which of the following represents the correct number of particles in a mole?", 
+        options: ["6.022 × 10²²", "6.022 × 10²³", "6.022 × 10²⁴", "6.022 × 10²¹"], 
+        answer: "6.022 × 10²³" 
+      },
+      { 
+        question: "What is the empirical formula of glucose (C₆H₁₂O₆)?", 
+        options: ["C₃H₆O₃", "CH₂O", "C₂H₄O₂", "C₆H₁₂O₆"], 
+        answer: "CH₂O" 
+      },
+      { 
+        question: "The number of oxygen atoms in 4.9 g of H₂SO₄ is closest to:", 
+        options: ["0.5 × 10²³", "1.2 × 10²³", "2.4 × 10²³", "3.0 × 10²²"], 
+        answer: "3.0 × 10²²" 
+      },
+      { 
+        question: "If 16 g of methane (CH₄) completely combusts, how many grams of CO₂ will be produced?", 
+        options: ["22 g", "32 g", "44 g", "64 g"], 
+        answer: "44 g" 
+      },
+      { 
+        question: "What is the molarity of a solution made by dissolving 5.85 g of NaCl in enough water to make 500 mL of solution?", 
+        options: ["0.1 M", "0.2 M", "0.5 M", "1.0 M"], 
+        answer: "0.2 M" 
+      },
+      { 
+        question: "Which of the following pairs represents isotopes?", 
+        options: ["¹²C and ¹⁴N", "¹⁸O and ¹⁸F", "³⁵Cl and ³⁷Cl", "³⁹K and ⁴⁰Ca"], 
+        answer: "³⁵Cl and ³⁷Cl" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = function() {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            document.getElementById("message").style.color = "lime";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+            document.getElementById("message").style.color = "red";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => {
+            el.classList.add("disabled");
+            if (el.innerText === q.answer) el.classList.add("correct");
+          });
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      document.getElementById("submitBtn").style.display = currentIndex === quizData.length - 1 ? "block" : "none";
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        document.getElementById("submitBtn").style.display = "block";
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAMCET Online Test Platform</title>
+    <style>
+        :root {
+            --orange: #FF6600;
+            --black: #222222;
+            --white: #FFFFFF;
+            --light-orange: #FFE0CC;
+            --gray: #EEEEEE;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--gray);
+            color: var(--black);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--orange);
+            color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .timer-container {
+            background-color: var(--white);
+            color: var(--black);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none;
+        }
+        
+        .login-container, .info-container, .test-container, .result-container, .rank-card-container {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        
+        .login-container h2, .info-container h2, .test-container h2, .result-container h2, .rank-card-container h2 {
+            color: var(--orange);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .btn {
+            background-color: var(--orange);
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #E55A00;
+        }
+        
+        .btn-secondary {
+            background-color: var(--black);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #333333;
+        }
+        
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question-panel {
+            margin: 20px 0;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border-left: 4px solid var(--orange);
+        }
+        
+        .options {
+            margin-top: 10px;
+        }
+        
+        .option {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option:hover {
+            background-color: var(--light-orange);
+        }
+        
+        .option.selected {
+            background-color: var(--orange);
+            color: var(--white);
+            border-color: var(--orange);
+        }
+        
+        .option.marked {
+            border-color: purple;
+            border-width: 2px;
+        }
+        
+        .option input {
+            margin-right: 10px;
+        }
+        
+        .question-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .q-num {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .q-num.attempted {
+            background-color: var(--orange);
+            color: var(--white);
+        }
+        
+        .q-num.current {
+            border: 2px solid var(--black);
+            font-weight: bold;
+        }
+        
+        .q-num.marked {
+            background-color: purple;
+            color: var(--white);
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .info-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .info-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .info-list li::before {
+            content: "•";
+            color: var(--orange);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .score-card {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .score-card .score {
+            font-size: 72px;
+            font-weight: bold;
+            color: var(--orange);
+        }
+        
+        .score-card .total {
+            font-size: 24px;
+            color: var(--black);
+        }
+        
+        .score-details {
+            margin-top: 30px;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .rank-card {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid var(--orange);
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .rank-card h3 {
+            color: var(--orange);
+            margin-bottom: 15px;
+        }
+        
+        .rank-card .rank {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .student-details {
+            text-align: left;
+            margin: 20px 0;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .detail-row .label {
+            width: 40%;
+            font-weight: 500;
+        }
+        
+        .detail-row .value {
+            width: 60%;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--orange);
+            color: var(--white);
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .highlight {
+            background-color: var(--light-orange);
+            font-weight: bold;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .login-container, .info-container, .test-container, .result-container, .rank-card-container {
+                padding: 15px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <div class="logo">EAMCET Online Test</div>
+            <div class="timer-container" id="timer">Time Remaining: 3:00:00</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Login Section -->
+        <div class="login-container" id="login-section">
+            <h2>Login to EAMCET Test Portal</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Login</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Info Section -->
+        <div class="info-container hidden" id="info-section">
+            <h2>EAMCET Test Instructions</h2>
+            <div class="info-content">
+                <p>Welcome to the EAMCET online test platform. Please read the following instructions carefully before starting the test:</p>
+                
+                <ul class="info-list">
+                    <li>The test consists of 180 questions - 80 from Mathematics, 40 from Physics, and 60 from Chemistry.</li>
+                    <li>Total duration of the test is 3 hours (180 minutes).</li>
+                    <li>Each question carries 1 mark. There is no negative marking.</li>
+                    <li>You can mark questions for review and come back to them later.</li>
+                    <li>You can navigate between questions using the question panel on the side.</li>
+                    <li>Your answers are automatically saved when you move to another question.</li>
+                    <li>You can review your answers before final submission.</li>
+                    <li>Once you submit the test, you cannot make any changes.</li>
+                    <li>Your rank will be calculated based on your score and displayed after submission.</li>
+                </ul>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn" id="start-test-btn">Start Test</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Test Section -->
+        <div class="test-container hidden" id="test-section">
+            <div class="test-header">
+                <h2>EAMCET Test</h2>
+            </div>
+            
+            <div class="question-panel">
+                <div id="question-container" class="question">
+                    <!-- Question content will be loaded here -->
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="prev-btn">Previous</button>
+                    <button class="btn btn-secondary" id="mark-btn">Mark for Review</button>
+                    <button class="btn btn-secondary" id="clear-btn">Clear Response</button>
+                    <button class="btn" id="next-btn">Next</button>
+                </div>
+            </div>
+            
+            <div class="question-nav" id="question-nav">
+                <!-- Question numbers will be generated here -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" id="submit-test-btn">Submit Test</button>
+            </div>
+        </div>
+        
+        <!-- Result Section -->
+        <div class="result-container hidden" id="result-section">
+            <h2>Test Results</h2>
+            
+            <div class="score-card">
+                <div class="score" id="score-display">138</div>
+                <div class="total">/ 180</div>
+                <p>Your EAMCET Score</p>
+            </div>
+            
+            <div class="score-details">
+                <div class="detail-item">
+                    <div>Total Questions</div>
+                    <div>180</div>
+                </div>
+                <div class="detail-item">
+                    <div>Attempted Questions</div>
+                    <div id="attempted-count">158</div>
+                </div>
+                <div class="detail-item">
+                    <div>Correct Answers</div>
+                    <div id="correct-count">138</div>
+                </div>
+                <div class="detail-item">
+                    <div>Wrong Answers</div>
+                    <div id="wrong-count">20</div>
+                </div>
+                <div class="detail-item">
+                    <div>Marks Obtained</div>
+                    <div id="marks-obtained">138</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
+                <button class="btn" id="view-rank-btn">View Rank Card</button>
+                <button class="btn btn-secondary" id="review-answers-btn">Review Answers</button>
+            </div>
+        </div>
+        
+        <!-- Rank Card Section -->
+        <div class="rank-card-container hidden" id="rank-card-section">
+            <h2>EAMCET Rank Card</h2>
+            
+            <div class="rank-card">
+                <h3>Engineering, Agriculture and Medical Common Entrance Test</h3>
+                <div class="rank" id="rank-display">1462</div>
+                <p>Your EAMCET Rank</p>
+                
+                <div class="student-details">
+                    <div class="detail-row">
+                        <div class="label">Name:</div>
+                        <div class="value" id="student-name">John Doe</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="label">Hall Ticket No:</div>
+                        <div class="value" id="hall-ticket">EA123456</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="label">Score:</div>
+                        <div class="value" id="rank-score">138/180</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="label">Percentile:</div>
+                        <div class="value" id="percentile">92.65</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <p>Subject Wise Performance</p>
+                    <table>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Score</th>
+                            <th>Max Marks</th>
+                        </tr>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td id="math-score">65</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Physics</td>
+                            <td id="physics-score">28</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>Chemistry</td>
+                            <td id="chemistry-score">45</td>
+                            <td>60</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" id="back-to-results-btn">Back to Results</button>
+                <button class="btn btn-secondary" id="back-to-home-btn">Back to Home</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 EAMCET Online Test Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Database simulation (in a real application, this would be a server-side database)
+        const users = [
+            { username: "student1", password: "pass123", name: "John Doe", hallTicket: "EA123456" },
+            { username: "student2", password: "pass123", name: "Jane Smith", hallTicket: "EA789012" }
+        ];
+        
+        // Sample ranks (in a real scenario, this would be calculated based on all students' performances)
+        const rankData = [
+            { score: 170, rank: 50 },
+            { score: 160, rank: 200 },
+            { score: 150, rank: 750 },
+            { score: 140, rank: 1200 },
+            { score: 130, rank: 2000 },
+            { score: 120, rank: 3500 },
+            { score: 110, rank: 5000 },
+            { score: 100, rank: 7500 },
+            { score: 90, rank: 10000 },
+            { score: 80, rank: 15000 }
+        ];
+        
+        // EAMCET Questions (180 questions - 80 Math, 40 Physics, 60 Chemistry)
+        const questions = [
+            // Mathematics Questions (1-80)
+            {
+                id: 1,
+                subject: "Mathematics",
+                question: "If z = 3 + 4i, then |z|² equals",
+                options: ["7", "25", "5", "None of these"],
+                correctAnswer: 1
+            },
+            {
+                id: 2,
+                subject: "Mathematics",
+                question: "The value of sin 75° + cos 15° is",
+                options: ["√3", "1", "2", "√2"],
+                correctAnswer: 2
+            },
+            {
+                id: 3,
+                subject: "Mathematics",
+                question: "If f(x) = x² - 4x + 4, then the minimum value of f(x) is",
+                options: ["0", "4", "-4", "8"],
+                correctAnswer: 0
+            },
+            {
+                id: 4,
+                subject: "Mathematics",
+                question: "The derivative of e^x with respect to x is",
+                options: ["e^x", "xe^x", "e^x log e", "None of these"],
+                correctAnswer: 0
+            },
+            {
+                id: 5,
+                subject: "Mathematics",
+                question: "The integral of 1/x dx is",
+                options: ["log|x| + C", "1/x + C", "x + C", "x² + C"],
+                correctAnswer: 0
+            },
+            {
+                id: 6,
+                subject: "Mathematics",
+                question: "The solution set of |x - 2| < 3 is",
+                options: ["(−1, 5)", "[−1, 5]", "(−1, 5]", "[−1, 5)"],
+                correctAnswer: 0
+            },
+            {
+                id: 7,
+                subject: "Mathematics",
+                question: "If A and B are two events such that P(A) = 0.3, P(B) = 0.4 and P(A ∩ B) = 0.2, then P(A ∪ B) is",
+                options: ["0.5", "0.7", "0.1", "0.9"],
+                correctAnswer: 0
+            },
+            {
+                id: 8,
+                subject: "Mathematics",
+                question: "If a line has slope 2 and passes through the point (1, 3), then its equation is",
+                options: ["y = 2x + 1", "y = 2x + 2", "y = 2x", "y = 2x + 3"],
+                correctAnswer: 0
+            },
+            {
+                id: 9,
+                subject: "Mathematics",
+                question: "The sum of first n natural numbers is",
+                options: ["n(n+1)/2", "n²", "n(n-1)/2", "n(n+1)"],
+                correctAnswer: 0
+            },
+            {
+                id: 10,
+                subject: "Mathematics",
+                question: "If det(A) = 5 and det(B) = 2, then det(AB) equals",
+                options: ["10", "7", "3", "2.5"],
+                correctAnswer: 0
+            },
+            // Continue with more Math questions (11-80)...
+            {
+                id: 11,
+                subject: "Mathematics",
+                question: "The equation of a circle with center (2, 3) and radius 4 is",
+                options: ["(x - 2)² + (y - 3)² = 16", "(x + 2)² + (y + 3)² = 16", "(x - 2)² + (y - 3)² = 4", "(x - 3)² + (y - 2)² = 16"],
+                correctAnswer: 0
+            },
+            {
+                id: 12,
+                subject: "Mathematics",
+                question: "The value of ∫₀¹ x²dx is",
+                options: ["1/3", "1/2", "2/3", "1"],
+                correctAnswer: 0
+            },
+            {
+                id: 13,
+                subject: "Mathematics",
+                question: "If A = {1, 2, 3} and B = {2, 3, 4}, then A ∩ B =",
+                options: ["{2, 3}", "{1, 2, 3, 4}", "{1, 4}", "∅"],
+                correctAnswer: 0
+            },
+            {
+                id: 14,
+                subject: "Mathematics",
+                question: "The number of ways of arranging 5 distinct books on a shelf is",
+                options: ["120", "24", "60", "720"],
+                correctAnswer: 0
+            },
+            {
+                id: 15,
+                subject: "Mathematics",
+                question: "If log₁₀2 = 0.301, then log₁₀8 is approximately",
+                options: ["0.903", "0.602", "1.204", "2.408"],
+                correctAnswer: 0
+            },
+            // Add more math questions up to id 80
+            
+            // Physics Questions (81-120)
+            {
+                id: 81,
+                subject: "Physics",
+                question: "The SI unit of electric current is",
+                options: ["Volt", "Ampere", "Ohm", "Coulomb"],
+                correctAnswer: 1
+            },
+            {
+                id: 82,
+                subject: "Physics",
+                question: "Newton's first law of motion defines",
+                options: ["Momentum", "Inertia", "Acceleration", "Force"],
+                correctAnswer: 1
+            },
+            {
+                id: 83,
+                subject: "Physics",
+                question: "The wavelength of light is minimum in",
+                options: ["Violet", "Red", "Yellow", "Blue"],
+                correctAnswer: 0
+            },
+            {
+                id: 84,
+                subject: "Physics",
+                question: "The equivalent resistance of two resistors of 2Ω and 3Ω connected in parallel is",
+                options: ["1.2Ω", "5Ω", "6Ω", "1.5Ω"],
+                correctAnswer: 0
+            },
+            {
+                id: 85,
+                subject: "Physics",
+                question: "The acceleration due to gravity on the earth's surface is approximately",
+                options: ["9.8 m/s²", "9.8 km/s²", "9.8 cm/s²", "9.8 mm/s²"],
+                correctAnswer: 0
+            },
+            // Continue with more Physics questions (86-120)...
+            
+            // Chemistry Questions (121-180)
+            {
+                id: 121,
+                subject: "Chemistry",
+                question: "The pH of a neutral solution at 25°C is",
+                options: ["0", "7", "14", "1"],
+                correctAnswer: 1
+            },
+            {
+                id: 122,
+                subject: "Chemistry",
+                question: "Which of the following is not an isotope of hydrogen?",
+                options: ["Protium", "Deuterium", "Tritium", "Helium"],
+                correctAnswer: 3
+            },
+            {
+                id: 123,
+                subject: "Chemistry",
+                question: "The electronic configuration of Na+ is",
+                options: ["1s² 2s² 2p⁶", "1s² 2s² 2p⁶ 3s¹", "1s² 2s² 2p⁵", "1s² 2s² 2p⁶ 3s² 3p⁶"],
+                correctAnswer: 0
+            },
+            {
+                id: 124,
+                subject: "Chemistry",
+                question: "Which of the following is a strong electrolyte?",
+                options: ["CH₃COOH", "NH₄OH", "NaCl", "C₆H₁₂O₆"],
+                correctAnswer: 2
+            },
+            {
+                id: 125,
+                subject: "Chemistry",
+                question: "The most electronegative element among the following is",
+                options: ["Sodium", "Fluorine", "Oxygen", "Chlorine"],
+                correctAnswer: 1
+            }
+            // Continue with more Chemistry questions (126-180)...
+            // Note: For brevity, I've included only a subset of questions. In a real implementation, 
+            // you would need all 180 questions.
+        ];
+        
+        // Fill in the remaining questions with placeholder data
+        // This is just to simulate the full 180 questions
+        for (let i = questions.length + 1; i <= 180; i++) {
+            let subject = "Mathematics";
+            if (i > 80 && i <= 120) subject = "Physics";
+            if (i > 120) subject = "Chemistry";
+            
+            questions.push({
+                id: i,
+                subject: subject,
+                question: `Sample ${subject} Question ${i}`,
+                options: ["Option A", "Option B", "Option C", "Option D"],
+                correctAnswer: Math.floor(Math.random() * 4)
+            });
+        }
+        
+        // Application State
+        let currentUser = null;
+        let currentQuestionIndex = 0;
+        let userAnswers = Array(questions.length).fill(null);
+        let markedQuestions = Array(questions.length).fill(false);
+        let timeRemaining = 180 * 60; // 3 hours in seconds
+        let timerInterval = null;
+        
+        // DOM Elements
+        const loginSection = document.getElementById('login-section');
+        const infoSection = document.getElementById('info-section');
+        const testSection = document.getElementById('test-section');
+        const resultSection = document.getElementById('result-section');
+        const rankCardSection = document.getElementById('rank-card-section');
+        const loginForm = document.getElementById('login-form');
+        const startTestBtn = document.getElementById('start-test-btn');
+        const questionContainer = document.getElementById('question-container');
+        const questionNav = document.getElementById('question-nav');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const markBtn = document.getElementById('mark-btn');
+        const clearBtn = document.getElementById('clear-btn');
+        const submitTestBtn = document.getElementById('submit-test-btn');
+        const viewRankBtn = document.getElementById('view-rank-btn');
+        const reviewAnswersBtn = document.getElementById('review-answers-btn');
+        const backToResultsBtn = document.getElementById('back-to-results-btn');
+        const backToHomeBtn = document.getElementById('back-to-home-btn');
+        const timerDisplay = document.getElementById('timer');
+        
+        // Event Listeners
+        loginForm.addEventListener('submit', handleLogin);
+        startTestBtn.addEventListener('click', startTest);
+        prevBtn.addEventListener('click', goToPreviousQuestion);
+        nextBtn.addEventListener('click', goToNextQuestion);
+        markBtn.addEventListener('click', toggleMarkQuestion);
+        clearBtn.addEventListener('click', clearResponse);
+        submitTestBtn.addEventListener('click', submitTest);
+        viewRankBtn.addEventListener('click', viewRankCard);
+        reviewAnswersBtn.addEventListener('click', reviewAnswers);
+        backToResultsBtn.addEventListener('click', () => {
+            rankCardSection.classList.add('hidden');
+            resultSection.classList.remove('hidden');
+        });
+        backToHomeBtn.addEventListener('click', () => {
+            resetTest();
+            rankCardSection.classList.add('hidden');
+            resultSection.classList.add('hidden');
+            loginSection.classList.remove('hidden');
+        });
+        
+        // Functions
+        function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            const user = users.find(u => u.username === username && u.password === password);
+            
+            if (user) {
+                currentUser = user;
+                loginSection.classList.add('hidden');
+                infoSection.classList.remove('hidden');
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+        
+        function startTest() {
+            infoSection.classList.add('hidden');
+            testSection.classList.remove('hidden');
+            timerDisplay.style.display = 'block';
+            
+            // Initialize the question navigation
+            renderQuestionNav();
+            
+            // Display the first question
+            displayQuestion(currentQuestionIndex);
+            
+            // Start the timer
+            startTimer();
+        }
+        
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    submitTest();
+                    alert('Time is up! Your test has been automatically submitted.');
+                }
+                
+                updateTimerDisplay();
+            }, 1000);
+            
+            updateTimerDisplay();
+        }
+        
+        function updateTimerDisplay() {
+            const hours = Math.floor(timeRemaining / 3600);
+            const minutes = Math.floor((timeRemaining % 3600) / 60);
+            const seconds = timeRemaining % 60;
+            
+            timerDisplay.textContent = `Time Remaining: ${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        function renderQuestionNav() {
+            questionNav.innerHTML = '';
+            
+            for (let i = 0; i < questions.length; i++) {
+                const qNumBtn = document.createElement('div');
+                qNumBtn.className = 'q-num';
+                qNumBtn.textContent = i + 1;
+                
+                if (i === currentQuestionIndex) {
+                    qNumBtn.classList.add('current');
+                }
+                
+                if (userAnswers[i] !== null) {
+                    qNumBtn.classList.add('attempted');
+                }
+                
+                if (markedQuestions[i]) {
+                    qNumBtn.classList.add('marked');
+                }
+                
+                qNumBtn.addEventListener('click', () => {
+                    navigateToQuestion(i);
+                });
+                
+                questionNav.appendChild(qNumBtn);
+            }
+        }
+        
+        function displayQuestion(index) {
+            const question = questions[index];
+            
+            let optionsHTML = '';
+            question.options.forEach((option, i) => {
+                const isSelected = userAnswers[index] === i;
+                const selectedClass = isSelected ? 'selected' : '';
+                const markedClass = markedQuestions[index] ? 'marked' : '';
+                
+                optionsHTML += `
+                    <div class="option ${selectedClass} ${markedClass}" data-index="${i}">
+                        <input type="radio" name="q${question.id}" id="q${question.id}o${i}" ${isSelected ? 'checked' : ''}>
+                        <label for="q${question.id}o${i}">${option}</label>
+                    </div>
+                `;
+            });
+            
+            questionContainer.innerHTML = `
+                <div class="question-header">
+                    <span>Question ${index + 1} of ${questions.length}</span>
+                    <span>${question.subject}</span>
+                </div>
+                <div class="question-text">
+                    <p>${question.question}</p>
+                </div>
+                <div class="options">
+                    ${optionsHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = questionContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', () => {
+                    const optionIndex = parseInt(option.dataset.index);
+                    selectOption(optionIndex);
+                });
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === questions.length - 1;
+            
+            // Update mark button text
+            markBtn.textContent = markedQuestions[index] ? 'Unmark' : 'Mark for Review';
+            
+            // Update question nav
+            renderQuestionNav();
+        }
+        
+        function selectOption(optionIndex) {
+            userAnswers[currentQuestionIndex] = optionIndex;
+            
+            // Update the UI
+            const options = questionContainer.querySelectorAll('.option');
+            options.forEach((option, i) => {
+                if (i === optionIndex) {
+                    option.classList.add('selected');
+                    option.querySelector('input').checked = true;
+                } else {
+                    option.classList.remove('selected');
+                    option.querySelector('input').checked = false;
+                }
+            });
+            
+            renderQuestionNav();
+        }
+        
+        function navigateToQuestion(index) {
+            currentQuestionIndex = index;
+            displayQuestion(index);
+        }
+        
+        function goToPreviousQuestion() {
+            if (currentQuestionIndex > 0) {
+                navigateToQuestion(currentQuestionIndex - 1);
+            }
+        }
+        
+        function goToNextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                navigateToQuestion(currentQuestionIndex + 1);
+            }
+        }
+        
+        function toggleMarkQuestion() {
+            markedQuestions[currentQuestionIndex] = !markedQuestions[currentQuestionIndex];
+            
+            // Update mark button text
+            markBtn.textContent = markedQuestions[currentQuestionIndex] ? 'Unmark' : 'Mark for Review';
+            
+            // Update question nav
+            renderQuestionNav();
+            
+            // Update option classes if marked
+            const options = questionContainer.querySelectorAll('.option');
+            options.forEach(option => {
+                if (markedQuestions[currentQuestionIndex]) {
+                    option.classList.add('marked');
+                } else {
+                    option.classList.remove('marked');
+                }
+            });
+        }
+        
+        function clearResponse() {
+            userAnswers[currentQuestionIndex] = null;
+            
+            // Update the UI
+            const options = questionContainer.querySelectorAll('.option');
+            options.forEach(option => {
+                option.classList.remove('selected');
+                option.querySelector('input').checked = false;
+            });
+            
+            renderQuestionNav();
+        }
+        
+        function submitTest() {
+            clearInterval(timerInterval);
+            
+            // Calculate results
+            const results = calculateResults();
+            
+            // Update result section
+            document.getElementById('score-display').textContent = results.score;
+            document.getElementById('attempted-count').textContent = results.attempted;
+            document.getElementById('correct-count').textContent = results.correct;
+            document.getElementById('wrong-count').textContent = results.wrong;
+            document.getElementById('marks-obtained').textContent = results.score;
+            
+            // Hide test section and show result section
+            testSection.classList.add('hidden');
+            resultSection.classList.remove('hidden');
+            timerDisplay.style.display = 'none';
+        }
+        
+        function calculateResults() {
+            let attempted = 0;
+            let correct = 0;
+            let wrong = 0;
+            
+            for (let i = 0; i < questions.length; i++) {
+                if (userAnswers[i] !== null) {
+                    attempted++;
+                    
+                    if (userAnswers[i] === questions[i].correctAnswer) {
+                        correct++;
+                    } else {
+                        wrong++;
+                    }
+                }
+            }
+            
+            // Calculate subject-wise scores
+            let mathScore = 0;
+            let physicsScore = 0;
+            let chemistryScore = 0;
+            
+            for (let i = 0; i < questions.length; i++) {
+                if (userAnswers[i] === questions[i].correctAnswer) {
+                    if (questions[i].subject === "Mathematics") {
+                        mathScore++;
+                    } else if (questions[i].subject === "Physics") {
+                        physicsScore++;
+                    } else if (questions[i].subject === "Chemistry") {
+                        chemistryScore++;
+                    }
+                }
+            }
+            
+            // Store subject scores for rank card
+            window.mathScore = mathScore;
+            window.physicsScore = physicsScore;
+            window.chemistryScore = chemistryScore;
+            
+            return {
+                attempted,
+                correct,
+                wrong,
+                score: correct, // No negative marking, so score = correct answers
+                mathScore,
+                physicsScore,
+                chemistryScore
+            };
+        }
+        
+        function viewRankCard() {
+            const score = parseInt(document.getElementById('score-display').textContent);
+            
+            // Find rank based on score
+            let rank = 20000; // Default high rank
+            for (const data of rankData) {
+                if (score >= data.score) {
+                    rank = data.rank;
+                    break;
+                }
+            }
+            
+            // Calculate percentile (simple calculation for demo)
+            const percentile = ((20000 - rank) / 20000 * 100).toFixed(2);
+            
+            // Update rank card
+            document.getElementById('rank-display').textContent = rank;
+            document.getElementById('student-name').textContent = currentUser.name;
+            document.getElementById('hall-ticket').textContent = currentUser.hallTicket;
+            document.getElementById('rank-score').textContent = `${score}/180`;
+            document.getElementById('percentile').textContent = percentile;
+            
+            // Update subject scores
+            document.getElementById('math-score').textContent = window.mathScore;
+            document.getElementById('physics-score').textContent = window.physicsScore;
+            document.getElementById('chemistry-score').textContent = window.chemistryScore;
+            
+            // Show rank card section
+            resultSection.classList.add('hidden');
+            rankCardSection.classList.remove('hidden');
+        }
+        
+        function reviewAnswers() {
+            // Hide result section and show test section
+            resultSection.classList.add('hidden');
+            testSection.classList.remove('hidden');
+            
+            // Disable editing
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            // Hide action buttons except navigation
+            markBtn.style.display = 'none';
+            clearBtn.style.display = 'none';
+            submitTestBtn.style.display = 'none';
+            
+            // Add a back button
+            const actionButtons = document.querySelector('.action-buttons');
+            const backBtn = document.createElement('button');
+            backBtn.className = 'btn btn-secondary';
+            backBtn.textContent = 'Back to Results';
+            backBtn.addEventListener('click', () => {
+                testSection.classList.add('hidden');
+                resultSection.classList.remove('hidden');
+            });
+            actionButtons.appendChild(backBtn);
+            
+            // Show correct answers
+            showCorrectAnswers();
+        }
+        
+        function showCorrectAnswers() {
+            // Add visualization for correct/incorrect answers
+            const optionElements = questionContainer.querySelectorAll('.option');
+            const question = questions[currentQuestionIndex];
+            
+            optionElements.forEach((option, i) => {
+                const isUserAnswer = userAnswers[currentQuestionIndex] === i;
+                const isCorrectAnswer = question.correctAnswer === i;
+                
+                if (isCorrectAnswer) {
+                    option.style.backgroundColor = '#d4edda';
+                    option.style.borderColor = '#c3e6cb';
+                } else if (isUserAnswer) {
+                    option.style.backgroundColor = '#f8d7da';
+                    option.style.borderColor = '#f5c6cb';
+                }
+            });
+            
+            // Add a correct/incorrect indicator
+            const questionHeader = questionContainer.querySelector('.question-header');
+            const resultIndicator = document.createElement('div');
+            resultIndicator.style.fontWeight = 'bold';
+            resultIndicator.style.marginTop = '10px';
+            
+            if (userAnswers[currentQuestionIndex] === null) {
+                resultIndicator.textContent = 'Not Attempted';
+                resultIndicator.style.color = '#6c757d';
+            } else if (userAnswers[currentQuestionIndex] === question.correctAnswer) {
+                resultIndicator.textContent = 'Correct Answer';
+                resultIndicator.style.color = 'green';
+            } else {
+                resultIndicator.textContent = 'Incorrect Answer';
+                resultIndicator.style.color = 'red';
+            }
+            
+            questionHeader.appendChild(resultIndicator);
+        }
+        
+        function resetTest() {
+            // Reset all state variables
+            currentQuestionIndex = 0;
+            userAnswers = Array(questions.length).fill(null);
+            markedQuestions = Array(questions.length).fill(false);
+            timeRemaining = 180 * 60;
+            
+            // Clear timer if it's running
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+        }
+        
+        // Initialize the form with first user for demo purposes
+        document.getElementById('username').value = 'student1';
+        document.getElementById('password').value = 'pass123';
+    </script>
+</body>
+</html>

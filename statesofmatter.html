@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>States of Matter - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .diagram {
+      max-width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .formula {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+    
+    .svg-container {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>States of Matter - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Introduction to States of Matter</h2>
+      <ul>
+        <li>Matter exists in three main states: solid, liquid, and gas</li>
+        <li>Plasma, Bose-Einstein condensates, and other exotic states also exist</li>
+        <li>States differ in intermolecular forces, arrangement, and motion of particles</li>
+        <li>Changes of state: melting, freezing, vaporization, condensation, sublimation, deposition</li>
+      </ul>
+      <div class="formula">
+        Kinetic Energy ∝ Temperature<br>
+        Intermolecular forces: Solid > Liquid > Gas<br>
+        Molecular motion: Gas > Liquid > Solid
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Solid -->
+          <rect x="20" y="60" width="90" height="80" fill="none" stroke="black" stroke-width="2"/>
+          <text x="65" y="50" text-anchor="middle" fill="black">Solid</text>
+          <circle cx="35" cy="75" r="5" fill="blue"/>
+          <circle cx="55" cy="75" r="5" fill="blue"/>
+          <circle cx="75" cy="75" r="5" fill="blue"/>
+          <circle cx="95" cy="75" r="5" fill="blue"/>
+          
+          <circle cx="35" cy="95" r="5" fill="blue"/>
+          <circle cx="55" cy="95" r="5" fill="blue"/>
+          <circle cx="75" cy="95" r="5" fill="blue"/>
+          <circle cx="95" cy="95" r="5" fill="blue"/>
+          
+          <circle cx="35" cy="115" r="5" fill="blue"/>
+          <circle cx="55" cy="115" r="5" fill="blue"/>
+          <circle cx="75" cy="115" r="5" fill="blue"/>
+          <circle cx="95" cy="115" r="5" fill="blue"/>
+          
+          <!-- Liquid -->
+          <rect x="130" y="60" width="90" height="80" fill="none" stroke="black" stroke-width="2"/>
+          <text x="175" y="50" text-anchor="middle" fill="black">Liquid</text>
+          <circle cx="145" cy="75" r="5" fill="green"/>
+          <circle cx="165" cy="80" r="5" fill="green"/>
+          <circle cx="185" cy="70" r="5" fill="green"/>
+          <circle cx="205" cy="77" r="5" fill="green"/>
+          
+          <circle cx="150" cy="95" r="5" fill="green"/>
+          <circle cx="170" cy="100" r="5" fill="green"/>
+          <circle cx="190" cy="90" r="5" fill="green"/>
+          <circle cx="210" cy="98" r="5" fill="green"/>
+          
+          <circle cx="145" cy="115" r="5" fill="green"/>
+          <circle cx="165" cy="110" r="5" fill="green"/>
+          <circle cx="185" cy="120" r="5" fill="green"/>
+          <circle cx="205" cy="112" r="5" fill="green"/>
+          
+          <!-- Gas -->
+          <rect x="240" y="60" width="90" height="80" fill="none" stroke="black" stroke-width="2"/>
+          <text x="285" y="50" text-anchor="middle" fill="black">Gas</text>
+          <circle cx="250" cy="65" r="5" fill="red"/>
+          <circle cx="280" cy="85" r="5" fill="red"/>
+          <circle cx="260" cy="110" r="5" fill="red"/>
+          <circle cx="310" cy="70" r="5" fill="red"/>
+          <circle cx="320" cy="120" r="5" fill="red"/>
+          <circle cx="290" cy="125" r="5" fill="red"/>
+          
+          <text x="175" y="160" text-anchor="middle" fill="black">Particle arrangement in different states</text>
+          <text x="65" y="180" text-anchor="middle" fill="black">Ordered, Fixed</text>
+          <text x="175" y="180" text-anchor="middle" fill="black">Disordered, Close</text>
+          <text x="285" y="180" text-anchor="middle" fill="black">Random, Far apart</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Gaseous State</h2>
+      <ul>
+        <li>Gas laws:
+          <ul>
+            <li>Boyle's Law: P ∝ 1/V (at constant T, n)</li>
+            <li>Charles' Law: V ∝ T (at constant P, n)</li>
+            <li>Gay-Lussac's Law: P ∝ T (at constant V, n)</li>
+            <li>Avogadro's Law: V ∝ n (at constant P, T)</li>
+          </ul>
+        </li>
+        <li>Ideal Gas Equation: PV = nRT</li>
+        <li>STP conditions: 273.15 K, 1 atm</li>
+        <li>Molar volume at STP: 22.4 L/mol</li>
+        <li>Graham's Law of Diffusion: Rate ∝ 1/√M</li>
+      </ul>
+      <div class="formula">
+        PV = nRT<br>
+        R = 8.314 J/(mol·K) = 0.0821 (L·atm)/(mol·K)<br>
+        Dalton's Law: P<sub>total</sub> = P<sub>1</sub> + P<sub>2</sub> + ...<br>
+        Graham's Law: r<sub>1</sub>/r<sub>2</sub> = √(M<sub>2</sub>/M<sub>1</sub>)
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Boyle's Law -->
+          <rect x="50" y="30" width="100" height="60" fill="none" stroke="black" stroke-width="2"/>
+          <text x="100" y="20" text-anchor="middle" fill="black">Boyle's Law</text>
+          
+          <line x1="50" y1="150" x2="300" y2="150" stroke="black" stroke-width="2"/>
+          <line x1="50" y1="150" x2="50" y2="50" stroke="black" stroke-width="2"/>
+          
+          <path d="M50 150 Q100 80 300 50" stroke="red" stroke-width="2" fill="none"/>
+          <text x="175" y="90" text-anchor="middle" fill="black">P ∝ 1/V</text>
+          
+          <text x="175" y="170" text-anchor="middle" fill="black">Volume (V)</text>
+          <text x="30" y="100" text-anchor="middle" fill="black" transform="rotate(-90, 30, 100)">Pressure (P)</text>
+          
+          <!-- Charles' Law -->
+          <rect x="200" y="30" width="100" height="60" fill="none" stroke="black" stroke-width="2"/>
+          <text x="250" y="20" text-anchor="middle" fill="black">Charles' Law</text>
+          
+          <path d="M50 150 L300 50" stroke="blue" stroke-width="2" fill="none"/>
+          <text x="250" y="120" text-anchor="middle" fill="blue">V ∝ T</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Kinetic Theory of Gases</h2>
+      <ul>
+        <li>Assumptions:
+          <ul>
+            <li>Gases consist of molecules in constant, random motion</li>
+            <li>Volume of molecules negligible compared to container</li>
+            <li>No attractive forces between molecules</li>
+            <li>Collisions are perfectly elastic</li>
+            <li>Average KE of molecules proportional to absolute temperature</li>
+          </ul>
+        </li>
+        <li>KE<sub>avg</sub> = (3/2)RT per mole</li>
+        <li>RMS speed: v<sub>rms</sub> = √(3RT/M)</li>
+        <li>Maxwell-Boltzmann distribution of molecular speeds</li>
+      </ul>
+      <div class="formula">
+        KE<sub>avg</sub> = (3/2)kT per molecule<br>
+        KE<sub>avg</sub> = (3/2)RT per mole<br>
+        v<sub>rms</sub> = √(3RT/M)<br>
+        Pressure: P = (1/3)ρv<sub>rms</sub>²
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Maxwell-Boltzmann distribution -->
+          <line x1="50" y1="150" x2="300" y2="150" stroke="black" stroke-width="2"/>
+          <line x1="50" y1="150" x2="50" y2="50" stroke="black" stroke-width="2"/>
+          
+          <!-- Distribution curves at different temperatures -->
+          <path d="M50 150 Q75 100 100 90 Q150 60 175 90 Q200 120 250 145 Q270 150 300 150" 
+                stroke="blue" stroke-width="2" fill="none"/>
+          <text x="100" y="80" text-anchor="middle" fill="blue">T₁</text>
+          
+          <path d="M50 150 Q70 120 90 100 Q120 80 150 85 Q180 100 200 120 Q250 145 300 150" 
+                stroke="red" stroke-width="2" fill="none"/>
+          <text x="150" y="75" text-anchor="middle" fill="red">T₂ > T₁</text>
+          
+          <text x="175" y="170" text-anchor="middle" fill="black">Molecular Speed</text>
+          <text x="30" y="100" text-anchor="middle" fill="black" transform="rotate(-90, 30, 100)">Number of Molecules</text>
+          
+          <text x="175" y="40" text-anchor="middle" fill="black">Maxwell-Boltzmann Distribution</text>
+          <text x="175" y="190" text-anchor="middle" fill="black">Distribution shifts right with increasing temperature</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. Real Gases</h2>
+      <ul>
+        <li>Deviations from ideal behavior at high P or low T</li>
+        <li>Van der Waals equation: (P + a(n/V)²)(V - nb) = nRT</li>
+        <li>a: corrects for intermolecular attractions</li>
+        <li>b: corrects for volume of molecules</li>
+        <li>Compressibility factor: Z = PV/nRT
+          <ul>
+            <li>Z = 1 for ideal gases</li>
+            <li>Z < 1 at low P (attraction dominant)</li>
+            <li>Z > 1 at high P (repulsion dominant)</li>
+          </ul>
+        </li>
+        <li>Critical constants: T<sub>c</sub>, P<sub>c</sub>, V<sub>c</sub></li>
+      </ul>
+      <div class="formula">
+        Van der Waals: (P + a(n/V)²)(V - nb) = nRT<br>
+        Compressibility: Z = PV/nRT<br>
+        Critical temperature: T<sub>c</sub> = 8a/27Rb<br>
+        Critical pressure: P<sub>c</sub> = a/27b²
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- PV/nRT vs P graph -->
+          <line x1="50" y1="100" x2="300" y2="100" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+          <text x="30" y="100" text-anchor="middle" fill="black">1</text>
+          
+          <line x1="50" y1="150" x2="300" y2="150" stroke="black" stroke-width="2"/>
+          <line x1="50" y1="150" x2="50" y2="50" stroke="black" stroke-width="2"/>
+          
+          <!-- Curves for different gases -->
+          <path d="M50 100 Q100 70 150 60 Q200 70 250 120 Q275 150 300 180" 
+                stroke="blue" stroke-width="2" fill="none"/>
+          <text x="75" y="75" text-anchor="middle" fill="blue">H₂</text>
+          
+          <path d="M50 100 Q100 80 150 75 Q175 80 200 100 Q250 140 300 170" 
+                stroke="red" stroke-width="2" fill="none"/>
+          <text x="125" y="85" text-anchor="middle" fill="red">N₂</text>
+          
+          <path d="M50 100 Q75 120 100 125 Q150 130 200 120 Q250 105 300 95" 
+                stroke="green" stroke-width="2" fill="none"/>
+          <text x="200" y="130" text-anchor="middle" fill="green">CO₂</text>
+          
+          <text x="175" y="170" text-anchor="middle" fill="black">Pressure (P)</text>
+          <text x="30" y="100" text-anchor="middle" fill="black" transform="rotate(-90, 30, 100)">PV/nRT</text>
+          
+          <text x="175" y="40" text-anchor="middle" fill="black">Compressibility Factor vs Pressure</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>5. Liquid State</h2>
+      <ul>
+        <li>Properties:
+          <ul>
+            <li>Definite volume but no definite shape</li>
+            <li>Nearly incompressible</li>
+            <li>Surface tension and viscosity</li>
+          </ul>
+        </li>
+        <li>Surface tension: Energy required to increase surface area</li>
+        <li>Viscosity: Resistance to flow, η = F/A × dx/dv</li>
+        <li>Vapor pressure: Pressure exerted by vapor in equilibrium with liquid</li>
+        <li>Clausius-Clapeyron equation: ln(P₂/P₁) = (ΔH<sub>vap</sub>/R)((1/T₁) - (1/T₂))</li>
+      </ul>
+      <div class="formula">
+        Surface tension: γ = F/l<br>
+        Viscosity: η = (F/A) × (dx/dv)<br>
+        Clausius-Clapeyron: ln(P) = -ΔH<sub>vap</sub>/RT + C
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Surface tension -->
+          <rect x="50" y="100" width="100" height="50" fill="#aaddff" stroke="black" stroke-width="1"/>
+          <text x="100" y="90" text-anchor="middle" fill="black">Surface Tension</text>
+          
+          <line x1="100" y1="100" x2="150" y2="70" stroke="black" stroke-width="2"/>
+          <line x1="150" y1="70" x2="200" y2="100" stroke="black" stroke-width="2"/>
+          
+          <path d="M100 100 Q125 90 150 90 Q175 90 200 100" stroke="red" stroke-width="2" fill="none"/>
+          <text x="150" y="85" text-anchor="middle" fill="red">F</text>
+          
+          <!-- Vapor pressure -->
+          <rect x="220" y="100" width="100" height="50" fill="#aaddff" stroke="black" stroke-width="1"/>
+          <text x="270" y="90" text-anchor="middle" fill="black">Vapor Pressure</text>
+          
+          <circle cx="240" cy="120" r="3" fill="blue"/>
+          <circle cx="260" cy="110" r="3" fill="blue"/>
+          <circle cx="280" cy="95" r="3" fill="blue"/>
+          <circle cx="300" cy="85" r="3" fill="blue"/>
+          
+          <path d="M230 75 Q250 60 270 60 Q290 60 310 75" stroke="black" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="270" y="55" text-anchor="middle" fill="black">Vapor</text>
+          <text x="270" y="130" text-anchor="middle" fill="black">Liquid</text>
+          
+          <text x="175" y="170" text-anchor="middle" fill="black">Properties of Liquids</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>6. Solid State</h2>
+      <ul>
+        <li>Properties:
+          <ul>
+            <li>Definite shape and volume</li>
+            <li>Incompressible</li>
+            <li>High density</li>
+          </ul>
+        </li>
+        <li>Types: Crystalline and Amorphous</li>
+        <li>Crystal lattice: Unit cell, coordination number</li>
+        <li>Seven crystal systems: Cubic, Tetragonal, Orthorhombic, etc.</li>
+        <li>Cubic system types: Simple cubic (SC), Body-centered cubic (BCC), Face-centered cubic (FCC)</li>
+        <li>Packing fraction: FCC (74%) > BCC (68%) > SC (52%)</li>
+      </ul>
+      <div class="formula">
+        Density: ρ = (Z × M)/(N<sub>A</sub> × a³)<br>
+        where Z = no. of atoms per unit cell<br>
+        M = molar mass, a = edge length<br>
+        N<sub>A</sub> = Avogadro's number
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Simple Cubic -->
+          <rect x="50" y="70" width="60" height="60" fill="none" stroke="black" stroke-width="2"/>
+          <circle cx="50" cy="70" r="5" fill="blue"/>
+          <circle cx="110" cy="70" r="5" fill="blue"/>
+          <circle cx="50" cy="130" r="5" fill="blue"/>
+          <circle cx="110" cy="130" r="5" fill="blue"/>
+          <text x="80" y="60" text-anchor="middle" fill="black">SC</text>
+          <text x="80" y="150" text-anchor="middle" fill="black">CN = 6</text>
+          
+          <!-- Body-Centered Cubic -->
+          <rect x="150" y="70" width="60" height="60" fill="none" stroke="black" stroke-width="2"/>
+          <circle cx="150" cy="70" r="5" fill="blue"/>
+          <circle cx="210" cy="70" r="5" fill="blue"/>
+          <circle cx="150" cy="130" r="5" fill="blue"/>
+          <circle cx="210" cy="130" r="5" fill="blue"/>
+          <circle cx="180" cy="100" r="5" fill="blue"/>
+          <text x="180" y="60" text-anchor="middle" fill="black">BCC</text>
+          <text x="180" y="150" text-anchor="middle" fill="black">CN = 8</text>
+          
+          <!-- Face-Centered Cubic -->
+          <rect x="250" y="70" width="60" height="60" fill="none" stroke="black" stroke-width="2"/>
+          <circle cx="250" cy="70" r="5" fill="blue"/>
+          <circle cx="310" cy="70" r="5" fill="blue"/>
+          <circle cx="250" cy="130" r="5" fill="blue"/>
+          <circle cx="310" cy="130" r="5" fill="blue"/>
+          <circle cx="280" cy="70" r="5" fill="blue"/>
+          <circle cx="280" cy="130" r="5" fill="blue"/>
+          <circle cx="250" cy="100" r="5" fill="blue"/>
+          <circle cx="310" cy="100" r="5" fill="blue"/>
+          <text x="280" y="60" text-anchor="middle" fill="black">FCC</text>
+          <text x="280" y="150" text-anchor="middle" fill="black">CN = 12</text>
+          
+          <text x="180" y="180" text-anchor="middle" fill="black">Cubic Crystal Structures</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Remember all gas law equations and relations</li>
+        <li>Practice unit conversions between different pressure units</li>
+        <li>Understand the significance of critical temperature</li>
+        <li>Be able to calculate density of unit cells</li>
+        <li>Understand the relationship between vapor pressure and boiling point</li>
+        <li>Know how to apply Clausius-Clapeyron equation</li>
+        <li>Remember the packing fractions for different cubic structures</li>
+        <li>Practice problems involving conversion between STP and non-STP conditions</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button class="next-btn" onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "At constant temperature, doubling the volume of a gas will cause its pressure to:", 
+        options: ["Double", "Remain the same", "Reduce to half", "Quadruple"], 
+        answer: "Reduce to half" 
+      },
+      { 
+        question: "The RMS speed of gas molecules is directly proportional to:", 
+        options: ["√T", "T", "T²", "1/T"], 
+        answer: "√T" 
+      },
+      { 
+        question: "Which crystal system has the highest packing efficiency?", 
+        options: ["Simple cubic", "Body-centered cubic", "Face-centered cubic", "Hexagonal close-packed"], 
+        answer: "Face-centered cubic" 
+      },
+      { 
+        question: "The compressibility factor (Z) for an ideal gas is:", 
+        options: ["0", "Less than 1", "Equal to 1", "Greater than 1"], 
+        answer: "Equal to 1" 
+      },
+      { 
+        question: "At critical temperature, which of the following is true?", 
+        options: ["Liquid and gas states coexist", "Liquid cannot exist", "Gas cannot exist", "All three states coexist"], 
+        answer: "Liquid cannot exist" 
+      },
+      { 
+        question: "The number of atoms in a face-centered cubic unit cell is:", 
+        options: ["1", "2", "4", "8"], 
+        answer: "4" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+   
+    function loadQuestion() {
+  const q = quizData[currentIndex];
+  document.getElementById("question").innerHTML = q.question;
+  const optionList = document.getElementById("options");
+  document.getElementById("message").style.display = "none";
+  document.getElementById("answerBox").style.display = "none";
+  document.getElementById("correctAnswer").innerHTML = q.answer;
+  answered = false;
+
+  optionList.innerHTML = "";
+  q.options.forEach(opt => {
+    const li = document.createElement("li");
+    li.innerHTML = opt;
+    li.onclick = function() {
+      if (answered) return;
+      answered = true;
+      if (opt === q.answer) {
+        li.classList.add("correct");
+        document.getElementById("message").innerText = "🎉 Correct Answer!";
+        document.getElementById("message").style.color = "lime";
+        document.getElementById("message").style.display = "block";
+        score++;
+      } else {
+        li.classList.add("incorrect");
+        document.getElementById("message").innerText = "❌ Wrong Answer!";
+        document.getElementById("message").style.color = "red";
+        document.getElementById("message").style.display = "block";
+      }
+    };
+    optionList.appendChild(li);
+  });
+  
+  document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+  
+  // Show or hide submit button based on progress
+  if (currentIndex === quizData.length - 1) {
+    document.getElementById("submitBtn").style.display = "inline-block";
+    document.getElementById("nextBtn").style.display = "none";
+  } else {
+    document.getElementById("submitBtn").style.display = "none";
+    document.getElementById("nextBtn").style.display = "inline-block";
+  }
+}
+
+function nextQuestion() {
+  if (currentIndex < quizData.length - 1) {
+    currentIndex++;
+    loadQuestion();
+  } else {
+    submitQuiz();
+  }
+}
+
+function toggleAnswer() {
+  const answerBox = document.getElementById("answerBox");
+  if (answerBox.style.display === "none" || answerBox.style.display === "") {
+    answerBox.style.display = "block";
+    document.getElementById("answerBtn").innerText = "Hide Answer";
+  } else {
+    answerBox.style.display = "none";
+    document.getElementById("answerBtn").innerText = "Show Answer";
+  }
+}
+
+function submitQuiz() {
+  document.getElementById("quiz-box").innerHTML = `
+    <h2>Quiz Completed!</h2>
+    <div id="finalScore" style="display:block">Your Score: ${score} out of ${quizData.length}</div>
+    <div class="button-group">
+      <button onclick="tryAgain()">Try Again</button>
+    </div>
+  `;
+}
+
+function tryAgain() {
+  currentIndex = 0;
+  score = 0;
+  document.getElementById("quiz-box").innerHTML = `
+    <div class="question" id="question">Loading...</div>
+    <ul class="options" id="options"></ul>
+    <div class="message" id="message"></div>
+    <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+    <div class="button-group">
+      <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+      <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+      <button onclick="tryAgain()">Try Again</button>
+      <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+    </div>
+    <div class="slider-bar" id="progress">Question 1 of ${quizData.length}</div>
+    <div id="finalScore"></div>
+  `;
+  loadQuestion();
+}
+
+// Initialize the quiz when page loads
+window.onload = function() {
+  // Make sure these variables are declared
+  let currentIndex = 0;
+  let score = 0;
+  let answered = false;
+  
+  // Make sure quizData is defined
+  if (typeof quizData === 'undefined') {
+    console.error("quizData is not defined");
+    return;
+  }
+  
+  loadQuestion();
+};
+  </script>
+</body>
+</html>

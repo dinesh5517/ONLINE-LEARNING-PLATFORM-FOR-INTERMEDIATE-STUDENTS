@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thermodynamics in Chemistry - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .diagram {
+      max-width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .formula {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+    
+    .svg-container {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: center;
+    }
+    
+    th {
+      background-color: #333;
+      color: #ff6f00;
+    }
+    
+    .energy-level {
+      width: 100%;
+      height: 300px;
+      position: relative;
+      background-color: white;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+    
+    .energy-bar {
+      position: absolute;
+      width: 80%;
+      left: 10%;
+      height: 30px;
+      background-color: #ff6f00;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Chemical Thermodynamics - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Basic Concepts</h2>
+      <ul>
+        <li><strong>System:</strong> The part of universe under study</li>
+        <li><strong>Surroundings:</strong> Everything outside the system</li>
+        <li><strong>Types of Systems:</strong>
+          <ul>
+            <li><strong>Open:</strong> Can exchange both energy and matter</li>
+            <li><strong>Closed:</strong> Can exchange only energy</li>
+            <li><strong>Isolated:</strong> No exchange of energy or matter</li>
+          </ul>
+        </li>
+        <li><strong>State Functions:</strong> Properties that depend only on current state (P, V, T, U, H, S, G)</li>
+        <li><strong>Path Functions:</strong> Properties that depend on path (q, w)</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="600" height="300" viewBox="0 0 600 300">
+          <!-- System types -->
+          <rect x="50" y="50" width="150" height="150" fill="none" stroke="black" stroke-width="2"/>
+          <text x="125" y="140" text-anchor="middle" fill="black">Open System</text>
+          <line x1="200" y1="125" x2="220" y2="125" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="125" y1="200" x2="125" y2="220" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+          
+          <rect x="250" y="50" width="150" height="150" fill="none" stroke="black" stroke-width="2"/>
+          <text x="325" y="140" text-anchor="middle" fill="black">Closed System</text>
+          <line x1="325" y1="200" x2="325" y2="220" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="400" y1="125" x2="420" y2="125" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+          
+          <rect x="450" y="50" width="150" height="150" fill="none" stroke="black" stroke-width="2"/>
+          <text x="525" y="140" text-anchor="middle" fill="black">Isolated System</text>
+          <line x1="525" y1="200" x2="525" y2="220" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+          <line x1="600" y1="125" x2="620" y2="125" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+          
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L9,3 z" fill="black"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Laws of Thermodynamics</h2>
+      <ul>
+        <li><strong>Zeroth Law:</strong> Defines temperature (if A=B and B=C, then A=C)</li>
+        <li><strong>First Law:</strong> ΔU = q + w (Conservation of energy)</li>
+        <li><strong>Second Law:</strong> ΔS<sub>universe</sub> ≥ 0 (Entropy always increases)</li>
+        <li><strong>Third Law:</strong> S → 0 as T → 0 K (Perfect crystal at 0K has zero entropy)</li>
+      </ul>
+      <div class="formula">
+        First Law: ΔU = q + w<br>
+        Second Law: ΔS<sub>universe</sub> = ΔS<sub>system</sub> + ΔS<sub>surroundings</sub> > 0 (spontaneous)<br>
+        Third Law: S = k<sub>B</sub>lnΩ (Ω=1 at 0K)
+      </div>
+      
+      <div class="energy-level">
+        <div class="energy-bar" style="top: 50px;">Energy Conservation (First Law)</div>
+        <div class="energy-bar" style="top: 120px;">Entropy Increase (Second Law)</div>
+        <div class="energy-bar" style="top: 190px;">Absolute Zero (Third Law)</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Thermodynamic Quantities</h2>
+      <table>
+        <tr>
+          <th>Quantity</th>
+          <th>Symbol</th>
+          <th>Definition</th>
+          <th>Units</th>
+        </tr>
+        <tr>
+          <td>Internal Energy</td>
+          <td>U</td>
+          <td>Total energy of system</td>
+          <td>J</td>
+        </tr>
+        <tr>
+          <td>Enthalpy</td>
+          <td>H</td>
+          <td>H = U + PV</td>
+          <td>J</td>
+        </tr>
+        <tr>
+          <td>Entropy</td>
+          <td>S</td>
+          <td>Measure of disorder</td>
+          <td>J/K</td>
+        </tr>
+        <tr>
+          <td>Gibbs Free Energy</td>
+          <td>G</td>
+          <td>G = H - TS</td>
+          <td>J</td>
+        </tr>
+        <tr>
+          <td>Heat</td>
+          <td>q</td>
+          <td>Energy transfer due to ΔT</td>
+          <td>J</td>
+        </tr>
+        <tr>
+          <td>Work</td>
+          <td>w</td>
+          <td>Energy transfer due to ΔV</td>
+          <td>J</td>
+        </tr>
+      </table>
+      <ul>
+        <li><strong>Standard State:</strong> 1 atm pressure, 1M concentration, 25°C (298K)</li>
+        <li><strong>Extensive Properties:</strong> Depend on quantity (U, H, S, G, V, n)</li>
+        <li><strong>Intensive Properties:</strong> Independent of quantity (P, T, density)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. Enthalpy Changes</h2>
+      <ul>
+        <li><strong>Standard Enthalpy of Formation (ΔH°<sub>f</sub>):</strong> Heat change when 1 mole forms from elements</li>
+        <li><strong>Standard Enthalpy of Combustion (ΔH°<sub>c</sub>):</strong> Heat released burning 1 mole</li>
+        <li><strong>Hess's Law:</strong> ΔH for overall reaction = sum of ΔH for steps</li>
+        <li><strong>Bond Enthalpy:</strong> Energy to break 1 mole of bonds in gas phase</li>
+      </ul>
+      <div class="formula">
+        Hess's Law: ΔH<sub>rxn</sub> = ΣΔH°<sub>f</sub>(products) - ΣΔH°<sub>f</sub>(reactants)<br>
+        Bond Enthalpy: ΔH<sub>rxn</sub> = Σ(bonds broken) - Σ(bonds formed)
+      </div>
+      <div class="svg-container">
+        <svg width="500" height="200" viewBox="0 0 500 200">
+          <!-- Reaction path -->
+          <path d="M50,100 L150,100 L250,50 L350,100 L450,100" fill="none" stroke="#ff6f00" stroke-width="3"/>
+          
+          <!-- Points -->
+          <circle cx="50" cy="100" r="10" fill="white" stroke="black"/>
+          <circle cx="150" cy="100" r="10" fill="white" stroke="black"/>
+          <circle cx="250" cy="50" r="10" fill="white" stroke="black"/>
+          <circle cx="350" cy="100" r="10" fill="white" stroke="black"/>
+          <circle cx="450" cy="100" r="10" fill="white" stroke="black"/>
+          
+          <!-- Labels -->
+          <text x="50" y="130" text-anchor="middle" fill="black">Reactants</text>
+          <text x="150" y="130" text-anchor="middle" fill="black">Intermediate 1</text>
+          <text x="250" y="20" text-anchor="middle" fill="black">Transition State</text>
+          <text x="350" y="130" text-anchor="middle" fill="black">Intermediate 2</text>
+          <text x="450" y="130" text-anchor="middle" fill="black">Products</text>
+          
+          <!-- Energy levels -->
+          <line x1="20" y1="100" x2="480" y2="100" stroke="black" stroke-dasharray="5,5"/>
+          <text x="490" y="105" text-anchor="end" fill="black">ΔH<sub>rxn</sub></text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>5. Spontaneity and Gibbs Free Energy</h2>
+      <ul>
+        <li><strong>Spontaneous Process:</strong> Occurs without external intervention</li>
+        <li><strong>Gibbs Free Energy:</strong> G = H - TS (Maximum useful work)</li>
+        <li><strong>Spontaneity Criteria:</strong>
+          <ul>
+            <li>ΔG &lt; 0: Spontaneous</li>
+            <li>ΔG = 0: Equilibrium</li>
+            <li>ΔG &gt; 0: Non-spontaneous</li>
+          </ul>
+        </li>
+        <li><strong>Temperature Dependence:</strong> ΔG = ΔH - TΔS</li>
+      </ul>
+      <div class="formula">
+        ΔG° = -RTlnK (Relation to equilibrium constant)<br>
+        ΔG = ΔG° + RTlnQ (Reaction quotient)
+      </div>
+      <div class="svg-container">
+        <svg width="400" height="200" viewBox="0 0 400 200">
+          <!-- Spontaneity quadrants -->
+          <rect x="50" y="50" width="150" height="150" fill="#d5f5e3" stroke="black"/>
+          <text x="125" y="125" text-anchor="middle">ΔH &lt; 0<br>ΔS &gt; 0<br>Always spontaneous</text>
+          
+          <rect x="200" y="50" width="150" height="150" fill="#fadbd8" stroke="black"/>
+          <text x="275" y="125" text-anchor="middle">ΔH &gt; 0<br>ΔS &lt; 0<br>Never spontaneous</text>
+          
+          <rect x="50" y="200" width="150" height="150" fill="#fef9e7" stroke="black"/>
+          <text x="125" y="275" text-anchor="middle">ΔH &lt; 0<br>ΔS &lt; 0<br>Spontaneous at low T</text>
+          
+          <rect x="200" y="200" width="150" height="150" fill="#eaf2f8" stroke="black"/>
+          <text x="275" y="275" text-anchor="middle">ΔH &gt; 0<br>ΔS &gt; 0<br>Spontaneous at high T</text>
+          
+          <text x="200" y="30" text-anchor="middle" font-weight="bold">Spontaneity Based on ΔH and ΔS</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>EAMCET Problem-Solving Tips</h2>
+      <ul>
+        <li>Memorize standard ΔH°<sub>f</sub> values for common substances (H₂O, CO₂, etc.)</li>
+        <li>Practice converting between ΔG, K, and Q using ΔG = ΔG° + RTlnQ</li>
+        <li>Remember units: R = 8.314 J/mol·K, T in Kelvin (K = °C + 273)</li>
+        <li>For phase changes: ΔG = 0 at equilibrium (melting, boiling points)</li>
+        <li>For electrochemical cells: ΔG = -nFE°</li>
+        <li>When given bond enthalpies: Σ(bonds broken) - Σ(bonds formed)</li>
+        <li>For entropy: gases > liquids > solids; more particles = higher entropy</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Thermodynamics Quiz</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button class="next-btn" onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "Which law of thermodynamics states that energy cannot be created or destroyed?", 
+        options: ["Zeroth Law", "First Law", "Second Law", "Third Law"], 
+        answer: "First Law" 
+      },
+      { 
+        question: "For a reaction to be spontaneous at all temperatures, which conditions must be met?", 
+        options: ["ΔH > 0 and ΔS > 0", "ΔH < 0 and ΔS > 0", "ΔH < 0 and ΔS < 0", "ΔH > 0 and ΔS < 0"], 
+        answer: "ΔH < 0 and ΔS > 0" 
+      },
+      { 
+        question: "The standard Gibbs free energy change (ΔG°) for a reaction is -15 kJ/mol at 298K. What is the equilibrium constant (K)?", 
+        options: ["K > 1", "K < 1", "K = 1", "Cannot be determined"], 
+        answer: "K > 1" 
+      },
+      { 
+        question: "What is the entropy change when 1 mole of ice melts at 0°C? (ΔH<sub>fus</sub> = 6.01 kJ/mol)", 
+        options: ["22.0 J/K", "6.01 J/K", "0 J/K", "-6.01 J/K"], 
+        answer: "22.0 J/K" 
+      },
+      { 
+        question: "For the reaction 2H₂(g) + O₂(g) → 2H₂O(l), which is true about work (w)?", 
+        options: ["w = 0", "w > 0", "w < 0", "w = ΔH"], 
+        answer: "w > 0" 
+      },
+      { 
+        question: "If a reaction has ΔH = -50 kJ and ΔS = -100 J/K, above what temperature will it become non-spontaneous?", 
+        options: ["500 K", "273 K", "298 K", "200 K"], 
+        answer: "500 K" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerHTML = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerHTML = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerHTML = opt;
+        li.onclick = function() {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerHTML = "🎉 Correct Answer!";
+            document.getElementById("message").style.color = "lime";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerHTML = "❌ Wrong Answer!";
+            document.getElementById("message").style.color = "red";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => {
+            el.classList.add("disabled");
+            if (el.innerHTML === q.answer) el.classList.add("correct");
+          });
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      document.getElementById("submitBtn").style.display = currentIndex === quizData.length - 1 ? "block" : "none";
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        document.getElementById("submitBtn").style.display = "block";
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      currentIndex = 0;
+      score = 0;
+      loadQuestion();
+      document.getElementById("finalScore").style.display = "none";
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerHTML = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

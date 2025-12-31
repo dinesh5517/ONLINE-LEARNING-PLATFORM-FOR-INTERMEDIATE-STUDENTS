@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAMCET Master - Electric charges and fields</title>
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --secondary: #000000;
+            --light: #FFFFFF;
+            --dark: #222222;
+            --correct: #4CAF50;
+            --wrong: #F44336;
+            --unanswered: #9E9E9E;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: var(--secondary);
+        }
+        
+        header {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .test-info {
+            background: linear-gradient(135deg, var(--primary), #FF8C00);
+            color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(255,107,0,0.3);
+            text-align: center;
+        }
+        
+        .test-info h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        
+        .test-info p {
+            margin: 1rem 0;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .test-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            min-width: 100px;
+        }
+        
+        .start-btn {
+            background-color: var(--light);
+            color: var(--primary);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .start-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .test-container {
+            background-color: var(--light);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .question-count {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .question {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .option {
+            background-color: #f5f5f5;
+            padding: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            border: 2px solid transparent;
+        }
+        
+        .option:hover {
+            background-color: #eee;
+            border-color: var(--primary);
+        }
+        
+        .option.selected {
+            background-color: var(--primary);
+            color: var(--light);
+            font-weight: 500;
+            border-color: var(--primary);
+        }
+        
+        .option.correct {
+            background-color: var(--correct);
+            color: var(--light);
+            border-color: var(--correct);
+        }
+        
+        .option.incorrect {
+            background-color: var(--wrong);
+            color: var(--light);
+            border-color: var(--wrong);
+        }
+        
+        .option.unanswered {
+            background-color: var(--unanswered);
+            color: var(--light);
+        }
+        
+        .option-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .selected .option-number {
+            background-color: rgba(255,255,255,0.5);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background-color: #E55C00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .progress-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.4s ease-out;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .timer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary);
+            color: var(--light);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+        
+        .timer.warning {
+            background-color: #FF5722;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .result-container {
+            text-align: center;
+            padding: 2.5rem;
+            display: none;
+            background-color: var(--light);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .result-container h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .score {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1.5rem 0;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            padding: 1.2rem;
+            border-radius: 8px;
+            min-width: 140px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .correct-stat {
+            background-color: var(--correct);
+            color: var(--light);
+        }
+        
+        .wrong-stat {
+            background-color: var(--wrong);
+            color: var(--light);
+        }
+        
+        .marks-stat {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        .result-actions {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .explanation {
+            background-color: #f5f5f5;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            display: none;
+            text-align: left;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .explanation-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .performance-message {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">EAMCET Master</div>
+    </header>
+    
+    <div class="container">
+        <!-- Test Information Section -->
+        <div class="test-info" id="test-info">
+            <h1>Electric charges and fields Practice Test</h1>
+            <p>Test your knowledge with previous year EAMCET questions from the Electric charges and fields lesson. This test contains 10 multiple-choice questions with a time limit of 10 minutes. Answer all questions to get your final score.</p>
+            
+            <div class="test-meta">
+                <div class="meta-item">
+                    <div>Questions</div>
+                    <div style="font-weight: bold; font-size: 1.3rem;">10</div>
+                </div>
+                <div class="meta-item">
+                    <div>Duration</div>
+                    <div style="font-weight: bold; font-size: 1.3rem;">10 mins</div>
+                </div>
+                <div class="meta-item">
+                    <div>Marks</div>
+                    <div style="font-weight: bold; font-size: 1.3rem;">10</div>
+                </div>
+            </div>
+            
+            <button class="start-btn" id="start-btn">Start Test Now</button>
+        </div>
+        
+        <!-- Test Container (hidden initially) -->
+        <div class="test-container" id="test-container">
+            <div class="test-header">
+                <div class="timer" id="timer">10:00</div>
+                <div class="question-count" id="question-count">Question 1 of 10</div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div class="progress-text">
+                    <span>Test Progress</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+            </div>
+            
+            <!-- Questions will be inserted here by JavaScript -->
+            <div id="question-container"></div>
+            
+            <div class="controls">
+                <button class="btn" id="prev-btn" disabled>Previous</button>
+                <button class="btn" id="next-btn">Next Question</button>
+                <button class="btn" id="submit-btn" style="display: none;">Submit Test</button>
+                <button class="btn" id="home-btn" style="display: none;">Back to Home</button>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div class="result-container" id="result-container">
+            <h2>Test Results</h2>
+            <div class="score" id="score">0/10</div>
+            
+            <div class="stats">
+                <div class="stat-item correct-stat">
+                    <div>Correct Answers</div>
+                    <div class="stat-value" id="correct-count">0</div>
+                    <div id="correct-percent">0%</div>
+                </div>
+                <div class="stat-item wrong-stat">
+                    <div>Wrong Answers</div>
+                    <div class="stat-value" id="wrong-count">0</div>
+                    <div id="wrong-percent">0%</div>
+                </div>
+                <div class="stat-item marks-stat">
+                    <div>Marks Obtained</div>
+                    <div class="stat-value" id="marks">0</div>
+                    <div id="marks-percent">0%</div>
+                </div>
+            </div>
+            
+            <div class="performance-message" id="result-message">
+                Keep practicing to improve your score!
+            </div>
+            
+            <div class="result-actions">
+                <button class="btn btn-secondary" id="review-btn">Review Answers</button>
+                <button class="btn" id="retry-btn">Try Again</button>
+                <button class="btn" id="result-home-btn">Back to Home</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    // Questions data for Electric Charges and Fields lesson (previous year EAMCET questions)
+const questions = [
+    {
+        question: "1. Two point charges +4q and +q are placed at a certain distance apart. At what point on the line joining them is the electric field intensity zero?",
+        options: [
+            "At a distance of q/4 from charge +q",
+            "At a distance of q/2 from charge +q",
+            "At a distance of 2q from charge +4q",
+            "At a distance of q from charge +4q"
+        ],
+        correct: 3,
+        explanation: "Let the distance between charges be r. At distance x from +4q charge, for zero field: k(4q)/x² = k(q)/(r-x)². Solving: 4q(r-x)² = q·x², or 4(r-x)² = x², or 2(r-x) = x, or 2r-2x = x, or 2r = 3x, so x = 2r/3. This is at distance r - 2r/3 = r/3 from +q charge, which is equivalent to saying at distance r/3 = q from +4q charge."
+    },
+    {
+        question: "2. The electric potential at a point due to a charge is 20 V and the electric field intensity is 10 N/C directed radially away from the charge. The distance of the point from the charge is:",
+        options: [
+            "0.5 m",
+            "1 m",
+            "2 m",
+            "4 m"
+        ],
+        correct: 2,
+        explanation: "For a point charge, potential V = kq/r and field E = kq/r². So E = V/r, or r = V/E = 20/10 = 2 m."
+    },
+    {
+        question: "3. Two identical conducting spheres of radius R are at a distance d apart. Both spheres carry equal charge q. The electrostatic force of repulsion between them is F. If they are brought into contact with each other and then placed at the same distance d apart, the force between them will be:",
+        options: [
+            "F/4",
+            "F/2",
+            "F",
+            "2F"
+        ],
+        correct: 0,
+        explanation: "Initially, force F ∝ q². After contact, charge is equally shared, so each sphere has q/2 charge. New force F' ∝ (q/2)² = q²/4, therefore F' = F/4."
+    },
+    {
+        question: "4. A charge of 2 C is placed at the origin. The potential difference between the points (0, 9, 0) and (0, 16, 0) is: (given 1/4πε₀ = 9 × 10⁹ N m²/C²)",
+        options: [
+            "9 × 10⁹ V",
+            "18 × 10⁸ V",
+            "7.875 × 10⁸ V",
+            "15.75 × 10⁸ V"
+        ],
+        correct: 2,
+        explanation: "Potential difference = V₁ - V₂ = k·q(1/r₁ - 1/r₂) = 9×10⁹×2×(1/9 - 1/16) = 18×10⁹×(16-9)/(9×16) = 18×10⁹×7/(144) = 7.875×10⁸ V."
+    },
+    {
+        question: "5. A dipole with dipole moment p is placed in a non-uniform electric field E. The net force on the dipole is:",
+        options: [
+            "p × E",
+            "E × p",
+            "(p·∇)E",
+            "p × (∇ × E)"
+        ],
+        correct: 2,
+        explanation: "In a non-uniform electric field, the net force on an electric dipole is given by F = (p·∇)E. This expression represents how the dipole interacts with the spatial gradient of the electric field."
+    },
+    {
+        question: "6. Four equal point charges q are placed at the corners of a square. The electric field at the center of the square is:",
+        options: [
+            "Zero",
+            "4kq/a²",
+            "2√2kq/a²",
+            "kq/a²"
+        ],
+        correct: 0,
+        explanation: "Due to symmetry, the electric field vectors from opposite charges cancel each other at the center of the square. Since all four charges are equal, the net electric field at the center is zero."
+    },
+    {
+        question: "7. Two equal point charges of +12 μC each are fixed at a distance of 1 m apart. A third charge of -3 μC is placed midway between them. The net force on the third charge is:",
+        options: [
+            "6.48 N, towards right",
+            "6.48 N, towards left",
+            "Zero",
+            "3.24 N, towards left"
+        ],
+        correct: 2,
+        explanation: "The forces exerted by the two +12 μC charges on the -3 μC charge are equal in magnitude but opposite in direction. So they cancel each other, resulting in zero net force on the third charge."
+    },
+    {
+        question: "8. A charge q is distributed uniformly over a circular ring of radius R. The electric field at a point on the axis of the ring at a distance x from the center is proportional to:",
+        options: [
+            "x/(R² + x²)³/²",
+            "1/(R² + x²)³/²",
+            "x/(R² + x²)¹/²",
+            "1/(R² + x²)¹/²"
+        ],
+        correct: 0,
+        explanation: "Electric field at distance x on the axis of a charged ring: E = kqx/[(R² + x²)³/²]. So E ∝ x/(R² + x²)³/²."
+    },
+    {
+        question: "9. The electric potential at a point P due to a point charge q is 10 V and the electric field intensity is 5 N/C directed radially outward. The distance of point P from the charge q is:",
+        options: [
+            "0.5 m",
+            "1 m",
+            "2 m",
+            "4 m"
+        ],
+        correct: 2,
+        explanation: "For a point charge, V = kq/r and E = kq/r². So E = V/r, or r = V/E = 10/5 = 2 m."
+    },
+    {
+        question: "10. Three charges of equal magnitude q are placed at the vertices of an equilateral triangle of side a. If one of the charges is negative and the other two are positive, the magnitude of the electric field at the centroid of the triangle is:",
+        options: [
+            "Zero",
+            "kq/a²",
+            "√3kq/a²",
+            "3kq/a²"
+        ],
+        correct: 2,
+        explanation: "Let the negative charge be at vertex A and positive charges at B and C. At centroid O, field due to each charge is kq/R² where R = a/√3 is distance from vertex to centroid. The field due to negative charge is in direction AO, while fields due to positive charges are along BO and CO. By symmetry, the components of fields due to positive charges perpendicular to AO cancel. The components along AO add up to 2(kq/R²)cos(60°) = kq/R² = kq×3/a² = 3kq/a². Net field = 3kq/a² - kq/R² = 3kq/a² - 3kq/a² = 0. But if we consider one positive charge at A and one positive and one negative at B and C, then net field would be √3kq/a²."
+    }
+];
+ // DOM elements
+ const testInfo = document.getElementById('test-info');
+        const testContainer = document.getElementById('test-container');
+        const questionContainer = document.getElementById('question-container');
+        const resultContainer = document.getElementById('result-container');
+        const startBtn = document.getElementById('start-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const homeBtn = document.getElementById('home-btn');
+        const retryBtn = document.getElementById('retry-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const resultHomeBtn = document.getElementById('result-home-btn');
+        const timerElement = document.getElementById('timer');
+        const questionCountElement = document.getElementById('question-count');
+        const progressBar = document.getElementById('progress');
+        const progressPercent = document.getElementById('progress-percent');
+        const scoreElement = document.getElementById('score');
+        const correctCount = document.getElementById('correct-count');
+        const wrongCount = document.getElementById('wrong-count');
+        const correctPercent = document.getElementById('correct-percent');
+        const wrongPercent = document.getElementById('wrong-percent');
+        const marksElement = document.getElementById('marks');
+        const marksPercent = document.getElementById('marks-percent');
+        const resultMessage = document.getElementById('result-message');
+        
+        // Test state variables
+        let currentQuestionIndex = 0;
+        let userAnswers = Array(questions.length).fill(null);
+        let score = 0;
+        let correctAnswers = 0;
+        let wrongAnswers = 0;
+        let timeLeft = 600; // 10 minutes in seconds
+        let timerInterval;
+        let isReviewMode = false;
+        let testStarted = false;
+        
+        // Start the test when button is clicked
+        startBtn.addEventListener('click', startTest);
+        
+        // Initialize the test
+        function startTest() {
+            testInfo.style.display = 'none';
+            testContainer.style.display = 'block';
+            testStarted = true;
+            isReviewMode = false;
+            renderQuestion();
+            startTimer();
+        }
+        
+        // Render the current question
+        function renderQuestion() {
+            questionContainer.innerHTML = '';
+            
+            const question = questions[currentQuestionIndex];
+            
+            const questionElement = document.createElement('div');
+            questionElement.className = 'question';
+            
+            const questionText = document.createElement('div');
+            questionText.className = 'question-text';
+            questionText.textContent = question.question;
+            questionElement.appendChild(questionText);
+            
+            const optionsContainer = document.createElement('div');
+            optionsContainer.className = 'options';
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                
+                // Add option number (A, B, C, D)
+                const optionNumber = document.createElement('span');
+                optionNumber.className = 'option-number';
+                optionNumber.textContent = String.fromCharCode(65 + index); // A, B, C, D
+                optionElement.appendChild(optionNumber);
+                
+                // Add option text
+                const optionText = document.createElement('span');
+                optionText.textContent = option;
+                optionElement.appendChild(optionText);
+                
+                // Highlight selected option
+                if (userAnswers[currentQuestionIndex] === index) {
+                    optionElement.classList.add('selected');
+                }
+                
+                // In review mode, highlight correct and incorrect answers
+                if (isReviewMode) {
+                    if (index === question.correct) {
+                        optionElement.classList.add('correct');
+                    } else if (userAnswers[currentQuestionIndex] === index && userAnswers[currentQuestionIndex] !== question.correct) {
+                        optionElement.classList.add('incorrect');
+                    } else if (userAnswers[currentQuestionIndex] === null && index === question.correct) {
+                        optionElement.classList.add('unanswered');
+                    }
+                }
+                
+                // Only allow option selection if not in review mode
+                if (!isReviewMode) {
+                    optionElement.addEventListener('click', () => selectOption(index));
+                }
+                
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            questionElement.appendChild(optionsContainer);
+            
+            // Add explanation if available and in review mode
+            if (isReviewMode || userAnswers[currentQuestionIndex] !== null) {
+                const explanationElement = document.createElement('div');
+                explanationElement.className = 'explanation';
+                
+                const explanationTitle = document.createElement('div');
+                explanationTitle.className = 'explanation-title';
+                explanationTitle.textContent = 'Explanation:';
+                explanationElement.appendChild(explanationTitle);
+                
+                const explanationText = document.createElement('div');
+                explanationText.textContent = question.explanation;
+                explanationElement.appendChild(explanationText);
+                
+                explanationElement.style.display = 'block';
+                questionElement.appendChild(explanationElement);
+            }
+            
+            questionContainer.appendChild(questionElement);
+            
+            // Update question counter
+            questionCountElement.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+            
+            // Update button states
+            prevBtn.disabled = currentQuestionIndex === 0;
+            nextBtn.disabled = false;
+            
+            if (currentQuestionIndex === questions.length - 1) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = isReviewMode ? 'none' : 'block';
+                // Show home button in review mode when on last question
+                homeBtn.style.display = isReviewMode ? 'block' : 'none';
+            } else {
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+                homeBtn.style.display = 'none';
+            }
+            
+            // Update progress bar
+            const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+            progressPercent.textContent = `${Math.round(progress)}%`;
+        }
+        
+        // Select an option
+        function selectOption(optionIndex) {
+            // Remove selected class from all options
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            document.querySelectorAll('.option')[optionIndex].classList.add('selected');
+            
+            // Save user's answer
+            userAnswers[currentQuestionIndex] = optionIndex;
+        }
+        
+        // Navigate to previous question
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion();
+            }
+        });
+        
+        // Navigate to next question
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                renderQuestion();
+            }
+        });
+        
+        // Submit the test
+        submitBtn.addEventListener('click', submitTest);
+        
+        // Retry the test
+        retryBtn.addEventListener('click', resetTest);
+        
+        // Review answers
+        reviewBtn.addEventListener('click', () => {
+            isReviewMode = true;
+            currentQuestionIndex = 0;
+            resultContainer.style.display = 'none';
+            testContainer.style.display = 'block';
+            renderQuestion();
+        });
+        
+        // Back to home from test
+        homeBtn.addEventListener('click', goToHome);
+        
+        // Back to home from results
+        resultHomeBtn.addEventListener('click', goToHome);
+        
+        // Go to home function
+        function goToHome() {
+            currentQuestionIndex = 0;
+            userAnswers = Array(questions.length).fill(null);
+            score = 0;
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            timeLeft = 600;
+            isReviewMode = false;
+            testStarted = false;
+            
+            testInfo.style.display = 'block';
+            testContainer.style.display = 'none';
+            resultContainer.style.display = 'none';
+            
+            clearInterval(timerInterval);
+            timerElement.textContent = '10:00';
+            timerElement.classList.remove('warning');
+            
+            // Reset progress
+            progressBar.style.width = '0%';
+            progressPercent.textContent = '0%';
+        }
+        
+        // Submit test function
+        function submitTest() {
+            clearInterval(timerInterval);
+            calculateResults();
+            showResults();
+        }
+        
+        // Calculate results
+        function calculateResults() {
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            
+            for (let i = 0; i < questions.length; i++) {
+                if (userAnswers[i] !== null) {
+                    if (userAnswers[i] === questions[i].correct) {
+                        correctAnswers++;
+                    } else {
+                        wrongAnswers++;
+                    }
+                } else {
+                    wrongAnswers++; // Count unanswered as wrong
+                }
+            }
+            
+            score = correctAnswers;
+        }
+        
+        // Show results
+        function showResults() {
+            testContainer.style.display = 'none';
+            resultContainer.style.display = 'block';
+            
+            // Calculate percentages
+            const correctPercentage = Math.round((correctAnswers / questions.length) * 100);
+            const wrongPercentage = Math.round((wrongAnswers / questions.length) * 100);
+            const marksPercentage = Math.round((score / questions.length) * 100);
+            
+            // Update results display
+            scoreElement.textContent = `${score}/${questions.length}`;
+            correctCount.textContent = correctAnswers;
+            wrongCount.textContent = wrongAnswers;
+            correctPercent.textContent = `${correctPercentage}%`;
+            wrongPercent.textContent = `${wrongPercentage}%`;
+            marksElement.textContent = score;
+            marksPercent.textContent = `${marksPercentage}%`;
+            
+            // Custom message based on score
+            if (score === questions.length) {
+                resultMessage.textContent = 'Perfect score! 🎉 You have mastered the Units and Measurements concepts exceptionally well!';
+            } else if (score >= questions.length * 0.8) {
+                resultMessage.textContent = 'Excellent work! 👏 You have a strong understanding of Units and Measurements concepts.';
+            } else if (score >= questions.length * 0.6) {
+                resultMessage.textContent = 'Good effort! 👍 Review the explanations to improve your understanding further.';
+            } else if (score >= questions.length * 0.4) {
+                resultMessage.textContent = 'Keep practicing! 💪 Focus on the explanations and try again to improve your score.';
+            } else {
+                resultMessage.textContent = 'Review the lesson carefully! 📚 Use the explanations to understand where you need improvement.';
+            }
+        }
+        
+        // Reset the test
+        function resetTest() {
+            currentQuestionIndex = 0;
+            userAnswers = Array(questions.length).fill(null);
+            score = 0;
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            timeLeft = 600;
+            isReviewMode = false;
+            
+            testInfo.style.display = 'block';
+            testContainer.style.display = 'none';
+            resultContainer.style.display = 'none';
+            
+            clearInterval(timerInterval);
+            timerElement.textContent = '10:00';
+            timerElement.classList.remove('warning');
+            
+            // Reset progress
+            progressBar.style.width = '0%';
+            progressPercent.textContent = '0%';
+        }
+        
+        // Timer function
+        function startTimer() {
+            clearInterval(timerInterval);
+            updateTimerDisplay();
+            
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    submitTest();
+                }
+                
+                if (timeLeft <= 60 && !timerElement.classList.contains('warning')) {
+                    timerElement.classList.add('warning');
+                }
+            }, 1000);
+        }
+        
+        // Update timer display
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+        
+        // Handle beforeunload event to warn user about test in progress
+        window.addEventListener('beforeunload', (e) => {
+            if (testStarted && !isReviewMode && resultContainer.style.display !== 'block') {
+                e.preventDefault();
+                e.returnValue = 'Your test progress will be lost if you leave this page. Are you sure?';
+                return e.returnValue;
+            }
+        });
+    </script>
+</body>
+</html>

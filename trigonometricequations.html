@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trigonometric Equations - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ff6f00;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ff6f00;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ff6f00;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #ff6f00;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #ff6f00;
+    }
+    .formula {
+      font-family: 'Courier New', monospace;
+      color: #ff6f00;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+    .unit-circle {
+      max-width: 300px;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Trigonometric Equations - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Basic Equations -->
+    <div class="section">
+      <h2>1. Basic Trigonometric Equations</h2>
+      <table>
+        <tr>
+          <th>Equation</th>
+          <th>General Solution</th>
+        </tr>
+        <tr>
+          <td>sin θ = sin α</td>
+          <td>θ = nπ + (-1)ⁿα, n ∈ ℤ</td>
+        </tr>
+        <tr>
+          <td>cos θ = cos α</td>
+          <td>θ = 2nπ ± α, n ∈ ℤ</td>
+        </tr>
+        <tr>
+          <td>tan θ = tan α</td>
+          <td>θ = nπ + α, n ∈ ℤ</td>
+        </tr>
+      </table>
+      <div class="formula">
+        For sin θ = k ⇒ θ = sin⁻¹k + 2nπ or π - sin⁻¹k + 2nπ<br>
+        For cos θ = k ⇒ θ = ±cos⁻¹k + 2nπ<br>
+        For tan θ = k ⇒ θ = tan⁻¹k + nπ
+      </div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Unit_circle_angles_color.svg/600px-Unit_circle_angles_color.svg.png" alt="Unit Circle" class="unit-circle">
+    </div>
+
+    <!-- Important Identities -->
+    <div class="section">
+      <h2>2. Important Identities</h2>
+      <ul>
+        <li><strong>Pythagorean:</strong> sin²θ + cos²θ = 1</li>
+        <li><strong>Sum/Difference:</strong>
+          <ul>
+            <li>sin(A±B) = sinAcosB ± cosAsinB</li>
+            <li>cos(A±B) = cosAcosB ∓ sinAsinB</li>
+          </ul>
+        </li>
+        <li><strong>Double Angle:</strong>
+          <ul>
+            <li>sin2θ = 2sinθcosθ</li>
+            <li>cos2θ = cos²θ - sin²θ = 2cos²θ - 1 = 1 - 2sin²θ</li>
+          </ul>
+        </li>
+        <li><strong>Triple Angle:</strong>
+          <ul>
+            <li>sin3θ = 3sinθ - 4sin³θ</li>
+            <li>cos3θ = 4cos³θ - 3cosθ</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="formula">
+        sin²θ = (1 - cos2θ)/2<br>
+        cos²θ = (1 + cos2θ)/2<br>
+        tan2θ = 2tanθ/(1 - tan²θ)
+      </div>
+    </div>
+
+    <!-- Solving Techniques -->
+    <div class="section">
+      <h2>3. Solving Techniques</h2>
+      <ul>
+        <li><strong>Factorization:</strong> Express as product of factors = 0</li>
+        <li><strong>Using Identities:</strong> Convert to single trig function</li>
+        <li><strong>Homogeneous Equations:</strong> Divide by cosⁿθ or sinⁿθ</li>
+        <li><strong>Quadratic Form:</strong> Substitute u = sinθ/cosθ</li>
+        <li><strong>Graphical Method:</strong> Find intersection points</li>
+      </ul>
+      <div class="formula">
+        Example: a·sinθ + b·cosθ = c ⇒ √(a²+b²)sin(θ+α) = c<br>
+        where α = tan⁻¹(b/a)
+      </div>
+    </div>
+
+    <!-- Special Cases -->
+    <div class="section">
+      <h2>4. Special Cases</h2>
+      <table>
+        <tr>
+          <th>Case</th>
+          <th>Solution</th>
+        </tr>
+        <tr>
+          <td>sinθ = 0</td>
+          <td>θ = nπ</td>
+        </tr>
+        <tr>
+          <td>cosθ = 0</td>
+          <td>θ = (2n+1)π/2</td>
+        </tr>
+        <tr>
+          <td>tanθ = 0</td>
+          <td>θ = nπ</td>
+        </tr>
+        <tr>
+          <td>sinθ = 1</td>
+          <td>θ = 2nπ + π/2</td>
+        </tr>
+        <tr>
+          <td>cosθ = 1</td>
+          <td>θ = 2nπ</td>
+        </tr>
+      </table>
+      <div class="formula">
+        sinθ = sinα ⇒ θ = nπ + (-1)ⁿα<br>
+        cosθ = cosα ⇒ θ = 2nπ ± α<br>
+        tanθ = tanα ⇒ θ = nπ + α
+      </div>
+    </div>
+
+    <!-- Inverse Trig Equations -->
+    <div class="section">
+      <h2>5. Inverse Trigonometric Equations</h2>
+      <ul>
+        <li>sin⁻¹x + cos⁻¹x = π/2</li>
+        <li>tan⁻¹x + cot⁻¹x = π/2</li>
+        <li>sec⁻¹x + cosec⁻¹x = π/2</li>
+        <li>tan⁻¹x + tan⁻¹y = tan⁻¹[(x+y)/(1-xy)] if xy < 1</li>
+        <li>2tan⁻¹x = sin⁻¹[2x/(1+x²)] = cos⁻¹[(1-x²)/(1+x²)]</li>
+      </ul>
+      <div class="formula">
+        sin⁻¹x = θ ⇒ x = sinθ, θ ∈ [-π/2, π/2]<br>
+        cos⁻¹x = θ ⇒ x = cosθ, θ ∈ [0, π]<br>
+        tan⁻¹x = θ ⇒ x = tanθ, θ ∈ (-π/2, π/2)
+      </div>
+    </div>
+
+    <!-- Applications -->
+    <div class="section">
+      <h2>6. Applications</h2>
+      <ul>
+        <li>Wave equations in physics</li>
+        <li>Harmonic motion analysis</li>
+        <li>Electrical engineering (AC circuits)</li>
+        <li>Navigation and surveying</li>
+        <li>Computer graphics</li>
+      </ul>
+      <div class="formula">
+        Simple Harmonic Motion: x(t) = A·sin(ωt + φ)<br>
+        Wave Equation: y(x,t) = A·sin(kx - ωt + φ)
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Memorize general solutions for sin, cos, tan equations</li>
+        <li>Practice converting equations to single trig function</li>
+        <li>Remember domain restrictions for inverse trig functions</li>
+        <li>Use unit circle to visualize solutions</li>
+        <li>Check for extraneous solutions when squaring both sides</li>
+        <li>Focus on common angle values (0, π/6, π/4, π/3, π/2)</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "The general solution of sinθ = 1/2 is:", 
+        options: ["θ = nπ + (-1)ⁿ(π/6)", "θ = 2nπ ± (π/6)", 
+                 "θ = nπ + (π/6)", "θ = nπ/2 + (π/6)"], 
+        answer: "θ = nπ + (-1)ⁿ(π/6)" 
+      },
+      { 
+        question: "The number of solutions of cosθ = 1/2 in [0, 2π] is:", 
+        options: ["1", "2", 
+                 "3", "4"], 
+        answer: "2" 
+      },
+      { 
+        question: "If tanθ = √3, then the general solution is:", 
+        options: ["θ = nπ + π/3", "θ = 2nπ + π/3", 
+                 "θ = nπ + π/6", "θ = nπ/2 + π/3"], 
+        answer: "θ = nπ + π/3" 
+      },
+      { 
+        question: "The value of sin⁻¹(1/2) + cos⁻¹(1/2) is:", 
+        options: ["π/6", "π/3", 
+                 "π/2", "π"], 
+        answer: "π/2" 
+      },
+      { 
+        question: "The equation 2cos²θ - 3cosθ + 1 = 0 has how many solutions in [0, 2π]?", 
+        options: ["1", "2", 
+                 "3", "4"], 
+        answer: "3" 
+      },
+      { 
+        question: "Which identity is correct for all real x?", 
+        options: ["sin⁻¹x + cos⁻¹x = π/2", "tan⁻¹x + cot⁻¹x = π", 
+                 "sec⁻¹x + cosec⁻¹x = π", "All of these"], 
+        answer: "sin⁻¹x + cos⁻¹x = π/2" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = () => {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        alert("✅ You've reached the end. Click 'Submit All Answers'.");
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

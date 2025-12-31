@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work, Energy & Power - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Work, Energy & Power - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Work</h2>
+      <ul>
+        <li><strong>Definition:</strong> W = F·d·cosθ (force × displacement × angle)</li>
+        <li>Unit: Joule (J) = N·m</li>
+        <li>Work is scalar but can be positive or negative</li>
+        <li>Zero work when θ = 90° (force perpendicular to displacement)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Energy</h2>
+      <ul>
+        <li><strong>Kinetic Energy:</strong> KE = ½mv²</li>
+        <li><strong>Potential Energy:</strong> PE = mgh (gravitational), PE = ½kx² (elastic)</li>
+        <li>Law of Conservation: Energy cannot be created or destroyed</li>
+        <li>Mechanical Energy = KE + PE</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Power</h2>
+      <ul>
+        <li><strong>Definition:</strong> P = W/t (work done per unit time)</li>
+        <li>Unit: Watt (W) = J/s</li>
+        <li>1 horsepower = 746 Watts</li>
+        <li>Instantaneous Power: P = F·v</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. Work-Energy Theorem</h2>
+      <ul>
+        <li>Net work done = Change in kinetic energy (W = ΔKE)</li>
+        <li>Applications: Braking distance, projectile motion</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>5. Conservative vs Non-Conservative Forces</h2>
+      <ul>
+        <li><strong>Conservative:</strong> Work independent of path (gravity, spring)</li>
+        <li><strong>Non-Conservative:</strong> Work depends on path (friction, air resistance)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. Important Formulas</h2>
+      <ul>
+        <li>Work done by variable force: W = ∫F·dx</li>
+        <li>Spring force: F = -kx (Hooke's Law)</li>
+        <li>Efficiency = (Useful output/Total input) × 100%</li>
+      </ul>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Memorize all three forms of work formula (dot product, component, angle)</li>
+        <li>Practice energy conservation problems with friction</li>
+        <li>Remember power has two formulas (P = W/t and P = F·v)</li>
+        <li>Pay attention to units - convert all to SI units before solving</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+        <h2>Quiz: Test Your Knowledge</h2>
+        <div id="quiz-box">
+          <div class="question" id="question">Loading...</div>
+          <ul class="options" id="options"></ul>
+          <div class="message" id="message"></div>
+          <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+          <div class="button-group">
+            <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="tryAgain()">Try Again</button>
+            <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+          </div>
+          <div class="slider-bar" id="progress">Question 1 of 6</div>
+          <div id="finalScore"></div>
+        </div>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+  
+    <script>
+      const quizData = [
+        { question: "What is the unit of work?", options: ["Watt", "Newton", "Joule", "Pascal"], answer: "Joule" },
+        { question: "If a force acts perpendicular to displacement, the work done is?", options: ["Maximum", "Minimum", "Zero", "Negative"], answer: "Zero" },
+        { question: "Which formula represents kinetic energy?", options: ["mgh", "½mv²", "Fd", "Pt"], answer: "½mv²" },
+        { question: "A 100W bulb operates for 2 hours. How much energy is consumed?", options: ["200J", "720kJ", "50J", "100Wh"], answer: "720kJ" },
+        { question: "What is conserved in perfectly elastic collisions?", options: ["Only momentum", "Only energy", "Both momentum and energy", "Neither"], answer: "Both momentum and energy" },
+        { question: "Power can be expressed as:", options: ["F·d", "F·v", "m·a", "ΔKE"], answer: "F·v" }
+      ];
+  
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+  
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerText = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+  
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerText = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+  
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+  
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+  
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+  
+      function tryAgain() {
+        loadQuestion();
+      }
+  
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+  
+      window.onload = loadQuestion;
+    </script>
+  
+  </body>
+</html>
