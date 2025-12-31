@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chemical Bonding - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .diagram {
+      max-width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .formula {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+    
+    .svg-container {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    .molecule-diagram {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .molecule {
+      display: inline-block;
+      margin: 0 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Chemical Bonding - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Fundamentals of Chemical Bonding</h2>
+      <ul>
+        <li>Chemical bonding: Force that holds atoms together in molecules or compounds</li>
+        <li>Octet Rule: Atoms tend to gain/lose/share electrons to achieve 8 electrons in their valence shell</li>
+        <li>Types: Ionic, Covalent, Coordinate, Metallic, Hydrogen bonding</li>
+        <li>Bond energy: Energy required to break a chemical bond</li>
+      </ul>
+      <div class="formula">
+        Bond energy = Enthalpy change / Number of bonds broken<br>
+        Bond length = Distance between nuclei of bonded atoms
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Octet Rule Diagram -->
+          <circle cx="100" cy="100" r="70" fill="none" stroke="black" stroke-width="2"/>
+          <circle cx="100" cy="100" r="40" fill="none" stroke="black" stroke-width="2"/>
+          
+          <!-- Electrons -->
+          <circle cx="60" cy="100" r="5" fill="blue"/>
+          <circle cx="73" cy="73" r="5" fill="blue"/>
+          <circle cx="100" cy="60" r="5" fill="blue"/>
+          <circle cx="127" cy="73" r="5" fill="blue"/>
+          <circle cx="140" cy="100" r="5" fill="blue"/>
+          <circle cx="127" cy="127" r="5" fill="blue"/>
+          <circle cx="100" cy="140" r="5" fill="blue"/>
+          <circle cx="73" cy="127" r="5" fill="blue"/>
+          
+          <text x="100" y="30" text-anchor="middle" fill="black">Octet Rule</text>
+          <text x="100" y="180" text-anchor="middle" fill="black">8 electrons in outer shell</text>
+          
+          <!-- Bond Types -->
+          <rect x="220" y="50" width="100" height="100" fill="none" stroke="black" stroke-width="2"/>
+          <text x="270" y="70" text-anchor="middle" fill="black">Bond Types</text>
+          <text x="270" y="90" text-anchor="middle" fill="black">• Ionic</text>
+          <text x="270" y="110" text-anchor="middle" fill="black">• Covalent</text>
+          <text x="270" y="130" text-anchor="middle" fill="black">• Coordinate</text>
+          <text x="270" y="150" text-anchor="middle" fill="black">• Metallic</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Ionic Bonding</h2>
+      <ul>
+        <li>Transfer of electrons from metal to non-metal</li>
+        <li>Formation of cations and anions</li>
+        <li>Electrostatic attraction between oppositely charged ions</li>
+        <li>Properties: High melting/boiling points, conductivity in solution, brittle</li>
+        <li>Examples: NaCl, CaO, MgCl₂, K₂O</li>
+      </ul>
+      <div class="formula">
+        Na (2,8,1) → Na⁺ (2,8) + e⁻<br>
+        Cl (2,8,7) + e⁻ → Cl⁻ (2,8,8)<br>
+        Na⁺ + Cl⁻ → NaCl
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Sodium -->
+          <circle cx="100" cy="100" r="40" fill="#ddddff" stroke="black" stroke-width="2"/>
+          <text x="100" y="105" text-anchor="middle" fill="black">Na⁺</text>
+          
+          <!-- Chlorine -->
+          <circle cx="250" cy="100" r="50" fill="#ddffdd" stroke="black" stroke-width="2"/>
+          <text x="250" y="105" text-anchor="middle" fill="black">Cl⁻</text>
+          
+          <!-- Bond -->
+          <path d="M140 100 L200 100" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+          
+          <!-- Labels -->
+          <text x="170" y="85" text-anchor="middle" fill="black">Ionic Bond</text>
+          <text x="100" y="50" text-anchor="middle" fill="black">Metal (Na)</text>
+          <text x="250" y="50" text-anchor="middle" fill="black">Non-metal (Cl)</text>
+          <text x="170" y="170" text-anchor="middle" fill="black">NaCl</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Covalent Bonding</h2>
+      <ul>
+        <li>Sharing of electron pairs between non-metals</li>
+        <li>Bond types: Single (1 pair), Double (2 pairs), Triple (3 pairs)</li>
+        <li>Properties: Low melting/boiling points, poor conductivity, volatile</li>
+        <li>Examples: H₂, O₂, N₂, CH₄, CO₂</li>
+        <li>Polar vs. Non-polar covalent bonds</li>
+      </ul>
+      <div class="formula">
+        Covalent bond: A—B (shared electron pair)<br>
+        Bond polarity: Δ EN = |EN<sub>A</sub> - EN<sub>B</sub>|<br>
+        Non-polar: Δ EN < 0.4; Polar: 0.4 < Δ EN < 1.7
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Hydrogen molecule -->
+          <circle cx="100" cy="100" r="30" fill="#ffeeee" stroke="black" stroke-width="2"/>
+          <text x="100" y="105" text-anchor="middle" fill="black">H</text>
+          
+          <circle cx="200" cy="100" r="30" fill="#ffeeee" stroke="black" stroke-width="2"/>
+          <text x="200" y="105" text-anchor="middle" fill="black">H</text>
+          
+          <!-- Shared electrons -->
+          <circle cx="140" cy="100" r="5" fill="blue"/>
+          <circle cx="160" cy="100" r="5" fill="blue"/>
+          
+          <!-- Label -->
+          <text x="150" y="80" text-anchor="middle" fill="black">shared pair</text>
+          <text x="150" y="170" text-anchor="middle" fill="black">H₂ (Single Bond)</text>
+          
+          <!-- Oxygen molecule -->
+          <circle cx="275" cy="70" r="25" fill="#eeffee" stroke="black" stroke-width="2"/>
+          <text x="275" y="75" text-anchor="middle" fill="black">O</text>
+          
+          <circle cx="275" cy="130" r="25" fill="#eeffee" stroke="black" stroke-width="2"/>
+          <text x="275" y="135" text-anchor="middle" fill="black">O</text>
+          
+          <!-- Double bond -->
+          <line x1="275" y1="95" x2="275" y2="105" stroke="black" stroke-width="8"/>
+          
+          <text x="315" y="100" text-anchor="middle" fill="black">O₂ (Double Bond)</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. Lewis Structures & VSEPR Theory</h2>
+      <ul>
+        <li>Lewis structures: Representation of valence electrons</li>
+        <li>Valence Shell Electron Pair Repulsion (VSEPR) theory predicts molecular geometry</li>
+        <li>Electron pair geometries: Linear, Trigonal Planar, Tetrahedral, Trigonal Bipyramidal, Octahedral</li>
+        <li>Lone pairs cause deviations in bond angles</li>
+      </ul>
+      <div class="formula">
+        AXₙEₘ notation: A = central atom, X = bonded atoms, E = lone pairs<br>
+        Total = σ bonds + π bonds + lone pairs<br>
+        Formal charge = Valence e⁻ - (lone pair e⁻ + ½ bonding e⁻)
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Water molecule -->
+          <circle cx="150" cy="120" r="25" fill="#eeeeff" stroke="black" stroke-width="2"/>
+          <text x="150" y="125" text-anchor="middle" fill="black">O</text>
+          
+          <circle cx="110" cy="90" r="15" fill="#ffeeee" stroke="black" stroke-width="2"/>
+          <text x="110" y="95" text-anchor="middle" fill="black">H</text>
+          
+          <circle cx="190" cy="90" r="15" fill="#ffeeee" stroke="black" stroke-width="2"/>
+          <text x="190" y="95" text-anchor="middle" fill="black">H</text>
+          
+          <!-- Bonds -->
+          <line x1="122" y1="102" x2="138" y2="108" stroke="black" stroke-width="2"/>
+          <line x1="178" y1="102" x2="162" y2="108" stroke="black" stroke-width="2"/>
+          
+          <!-- Lone pairs -->
+          <circle cx="140" cy="150" r="5" fill="blue"/>
+          <circle cx="160" cy="150" r="5" fill="blue"/>
+          
+          <circle cx="130" cy="140" r="5" fill="blue"/>
+          <circle cx="170" cy="140" r="5" fill="blue"/>
+          
+          <!-- Bond angle -->
+          <path d="M110 90 Q150 105 190 90" fill="none" stroke="black" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="150" y="75" text-anchor="middle" fill="black">104.5°</text>
+          
+          <text x="150" y="180" text-anchor="middle" fill="black">H₂O (Bent - AX₂E₂)</text>
+          
+          <!-- Ammonia -->
+          <circle cx="275" cy="120" r="25" fill="#eeffff" stroke="black" stroke-width="2"/>
+          <text x="275" y="125" text-anchor="middle" fill="black">N</text>
+          
+          <circle cx="240" cy="80" r="15" fill="#ffeeee" stroke="black" stroke-width="2"/>
+          <text x="240" y="85" text-anchor="middle" fill="black">H</text>
+          
+          <circle cx="275" cy="70" r="15" fill="#ffeeee" stroke="black" stroke-width="2"/>
+          <text x="275" y="75" text-anchor="middle" fill="black">H</text>
+          
+          <circle cx="310" cy="80" r="15" fill="#ffeeee" stroke="black" stroke-width="2"/>
+          <text x="310" y="85" text-anchor="middle" fill="black">H</text>
+          
+          <!-- Bonds -->
+          <line x1="252" y1="96" x2="263" y2="106" stroke="black" stroke-width="2"/>
+          <line x1="275" y1="85" x2="275" y2="105" stroke="black" stroke-width="2"/>
+          <line x1="298" y1="96" x2="287" y2="106" stroke="black" stroke-width="2"/>
+          
+          <!-- Lone pair -->
+          <circle cx="275" cy="145" r="5" fill="blue"/>
+          <circle cx="285" cy="145" r="5" fill="blue"/>
+          
+          <text x="275" y="180" text-anchor="middle" fill="black">NH₃ (Pyramidal - AX₃E)</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>5. Hybridization</h2>
+      <ul>
+        <li>Mixing of atomic orbitals to form hybrid orbitals of equal energy</li>
+        <li>Types: sp, sp², sp³, sp³d, sp³d²</li>
+        <li>Determines molecular geometry and bond angles</li>
+        <li>Examples:
+          <ul>
+            <li>sp: BeCl₂ (linear, 180°)</li>
+            <li>sp²: BF₃ (trigonal planar, 120°)</li>
+            <li>sp³: CH₄ (tetrahedral, 109.5°)</li>
+            <li>sp³d: PCl₅ (trigonal bipyramidal)</li>
+            <li>sp³d²: SF₆ (octahedral)</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="formula">
+        Hybridization formula: H = ½(V + M - C + A)<br>
+        where: V = valence electrons, M = monovalent atoms<br>
+        C = cationic charge, A = anionic charge
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- sp³ hybridization -->
+          <circle cx="175" cy="100" r="30" fill="#ddddff" stroke="black" stroke-width="2"/>
+          <text x="175" y="105" text-anchor="middle" fill="black">C</text>
+          
+          <circle cx="130" cy="55" r="20" fill="#ffeeee" stroke="black" stroke-width="2"/>
+          <text x="130" y="60" text-anchor="middle" fill="black">H</text>
+          
+          <circle cx="220" cy="55" r="20" fill="#ffeeee" stroke="black" stroke-width="2"/>
+          <text x="220" y="60" text-anchor="middle" fill="black">H</text>
+          
+          <circle cx="130" cy="145" r="20" fill="#ffeeee" stroke="black" stroke-width="2"/>
+          <text x="130" y="150" text-anchor="middle" fill="black">H</text>
+          
+          <circle cx="220" cy="145" r="20" fill="#ffeeee" stroke="black" stroke-width="2"/>
+          <text x="220" y="150" text-anchor="middle" fill="black">H</text>
+          
+          <!-- Bonds -->
+          <line x1="153" y1="75" x2="175" y2="95" stroke="black" stroke-width="2"/>
+          <line x1="197" y1="75" x2="175" y2="95" stroke="black" stroke-width="2"/>
+          <line x1="153" y1="125" x2="175" y2="105" stroke="black" stroke-width="2"/>
+          <line x1="197" y1="125" x2="175" y2="105" stroke="black" stroke-width="2"/>
+          
+          <text x="175" y="25" text-anchor="middle" fill="black">sp³ Hybridization</text>
+          <text x="175" y="180" text-anchor="middle" fill="black">CH₄ (Tetrahedral, 109.5°)</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>6. Molecular Orbital Theory</h2>
+      <ul>
+        <li>Electrons in molecules occupy molecular orbitals (MOs)</li>
+        <li>Combination of atomic orbitals forms bonding and antibonding MOs</li>
+        <li>Bond order = ½(bonding e⁻ - antibonding e⁻)</li>
+        <li>Bond order > 0: Stable molecule</li>
+        <li>Bond order = 0: Unstable molecule</li>
+        <li>Greater bond order = shorter, stronger bond</li>
+      </ul>
+      <div class="formula">
+        Bond order = ½(N<sub>b</sub> - N<sub>a</sub>)<br>
+        where: N<sub>b</sub> = number of electrons in bonding MOs<br>
+        N<sub>a</sub> = number of electrons in antibonding MOs
+      </div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Molecular orbital diagram -->
+          <text x="175" y="25" text-anchor="middle" fill="black">Molecular Orbital Diagram</text>
+          
+          <!-- Atomic orbitals -->
+          <line x1="75" y1="100" x2="125" y2="100" stroke="black" stroke-width="2"/>
+          <text x="75" y="90" text-anchor="middle" fill="black">2p</text>
+          
+          <line x1="275" y1="100" x2="225" y2="100" stroke="black" stroke-width="2"/>
+          <text x="275" y="90" text-anchor="middle" fill="black">2p</text>
+          
+          <!-- Molecular orbitals -->
+          <line x1="150" y1="50" x2="200" y2="50" stroke="black" stroke-width="2"/>
+          <text x="175" y="45" text-anchor="middle" fill="black">σ* (antibonding)</text>
+          
+          <line x1="150" y1="150" x2="200" y2="150" stroke="black" stroke-width="2"/>
+          <text x="175" y="165" text-anchor="middle" fill="black">σ (bonding)</text>
+          
+          <!-- Connections -->
+          <line x1="100" y1="100" x2="150" y2="50" stroke="black" stroke-width="1" stroke-dasharray="5,3"/>
+          <line x1="250" y1="100" x2="200" y2="50" stroke="black" stroke-width="1" stroke-dasharray="5,3"/>
+          
+          <line x1="100" y1="100" x2="150" y2="150" stroke="black" stroke-width="1" stroke-dasharray="5,3"/>
+          <line x1="250" y1="100" x2="200" y2="150" stroke="black" stroke-width="1" stroke-dasharray="5,3"/>
+          
+          <!-- Energy levels -->
+          <text x="50" y="100" text-anchor="middle" fill="black">Energy</text>
+          <line x1="40" y1="40" x2="40" y2="160" stroke="black" stroke-width="2"/>
+          <line x1="35" y1="40" x2="45" y2="40" stroke="black" stroke-width="2"/>
+          <line x1="35" y1="160" x2="45" y2="160" stroke="black" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Focus on bond properties: length, energy, polarity, and angles</li>
+        <li>Remember the relationship between hybridization and geometry</li>
+        <li>Practice drawing Lewis structures for various molecules</li>
+        <li>Learn common examples of different types of bonds</li>
+        <li>Understand formal charge calculation and its significance</li>
+        <li>For polar molecules, remember that symmetrical molecules with polar bonds can be non-polar overall</li>
+        <li>Bond order correlates directly with bond strength and inversely with bond length</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button class="next-btn" onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "The hybridization of carbon in CH₄ is:", 
+        options: ["sp", "sp²", "sp³", "sp³d"], 
+        answer: "sp³" 
+      },
+      { 
+        question: "Which of the following compounds has a coordinate (dative) bond?", 
+        options: ["NaCl", "NH₃", "NH₄⁺", "H₂O"], 
+        answer: "NH₄⁺" 
+      },
+      { 
+        question: "The bond angle in water (H₂O) is approximately:", 
+        options: ["90°", "104.5°", "109.5°", "120°"], 
+        answer: "104.5°" 
+      },
+      { 
+        question: "Which of the following is a non-polar molecule?", 
+        options: ["H₂O", "NH₃", "CCl₄", "HCl"], 
+        answer: "CCl₄" 
+      },
+      { 
+        question: "The bond order of O₂ molecule is:", 
+        options: ["1", "1.5", "2", "3"], 
+        answer: "2" 
+      },
+      { 
+        question: "Which of the following has the highest bond energy?", 
+        options: ["F₂", "Cl₂", "Br₂", "I₂"], 
+        answer: "F₂" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerHTML = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerHTML = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerHTML = opt;
+        li.onclick = function() {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            document.getElementById("message").style.color = "lime";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+            document.getElementById("message").style.color = "red";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => {
+            el.classList.add("disabled");
+            if (el.innerHTML === q.answer) el.classList.add("correct");
+          });
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      document.getElementById("submitBtn").style.display = currentIndex === quizData.length - 1 ? "block" : "none";
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        document.getElementById("submitBtn").style.display = "block";
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

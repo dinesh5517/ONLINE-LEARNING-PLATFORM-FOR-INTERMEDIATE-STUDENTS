@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Magnetism & Matter - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .diagram {
+      max-width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .formula {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+    
+    .svg-container {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    .magnetic-materials {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    
+    .material-type {
+      text-align: center;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Magnetism & Matter - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Bar Magnet & Properties</h2>
+      <ul>
+        <li><strong>Magnetic dipole moment:</strong> m = pole strength × length (m = 2lq)</li>
+        <li>Direction: South to North pole inside magnet</li>
+        <li>Torque in magnetic field: τ = m × B</li>
+        <li>Potential energy: U = -m·B</li>
+      </ul>
+      <div class="formula">m = 2lq (Magnetic moment)<br>τ = mBsinθ (Torque)<br>U = -mBcosθ (Potential energy)</div>
+      <div class="svg-container">
+        <svg width="300" height="150" viewBox="0 0 300 150">
+          <!-- Bar magnet -->
+          <rect x="100" y="50" width="100" height="50" fill="none" stroke="black" stroke-width="3"/>
+          <text x="120" y="80" text-anchor="middle" fill="black">N</text>
+          <text x="180" y="80" text-anchor="middle" fill="black">S</text>
+          
+          <!-- Magnetic moment arrow -->
+          <path d="M150 30 L150 10" stroke="red" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <text x="160" y="20" text-anchor="start" fill="black">m</text>
+          
+          <!-- Field lines -->
+          <path d="M100 75 L80 75" stroke="blue" stroke-width="1" marker-end="url(#arrowhead)"/>
+          <path d="M200 75 L220 75" stroke="blue" stroke-width="1" marker-end="url(#arrowhead)"/>
+          <path d="M150 100 Q175 125 150 150 Q125 125 150 100" stroke="blue" stroke-width="1" fill="none"/>
+          
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Earth's Magnetism</h2>
+      <ul>
+        <li>Elements: Declination (θ), Dip (δ), Horizontal component (B<sub>H</sub>)</li>
+        <li>B<sub>H</sub> = Bcosδ, B<sub>V</sub> = Bsinδ</li>
+        <li>B = √(B<sub>H</sub>² + B<sub>V</sub>²)</li>
+        <li>Angle of dip: tanδ = B<sub>V</sub>/B<sub>H</sub></li>
+      </ul>
+      <div class="formula">B<sub>H</sub> = Bcosδ<br>tanδ = B<sub>V</sub>/B<sub>H</sub></div>
+      <div class="svg-container">
+        <svg width="300" height="200" viewBox="0 0 300 200">
+          <!-- Earth -->
+          <circle cx="150" cy="100" r="80" fill="none" stroke="black" stroke-width="2"/>
+          
+          <!-- Magnetic axis -->
+          <path d="M150 100 L150 20" stroke="red" stroke-width="2" stroke-dasharray="5,3"/>
+          <text x="160" y="60" text-anchor="start" fill="red">Magnetic axis</text>
+          
+          <!-- Geographic axis -->
+          <path d="M150 100 L150 180" stroke="green" stroke-width="2"/>
+          <text x="160" y="140" text-anchor="start" fill="green">Geographic axis</text>
+          
+          <!-- Field lines -->
+          <path d="M150 100 L120 70" stroke="blue" stroke-width="1" marker-end="url(#arrowhead)"/>
+          <path d="M150 100 L180 70" stroke="blue" stroke-width="1" marker-end="url(#arrowhead)"/>
+          <path d="M150 100 L120 130" stroke="blue" stroke-width="1" marker-end="url(#arrowhead)"/>
+          <path d="M150 100 L180 130" stroke="blue" stroke-width="1" marker-end="url(#arrowhead)"/>
+          
+          <!-- Angle of dip -->
+          <path d="M200 100 L230 100" stroke="black" stroke-width="1"/>
+          <path d="M230 100 L230 130" stroke="black" stroke-width="1"/>
+          <path d="M230 100 L220 110" stroke="black" stroke-width="1"/>
+          <path d="M230 100 L220 90" stroke="black" stroke-width="1"/>
+          <path d="M200 100 L230 130" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <text x="215" y="115" text-anchor="middle" fill="black">δ</text>
+          <text x="240" y="120" text-anchor="middle" fill="blue">B</text>
+          <text x="240" y="90" text-anchor="middle" fill="black">B<sub>H</sub></text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Magnetic Materials</h2>
+      <div class="magnetic-materials">
+        <div class="material-type">
+          <h3>Diamagnetic</h3>
+          <ul>
+            <li>χ (susceptibility) &lt; 0</li>
+            <li>μ<sub>r</sub> &lt; 1</li>
+            <li>Weakly repelled</li>
+            <li>e.g., Bi, Cu, H<sub>2</sub>O</li>
+          </ul>
+        </div>
+        <div class="material-type">
+          <h3>Paramagnetic</h3>
+          <ul>
+            <li>χ &gt; 0 (small)</li>
+            <li>μ<sub>r</sub> &gt; 1</li>
+            <li>Weakly attracted</li>
+            <li>e.g., Al, O<sub>2</sub></li>
+          </ul>
+        </div>
+        <div class="material-type">
+          <h3>Ferromagnetic</h3>
+          <ul>
+            <li>χ &gt; 0 (very large)</li>
+            <li>μ<sub>r</sub> &gt;&gt; 1</li>
+            <li>Strongly attracted</li>
+            <li>e.g., Fe, Ni, Co</li>
+          </ul>
+        </div>
+      </div>
+      <div class="formula">B = μ₀(H + M)<br>M = χH<br>μ = μ₀(1 + χ)</div>
+    </div>
+
+    <div class="section">
+      <h2>4. Hysteresis Loop</h2>
+      <ul>
+        <li>Shows relationship between B and H for ferromagnetic materials</li>
+        <li>Retentivity: Residual magnetism when H=0</li>
+        <li>Coercivity: Reverse field needed to demagnetize</li>
+        <li>Area represents energy loss per cycle</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="300" height="200" viewBox="0 0 300 200">
+          <!-- Axes -->
+          <path d="M50 50 L50 150" stroke="black" stroke-width="2"/>
+          <path d="M50 100 L250 100" stroke="black" stroke-width="2"/>
+          <text x="250" y="90" text-anchor="end" fill="black">H</text>
+          <text x="40" y="60" text-anchor="end" fill="black">B</text>
+          
+          <!-- Hysteresis loop -->
+          <path d="M50 100 C100 20 200 180 250 100 C270 50 230 150 50 100" 
+                fill="none" stroke="red" stroke-width="2"/>
+          
+          <!-- Labels -->
+          <circle cx="50" cy="100" r="3" fill="red"/>
+          <text x="70" y="110" text-anchor="middle" fill="black">O</text>
+          
+          <circle cx="150" cy="20" r="3" fill="red"/>
+          <text x="150" y="40" text-anchor="middle" fill="black">B<sub>max</sub></text>
+          
+          <circle cx="250" cy="100" r="3" fill="red"/>
+          <text x="230" y="120" text-anchor="middle" fill="black">H<sub>c</sub></text>
+          
+          <circle cx="150" cy="180" r="3" fill="red"/>
+          <text x="150" y="160" text-anchor="middle" fill="black">-B<sub>max</sub></text>
+          
+          <circle cx="50" cy="100" r="3" fill="red"/>
+          <text x="30" y="80" text-anchor="middle" fill="black">-H<sub>c</sub></text>
+          
+          <text x="150" y="190" text-anchor="middle" fill="black">Hysteresis Loop</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>5. Permanent Magnets & Electromagnets</h2>
+      <ul>
+        <li><strong>Permanent magnets:</strong> High retentivity, high coercivity (steel)</li>
+        <li><strong>Electromagnets:</strong> Soft iron (low retentivity, low coercivity)</li>
+        <li>Desired properties:
+          <ul>
+            <li>Permanent: Large hysteresis area</li>
+            <li>Electro: Small hysteresis area</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="svg-container">
+        <svg width="350" height="150" viewBox="0 0 350 150">
+          <!-- Permanent magnet -->
+          <rect x="50" y="50" width="100" height="50" fill="none" stroke="black" stroke-width="2"/>
+          <text x="70" y="80" text-anchor="middle" fill="black">N</text>
+          <text x="130" y="80" text-anchor="middle" fill="black">S</text>
+          <text x="100" y="120" text-anchor="middle" fill="white">Permanent Magnet (Steel)</text>
+          
+          <!-- Electromagnet -->
+          <rect x="200" y="50" width="100" height="50" fill="none" stroke="black" stroke-width="2"/>
+          <path d="M200 50 L180 30" stroke="black" stroke-width="1"/>
+          <path d="M200 100 L180 120" stroke="black" stroke-width="1"/>
+          <path d="M300 50 L320 30" stroke="black" stroke-width="1"/>
+          <path d="M300 100 L320 120" stroke="black" stroke-width="1"/>
+          <text x="250" y="120" text-anchor="middle" fill="white">Electromagnet (Soft Iron)</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>6. Important Formulas</h2>
+      <ul>
+        <li>Magnetic field on axial line: B = (μ₀/4π)(2m/r³)</li>
+        <li>Magnetic field on equatorial line: B = (μ₀/4π)(m/r³)</li>
+        <li>Time period of oscillation: T = 2π√(I/mB)</li>
+        <li>Curie's Law: χ = C/T (for paramagnetic)</li>
+      </ul>
+      <div class="formula">
+        B<sub>axial</sub> = (μ₀/4π)(2m/r³)<br>
+        B<sub>equatorial</sub> = (μ₀/4π)(m/r³)<br>
+        T = 2π√(I/mB)<br>
+        χ = C/T (Curie's Law)
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Remember the difference between axial and equatorial field formulas</li>
+        <li>For earth's magnetism problems, draw clear diagrams showing δ and θ</li>
+        <li>Hysteresis loop properties are frequently tested</li>
+        <li>Material properties (χ, μ<sub>r</sub>) should be memorized</li>
+        <li>Practice numericals on oscillation of magnets in magnetic field</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button class="next-btn" onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "What is the direction of magnetic moment of a bar magnet?", 
+        options: ["North to South pole", "South to North pole", 
+                 "Perpendicular to axis", "Circular around axis"], 
+        answer: "South to North pole" 
+      },
+      { 
+        question: "Which component of Earth's magnetic field is measured using a compass?", 
+        options: ["Vertical component", "Horizontal component", 
+                 "Total field", "Declination"], 
+        answer: "Horizontal component" 
+      },
+      { 
+        question: "Which material would have the highest magnetic susceptibility?", 
+        options: ["Diamagnetic", "Paramagnetic", 
+                 "Ferromagnetic", "All same"], 
+        answer: "Ferromagnetic" 
+      },
+      { 
+        question: "What does the area of hysteresis loop represent?", 
+        options: ["Magnetic moment", "Energy loss per cycle", 
+                 "Retentivity", "Coercivity"], 
+        answer: "Energy loss per cycle" 
+      },
+      { 
+        question: "For which type of material does Curie's Law (χ = C/T) apply?", 
+        options: ["Diamagnetic", "Paramagnetic", 
+                 "Ferromagnetic", "All magnetic materials"], 
+        answer: "Paramagnetic" 
+      },
+      { 
+        question: "What is the ratio of axial to equatorial magnetic field at same distance from a bar magnet?", 
+        options: ["1:1", "1:2", 
+                 "2:1", "4:1"], 
+        answer: "2:1" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = function() {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            document.getElementById("message").style.color = "lime";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+            document.getElementById("message").style.color = "red";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => {
+            el.classList.add("disabled");
+            if (el.innerText === q.answer) el.classList.add("correct");
+          });
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      document.getElementById("submitBtn").style.display = currentIndex === quizData.length - 1 ? "block" : "none";
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        document.getElementById("submitBtn").style.display = "block";
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

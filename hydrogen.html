@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hydrogen - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .diagram {
+      max-width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .formula {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+    
+    .svg-container {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: center;
+    }
+    
+    th {
+      background-color: #333;
+      color: #ff6f00;
+    }
+    
+    .isotope-box {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+    }
+    
+    .isotope {
+      width: 100px;
+      padding: 15px;
+      background-color: #333;
+      border-radius: 10px;
+      text-align: center;
+    }
+    
+    .hydrogen-molecule {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+    }
+    
+    .atom {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #aed6f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+    
+    .bond {
+      width: 80px;
+      height: 5px;
+      background-color: #ff6f00;
+      margin: 0 -10px;
+      z-index: 1;
+    }
+    
+    .comparison-table {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hydrogen - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Position of Hydrogen in Periodic Table</h2>
+      <ul>
+        <li><strong>Unique Position:</strong> Placed in both Group 1 (alkali metals) and Group 17 (halogens)</li>
+        <li><strong>Similarities with Alkali Metals:</strong>
+          <ul>
+            <li>Electronic configuration: ns<sup>1</sup></li>
+            <li>Forms H<sup>+</sup> ions</li>
+            <li>Forms oxides, halides, and sulfides</li>
+          </ul>
+        </li>
+        <li><strong>Similarities with Halogens:</strong>
+          <ul>
+            <li>Diatomic molecule (H<sub>2</sub>)</li>
+            <li>Forms H<sup>-</sup> ions (hydrides)</li>
+            <li>High ionization enthalpy</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div class="hydrogen-molecule">
+        <div class="atom">H</div>
+        <div class="bond"></div>
+        <div class="atom">H</div>
+      </div>
+      
+      <div class="formula">
+        <strong>Conclusion:</strong> Hydrogen is unique and doesn't perfectly fit any group
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Isotopes of Hydrogen</h2>
+      <ul>
+        <li><strong>Protium (<sup>1</sup>H):</strong> Most abundant (99.985%), no neutrons</li>
+        <li><strong>Deuterium (<sup>2</sup>H or D):</strong> 1 neutron, used in heavy water</li>
+        <li><strong>Tritium (<sup>3</sup>H or T):</strong> 2 neutrons, radioactive (β-emitter)</li>
+      </ul>
+      
+      <div class="isotope-box">
+        <div class="isotope">
+          <div style="font-size: 1.5rem;">Protium</div>
+          <div style="font-size: 2rem;"><sup>1</sup>H</div>
+          <div>Abundance: 99.985%</div>
+        </div>
+        <div class="isotope">
+          <div style="font-size: 1.5rem;">Deuterium</div>
+          <div style="font-size: 2rem;"><sup>2</sup>H</div>
+          <div>Abundance: 0.015%</div>
+        </div>
+        <div class="isotope">
+          <div style="font-size: 1.5rem;">Tritium</div>
+          <div style="font-size: 2rem;"><sup>3</sup>H</div>
+          <div>Radioactive</div>
+        </div>
+      </div>
+      
+      <table>
+        <tr>
+          <th>Property</th>
+          <th>Protium</th>
+          <th>Deuterium</th>
+          <th>Tritium</th>
+        </tr>
+        <tr>
+          <td>Atomic Mass</td>
+          <td>1.0078 u</td>
+          <td>2.0141 u</td>
+          <td>3.0160 u</td>
+        </tr>
+        <tr>
+          <td>Neutrons</td>
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Stability</td>
+          <td>Stable</td>
+          <td>Stable</td>
+          <td>β-emitter (t<sub>½</sub>=12.33 yr)</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>3. Preparation and Properties of Dihydrogen</h2>
+      <ul>
+        <li><strong>Laboratory Preparation:</strong>
+          <div class="formula">
+            Zn + 2HCl → ZnCl<sub>2</sub> + H<sub>2</sub>↑
+          </div>
+        </li>
+        <li><strong>Commercial Production:</strong>
+          <ul>
+            <li>Electrolysis of water</li>
+            <li>From hydrocarbons (steam reforming)</li>
+          </ul>
+        </li>
+        <li><strong>Physical Properties:</strong>
+          <ul>
+            <li>Colorless, odorless gas</li>
+            <li>Lightest known substance</li>
+            <li>Low boiling point (-252.8°C)</li>
+          </ul>
+        </li>
+        <li><strong>Chemical Properties:</strong>
+          <ul>
+            <li>Combustion: 2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O (ΔH = -285.8 kJ/mol)</li>
+            <li>Reducing agent: CuO + H<sub>2</sub> → Cu + H<sub>2</sub>O</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div class="svg-container">
+        <svg width="500" height="200" viewBox="0 0 500 200">
+          <!-- Electrolysis setup -->
+          <rect x="50" y="50" width="400" height="100" fill="#aed6f1" opacity="0.3" stroke="black"/>
+          <text x="250" y="80" text-anchor="middle">H<sub>2</sub>O + Electrolyte</text>
+          
+          <!-- Electrodes -->
+          <rect x="100" y="30" width="20" height="140" fill="#7f8c8d"/>
+          <rect x="380" y="30" width="20" height="140" fill="#7f8c8d"/>
+          
+          <!-- Bubbles -->
+          <circle cx="110" cy="70" r="8" fill="white"/>
+          <circle cx="110" cy="110" r="5" fill="white"/>
+          <circle cx="390" cy="60" r="6" fill="white"/>
+          <circle cx="390" cy="100" r="4" fill="white"/>
+          
+          <!-- Labels -->
+          <text x="110" y="180" text-anchor="middle">Cathode</text>
+          <text x="390" y="180" text-anchor="middle">Anode</text>
+          <text x="110" y="40" text-anchor="middle">H<sub>2</sub>↑</text>
+          <text x="390" y="40" text-anchor="middle">O<sub>2</sub>↑</text>
+          
+          <!-- Battery -->
+          <rect x="200" y="30" width="100" height="40" fill="#333"/>
+          <text x="250" y="55" text-anchor="middle" fill="white">Power Source</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. Hydrides</h2>
+      <table class="comparison-table">
+        <tr>
+          <th>Type</th>
+          <th>Formed With</th>
+          <th>Nature</th>
+          <th>Examples</th>
+        </tr>
+        <tr>
+          <td>Ionic (Saline)</td>
+          <td>s-block elements</td>
+          <td>High melting solids</td>
+          <td>NaH, CaH<sub>2</sub></td>
+        </tr>
+        <tr>
+          <td>Covalent (Molecular)</td>
+          <td>p-block elements</td>
+          <td>Volatile liquids/gases</td>
+          <td>CH<sub>4</sub>, NH<sub>3</sub>, H<sub>2</sub>O</td>
+        </tr>
+        <tr>
+          <td>Metallic (Interstitial)</td>
+          <td>d-block elements</td>
+          <td>Non-stoichiometric</td>
+          <td>LaH<sub>2.87</sub>, PdH<sub>0.6</sub></td>
+        </tr>
+      </table>
+      
+      <div class="formula">
+        <strong>Important Reactions:</strong><br>
+        NaH + H<sub>2</sub>O → NaOH + H<sub>2</sub>↑<br>
+        CaH<sub>2</sub> + 2H<sub>2</sub>O → Ca(OH)<sub>2</sub> + 2H<sub>2</sub>↑<br>
+        (Used as drying agents and hydrogen sources)
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>5. Water and Hydrogen Peroxide</h2>
+      <ul>
+        <li><strong>Water Structure:</strong> Bent shape (104.5°), hydrogen bonding</li>
+        <li><strong>Heavy Water (D<sub>2</sub>O):</strong> Used as moderator in nuclear reactors</li>
+        <li><strong>Hydrogen Peroxide (H<sub>2</sub>O<sub>2</sub>):</strong>
+          <ul>
+            <li>Preparation: BaO<sub>2</sub> + H<sub>2</sub>SO<sub>4</sub> → BaSO<sub>4</sub> + H<sub>2</sub>O<sub>2</sub></li>
+            <li>Properties: Pale blue liquid, unstable</li>
+            <li>Uses: Bleaching, antiseptic, rocket fuel</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div class="svg-container">
+        <svg width="300" height="200" viewBox="0 0 300 200">
+          <!-- Water molecule -->
+          <circle cx="150" cy="100" r="30" fill="red" opacity="0.7"/>
+          <text x="150" y="105" text-anchor="middle" fill="white">O</text>
+          
+          <circle cx="110" cy="150" r="20" fill="blue" opacity="0.7"/>
+          <text x="110" y="155" text-anchor="middle" fill="white">H</text>
+          
+          <circle cx="190" cy="150" r="20" fill="blue" opacity="0.7"/>
+          <text x="190" y="155" text-anchor="middle" fill="white">H</text>
+          
+          <!-- Bonds -->
+          <line x1="150" y1="130" x2="120" y2="140" stroke="black" stroke-width="3"/>
+          <line x1="150" y1="130" x2="180" y2="140" stroke="black" stroke-width="3"/>
+          
+          <!-- Angle -->
+          <path d="M120,140 A30,30 0 0,1 180,140" stroke="#ff6f00" fill="none" stroke-dasharray="5,5"/>
+          <text x="150" y="120" text-anchor="middle" fill="#ff6f00">104.5°</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>EAMCET Problem-Solving Tips</h2>
+      <ul>
+        <li>Remember hydrogen's dual nature (alkali metal + halogen properties)</li>
+        <li>For isotope problems:
+          <ul>
+            <li>Protium has no neutrons</li>
+            <li>Heavy water contains deuterium</li>
+            <li>Tritium is radioactive</li>
+          </ul>
+        </li>
+        <li>Hydride formation trends:
+          <ul>
+            <li>Alkali metals form ionic hydrides (MH)</li>
+            <li>Alkaline earth metals form ionic hydrides (MH<sub>2</sub>)</li>
+            <li>Non-metals form covalent hydrides</li>
+          </ul>
+        </li>
+        <li>Hydrogen peroxide acts as both oxidizing and reducing agent</li>
+        <li>Memorize important reactions:
+          <ul>
+            <li>Water gas reaction: C + H<sub>2</sub>O → CO + H<sub>2</sub></li>
+            <li>Bosch process: CO + H<sub>2</sub>O → CO<sub>2</sub> + H<sub>2</sub></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Hydrogen Quiz</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button class="next-btn" onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 10</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "Which isotope of hydrogen is radioactive?", 
+        options: ["Protium", "Deuterium", "Tritium", "None of these"], 
+        answer: "Tritium",
+        explanation: "Tritium (<sup>3</sup>H) has 2 neutrons and undergoes β-decay with half-life of 12.33 years"
+      },
+      { 
+        question: "What is the product when sodium hydride reacts with water?", 
+        options: [
+          "NaOH + H<sub>2</sub>", 
+          "Na<sub>2</sub>O + H<sub>2</sub>", 
+          "NaH<sub>2</sub>O<sub>2</sub>", 
+          "No reaction"
+        ], 
+        answer: "NaOH + H<sub>2</sub>",
+        explanation: "NaH + H<sub>2</sub>O → NaOH + H<sub>2</sub> (ionic hydrides react violently with water)"
+      },
+      { 
+        question: "Which process is used for commercial production of hydrogen?", 
+        options: [
+          "Electrolysis of water", 
+          "Bosch process", 
+          "Lane process", 
+          "All of these"
+        ], 
+        answer: "All of these",
+        explanation: "Commercial hydrogen production uses multiple methods depending on requirements"
+      },
+      { 
+        question: "What type of hydride is formed by palladium?", 
+        options: [
+          "Ionic", 
+          "Covalent", 
+          "Metallic", 
+          "Polymeric"
+        ], 
+        answer: "Metallic",
+        explanation: "Transition metals form non-stoichiometric metallic/interstitial hydrides (e.g., PdH<sub>0.6</sub>)"
+      },
+      { 
+        question: "The angle between H-O-H bonds in water is approximately:", 
+        options: [
+          "90°", 
+          "104.5°", 
+          "109.5°", 
+          "120°"
+        ], 
+        answer: "104.5°",
+        explanation: "Water's bent structure results from sp<sup>3</sup> hybridization with lone pair repulsion"
+      },
+      { 
+        question: "Which property is NOT characteristic of hydrogen?", 
+        options: [
+          "Forms H<sup>+</sup> ions", 
+          "Forms H<sup>-</sup> ions", 
+          "Diatomic molecule", 
+          "Forms strong hydrogen bonds with itself"
+        ], 
+        answer: "Forms strong hydrogen bonds with itself",
+        explanation: "Hydrogen forms intermolecular H-bonds with electronegative atoms (O,N,F) but not with itself"
+      },
+      { 
+        question: "Heavy water is:", 
+        options: [
+          "H<sub>2</sub>O<sub>2</sub>", 
+          "D<sub>2</sub>O", 
+          "T<sub>2</sub>O", 
+          "H<sub>2</sub>O at 4°C"
+        ], 
+        answer: "D<sub>2</sub>O",
+        explanation: "Heavy water contains deuterium (D or <sup>2</sup>H) instead of protium"
+      },
+      { 
+        question: "Hydrogen peroxide acts as:", 
+        options: [
+          "Only oxidizing agent", 
+          "Only reducing agent", 
+          "Both oxidizing and reducing agent", 
+          "Neither oxidizing nor reducing agent"
+        ], 
+        answer: "Both oxidizing and reducing agent",
+        explanation: "H<sub>2</sub>O<sub>2</sub> can act as both depending on the reaction (O.S. of O = -1)"
+      },
+      { 
+        question: "Which is NOT a use of hydrogen peroxide?", 
+        options: [
+          "Bleaching agent", 
+          "Antiseptic", 
+          "Moderator in nuclear reactors", 
+          "Rocket fuel"
+        ], 
+        answer: "Moderator in nuclear reactors",
+        explanation: "Heavy water (D<sub>2</sub>O) is used as moderator, not H<sub>2</sub>O<sub>2</sub>"
+      },
+      { 
+        question: "The most abundant isotope of hydrogen is:", 
+        options: [
+          "Protium", 
+          "Deuterium", 
+          "Tritium", 
+          "All have equal abundance"
+        ], 
+        answer: "Protium",
+        explanation: "Protium (<sup>1</sup>H) constitutes 99.985% of natural hydrogen"
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerHTML = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerHTML = q.answer + (q.explanation ? `<br><br>Explanation: ${q.explanation}` : "");
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerHTML = opt;
+        li.onclick = function() {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerHTML = "🎉 Correct Answer!";
+            document.getElementById("message").style.color = "lime";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerHTML = "❌ Wrong Answer!";
+            document.getElementById("message").style.color = "red";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => {
+            el.classList.add("disabled");
+            if (el.innerHTML === q.answer) el.classList.add("correct");
+          });
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      document.getElementById("submitBtn").style.display = currentIndex === quizData.length - 1 ? "block" : "none";
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        document.getElementById("submitBtn").style.display = "block";
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      currentIndex = 0;
+      score = 0;
+      loadQuestion();
+      document.getElementById("finalScore").style.display = "none";
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerHTML = `🎯 Final Score: ${score} out of ${quizData.length}<br><br>${getPerformanceMessage(score/quizData.length)}`;
+    }
+
+    function getPerformanceMessage(percentage) {
+      if (percentage >= 0.9) return "Excellent! You've mastered hydrogen concepts!";
+      if (percentage >= 0.7) return "Great job! You have a strong understanding!";
+      if (percentage >= 0.5) return "Good effort! Review the concepts you missed!";
+      return "Keep practicing! Focus on isotopes and hydrides!";
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - EAMCET Learning Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        .signup-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 350px;
+            margin: 20px 0;
+        }
+        .signup-container h2 {
+            text-align: center;
+            color: #004466;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .btn {
+            background-color: #004466;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #003355;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .login-link a {
+            color: #004466;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+        }
+        .home-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .home-link a {
+            color: #004466;
+            text-decoration: none;
+        }
+        .home-link a:hover {
+            text-decoration: underline;
+        }
+        .password-requirements {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .requirement-item {
+            margin-bottom: 5px;
+        }
+        .requirement-item i {
+            margin-right: 5px;
+        }
+        .valid {
+            color: green;
+        }
+        .invalid {
+            color: red;
+        }
+        .info-box {
+            background-color: #e6f3ff;
+            border-left: 4px solid #004466;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Create an Account</h2>
+        <div class="info-box">
+            Complete your registration to access study materials, practice tests, and more for EAMCET exam preparation.
+        </div>
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required minlength="8">
+                <div class="password-requirements">
+                    <div class="requirement-item" id="length">
+                        <i class="fas fa-times-circle invalid"></i> At least 8 characters
+                    </div>
+                    <div class="requirement-item" id="uppercase">
+                        <i class="fas fa-times-circle invalid"></i> At least one uppercase letter
+                    </div>
+                    <div class="requirement-item" id="lowercase">
+                        <i class="fas fa-times-circle invalid"></i> At least one lowercase letter
+                    </div>
+                    <div class="requirement-item" id="number">
+                        <i class="fas fa-times-circle invalid"></i> At least one number
+                    </div>
+                    <div class="requirement-item" id="special">
+                        <i class="fas fa-times-circle invalid"></i> At least one special character
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required minlength="8">
+                <div class="requirement-item" id="match">
+                    <i class="fas fa-times-circle invalid"></i> Passwords match
+                </div>
+            </div>
+            <button type="submit" class="btn" id="signup-button" disabled>Sign Up</button>
+            <div id="error-message" class="error-message">Please fix the errors above</div>
+        </form>
+        <div class="login-link">
+            Already have an account? <a href="login.html">Login</a>
+        </div>
+        <div class="home-link">
+            <a href="index.html">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Password validation function
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            // Check length
+            const lengthValid = password.length >= 8;
+            updateRequirement('length', lengthValid);
+            
+            // Check uppercase
+            const uppercaseValid = /[A-Z]/.test(password);
+            updateRequirement('uppercase', uppercaseValid);
+            
+            // Check lowercase
+            const lowercaseValid = /[a-z]/.test(password);
+            updateRequirement('lowercase', lowercaseValid);
+            
+            // Check number
+            const numberValid = /[0-9]/.test(password);
+            updateRequirement('number', numberValid);
+            
+            // Check special character
+            const specialValid = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+            updateRequirement('special', specialValid);
+            
+            // Check match
+            const matchValid = password === confirmPassword && password !== '';
+            updateRequirement('match', matchValid);
+            
+            // Enable submit button if all requirements are met
+            const allValid = lengthValid && uppercaseValid && lowercaseValid && 
+                            numberValid && specialValid && matchValid;
+            
+            document.getElementById('signup-button').disabled = !allValid;
+        }
+        
+        // Update requirement UI
+        function updateRequirement(id, isValid) {
+            const element = document.getElementById(id);
+            const icon = element.querySelector('i');
+            
+            if (isValid) {
+                icon.className = 'fas fa-check-circle valid';
+                element.classList.add('valid');
+                element.classList.remove('invalid');
+            } else {
+                icon.className = 'fas fa-times-circle invalid';
+                element.classList.add('invalid');
+                element.classList.remove('valid');
+            }
+        }
+        
+        // Attach event listeners
+        document.getElementById('password').addEventListener('input', validatePassword);
+        document.getElementById('confirm-password').addEventListener('input', validatePassword);
+        
+        // Handle form submission
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Get existing users or create empty array
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            
+            // Check if email already exists
+            if (users.some(user => user.email === email)) {
+                document.getElementById('error-message').textContent = 'Email already exists';
+                document.getElementById('error-message').style.display = 'block';
+                return;
+            }
+            
+            // Add new user
+            users.push({
+                name: name,
+                email: email,
+                password: password
+            });
+            
+            // Save to localStorage
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Create session for the new user
+            localStorage.setItem('currentUser', JSON.stringify({
+                email: email,
+                name: name,
+                loggedIn: true,
+                loginTime: new Date().getTime()
+            }));
+            
+            // Redirect to home page
+            window.location.href = 'sam.html';
+        });
+    </script>
+</body>
+</html>

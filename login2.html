@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - EAMCET Learning Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 350px;
+        }
+        .login-container h2 {
+            text-align: center;
+            color: #004466;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .btn {
+            background-color: #004466;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #003355;
+        }
+        .signup-link, .forgot-password {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .signup-link a, .forgot-password a {
+            color: #004466;
+            text-decoration: none;
+        }
+        .signup-link a:hover, .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+        }
+        .success-message {
+            color: green;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+        }
+        .home-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .home-link a {
+            color: #004466;
+            text-decoration: none;
+        }
+        .home-link a:hover {
+            text-decoration: underline;
+        }
+        .forgot-password-form {
+            display: none;
+        }
+        /* CAPTCHA styles */
+        .captcha-container {
+            margin-bottom: 20px;
+        }
+        .captcha {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 5px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: line-through;
+            position: relative;
+            user-select: none;
+        }
+        .captcha::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background-color: #333;
+            transform: rotate(5deg);
+        }
+        .captcha::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 30%;
+            width: 100%;
+            height: 1px;
+            background-color: #333;
+            transform: rotate(-5deg);
+        }
+        .refresh-captcha {
+            background: none;
+            border: none;
+            color: #004466;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        .refresh-captcha:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <!-- Login Form -->
+        <div id="login-section">
+            <h2>Login to Learn</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="captcha-container">
+                    <label for="captcha-input">CAPTCHA Verification</label>
+                    <div class="captcha" id="captcha-text"></div>
+                    <button type="button" class="refresh-captcha" onclick="generateCaptcha()">
+                        <i class="fas fa-sync-alt"></i> Refresh CAPTCHA
+                    </button>
+                    <input type="text" id="captcha-input" name="captcha-input" placeholder="Enter CAPTCHA" required>
+                    <input type="hidden" id="captcha-value" name="captcha-value">
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div id="error-message" class="error-message">Invalid email or password</div>
+            </form>
+            <div class="forgot-password">
+                <a href="#" id="forgot-password-link">Forgot Password?</a>
+            </div>
+            <div class="signup-link">
+                Don't have an account? <a href="signup.html">Sign up</a>
+            </div>
+            <div class="home-link">
+                <a href="index.html">Back to Home</a>
+            </div>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div id="forgot-password-section" class="forgot-password-form">
+            <h2>Reset Password</h2>
+            <form id="forgot-password-form">
+                <div class="form-group">
+                    <label for="reset-email">Email</label>
+                    <input type="email" id="reset-email" name="reset-email" required>
+                </div>
+                <button type="submit" class="btn">Send Reset Link</button>
+                <div id="reset-message" class="success-message">Password reset instructions sent to your email</div>
+            </form>
+            <div class="home-link">
+                <a href="#" id="back-to-login">Back to Login</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Track CAPTCHA value
+        let captchaValue = '';
+
+        // Generate CAPTCHA on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            generateCaptcha();
+            checkRedirection();
+        });
+
+        // Check if redirected from protected page
+        function checkRedirection() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('redirect')) {
+                document.getElementById('error-message').textContent = 'Please login to access that page';
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }
+
+        // Generate CAPTCHA
+        function generateCaptcha() {
+            const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            let captcha = '';
+            
+            for (let i = 0; i < 6; i++) {
+                const randomIndex = Math.floor(Math.random() * chars.length);
+                captcha += chars[randomIndex];
+            }
+            
+            captchaValue = captcha;
+            document.getElementById('captcha-text').textContent = captcha;
+            document.getElementById('captcha-value').value = captcha;
+        }
+
+        // Toggle between login and forgot password forms
+        document.getElementById('forgot-password-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('forgot-password-section').style.display = 'block';
+        });
+
+        document.getElementById('back-to-login').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('forgot-password-section').style.display = 'none';
+            document.getElementById('login-section').style.display = 'block';
+        });
+
+        // Handle forgot password form submission
+        document.getElementById('forgot-password-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('reset-email').value;
+            
+            // Hide any previous messages
+            document.getElementById('reset-message').style.display = 'none';
+            
+            // Create form data for AJAX request
+            const formData = new FormData();
+            formData.append('email', email);
+            
+            // Send AJAX request to forgot_password.php
+            fetch('forgot_password.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('reset-message').textContent = data.message;
+                document.getElementById('reset-message').style.color = data.success ? 'green' : 'red';
+                document.getElementById('reset-message').style.display = 'block';
+                
+                if (data.success) {
+                    // Return to login after 3 seconds
+                    setTimeout(() => {
+                        document.getElementById('forgot-password-section').style.display = 'none';
+                        document.getElementById('login-section').style.display = 'block';
+                        document.getElementById('reset-message').style.display = 'none';
+                    }, 3000);
+                }
+            })
+            .catch(error => {
+                document.getElementById('reset-message').textContent = 'An error occurred. Please try again.';
+                document.getElementById('reset-message').style.color = 'red';
+                document.getElementById('reset-message').style.display = 'block';
+                console.error('Error:', error);
+            });
+        });
+
+        // Handle login form submission
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const captchaInput = document.getElementById('captcha-input').value;
+            
+            // Reset error messages
+            document.getElementById('error-message').style.display = 'none';
+            
+            // Create form data for AJAX request
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
+            formData.append('captcha', captchaInput);
+            formData.append('captchaValue', captchaValue);
+            
+            // Send AJAX request to login_process.php
+            fetch('login_process.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Redirect to home page or the page user was trying to access
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const redirectUrl = urlParams.get('redirect');
+                    window.location.href = redirectUrl || 'sam.html';
+                } else {
+                    // Show error message
+                    document.getElementById('error-message').textContent = data.message;
+                    document.getElementById('error-message').style.display = 'block';
+                    generateCaptcha(); // Generate new CAPTCHA
+                }
+            })
+            .catch(error => {
+                document.getElementById('error-message').textContent = 'An error occurred. Please try again.';
+                document.getElementById('error-message').style.display = 'block';
+                console.error('Error:', error);
+                generateCaptcha(); // Generate new CAPTCHA
+            });
+        });
+    </script>
+</body>
+</html>

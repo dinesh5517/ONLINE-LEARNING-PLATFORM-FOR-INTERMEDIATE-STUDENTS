@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chemical Equilibrium - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .diagram {
+      max-width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .formula {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+    
+    .svg-container {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: center;
+    }
+    
+    th {
+      background-color: #333;
+      color: #ff6f00;
+    }
+    
+    .equilibrium-graph {
+      width: 100%;
+      height: 300px;
+      position: relative;
+      background-color: white;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+    
+    .reaction-arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+    }
+    
+    .reaction-arrow span {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: #ff6f00;
+    }
+    
+    .equilibrium-constant {
+      font-size: 2rem;
+      text-align: center;
+      margin: 20px 0;
+      color: #ff6f00;
+    }
+    
+    .element-box {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #ff6f00;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 5px;
+      border-radius: 5px;
+      background-color: #333;
+    }
+    
+    .atom-number {
+      font-size: 10px;
+      align-self: flex-start;
+      padding-left: 5px;
+    }
+    
+    .element-symbol {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+    .element-name {
+      font-size: 10px;
+    }
+    
+    .element-mass {
+      font-size: 10px;
+      align-self: flex-end;
+      padding-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Chemical Equilibrium - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Basic Concepts</h2>
+      <ul>
+        <li><strong>Equilibrium:</strong> State where forward and reverse reaction rates are equal</li>
+        <li><strong>Dynamic Nature:</strong> Reactions continue but concentrations remain constant</li>
+        <li><strong>Characteristics:</strong>
+          <ul>
+            <li>Reversible reactions only</li>
+            <li>Closed system required</li>
+            <li>Macroscopic properties constant</li>
+            <li>Can be approached from either direction</li>
+          </ul>
+        </li>
+        <li><strong>Equilibrium in Physical Processes:</strong> Phase equilibria (solid-liquid-gas)</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="600" height="300" viewBox="0 0 600 300">
+          <!-- Equilibrium graph -->
+          <!-- X and Y axes -->
+          <line x1="50" y1="250" x2="550" y2="250" stroke="black" stroke-width="2"/>
+          <line x1="50" y1="250" x2="50" y2="50" stroke="black" stroke-width="2"/>
+          
+          <!-- Labels -->
+          <text x="300" y="280" text-anchor="middle" fill="black">Time</text>
+          <text x="30" y="150" text-anchor="middle" fill="black" transform="rotate(-90,30,150)">Concentration</text>
+          
+          <!-- Forward reaction curve -->
+          <path d="M50,250 C150,50 250,100 350,150" stroke="#ff6f00" stroke-width="3" fill="none"/>
+          <text x="100" y="100" fill="#ff6f00">Forward Reaction</text>
+          
+          <!-- Reverse reaction curve -->
+          <path d="M50,50 C150,200 250,150 350,150" stroke="#3498db" stroke-width="3" fill="none"/>
+          <text x="100" y="200" fill="#3498db">Reverse Reaction</text>
+          
+          <!-- Equilibrium line -->
+          <line x1="350" y1="150" x2="550" y2="150" stroke="black" stroke-dasharray="5,5" stroke-width="2"/>
+          <text x="450" y="140" fill="black">Equilibrium Established</text>
+          
+          <!-- Equilibrium point -->
+          <circle cx="350" cy="150" r="5" fill="black"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Law of Mass Action and K<sub>c</sub></h2>
+      <ul>
+        <li><strong>Law of Mass Action:</strong> Rate ∝ active masses of reactants</li>
+        <li><strong>Equilibrium Constant (K<sub>c</sub>):</strong>
+          <div class="formula">
+            For a general reaction: aA + bB ⇌ cC + dD<br>
+            K<sub>c</sub> = [C]<sup>c</sup>[D]<sup>d</sup> / [A]<sup>a</sup>[B]<sup>b</sup>
+          </div>
+        </li>
+        <li><strong>Features of K<sub>c</sub>:</strong>
+          <ul>
+            <li>Constant at given temperature</li>
+            <li>Independent of initial concentrations</li>
+            <li>Pure solids/liquids excluded (activity = 1)</li>
+            <li>Depends on stoichiometric coefficients</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="reaction-arrow">
+        <div>N<sub>2</sub>(g) + 3H<sub>2</sub>(g)</div>
+        <span>⇌</span>
+        <div>2NH<sub>3</sub>(g)</div>
+      </div>
+      <div class="equilibrium-constant">
+        K<sub>c</sub> = [NH<sub>3</sub>]<sup>2</sup> / [N<sub>2</sub>][H<sub>2</sub>]<sup>3</sup>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. K<sub>p</sub> and Relationship with K<sub>c</sub></h2>
+      <ul>
+        <li><strong>K<sub>p</sub>:</strong> Equilibrium constant in terms of partial pressures</li>
+        <li><strong>Relationship:</strong>
+          <div class="formula">
+            K<sub>p</sub> = K<sub>c</sub>(RT)<sup>Δn<sub>g</sub></sup><br>
+            where Δn<sub>g</sub> = (moles gaseous products) - (moles gaseous reactants)
+          </div>
+        </li>
+        <li><strong>When K<sub>p</sub> = K<sub>c</sub>:</strong> When Δn<sub>g</sub> = 0</li>
+      </ul>
+      <table>
+        <tr>
+          <th>Reaction Type</th>
+          <th>Example</th>
+          <th>Δn<sub>g</sub></th>
+          <th>K<sub>p</sub> vs K<sub>c</sub></th>
+        </tr>
+        <tr>
+          <td>No change in gas moles</td>
+          <td>H<sub>2</sub>(g) + I<sub>2</sub>(g) ⇌ 2HI(g)</td>
+          <td>0</td>
+          <td>K<sub>p</sub> = K<sub>c</sub></td>
+        </tr>
+        <tr>
+          <td>Gas moles increase</td>
+          <td>PCl<sub>5</sub>(g) ⇌ PCl<sub>3</sub>(g) + Cl<sub>2</sub>(g)</td>
+          <td>+1</td>
+          <td>K<sub>p</sub> > K<sub>c</sub></td>
+        </tr>
+        <tr>
+          <td>Gas moles decrease</td>
+          <td>N<sub>2</sub>(g) + 3H<sub>2</sub>(g) ⇌ 2NH<sub>3</sub>(g)</td>
+          <td>-2</td>
+          <td>K<sub>p</sub> < K<sub>c</sub></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>4. Le Chatelier's Principle</h2>
+      <ul>
+        <li><strong>Principle:</strong> System at equilibrium opposes any change in conditions</li>
+        <li><strong>Effect of Concentration:</strong>
+          <ul>
+            <li>Increase reactant → shift right</li>
+            <li>Increase product → shift left</li>
+          </ul>
+        </li>
+        <li><strong>Effect of Pressure:</strong>
+          <ul>
+            <li>Increase P → shifts to side with fewer gas moles</li>
+            <li>Decrease P → shifts to side with more gas moles</li>
+          </ul>
+        </li>
+        <li><strong>Effect of Temperature:</strong>
+          <ul>
+            <li>Endothermic (ΔH > 0): Increase T → shift right</li>
+            <li>Exothermic (ΔH < 0): Increase T → shift left</li>
+          </ul>
+        </li>
+        <li><strong>Catalyst:</strong> No effect on equilibrium (speeds both directions equally)</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="500" height="300" viewBox="0 0 500 300">
+          <!-- Equilibrium disturbance -->
+          <rect x="50" y="50" width="400" height="200" fill="#f9f9f9" stroke="#333" stroke-width="2"/>
+          
+          <!-- Before disturbance -->
+          <circle cx="150" cy="150" r="50" fill="#ff6f00" opacity="0.5"/>
+          <text x="150" y="150" text-anchor="middle" fill="black">Equilibrium</text>
+          
+          <!-- Disturbance arrow -->
+          <line x1="250" y1="100" x2="350" y2="100" stroke="red" stroke-width="3" marker-end="url(#arrow)"/>
+          <text x="300" y="90" text-anchor="middle" fill="red">Disturbance</text>
+          
+          <!-- New equilibrium -->
+          <circle cx="350" cy="150" r="50" fill="#3498db" opacity="0.5"/>
+          <text x="350" y="150" text-anchor="middle" fill="black">New Equilibrium</text>
+          
+          <!-- Response arrow -->
+          <line x1="200" y1="200" x2="300" y2="200" stroke="green" stroke-width="3" marker-end="url(#arrow)"/>
+          <text x="250" y="190" text-anchor="middle" fill="green">System Response</text>
+          
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L9,3 z" fill="context-stroke"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>5. Applications of Equilibrium</h2>
+      <ul>
+        <li><strong>Haber Process:</strong> N<sub>2</sub> + 3H<sub>2</sub> ⇌ 2NH<sub>3</sub> (ΔH = -92 kJ)
+          <ul>
+            <li>High pressure (200 atm)</li>
+            <li>Moderate temperature (450°C)</li>
+            <li>Iron catalyst</li>
+          </ul>
+        </li>
+        <li><strong>Contact Process:</strong> 2SO<sub>2</sub> + O<sub>2</sub> ⇌ 2SO<sub>3</sub>
+          <ul>
+            <li>Exothermic → low temperature favored</li>
+            <li>Mole reduction → high pressure favored</li>
+            <li>V<sub>2</sub>O<sub>5</sub> catalyst</li>
+          </ul>
+        </li>
+        <li><strong>Ostwald Process:</strong> NH<sub>3</sub> → NO → NO<sub>2</sub> → HNO<sub>3</sub></li>
+        <li><strong>Ionic Equilibrium:</strong> Weak acids/bases, buffer solutions, solubility products</li>
+      </ul>
+      <div class="formula">
+        Industrial optimization conditions:<br>
+        1. Maximum yield (Le Chatelier)<br>
+        2. Reasonable reaction rate<br>
+        3. Economic feasibility
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>6. Heterogeneous Equilibria</h2>
+      <ul>
+        <li><strong>Key Concept:</strong> For the reaction CaCO<sub>3</sub>(s) ⇌ CaO(s) + CO<sub>2</sub>(g), the equilibrium constant is simply K<sub>c</sub> = [CO<sub>2</sub>]</li>
+        <li><strong>Why?</strong> Because:
+          <ul>
+            <li>Concentrations of pure solids (CaCO<sub>3</sub> and CaO) are constant</li>
+            <li>Their "active masses" are incorporated into the equilibrium constant</li>
+            <li>Only gaseous or aqueous species appear in the expression</li>
+          </ul>
+        </li>
+        <li><strong>General Rule:</strong> Omit pure solids and liquids from equilibrium expressions</li>
+      </ul>
+      
+      <div class="formula">
+        <strong>Examples:</strong><br>
+        1. NH<sub>4</sub>Cl(s) ⇌ NH<sub>3</sub>(g) + HCl(g) → K<sub>c</sub> = [NH<sub>3</sub>][HCl]<br>
+        2. 3Fe(s) + 4H<sub>2</sub>O(g) ⇌ Fe<sub>3</sub>O<sub>4</sub>(s) + 4H<sub>2</sub>(g) → K<sub>c</sub> = [H<sub>2</sub>]<sup>4</sup>/[H<sub>2</sub>O]<sup>4</sup>
+      </div>
+
+      <div class="svg-container">
+        <svg width="500" height="200" viewBox="0 0 500 200">
+          <!-- Limestone decomposition -->
+          <rect x="50" y="50" width="100" height="100" fill="#d5dbdb" stroke="#333"/>
+          <text x="100" y="120" text-anchor="middle">CaCO<sub>3</sub>(s)</text>
+          
+          <!-- Arrow -->
+          <path d="M160,100 L200,100 L210,90 M200,100 L210,110" stroke="#ff6f00" stroke-width="2" fill="none"/>
+          
+          <!-- Products -->
+          <rect x="220" y="50" width="100" height="100" fill="#f5b7b1" stroke="#333"/>
+          <text x="270" y="120" text-anchor="middle">CaO(s)</text>
+          
+          <circle cx="370" cy="100" r="40" fill="#aed6f1" stroke="#333"/>
+          <text x="370" y="105" text-anchor="middle">CO<sub>2</sub>(g)</text>
+          
+          <!-- Equilibrium expression -->
+          <rect x="150" y="150" width="200" height="40" fill="#333" rx="5"/>
+          <text x="250" y="175" text-anchor="middle" fill="#ff6f00">K<sub>c</sub> = [CO<sub>2</sub>]</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>7. Relationship Between K and Reaction Quotient (Q)</h2>
+      <ul>
+        <li><strong>Reaction Quotient (Q):</strong> Same form as K but calculated with initial concentrations</li>
+        <li><strong>Comparison:</strong>
+          <table>
+            <tr>
+              <th>Condition</th>
+              <th>Relationship</th>
+              <th>Direction of Shift</th>
+            </tr>
+            <tr>
+              <td>System at equilibrium</td>
+              <td>Q = K</td>
+              <td>No shift</td>
+            </tr>
+            <tr>
+              <td>Too much product</td>
+              <td>Q > K</td>
+              <td>← Towards reactants</td>
+            </tr>
+            <tr>
+              <td>Too much reactant</td>
+              <td>Q < K</td>
+              <td>→ Towards products</td>
+            </tr>
+          </table>
+        </li>
+      </ul>
+      <div class="formula">
+        <strong>Example Calculation:</strong><br>
+        For N<sub>2</sub>(g) + 3H<sub>2</sub>(g) ⇌ 2NH<sub>3</sub>(g)<br>
+        If [N<sub>2</sub>] = 0.5M, [H<sub>2</sub>] = 0.3M, [NH<sub>3</sub>] = 0.2M and K<sub>c</sub> = 0.5:<br>
+        Q = (0.2)<sup>2</sup>/(0.5)(0.3)<sup>3</sup> ≈ 0.296 → Q < K (shifts →)
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>EAMCET Problem-Solving Tips</h2>
+      <ul>
+        <li>For K<sub>c</sub> calculations, always check stoichiometric coefficients</li>
+        <li>Remember: Solids and pure liquids don't appear in equilibrium expressions</li>
+        <li>For K<sub>p</sub> problems, pressure units must match R units (usually atm)</li>
+        <li>When temperature changes, K changes (use van't Hoff equation)</li>
+        <li>For Le Chatelier problems, identify the change first, then predict shift</li>
+        <li>Memorize common industrial processes (Haber, Contact, Ostwald)</li>
+        <li>For heterogeneous equilibria, only include gases and aqueous species</li>
+        <li><strong>Quick K calculation:</strong> When coefficients are doubled, K becomes K²</li>
+        <li><strong>Reverse reaction:</strong> K' = 1/K</li>
+        <li><strong>Adding reactions:</strong> Multiply their K values</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Equilibrium Quiz</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button class="next-btn" onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "For the reaction 2SO<sub>2</sub>(g) + O<sub>2</sub>(g) ⇌ 2SO<sub>3</sub>(g), what happens if we increase the pressure?", 
+        options: [
+          "Shifts to form more SO<sub>3</sub>", 
+          "Shifts to form more SO<sub>2</sub>", 
+          "No effect", 
+          "Cannot be predicted"
+        ], 
+        answer: "Shifts to form more SO<sub>3</sub>" 
+      },
+      { 
+        question: "What is the relationship between K<sub>p</sub> and K<sub>c</sub> for the reaction N<sub>2</sub>(g) + 3H<sub>2</sub>(g) ⇌ 2NH<sub>3</sub>(g)?", 
+        options: [
+          "K<sub>p</sub> = K<sub>c</sub>", 
+          "K<sub>p</sub> = K<sub>c</sub>(RT)<sup>-2</sup>", 
+          "K<sub>p</sub> = K<sub>c</sub>(RT)<sup>2</sup>", 
+          "K<sub>p</sub> = K<sub>c</sub>(RT)<sup>-1</sup>"
+        ], 
+        answer: "K<sub>p</sub> = K<sub>c</sub>(RT)<sup>-2</sup>" 
+      },
+      { 
+        question: "Which of the following is NOT true about a system at equilibrium?", 
+        options: [
+          "Forward and reverse rates are equal", 
+          "Concentrations of all species are equal", 
+          "Can be approached from either direction", 
+          "Macroscopic properties remain constant"
+        ], 
+        answer: "Concentrations of all species are equal" 
+      },
+      { 
+        question: "For an endothermic reaction, increasing the temperature will:", 
+        options: [
+          "Shift equilibrium to products", 
+          "Shift equilibrium to reactants", 
+          "Not affect equilibrium", 
+          "First shift to products then to reactants"
+        ], 
+        answer: "Shift equilibrium to products" 
+      },
+      { 
+        question: "What is the equilibrium constant expression for: CaCO<sub>3</sub>(s) ⇌ CaO(s) + CO<sub>2</sub>(g)?", 
+        options: [
+          "K<sub>c</sub> = [CaO][CO<sub>2</sub>]/[CaCO<sub>3</sub>]", 
+          "K<sub>c</sub> = [CO<sub>2</sub>]", 
+          "K<sub>c</sub> = [CaO]/[CaCO<sub>3</sub>]", 
+          "K<sub>c</sub> = 1/[CO<sub>2</sub>]"
+        ], 
+        answer: "K<sub>c</sub> = [CO<sub>2</sub>]" 
+      },
+      { 
+        question: "In the Haber process, why is a temperature of 450°C used despite the reaction being exothermic?", 
+        options: [
+          "To increase equilibrium yield", 
+          "To prevent catalyst poisoning", 
+          "To achieve a reasonable reaction rate", 
+          "To decrease pressure requirements"
+        ], 
+        answer: "To achieve a reasonable reaction rate" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerHTML = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerHTML = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerHTML = opt;
+        li.onclick = function() {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerHTML = "🎉 Correct Answer!";
+            document.getElementById("message").style.color = "lime";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerHTML = "❌ Wrong Answer!";
+            document.getElementById("message").style.color = "red";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => {
+            el.classList.add("disabled");
+            if (el.innerHTML === q.answer) el.classList.add("correct");
+          });
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      document.getElementById("submitBtn").style.display = currentIndex === quizData.length - 1 ? "block" : "none";
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        document.getElementById("submitBtn").style.display = "block";
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      currentIndex = 0;
+      score = 0;
+      loadQuestion();
+      document.getElementById("finalScore").style.display = "none";
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerHTML = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAMCET Learning Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #004466;
+            --primary-dark: #003355;
+            --secondary-color: #ff6b35;
+            --light-color: #f7f7f7;
+            --dark-color: #333;
+            --gray-color: #777;
+            --light-gray: #eaeaea;
+            --success-color: #388e3c;
+            --error-color: #d32f2f;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --marquee-color: #ffcc00;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            color: var(--primary-color);
+            font-size: 1.75rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            z-index: 1;
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-item {
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark-color);
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .auth-button {
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .login-button {
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .login-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .signup-button {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .signup-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Marquee Styles */
+        .marquee-container {
+            background-color: var(--marquee-color);
+            padding: 0.75rem 0;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Subjects Section */
+        .subjects {
+            padding: 4rem 2rem;
+            background-color: #f9f9f9;
+        }
+        
+        .subjects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .subject-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .subject-image {
+            height: 150px;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .subject-content {
+            padding: 1.5rem;
+        }
+        
+        .subject-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .subject-description {
+            color: var(--gray-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .subject-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .subject-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* PYQs Section */
+        .pyqs {
+            padding: 4rem 2rem;
+        }
+        
+        .pyqs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pyqs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 2rem 2rem 1rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            text-decoration: none;
+        }
+        
+        .footer-logo-icon {
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .footer-logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .footer-about {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .footer-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-link a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-link a:hover {
+            opacity: 1;
+        }
+        
+        .footer-message {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-style: italic;
+        }
+        
+        /* Login Warning Modal */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        
+        .login-warning {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            z-index: 1001;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .login-warning p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .modal-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .login-button-modal {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .login-button-modal:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .signup-button-modal {
+            background-color: var(--marquee-color);
+            color: var(--dark-color);
+        }
+        
+        .signup-button-modal:hover {
+            background-color: #e6b800;
+        }
+        
+        .cancel-button-modal {
+            background-color: var(--light-gray);
+            color: var(--dark-color);
+        }
+        
+        .cancel-button-modal:hover {
+            background-color: #d5d5d5;
+        }
+        
+        /* Cookie Consent Banner */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            background-color: rgba(0, 68, 102, 0.95);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cookie-consent-text {
+            flex: 3;
+            font-size: 0.9rem;
+            padding-right: 1rem;
+        }
+        
+        .cookie-consent-buttons {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+        }
+        
+        .cookie-button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .accept-all {
+            background-color: var(--marquee-color);
+            color: var(--dark-color);
+        }
+        
+        .customize {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .auth-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cookie-consent {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .cookie-consent-text {
+                padding-right: 0;
+                margin-bottom: 0.5rem;
+            }
+            
+            .cookie-consent-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header>
+        <div class="navbar">
+            <a href="main.html" class="logo">
+                <i class="fas fa-graduation-cap logo-icon"></i>
+                <span class="logo-text">EAMCET Prep</span>
+            </a>
+            
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="#" class="nav-link" onclick="showLoginWarning(event)">Subjects <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="physics.html" class="dropdown-item" onclick="showLoginWarning(event)">Physics</a>
+                        <a href="chemistry.html" class="dropdown-item" onclick="showLoginWarning(event)">Chemistry</a>
+                        <a href="maths.html" class="dropdown-item" onclick="showLoginWarning(event)">Mathematics</a>
+                        <a href="#" class="dropdown-item" onclick="showLoginWarning(event)">Biology</a>
+                    </div>
+                </div>
+                
+                <div class="dropdown">
+                    <a href="#" class="nav-link" onclick="showLoginWarning(event)">PYQs <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="physics2.html" class="dropdown-item" onclick="showLoginWarning(event)">Physics PYQs</a>
+                        <a href="chemistry2.html" class="dropdown-item" onclick="showLoginWarning(event)">Chemistry PYQs</a>
+                        <a href="maths2.html" class="dropdown-item" onclick="showLoginWarning(event)">Maths PYQs</a>
+                        <a href="#" class="dropdown-item" onclick="showLoginWarning(event)">Biology PYQs</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="nav-link" onclick="showLoginWarning(event)">Practice Tests</a>
+                <a href="#" class="nav-link" onclick="showLoginWarning(event)">Search</a>
+            </div>
+            
+            <div class="auth-buttons">
+                <a href="login.html" class="auth-button login-button">Login</a>
+                <a href="signup.html" class="auth-button signup-button">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Marquee Banner -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>"In this website you will get short notes and important formulas for all subjects regarding EAMCET and PYQs practice questions."</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Ace Your EAMCET Exam</h1>
+            <p class="hero-subtitle">
+                Comprehensive learning platform with personalized study plans, 
+                practice tests, and expert guidance to help you succeed.
+            </p>
+            <a href="#" class="subject-button" onclick="showLoginWarning(event)">Start Learning Now</a>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section class="subjects">
+        <div class="subjects-container">
+            <h2 class="section-title">Subjects</h2>
+            <div class="subjects-grid">
+                <div class="subject-card" onclick="showLoginWarning(event)">
+                    <div class="subject-image">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Physics</h3>
+                        <p class="subject-description">
+                            Master concepts with interactive lessons and problem-solving techniques.
+                        </p>
+                        <a href="physics.html" class="subject-button">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="subject-card" onclick="showLoginWarning(event)">
+                    <div class="subject-image">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Chemistry</h3>
+                        <p class="subject-description">
+                            Learn organic, inorganic and physical chemistry with practical examples.
+                        </p>
+                        <a href="chemistry.html" class="subject-button">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="subject-card" onclick="showLoginWarning(event)">
+                    <div class="subject-image">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Mathematics</h3>
+                        <p class="subject-description">
+                            Master algebra, calculus, trigonometry and more with our interactive lessons.
+                        </p>
+                        <a href="maths.html" class="subject-button">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="subject-card" onclick="showLoginWarning(event)">
+                    <div class="subject-image">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Biology</h3>
+                        <p class="subject-description">
+                            Comprehensive coverage of botany and zoology with detailed diagrams.
+                        </p>
+                        <a href="#" class="subject-button">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PYQs Section -->
+    <section class="pyqs">
+        <div class="pyqs-container">
+            <h2 class="section-title">Previous Year Questions</h2>
+            <div class="pyqs-grid">
+                <div class="subject-card" onclick="showLoginWarning(event)">
+                    <div class="subject-image" style="background-color: #2c3e50;">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Physics PYQs</h3>
+                        <p class="subject-description">
+                            Practice previous year questions with detailed solutions.
+                        </p>
+                        <a href="physics2.html" class="subject-button">Practice Now</a>
+                    </div>
+                </div>
+                
+                <div class="subject-card" onclick="showLoginWarning(event)">
+                    <div class="subject-image" style="background-color: #2c3e50;">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Chemistry PYQs</h3>
+                        <p class="subject-description">
+                            Practice previous year questions with detailed solutions.
+                        </p>
+                        <a href="chemistry2.html" class="subject-button">Practice Now</a>
+                    </div>
+                </div>
+                
+                <div class="subject-card" onclick="showLoginWarning(event)">
+                    <div class="subject-image" style="background-color: #2c3e50;">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Mathematics PYQs</h3>
+                        <p class="subject-description">
+                            Practice previous year questions with detailed solutions.
+                        </p>
+                        <a href="maths2.html" class="subject-button">Practice Now</a>
+                    </div>
+                </div>
+                
+                <div class="subject-card" onclick="showLoginWarning(event)">
+                    <div class="subject-image" style="background-color: #2c3e50;">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Biology PYQs</h3>
+                        <p class="subject-description">
+                            Practice previous year questions with detailed solutions.
+                        </p>
+                        <a href="#" class="subject-button">Practice Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="#" class="footer-logo">
+                    <i class="fas fa-graduation-cap footer-logo-icon"></i>
+                    <span class="footer-logo-text">EAMCET Prep</span>
+                </a>
+                <p class="footer-about">
+                    Empowering students to achieve their engineering and medical dreams through quality education.
+                </p>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#"onclick="showLoginWarning(event)">Home</a></li>
+                    <li class="footer-link"><a href="#" onclick="showLoginWarning(event)">Subjects</a></li>
+                    <li class="footer-link"><a href="#" onclick="showLoginWarning(event)">PYQs</a></li>
+                    <li class="footer-link"><a href="#" onclick="showLoginWarning(event)">Practice Tests</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Account</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="login.html">Login</a></li>
+                    <li class="footer-link"><a href="signup.html">Sign Up</a></li>
+                    <li class="footer-link"><a href="#" onclick="showLoginWarning(event)">My Profile</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Contact</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="mailto:support@eamcetprep.com"><i class="fas fa-envelope"></i> support@eamcetprep.com</a></li>
+                    <li class="footer-link"><a href="tel:+919876543210"><i class="fas fa-phone"></i> +91 9876543210</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-message">
+            "Success is the sum of small efforts, repeated day in and day out." - Keep studying and stay motivated!
+        </div>
+    </footer>
+
+    <!-- Login Warning Modal -->
+    <div class="overlay" id="overlay"></div>
+    <div class="login-warning" id="login-warning">
+        <p>Please login or signup to access this feature!</p>
+        <div class="modal-buttons">
+            <button class="modal-button login-button-modal" onclick="window.location.href='login.html'">Login</button>
+            <button class="modal-button signup-button-modal" onclick="window.location.href='signup.html'">Sign Up</button>
+            <button class="modal-button cancel-button-modal" onclick="hideLoginWarning()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookie-consent">
+        <div class="cookie-consent-text">
+            <p>This website uses cookies to ensure you get the best experience. By continuing to browse the site, you agree to our use of cookies.</p>
+        </div>
+        <div class="cookie-consent-buttons">
+            <button class="cookie-button accept-all" onclick="acceptAllCookies()">Accept All</button>
+            <button class="cookie-button customize" onclick="showCookieSettings()">Customize</button>
+        </div>
+    </div>
+
+    <script>
+        // Check if cookies have been accepted
+        window.onload = function() {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookie-consent').style.display = 'flex';
+            } else {
+                document.getElementById('cookie-consent').style.display = 'none';
+            }
+        };
+
+        // Login warning functions
+        function showLoginWarning(event) {
+            event.preventDefault();
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('login-warning').style.display = 'block';
+        }
+        
+        function hideLoginWarning() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('login-warning').style.display = 'none';
+        }
+        
+        // Cookie consent functions
+        function acceptAllCookies() {
+            localStorage.setItem('cookiesAccepted', 'all');
+            document.getElementById('cookie-consent').style.display = 'none';
+            console.log("All cookies accepted");
+        }
+
+        function showCookieSettings() {
+            // For simplicity, we'll just accept all cookies when customize is clicked
+            // In a real implementation, you would show a modal with cookie options
+            acceptAllCookies();
+        }
+    </script>
+</body>
+</html>

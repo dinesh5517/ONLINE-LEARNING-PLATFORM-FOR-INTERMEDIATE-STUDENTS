@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Applications of Derivatives - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #FF6D00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #FF6D00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #FF9100;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #FF9100;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #FF9100;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #FF9100;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #FF9100;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #FF6D00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #64B5F6;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #FF6D00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #FF9100;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #FF6D00;
+    }
+    .formula {
+      font-family: 'Courier New', monospace;
+      color: #FFC107;
+      background-color: #333;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .application-box {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      font-family: 'Courier New', monospace;
+    }
+    .graph {
+      text-align: center;
+      margin: 15px 0;
+      color: #FF9100;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Applications of Derivatives - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Rate of Change -->
+    <div class="section">
+      <h2>1. Rate of Change</h2>
+      <ul>
+        <li>Derivatives measure instantaneous rate of change</li>
+        <li>Physical interpretation: Velocity is derivative of position</li>
+        <li>Economics: Marginal cost is derivative of total cost</li>
+      </ul>
+      
+      <div class="application-box">
+        <strong>Example:</strong>
+        <div class="formula">If s(t) = t³ - 4t² + 5t (position function)</div>
+        <div class="formula">v(t) = ds/dt = 3t² - 8t + 5 (velocity)</div>
+        <div class="formula">a(t) = dv/dt = 6t - 8 (acceleration)</div>
+      </div>
+    </div>
+
+    <!-- Tangent/Normal -->
+    <div class="section">
+      <h2>2. Tangents and Normals</h2>
+      <table>
+        <tr>
+          <th>Concept</th>
+          <th>Equation</th>
+          <th>Slope</th>
+        </tr>
+        <tr>
+          <td>Tangent</td>
+          <td>y - y₁ = f'(x₁)(x - x₁)</td>
+          <td>m = f'(x₁)</td>
+        </tr>
+        <tr>
+          <td>Normal</td>
+          <td>y - y₁ = -1/f'(x₁)(x - x₁)</td>
+          <td>m = -1/f'(x₁)</td>
+        </tr>
+      </table>
+      
+      <div class="application-box">
+        <strong>Example:</strong>
+        <div>Find tangent to y = x² at (2,4):</div>
+        <div class="formula">dy/dx = 2x ⇒ slope at x=2 is 4</div>
+        <div class="formula">Tangent: y - 4 = 4(x - 2)</div>
+      </div>
+    </div>
+
+    <!-- Increasing/Decreasing -->
+    <div class="section">
+      <h2>3. Increasing/Decreasing Functions</h2>
+      <table>
+        <tr>
+          <th>Condition</th>
+          <th>Interpretation</th>
+        </tr>
+        <tr>
+          <td>f'(x) > 0</td>
+          <td>Function is increasing</td>
+        </tr>
+        <tr>
+          <td>f'(x) < 0</td>
+          <td>Function is decreasing</td>
+        </tr>
+        <tr>
+          <td>f'(x) = 0</td>
+          <td>Critical point (possible extrema)</td>
+        </tr>
+      </table>
+      
+      <div class="graph">
+        <strong>Visualization:</strong>
+        <p>Increasing functions rise to the right, decreasing functions fall</p>
+      </div>
+    </div>
+
+    <!-- Maxima/Minima -->
+    <div class="section">
+      <h2>4. Maxima and Minima</h2>
+      
+      <div class="application-box">
+        <strong>First Derivative Test:</strong>
+        <ol>
+          <li>Find critical points (f'(x)=0 or undefined)</li>
+          <li>Analyze sign change of f'(x):
+            <ul>
+              <li>(+) to (-) ⇒ local maximum</li>
+              <li>(-) to (+) ⇒ local minimum</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      
+      <div class="application-box">
+        <strong>Second Derivative Test:</strong>
+        <ol>
+          <li>Find critical points where f'(x)=0</li>
+          <li>Evaluate f''(x):
+            <ul>
+              <li>f''(x) > 0 ⇒ local minimum</li>
+              <li>f''(x) < 0 ⇒ local maximum</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Optimization -->
+    <div class="section">
+      <h2>5. Optimization Problems</h2>
+      <ol>
+        <li>Identify quantity to maximize/minimize</li>
+        <li>Write equation relating variables</li>
+        <li>Express quantity as function of one variable</li>
+        <li>Find critical points and verify maxima/minima</li>
+      </ol>
+      
+      <div class="application-box">
+        <strong>Example (Rectangle):</strong>
+        <div>Maximize area A = xy with perimeter P = 2x + 2y = 100</div>
+        <div class="formula">y = 50 - x ⇒ A = x(50 - x) = 50x - x²</div>
+        <div class="formula">dA/dx = 50 - 2x = 0 ⇒ x = 25</div>
+        <div class="formula">Maximum area when x = y = 25 (square)</div>
+      </div>
+    </div>
+
+    <!-- Concavity -->
+    <div class="section">
+      <h2>6. Concavity and Points of Inflection</h2>
+      <table>
+        <tr>
+          <th>Condition</th>
+          <th>Interpretation</th>
+        </tr>
+        <tr>
+          <td>f''(x) > 0</td>
+          <td>Concave upwards (holds water)</td>
+        </tr>
+        <tr>
+          <td>f''(x) < 0</td>
+          <td>Concave downwards (spills water)</td>
+        </tr>
+        <tr>
+          <td>f''(x) = 0</td>
+          <td>Possible point of inflection</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Related Rates -->
+    <div class="section">
+      <h2>7. Related Rates</h2>
+      <ol>
+        <li>Identify all given rates and desired rate</li>
+        <li>Find equation relating variables</li>
+        <li>Differentiate implicitly with respect to time (t)</li>
+        <li>Substitute known values and solve</li>
+      </ol>
+      
+      <div class="application-box">
+        <strong>Example (Ladder):</strong>
+        <div>A 5m ladder slides away from wall at 0.5m/s. How fast is top falling when base is 3m from wall?</div>
+        <div class="formula">x² + y² = 25 ⇒ 2x(dx/dt) + 2y(dy/dt) = 0</div>
+        <div class="formula">When x=3, y=4, dx/dt=0.5 ⇒ dy/dt = -0.375 m/s</div>
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Always draw diagrams for optimization/related rates problems</li>
+        <li>Verify critical points are maxima/minima using tests</li>
+        <li>Remember units in applied problems</li>
+        <li>Practice setting up equations from word problems</li>
+        <li>Check endpoints for absolute maxima/minima</li>
+        <li>Master both derivative tests for maxima/minima</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+        <h2>Quiz: Test Your Knowledge</h2>
+        <div id="quiz-box">
+          <div class="question" id="question">Loading...</div>
+          <ul class="options" id="options"></ul>
+          <div class="message" id="message"></div>
+          <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+          <div class="button-group">
+            <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="tryAgain()">Try Again</button>
+            <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+          </div>
+          <div class="slider-bar" id="progress">Question 1 of 6</div>
+          <div id="finalScore"></div>
+        </div>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+  
+    <script>
+      const quizData = [
+        { question: "If f'(x) changes from positive to negative at x=c, then f has a:", options: ["Local maximum at c", "Local minimum at c", "Point of inflection at c", "Discontinuity at c"], answer: "Local maximum at c" },
+        { question: "A function is decreasing when:", options: ["f'(x) > 0", "f'(x) < 0", "f''(x) > 0", "f''(x) < 0"], answer: "f'(x) < 0" },
+        { question: "For f(x) = x³ - 3x², the critical points are at x=", options: ["0 only", "2 only", "0 and 2", "0 and 3"], answer: "0 and 2" },
+        { question: "The normal line to a curve is _____ to the tangent line", options: ["Parallel", "Perpendicular", "Equal", "Opposite"], answer: "Perpendicular" },
+        { question: "If f''(x) > 0 on an interval, the function is:", options: ["Increasing", "Decreasing", "Concave up", "Concave down"], answer: "Concave up" },
+        { question: "For maximum area with fixed perimeter, a rectangle should be:", options: ["Long and narrow", "A square", "Twice as long as wide", "Circular"], answer: "A square" }
+      ];
+  
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+  
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerHTML = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+  
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerHTML = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+  
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+  
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+  
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+  
+      function tryAgain() {
+        loadQuestion();
+      }
+  
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+  
+      window.onload = loadQuestion;
+    </script>
+  
+  </body>
+</html>

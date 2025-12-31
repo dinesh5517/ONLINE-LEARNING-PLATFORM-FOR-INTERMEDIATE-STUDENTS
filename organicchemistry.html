@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Basic Principles of Organic Chemistry - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ff6f00;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ff6f00;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ff6f00;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #ff6f00;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #ff6f00;
+    }
+    .formula {
+      font-family: 'Courier New', monospace;
+      color: #FF9800;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Basic Principles of Organic Chemistry - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Introduction -->
+    <div class="section">
+      <h2>1. Introduction to Organic Chemistry</h2>
+      <ul>
+        <li><strong>Definition:</strong> Study of carbon compounds (except CO, CO₂, carbonates)</li>
+        <li><strong>Tetravalency:</strong> Carbon forms 4 covalent bonds</li>
+        <li><strong>Catenation:</strong> Ability to form long chains (straight, branched, cyclic)</li>
+        <li><strong>Hybridization:</strong> sp³ (tetrahedral), sp² (trigonal planar), sp (linear)</li>
+        <li><strong>Functional groups:</strong> Determine chemical properties (e.g., -OH, -CHO, -COOH)</li>
+      </ul>
+    </div>
+
+    <!-- Nomenclature -->
+    <div class="section">
+      <h2>2. IUPAC Nomenclature</h2>
+      <ul>
+        <li><strong>Steps:</strong>
+          <ol>
+            <li>Identify longest carbon chain (parent hydrocarbon)</li>
+            <li>Number to give lowest locants to substituents</li>
+            <li>Name substituents alphabetically</li>
+          </ol>
+        </li>
+        <li><strong>Prefixes:</strong> meth- (1), eth- (2), prop- (3), but- (4), etc.</li>
+        <li><strong>Suffixes:</strong> -ane (alkane), -ene (alkene), -yne (alkyne)</li>
+        <li><strong>Examples:</strong>
+          <ul>
+            <li>CH₃-CH₂-CH₃: <span class="formula">Propane</span></li>
+            <li>CH₂=CH-CH₃: <span class="formula">Propene</span></li>
+            <li>CH≡C-CH₃: <span class="formula">Propyne</span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Isomerism -->
+    <div class="section">
+      <h2>3. Isomerism</h2>
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>Definition</th>
+          <th>Example</th>
+        </tr>
+        <tr>
+          <td>Structural</td>
+          <td>Same molecular formula but different structure</td>
+          <td>Butane & Isobutane</td>
+        </tr>
+        <tr>
+          <td>Stereoisomerism</td>
+          <td>Same structure but different spatial arrangement</td>
+          <td>cis-trans, optical</td>
+        </tr>
+        <tr>
+          <td>Chain</td>
+          <td>Different carbon skeletons</td>
+          <td>n-pentane & isopentane</td>
+        </tr>
+        <tr>
+          <td>Position</td>
+          <td>Different positions of functional group</td>
+          <td>Propan-1-ol & Propan-2-ol</td>
+        </tr>
+        <tr>
+          <td>Functional</td>
+          <td>Different functional groups</td>
+          <td>Ethanol & Dimethyl ether</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Electronic Effects -->
+    <div class="section">
+      <h2>4. Electronic Effects</h2>
+      <ul>
+        <li><strong>Inductive Effect:</strong> Permanent polarization through σ bonds
+          <ul>
+            <li>-I effect: Electron withdrawing (NO₂, CN, X)</li>
+            <li>+I effect: Electron donating (alkyl groups)</li>
+          </ul>
+        </li>
+        <li><strong>Mesomeric Effect:</strong> Resonance through π bonds
+          <ul>
+            <li>-M effect: Withdraw electrons (C=O, NO₂)</li>
+            <li>+M effect: Donate electrons (OH, NH₂)</li>
+          </ul>
+        </li>
+        <li><strong>Hyperconjugation:</strong> σ-π conjugation (stabilizes carbocations)</li>
+      </ul>
+    </div>
+
+    <!-- Reaction Types -->
+    <div class="section">
+      <h2>5. Types of Organic Reactions</h2>
+      <ul>
+        <li><strong>Substitution:</strong> One group replaces another (SN¹, SN²)</li>
+        <li><strong>Addition:</strong> Atoms added to double/triple bonds (Markovnikov's rule)</li>
+        <li><strong>Elimination:</strong> Removal of atoms (E1, E2 - Saytzeff rule)</li>
+        <li><strong>Rearrangement:</strong> Migration of atom/group (carbocation stability)</li>
+        <li><strong>Oxidation-Reduction:</strong> Change in oxidation state</li>
+      </ul>
+    </div>
+
+    <!-- Reaction Mechanisms -->
+    <div class="section">
+      <h2>6. Reaction Mechanisms</h2>
+      <ul>
+        <li><strong>Free Radical:</strong> Homolytic cleavage (Initiation, Propagation, Termination)</li>
+        <li><strong>Electrophilic:</strong> Electron-deficient species attack (E⁺)</li>
+        <li><strong>Nucleophilic:</strong> Electron-rich species attack (Nu⁻)</li>
+        <li><strong>Carbocation Stability:</strong> 3° > 2° > 1° > methyl (hyperconjugation)</li>
+        <li><strong>SN¹ vs SN²:</strong>
+          <ul>
+            <li>SN¹: Two steps, carbocation intermediate, racemization</li>
+            <li>SN²: One step, inversion of configuration</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Important Concepts -->
+    <div class="section">
+      <h2>7. Important Concepts</h2>
+      <ul>
+        <li><strong>Markovnikov's Rule:</strong> "The rich get richer" - H adds to carbon with more H's</li>
+        <li><strong>Saytzeff Rule:</strong> Forms more substituted alkene in elimination</li>
+        <li><strong>Huckel's Rule:</strong> 4n+2 π electrons for aromaticity</li>
+        <li><strong>Chirality:</strong> Optical isomers (enantiomers) rotate plane-polarized light</li>
+        <li><strong>Resonance:</strong> Delocalization of π electrons (stabilizes molecule)</li>
+      </ul>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Practice IUPAC naming with complex examples</li>
+        <li>Understand the stability order of intermediates (carbocations > carbanions > radicals)</li>
+        <li>Memorize exceptions to Markovnikov's rule (peroxides)</li>
+        <li>Learn to identify nucleophiles and electrophiles</li>
+        <li>Practice distinguishing between SN1 and SN2 reactions</li>
+        <li>Remember common oxidizing/reducing agents and their effects</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+        <h2>Quiz: Test Your Knowledge</h2>
+        <div id="quiz-box">
+          <div class="question" id="question">Loading...</div>
+          <ul class="options" id="options"></ul>
+          <div class="message" id="message"></div>
+          <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+          <div class="button-group">
+            <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="tryAgain()">Try Again</button>
+            <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+          </div>
+          <div class="slider-bar" id="progress">Question 1 of 6</div>
+          <div id="finalScore"></div>
+        </div>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+  
+    <script>
+      const quizData = [
+        { question: "Which hybridisation has a bond angle of 109.5°?", options: ["sp", "sp²", "sp³", "sp³d"], answer: "sp³" },
+        { question: "What is the IUPAC name of CH₃-CH₂-CH=CH₂?", options: ["Butene", "But-1-ene", "But-2-ene", "1-Butene"], answer: "But-1-ene" },
+        { question: "Which effect explains the stability of tertiary carbocations?", options: ["Inductive effect", "Mesomeric effect", "Hyperconjugation", "Electromeric effect"], answer: "Hyperconjugation" },
+        { question: "Which rule predicts the major product in elimination reactions?", options: ["Markovnikov's", "Saytzeff's", "Huckel's", "Pauli's"], answer: "Saytzeff's" },
+        { question: "How many π electrons make a compound aromatic according to Huckel's rule?", options: ["4n", "4n+1", "4n+2", "4n+3"], answer: "4n+2" },
+        { question: "Which reaction proceeds via a carbocation intermediate?", options: ["SN¹", "SN²", "E2", "Free radical"], answer: "SN¹" }
+      ];
+  
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+  
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerText = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+  
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerText = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+  
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+  
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+  
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+  
+      function tryAgain() {
+        loadQuestion();
+      }
+  
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+  
+      window.onload = loadQuestion;
+    </script>
+  
+  </body>
+</html>

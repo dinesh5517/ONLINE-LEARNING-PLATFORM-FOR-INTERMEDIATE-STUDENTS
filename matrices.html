@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matrices - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .formula {
+      background-color: #262626;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      margin: 10px 0;
+      color: white;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ff6f00;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ff6f00;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ff6f00;
+    }
+
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Matrices - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Definition of Matrices</h2>
+      <ul>
+        <li>A matrix is a rectangular array of numbers arranged in rows and columns.</li>
+        
+        <li><strong>Notation:</strong> A matrix is usually denoted by uppercase letters (e.g., A, B, C).</li>
+        <li><strong>Order of Matrix:</strong> The order of a matrix is defined by the number of rows and columns it has, denoted as m x n.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Types of Matrices</h2>
+      <ul>
+        <li><strong>Row Matrix:</strong> A matrix with a single row (1 x n).</li>
+        <li><strong>Column Matrix:</strong> A matrix with a single column (m x 1).</li>
+        <li><strong>Square Matrix:</strong> A matrix with the same number of rows and columns (n x n).</li>
+        <li><strong>Zero Matrix:</strong> A matrix in which all elements are zero.</li>
+        <li><strong>Identity Matrix:</strong> A square matrix with 1s on the diagonal and 0s elsewhere.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Matrix Operations</h2>
+      <ul>
+        <li><strong>Addition:</strong> Two matrices can be added if they have the same order.</li>
+        <li><strong>Subtraction:</strong> Similar to addition, matrices must have the same order.</li>
+        <li><strong>Multiplication:</strong> A matrix of order m x n can be multiplied by a matrix of order n x p, resulting in a matrix of order m x p.</li>
+      </ul>
+      <div class="formula">If A = [a<sub>ij</sub>] and B = [b<sub>ij</sub>], then A + B = [a<sub>ij</sub> + b<sub>ij</sub>]</div>
+      <div class="formula">For multiplication: C = AB where C<sub>ij</sub> = Σ(a<sub>ik</sub> * b<sub>kj</sub>)</div>
+    </div>
+
+    <div class="section">
+      <h2>4. Determinants</h2>
+      <ul>
+        <li><strong>Definition:</strong> A scalar value that can be computed from the elements of a square matrix.</li>
+        <li><strong>Properties:</strong>
+          <ul>
+            <li>If two rows (or columns) of a determinant are equal, its value is zero.</li>
+            <li>The determinant of a product of matrices is the product of their determinants.</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="formula">For a 2x2 matrix A = [[a, b], [c, d]], Det(A) = ad - bc</div>
+    </div>
+
+    <div class="section">
+      <h2>5. Inverse of a Matrix</h2>
+      <ul>
+        <li><strong>Definition:</strong> The inverse of a matrix A is denoted as A<sup>-1</sup> such that AA<sup>-1</sup> = I, where I is the identity matrix.</li>
+        <li><strong>Condition:</strong> A matrix must be square and non-singular (det(A) ≠ 0) to have an inverse.</li>
+      </ul>
+      <div class="formula">For a 2x2 matrix A = [[a, b], [c, d]], A<sup>-1</sup> = (1/det(A)) * [[d, -b], [-c, a]]</div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Practice matrix addition and multiplication to gain speed and accuracy.</li>
+        <li>Understand the properties of determinants and how to calculate them efficiently.</li>
+        <li>Familiarize yourself with different types of matrices and their applications.</li>
+        <li>Regularly solve past EAMCET questions related to matrices for better preparation.</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          
+            <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="tryAgain()">Try Again</button>
+            <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+          </div>
+          <div class="slider-bar" id="progress">Question 1 of 6</div>
+          <div id="finalScore"></div>
+        </div>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+  
+    <script>
+      const quizData = [
+        { 
+          question: "What is the order of a matrix with 3 rows and 4 columns?", 
+          options: ["3 x 4", "4 x 3", "3 x 3", "4 x 4"], 
+          answer: "3 x 4" 
+        },
+        { 
+          question: "Which of the following matrices is an identity matrix?", 
+          options: ["[[1, 0], [0, 1]]", "[[0, 1], [1, 0]]", "[[1, 1], [1, 1]]", "[[2, 0], [0, 2]]"], 
+          answer: "[[1, 0], [0, 1]]" 
+        },
+        { 
+          question: "What is the determinant of the matrix [[2, 3], [1, 4]]?", 
+          options: ["2", "5", "10", "7"], 
+          answer: "5" 
+        },
+        { 
+          question: "For which type of matrix does the inverse not exist?", 
+          options: ["Square Matrix", "Identity Matrix", "Singular Matrix", "Diagonal Matrix"], 
+          answer: "Singular Matrix" 
+        },
+        { 
+          question: "What is the result of adding two matrices of different orders?", 
+          options: ["A matrix", "A scalar", "Undefined", "Another matrix"], 
+          answer: "Undefined" 
+        },
+        { 
+          question: "If A = [[1, 2], [3, 4]], what is A<sup>-1</sup>?", 
+          options: ["[[4, -2], [-3, 1]]", "[[-2, 1], [1.5, -0.5]]", "[[2, -1], [-1.5, 0.5]]", "[[1, 2], [3, 4]]"], 
+          answer: "[[4, -2], [-3, 1]]" 
+        }
+      ];
+  
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+  
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerText = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+  
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerText = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+  
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+  
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+  
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+function tryAgain() {
+  currentIndex = 0;
+  score = 0;
+  loadQuestion();
+}
+
+function submitQuiz() {
+  document.getElementById("finalScore").style.display = "block";
+  document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+}
+
+window.onload = loadQuestion;
+</script>
+
+</body>
+</html>
+
+  

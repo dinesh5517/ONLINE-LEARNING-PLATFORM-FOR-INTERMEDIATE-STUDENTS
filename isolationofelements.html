@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>General Principles and Processes of Isolation of Elements - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ffa500;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ffa500;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ffa500;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ffa500;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .formula {
+      background-color: #262626;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      margin: 10px 0;
+      color: white;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ffa500;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ffa500;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #00838f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .diagram {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .diagram img {
+      max-width: 100%;
+      border-radius: 5px;
+      border: 1px solid #444;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #333;
+    }
+    .svg-container {
+      background-color: white;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 15px 0;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>General Principles and Processes of Isolation of Elements - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Occurrence of Metals</h2>
+      <ul>
+        <li><strong>Native state:</strong> Gold (Au), Silver (Ag), Platinum (Pt) - found in free state</li>
+        <li><strong>Combined state:</strong> Most metals occur as minerals in the form of:
+          <ul>
+            <li>Oxides: Fe₂O₃ (Hematite), Al₂O₃ (Bauxite)</li>
+            <li>Sulfides: ZnS (Zinc blende), PbS (Galena)</li>
+            <li>Carbonates: FeCO₃ (Siderite), CaCO₃ (Limestone)</li>
+            <li>Halides: NaCl (Rock salt), KCl (Sylvine)</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div class="formula">Mineral → Ore (economically viable mineral) → Metal</div>
+      
+      <div class="diagram">
+        <div class="svg-container">
+          <svg width="300" height="200" viewBox="0 0 300 200">
+            <!-- Activity Series Diagram -->
+            <rect x="50" y="20" width="200" height="160" fill="#f1f1f1" stroke="#555" stroke-width="1"/>
+            <text x="150" y="40" text-anchor="middle" fill="#333" font-weight="bold" font-size="14">Reactivity Series</text>
+            
+            <!-- Most reactive -->
+            <text x="80" y="60" fill="#ff5252" font-size="12">K, Na, Ca, Mg</text>
+            <text x="230" y="60" text-anchor="end" fill="#555" font-size="10">Most reactive</text>
+            
+            <!-- Medium reactive -->
+            <text x="80" y="90" fill="#ff9800" font-size="12">Al, Zn, Fe, Pb</text>
+            <text x="230" y="90" text-anchor="end" fill="#555" font-size="10">Medium reactive</text>
+            
+            <!-- Less reactive -->
+            <text x="80" y="120" fill="#4caf50" font-size="12">Cu, Hg, Ag</text>
+            <text x="230" y="120" text-anchor="end" fill="#555" font-size="10">Less reactive</text>
+            
+            <!-- Least reactive -->
+            <text x="80" y="150" fill="#2196f3" font-size="12">Au, Pt</text>
+            <text x="230" y="150" text-anchor="end" fill="#555" font-size="10">Least reactive</text>
+            
+            <!-- Extraction methods -->
+            <line x1="50" y1="170" x2="250" y1="170" stroke="#333" stroke-width="1"/>
+            <text x="80" y="185" fill="#333" font-size="10">Electrolysis</text>
+            <text x="150" y="185" fill="#333" font-size="10">Reduction</text>
+            <text x="220" y="185" fill="#333" font-size="10">Native</text>
+          </svg>
+        </div>
+        <p>Reactivity series and corresponding extraction methods</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Concentration of Ores</h2>
+      <ul>
+        <li><strong>Hydraulic washing:</strong> Based on differences in density (for heavier ores)</li>
+        <li><strong>Magnetic separation:</strong> For magnetic ores (like magnetite Fe₃O₄)</li>
+        <li><strong>Froth flotation:</strong> For sulfide ores using pine oil, collectors, and froth stabilizers</li>
+        <li><strong>Leaching:</strong> Chemical extraction (e.g., Bayer's process for Al₂O₃)</li>
+      </ul>
+      <div class="formula">Froth flotation: ZnS (ore) + Oil → ZnS floats with froth</div>
+      <div class="formula">Leaching: Al₂O₃ + 2NaOH → 2NaAlO₂ + H₂O (Bayer's process)</div>
+      
+      <div class="diagram">
+        <div class="svg-container">
+          <svg width="300" height="200" viewBox="0 0 300 200">
+            <!-- Froth Flotation Process -->
+            <rect x="50" y="100" width="200" height="80" fill="#add8e6" stroke="#555" stroke-width="1"/>
+            <ellipse cx="150" cy="100" rx="100" ry="10" fill="#add8e6" stroke="#555" stroke-width="1"/>
+            
+            <!-- Froth with ore particles -->
+            <ellipse cx="150" cy="90" rx="90" ry="8" fill="#f0f0f0" stroke="#ccc" stroke-width="1"/>
+            <ellipse cx="150" cy="82" rx="80" ry="6" fill="#f0f0f0" stroke="#ccc" stroke-width="1"/>
+            <ellipse cx="150" cy="76" rx="70" ry="5" fill="#f0f0f0" stroke="#ccc" stroke-width="1"/>
+            
+            <!-- Ore particles in froth -->
+            <circle cx="120" cy="86" r="3" fill="#555"/>
+            <circle cx="140" cy="82" r="3" fill="#555"/>
+            <circle cx="160" cy="88" r="3" fill="#555"/>
+            <circle cx="180" cy="78" r="3" fill="#555"/>
+            <circle cx="130" cy="76" r="3" fill="#555"/>
+            
+            <!-- Impurities in water -->
+            <circle cx="90" cy="130" r="4" fill="#b22222"/>
+            <circle cx="140" cy="150" r="4" fill="#b22222"/>
+            <circle cx="190" cy="120" r="4" fill="#b22222"/>
+            
+            <!-- Labels -->
+            <text x="150" y="60" text-anchor="middle" fill="#333" font-size="12">Froth with sulfide ore</text>
+            <text x="150" y="160" text-anchor="middle" fill="#333" font-size="12">Water with gangue</text>
+          </svg>
+        </div>
+        <p>Froth flotation process for sulfide ores</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Extraction of Crude Metal</h2>
+      <ul>
+        <li><strong>Pyrometallurgy:</strong> Heat-based extraction
+          <ul>
+            <li>Calcination: Heating in limited air (carbonates → oxides)</li>
+            <li>Roasting: Heating in excess air (sulfides → oxides)</li>
+            <li>Smelting: Heating with flux and reducing agent</li>
+          </ul>
+        </li>
+        <li><strong>Hydrometallurgy:</strong> Leaching followed by displacement/reduction</li>
+        <li><strong>Electrometallurgy:</strong> Electrolytic reduction (for highly reactive metals)</li>
+      </ul>
+      <div class="formula">Calcination: CaCO₃ → CaO + CO₂</div>
+      <div class="formula">Roasting: 2ZnS + 3O₂ → 2ZnO + 2SO₂</div>
+      <div class="formula">Smelting: ZnO + C → Zn + CO</div>
+    </div>
+
+    <div class="section">
+      <h2>4. Thermodynamic Principles</h2>
+      <ul>
+        <li><strong>Gibbs free energy change (ΔG):</strong> Predicts feasibility of reduction</li>
+        <li><strong>Ellingham diagram:</strong> Plots ΔG° vs T for formation of oxides</li>
+        <li><strong>Applications:</strong>
+          <ul>
+            <li>Lower the position of a metal oxide line, more stable the oxide</li>
+            <li>Any metal can reduce the oxides of other metals below it</li>
+            <li>C, CO, and H₂ are common reducing agents</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="formula">ΔG = -RT ln K (K is equilibrium constant)</div>
+      <div class="formula">MO + C → M + CO (reduction by carbon)</div>
+      
+      <div class="diagram">
+        <div class="svg-container">
+          <svg width="300" height="200" viewBox="0 0 300 200">
+            <!-- Ellingham Diagram (simplified) -->
+            <rect x="40" y="20" width="230" height="160" fill="#f9f9f9" stroke="#333" stroke-width="1"/>
+            
+            <!-- Axes -->
+            <line x1="60" y1="40" x2="60" y1="180" stroke="#333" stroke-width="2"/>
+            <line x1="60" y1="180" x2="270" y1="180" stroke="#333" stroke-width="2"/>
+            
+            <!-- Axis Labels -->
+            <text x="40" y="30" text-anchor="middle" fill="#333" font-size="10">ΔG°</text>
+            <text x="270" y="195" text-anchor="middle" fill="#333" font-size="10">Temperature</text>
+            
+            <!-- Metal oxide lines (simplified representation) -->
+            <line x1="60" y1="60" x2="270" y1="90" stroke="#ff5252" stroke-width="2"/>
+            <text x="80" y="58" fill="#ff5252" font-size="10">Ag₂O</text>
+            
+            <line x1="60" y1="90" x2="270" y1="110" stroke="#ff9800" stroke-width="2"/>
+            <text x="80" y="88" fill="#ff9800" font-size="10">PbO</text>
+            
+            <line x1="60" y1="120" x2="270" y1="130" stroke="#4caf50" stroke-width="2"/>
+            <text x="80" y="118" fill="#4caf50" font-size="10">Fe₂O₃</text>
+            
+            <line x1="60" y1="150" x2="270" y1="160" stroke="#2196f3" stroke-width="2"/>
+            <text x="80" y="148" fill="#2196f3" font-size="10">Al₂O₃</text>
+            
+            <!-- Carbon line -->
+            <line x1="60" y1="170" x2="150" y1="70" stroke="#9c27b0" stroke-width="2" stroke-dasharray="5,3"/>
+            <line x1="150" y1="70" x2="270" y1="60" stroke="#9c27b0" stroke-width="2" stroke-dasharray="5,3"/>
+            <text x="200" y="60" fill="#9c27b0" font-size="10">C + O₂ → CO₂</text>
+          </svg>
+        </div>
+        <p>Simplified Ellingham diagram for various metal oxides</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>5. Refining of Metals</h2>
+      <ul>
+        <li><strong>Distillation:</strong> For low boiling metals (Zn, Hg)</li>
+        <li><strong>Liquation:</strong> For low melting metals (Sn, Pb)</li>
+        <li><strong>Electrolytic refining:</strong> For Cu, Al, Ag, Au
+          <ul>
+            <li>Anode: Impure metal</li>
+            <li>Cathode: Pure metal</li>
+            <li>Electrolyte: Metal salt solution</li>
+          </ul>
+        </li>
+        <li><strong>Zone refining:</strong> For semiconductor materials (Si, Ge)</li>
+        <li><strong>Vapour phase refining:</strong> Mond process (Ni), van Arkel method (Ti, Zr)</li>
+      </ul>
+      <div class="formula">Electrolytic refining: Cu²⁺ + 2e⁻ → Cu (at cathode)</div>
+      <div class="formula">Mond process: Ni + 4CO → Ni(CO)₄ → Ni + 4CO</div>
+      
+      <div class="diagram">
+        <div class="svg-container">
+          <svg width="300" height="200" viewBox="0 0 300 200">
+            <!-- Electrolytic Refining -->
+            <rect x="50" y="50" width="200" height="120" fill="#d1e0e0" stroke="#555" stroke-width="2"/>
+            
+            <!-- Electrolyte -->
+            <rect x="60" y="70" width="180" height="80" fill="#a2d2ff" stroke="#555" stroke-width="1"/>
+            
+            <!-- Anode (impure metal) -->
+            <rect x="80" y="60" width="20" height="100" fill="#b87333" stroke="#555" stroke-width="1"/>
+            <text x="90" y="180" text-anchor="middle" fill="#333" font-size="12">Anode</text>
+            <text x="90" y="195" text-anchor="middle" fill="#333" font-size="10">(Impure)</text>
+            
+            <!-- Cathode (pure metal) -->
+            <rect x="200" y="60" width="20" height="100" fill="#cd7f32" stroke="#555" stroke-width="1"/>
+            <text x="210" y="180" text-anchor="middle" fill="#333" font-size="12">Cathode</text>
+            <text x="210" y="195" text-anchor="middle" fill="#333" font-size="10">(Pure)</text>
+            
+            <!-- Battery -->
+            <rect x="120" y="20" width="60" height="20" fill="#eee" stroke="#555" stroke-width="1"/>
+            <line x1="130" y1="20" x2="130" y1="40" stroke="#555" stroke-width="1"/>
+            <line x1="170" y1="20" x2="170" y1="40" stroke="#555" stroke-width="1"/>
+            <text x="140" y="35" fill="#333" font-size="14">+</text>
+            <text x="160" y="35" fill="#333" font-size="14">-</text>
+            
+            <!-- Wires -->
+            <line x1="130" y1="40" x2="90" y1="60" stroke="#555" stroke-width="1"/>
+            <line x1="170" y1="40" x2="210" y1="60" stroke="#555" stroke-width="1"/>
+            
+            <!-- Anode mud -->
+            <ellipse cx="90" cy="160" rx="15" ry="5" fill="#654321" stroke="#555" stroke-width="1"/>
+            <text x="90" y="150" text-anchor="middle" fill="#333" font-size="8">Anode mud</text>
+          </svg>
+        </div>
+        <p>Electrolytic refining of copper</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>6. Important Processes</h2>
+      <table>
+        <tr>
+          <th>Metal</th>
+          <th>Ore</th>
+          <th>Process</th>
+          <th>Equation</th>
+        </tr>
+        <tr>
+          <td>Iron</td>
+          <td>Haematite (Fe₂O₃)</td>
+          <td>Blast furnace</td>
+          <td>Fe₂O₃ + 3CO → 2Fe + 3CO₂</td>
+        </tr>
+        <tr>
+          <td>Aluminium</td>
+          <td>Bauxite (Al₂O₃)</td>
+          <td>Hall-Heroult</td>
+          <td>Al₂O₃ → 2Al + 3/2 O₂</td>
+        </tr>
+        <tr>
+          <td>Copper</td>
+          <td>Copper pyrites (CuFeS₂)</td>
+          <td>Smelting + Bessemerization</td>
+          <td>Cu₂S + O₂ → 2Cu + SO₂</td>
+        </tr>
+        <tr>
+          <td>Zinc</td>
+          <td>Zinc blende (ZnS)</td>
+          <td>Roasting followed by reduction</td>
+          <td>ZnO + C → Zn + CO</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Remember the reactivity series to predict extraction methods</li>
+        <li>Focus on understanding the principles of extraction rather than memorizing reactions</li>
+        <li>Learn to interpret Ellingham diagrams to predict reduction reactions</li>
+        <li>Know the differences between calcination, roasting, and smelting</li>
+        <li>Study the major industrial processes for Fe, Al, Cu, and Zn extraction</li>
+        <li>Understand which refining method is suitable for which metal</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "Which of the following metals is found in native state?", 
+        options: ["Iron", "Zinc", "Gold", "Aluminium"], 
+        answer: "Gold" 
+      },
+      { 
+        question: "The process of heating a sulfide ore in the presence of excess air is called:", 
+        options: ["Calcination", "Roasting", "Smelting", "Refining"], 
+        answer: "Roasting" 
+      },
+      { 
+        question: "Which process is used for concentration of sulfide ores?", 
+        options: ["Magnetic separation", "Froth flotation", "Leaching", "Hand picking"], 
+        answer: "Froth flotation" 
+      },
+      { 
+        question: "Which of the following metals is extracted by electrolysis method?", 
+        options: ["Copper", "Iron", "Sodium", "Mercury"], 
+        answer: "Sodium" 
+      },
+      { 
+        question: "In Ellingham diagram, lower the position of metal oxide line:", 
+        options: ["More reactive the metal", "Less stable the oxide", "More stable the oxide", "Easier to reduce"], 
+        answer: "More stable the oxide" 
+      },
+      { 
+        question: "Mond process is used for the refining of:", 
+        options: ["Zinc", "Copper", "Nickel", "Aluminium"], 
+        answer: "Nickel" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = () => {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        alert("✅ You've reached the end. Click 'Submit All Answers'.");
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+  
+</body>
+</html>

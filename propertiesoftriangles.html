@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Properties of Triangles - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #E65100;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #E65100;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #FF9800;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #FF9800;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #FF9800;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #FF9800;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #FF9800;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #E65100;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #64B5F6;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #E65100;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #FF9800;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #E65100;
+    }
+    .formula {
+      font-family: 'Courier New', monospace;
+      color: #FFC107;
+      background-color: #333;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .property-box {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+    .triangle-type {
+      text-align: center;
+      margin: 15px 0;
+      color: #FF9800;
+      font-style: italic;
+    }
+    .theorem {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Properties of Triangles - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Types of Triangles -->
+    <div class="section">
+      <h2>1. Types of Triangles</h2>
+      <table>
+        <tr>
+          <th>Classification</th>
+          <th>Types</th>
+          <th>Properties</th>
+        </tr>
+        <tr>
+          <td>By Sides</td>
+          <td>Equilateral</td>
+          <td>All sides equal, all angles = 60°</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Isosceles</td>
+          <td>Two sides equal, angles opposite equal sides are equal</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Scalene</td>
+          <td>All sides unequal, all angles unequal</td>
+        </tr>
+        <tr>
+          <td>By Angles</td>
+          <td>Acute</td>
+          <td>All angles < 90°</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Right</td>
+          <td>One angle = 90°</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Obtuse</td>
+          <td>One angle > 90°</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Basic Properties -->
+    <div class="section">
+      <h2>2. Fundamental Properties</h2>
+      
+      <div class="theorem">
+        <strong>Angle Sum Property:</strong>
+        <div class="formula">∠A + ∠B + ∠C = 180°</div>
+      </div>
+      
+      <div class="theorem">
+        <strong>Exterior Angle Theorem:</strong>
+        <div class="formula">Exterior angle = Sum of opposite interior angles</div>
+      </div>
+      
+      <div class="theorem">
+        <strong>Triangle Inequality:</strong>
+        <div class="formula">Sum of any two sides > third side</div>
+        <div class="formula">|a - b| < c < a + b</div>
+      </div>
+      
+      <ul>
+        <li>Sum of any two angles < 180°</li>
+        <li>Largest side is opposite the largest angle</li>
+        <li>Smallest side is opposite the smallest angle</li>
+      </ul>
+    </div>
+
+    <!-- Congruency -->
+    <div class="section">
+      <h2>3. Congruent Triangles</h2>
+      <table>
+        <tr>
+          <th>Rule</th>
+          <th>Condition</th>
+        </tr>
+        <tr>
+          <td>SSS</td>
+          <td>All three sides equal</td>
+        </tr>
+        <tr>
+          <td>SAS</td>
+          <td>Two sides and included angle equal</td>
+        </tr>
+        <tr>
+          <td>ASA</td>
+          <td>Two angles and included side equal</td>
+        </tr>
+        <tr>
+          <td>AAS</td>
+          <td>Two angles and any side equal</td>
+        </tr>
+        <tr>
+          <td>RHS</td>
+          <td>Right triangle with hypotenuse and one side equal</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Similarity -->
+    <div class="section">
+      <h2>4. Similar Triangles</h2>
+      <table>
+        <tr>
+          <th>Rule</th>
+          <th>Condition</th>
+        </tr>
+        <tr>
+          <td>AA</td>
+          <td>Two angles equal</td>
+        </tr>
+        <tr>
+          <td>SSS</td>
+          <td>All sides proportional</td>
+        </tr>
+        <tr>
+          <td>SAS</td>
+          <td>Two sides proportional and included angle equal</td>
+        </tr>
+      </table>
+      
+      <div class="theorem">
+        <strong>Properties:</strong>
+        <div class="formula">Corresponding angles equal</div>
+        <div class="formula">Corresponding sides proportional</div>
+        <div class="formula">Ratio of areas = (Ratio of sides)²</div>
+      </div>
+    </div>
+
+    <!-- Important Theorems -->
+    <div class="section">
+      <h2>5. Important Theorems</h2>
+      
+      <div class="theorem">
+        <strong>Pythagoras Theorem:</strong>
+        <div class="formula">In right ΔABC, a² + b² = c² (where c is hypotenuse)</div>
+      </div>
+      
+      <div class="theorem">
+        <strong>Apollonius Theorem:</strong>
+        <div class="formula">AB² + AC² = 2(AD² + BD²) where AD is median</div>
+      </div>
+      
+      <div class="theorem">
+        <strong>Basic Proportionality (Thales) Theorem:</strong>
+        <div class="formula">If DE ∥ BC, then AD/DB = AE/EC</div>
+      </div>
+      
+      <div class="theorem">
+        <strong>Angle Bisector Theorem:</strong>
+        <div class="formula">AD bisects ∠A ⇒ AB/AC = BD/DC</div>
+      </div>
+    </div>
+
+    <!-- Area Formulas -->
+    <div class="section">
+      <h2>6. Area Formulas</h2>
+      <table>
+        <tr>
+          <th>Given</th>
+          <th>Formula</th>
+        </tr>
+        <tr>
+          <td>Base & Height</td>
+          <td class="formula">½ × base × height</td>
+        </tr>
+        <tr>
+          <td>Heron's Formula</td>
+          <td class="formula">√[s(s-a)(s-b)(s-c)] where s = (a+b+c)/2</td>
+        </tr>
+        <tr>
+          <td>Two sides & included angle</td>
+          <td class="formula">½ ab sinC</td>
+        </tr>
+        <tr>
+          <td>All three sides</td>
+          <td class="formula">(abc)/4R (R = circumradius)</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Centers of Triangle -->
+    <div class="section">
+      <h2>7. Centers of Triangle</h2>
+      <table>
+        <tr>
+          <th>Center</th>
+          <th>Definition</th>
+          <th>Properties</th>
+        </tr>
+        <tr>
+          <td>Centroid (G)</td>
+          <td>Intersection of medians</td>
+          <td>Divides median in 2:1 ratio</td>
+        </tr>
+        <tr>
+          <td>Circumcenter (O)</td>
+          <td>Intersection of perpendicular bisectors</td>
+          <td>Equidistant from vertices</td>
+        </tr>
+        <tr>
+          <td>Incenter (I)</td>
+          <td>Intersection of angle bisectors</td>
+          <td>Equidistant from sides</td>
+        </tr>
+        <tr>
+          <td>Orthocenter (H)</td>
+          <td>Intersection of altitudes</td>
+          <td>-</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Memorize all congruence and similarity conditions</li>
+        <li>Practice application of Pythagoras theorem in 3D problems</li>
+        <li>Learn all area formulas (especially Heron's formula)</li>
+        <li>Understand properties of special triangles (30-60-90, 45-45-90)</li>
+        <li>Practice coordinate geometry problems involving triangles</li>
+        <li>Remember Euler's formula: d² = R(R-2r) where d = distance between O and I</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+        <h2>Quiz: Test Your Knowledge</h2>
+        <div id="quiz-box">
+          <div class="question" id="question">Loading...</div>
+          <ul class="options" id="options"></ul>
+          <div class="message" id="message"></div>
+          <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+          <div class="button-group">
+            <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="tryAgain()">Try Again</button>
+            <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+          </div>
+          <div class="slider-bar" id="progress">Question 1 of 6</div>
+          <div id="finalScore"></div>
+        </div>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+  
+    <script>
+      const quizData = [
+        { question: "In a triangle, if two angles are 45° and 60°, what is the third angle?", options: ["60°", "75°", "85°", "90°"], answer: "75°" },
+        { question: "Which condition proves triangle congruency when two sides and included angle are equal?", options: ["SSS", "SAS", "ASA", "AAS"], answer: "SAS" },
+        { question: "What is the area of an equilateral triangle with side 2 units?", options: ["√3", "2√3", "3", "4"], answer: "√3" },
+        { question: "In right triangle ABC (right at B), if AB=3, BC=4, what is AC?", options: ["5", "6", "7", "8"], answer: "5" },
+        { question: "Which center is equidistant from all vertices of the triangle?", options: ["Centroid", "Incenter", "Circumcenter", "Orthocenter"], answer: "Circumcenter" },
+        { question: "If two triangles are similar with ratio 2:3, what is the ratio of their areas?", options: ["2:3", "4:6", "4:9", "8:27"], answer: "4:9" }
+      ];
+  
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+  
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerText = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+  
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerText = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+  
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+  
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+  
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+  
+      function tryAgain() {
+        loadQuestion();
+      }
+  
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+  
+      window.onload = loadQuestion;
+    </script>
+  
+  </body>
+</html>

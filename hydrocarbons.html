@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hydrocarbons - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ff6f00;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ff6f00;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #64B5F6;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #ff6f00;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #ff6f00;
+    }
+    .formula {
+      font-family: 'Courier New', monospace;
+      color: #FFC107;
+    }
+    .reaction {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hydrocarbons - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Classification -->
+    <div class="section">
+      <h2>1. Classification of Hydrocarbons</h2>
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>Bonding</th>
+          <th>Examples</th>
+        </tr>
+        <tr>
+          <td>Alkanes</td>
+          <td>Single bonds (C-C)</td>
+          <td>Methane (CH₄), Ethane (C₂H₆)</td>
+        </tr>
+        <tr>
+          <td>Alkenes</td>
+          <td>Double bonds (C=C)</td>
+          <td>Ethene (C₂H₄), Propene (C₃H₆)</td>
+        </tr>
+        <tr>
+          <td>Alkynes</td>
+          <td>Triple bonds (C≡C)</td>
+          <td>Ethyne (C₂H₂), Propyne (C₃H₄)</td>
+        </tr>
+        <tr>
+          <td>Arenes</td>
+          <td>Aromatic rings</td>
+          <td>Benzene (C₆H₆), Toluene (C₇H₈)</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Alkanes -->
+    <div class="section">
+      <h2>2. Alkanes (Paraffins)</h2>
+      <ul>
+        <li><strong>General formula:</strong> C<sub>n</sub>H<sub>2n+2</sub></li>
+        <li><strong>Preparation:</strong>
+          <ul>
+            <li>Wurtz reaction: 2RX + 2Na → R-R + 2NaX</li>
+            <li>Hydrogenation of alkenes/alkynes</li>
+          </ul>
+        </li>
+        <li><strong>Properties:</strong>
+          <ul>
+            <li>Non-polar, insoluble in water</li>
+            <li>Show chain, position, and conformational isomerism</li>
+          </ul>
+        </li>
+        <li><strong>Reactions:</strong>
+          <div class="reaction">Halogenation: RH + X₂ → RX + HX (Free radical mechanism)</div>
+          <div class="reaction">Combustion: CH₄ + 2O₂ → CO₂ + 2H₂O + Heat</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Alkenes -->
+    <div class="section">
+      <h2>3. Alkenes (Olefins)</h2>
+      <ul>
+        <li><strong>General formula:</strong> C<sub>n</sub>H<sub>2n</sub></li>
+        <li><strong>Preparation:</strong>
+          <ul>
+            <li>Dehydration of alcohols: R-CH₂-CH₂OH → R-CH=CH₂ + H₂O</li>
+            <li>Dehydrohalogenation: R-CH₂-CH₂X → R-CH=CH₂ + HX</li>
+          </ul>
+        </li>
+        <li><strong>Markovnikov's Rule:</strong> "The rich get richer" - H adds to carbon with more H's</li>
+        <li><strong>Reactions:</strong>
+          <div class="reaction">Addition of H₂: CH₂=CH₂ + H₂ → CH₃-CH₃ (Ni catalyst)</div>
+          <div class="reaction">Anti-Markovnikov: CH₂=CH₂ + HBr → CH₃-CH₂Br (Peroxide effect)</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Alkynes -->
+    <div class="section">
+      <h2>4. Alkynes</h2>
+      <ul>
+        <li><strong>General formula:</strong> C<sub>n</sub>H<sub>2n-2</sub></li>
+        <li><strong>Preparation:</strong>
+          <ul>
+            <li>Dehydrohalogenation of vicinal dihalides</li>
+            <li>Calcium carbide: CaC₂ + 2H₂O → C₂H₂ + Ca(OH)₂</li>
+          </ul>
+        </li>
+        <li><strong>Acidic hydrogen:</strong> Terminal alkynes (R-C≡CH) are weakly acidic</li>
+        <li><strong>Reactions:</strong>
+          <div class="reaction">Addition: HC≡CH + 2H₂ → CH₃-CH₃</div>
+          <div class="reaction">Oxidation: 3HC≡CH + 8KMnO₄ → 6CO₂ + 8MnO₂ + 8KOH + 2H₂O</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Aromatic -->
+    <div class="section">
+      <h2>5. Aromatic Hydrocarbons</h2>
+      <ul>
+        <li><strong>Huckel's Rule:</strong> 4n+2 π electrons (n=1 for benzene)</li>
+        <li><strong>Resonance:</strong> Delocalized π electrons (more stable)</li>
+        <li><strong>Electrophilic Substitution:</strong>
+          <ol>
+            <li>Nitration: C₆H₆ + HNO₃ → C₆H₅NO₂ + H₂O (H₂SO₄ catalyst)</li>
+            <li>Sulfonation, Halogenation, Friedel-Crafts</li>
+          </ol>
+        </li>
+        <li><strong>Orientation:</strong>
+          <ul>
+            <li>o-, p- directors: -OH, -CH₃ (activating)</li>
+            <li>m- directors: -NO₂, -CN (deactivating)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Isomerism -->
+    <div class="section">
+      <h2>6. Isomerism in Hydrocarbons</h2>
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>Alkanes</th>
+          <th>Alkenes</th>
+          <th>Alkynes</th>
+        </tr>
+        <tr>
+          <td>Chain</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Position</td>
+          <td>No</td>
+          <td>Yes (of double bond)</td>
+          <td>Yes (of triple bond)</td>
+        </tr>
+        <tr>
+          <td>Geometrical</td>
+          <td>No</td>
+          <td>Yes (cis-trans)</td>
+          <td>No</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Distinction Tests -->
+    <div class="section">
+      <h2>7. Distinction Tests</h2>
+      <ul>
+        <li><strong>Alkane vs Alkene/Alkyne:</strong>
+          <ul>
+            <li>Br₂ water: Alkenes/alkynes decolorize (addition)</li>
+            <li>Baeyer's reagent (KMnO₄): Alkenes/alkynes decolorize</li>
+          </ul>
+        </li>
+        <li><strong>Terminal vs Internal Alkyne:</strong>
+          <ul>
+            <li>AgNO₃/NH₄OH: Terminal gives white ppt (AgC≡CR)</li>
+            <li>Cu₂Cl₂/NH₄OH: Terminal gives red ppt (CuC≡CR)</li>
+          </ul>
+        </li>
+        <li><strong>Aromatic Test:</strong> Burns with sooty flame</li>
+      </ul>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Memorize general formulas and IUPAC naming rules</li>
+        <li>Understand reaction mechanisms (especially free radical and electrophilic addition)</li>
+        <li>Practice distinguishing tests for different hydrocarbons</li>
+        <li>Learn exceptions to Markovnikov's rule</li>
+        <li>Focus on aromatic electrophilic substitution reactions</li>
+        <li>Remember stability order: aromatic > alkane > alkene > alkyne</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+        <h2>Quiz: Test Your Knowledge</h2>
+        <div id="quiz-box">
+          <div class="question" id="question">Loading...</div>
+          <ul class="options" id="options"></ul>
+          <div class="message" id="message"></div>
+          <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+          <div class="button-group">
+            <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="tryAgain()">Try Again</button>
+            <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+          </div>
+          <div class="slider-bar" id="progress">Question 1 of 6</div>
+          <div id="finalScore"></div>
+        </div>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+  
+    <script>
+      const quizData = [
+        { question: "What is the general formula for alkenes?", options: ["CₙH₂ₙ₊₂", "CₙH₂ₙ", "CₙH₂ₙ₋₂", "CₙHₙ"], answer: "CₙH₂ₙ" },
+        { question: "Which reaction follows Markovnikov's rule?", options: ["H₂O addition to ethene", "HBr addition to propene in presence of peroxide", "Hydrogenation of ethyne", "Ozonolysis of butene"], answer: "H₂O addition to ethene" },
+        { question: "Which hydrocarbon burns with sooty flame?", options: ["Methane", "Ethene", "Ethyne", "Benzene"], answer: "Benzene" },
+        { question: "What is the product of Wurtz reaction with CH₃Br?", options: ["Ethane", "Ethene", "Methane", "Propane"], answer: "Ethane" },
+        { question: "Which test distinguishes terminal and internal alkynes?", options: ["Br₂ water", "Baeyer's reagent", "Tollen's reagent", "AgNO₃/NH₄OH"], answer: "AgNO₃/NH₄OH" },
+        { question: "How many π electrons does benzene have?", options: ["4", "6", "8", "10"], answer: "6" }
+      ];
+  
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+  
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerText = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+  
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerText = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+  
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+  
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+  
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+  
+      function tryAgain() {
+        loadQuestion();
+      }
+  
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+  
+      window.onload = loadQuestion;
+    </script>
+  
+  </body>
+</html>

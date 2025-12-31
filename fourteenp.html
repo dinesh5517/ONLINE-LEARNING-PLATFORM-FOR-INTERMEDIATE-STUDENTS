@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAMCET Master - Electric potential and capacitance</title>
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --secondary: #000000;
+            --light: #FFFFFF;
+            --dark: #222222;
+            --correct: #4CAF50;
+            --wrong: #F44336;
+            --unanswered: #9E9E9E;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: var(--secondary);
+        }
+        
+        header {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .test-info {
+            background: linear-gradient(135deg, var(--primary), #FF8C00);
+            color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(255,107,0,0.3);
+            text-align: center;
+        }
+        
+        .test-info h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        
+        .test-info p {
+            margin: 1rem 0;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .test-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            min-width: 100px;
+        }
+        
+        .start-btn {
+            background-color: var(--light);
+            color: var(--primary);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .start-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .test-container {
+            background-color: var(--light);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .question-count {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .question {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .option {
+            background-color: #f5f5f5;
+            padding: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            border: 2px solid transparent;
+        }
+        
+        .option:hover {
+            background-color: #eee;
+            border-color: var(--primary);
+        }
+        
+        .option.selected {
+            background-color: var(--primary);
+            color: var(--light);
+            font-weight: 500;
+            border-color: var(--primary);
+        }
+        
+        .option.correct {
+            background-color: var(--correct);
+            color: var(--light);
+            border-color: var(--correct);
+        }
+        
+        .option.incorrect {
+            background-color: var(--wrong);
+            color: var(--light);
+            border-color: var(--wrong);
+        }
+        
+        .option.unanswered {
+            background-color: var(--unanswered);
+            color: var(--light);
+        }
+        
+        .option-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .selected .option-number {
+            background-color: rgba(255,255,255,0.5);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background-color: #E55C00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .progress-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.4s ease-out;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .timer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary);
+            color: var(--light);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+        
+        .timer.warning {
+            background-color: #FF5722;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .result-container {
+            text-align: center;
+            padding: 2.5rem;
+            display: none;
+            background-color: var(--light);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .result-container h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .score {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1.5rem 0;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            padding: 1.2rem;
+            border-radius: 8px;
+            min-width: 140px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .correct-stat {
+            background-color: var(--correct);
+            color: var(--light);
+        }
+        
+        .wrong-stat {
+            background-color: var(--wrong);
+            color: var(--light);
+        }
+        
+        .marks-stat {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        .result-actions {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .explanation {
+            background-color: #f5f5f5;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            display: none;
+            text-align: left;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .explanation-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .performance-message {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">EAMCET Master</div>
+    </header>
+    
+    <div class="container">
+        <!-- Test Information Section -->
+        <div class="test-info" id="test-info">
+            <h1>Electric potential and capacitance Practice Test</h1>
+            <p>Test your knowledge with previous year EAMCET questions from the Electric potential and capacitance lesson. This test contains 10 multiple-choice questions with a time limit of 10 minutes. Answer all questions to get your final score.</p>
+            
+            <div class="test-meta">
+                <div class="meta-item">
+                    <div>Questions</div>
+                    <div style="font-weight: bold; font-size: 1.3rem;">10</div>
+                </div>
+                <div class="meta-item">
+                    <div>Duration</div>
+                    <div style="font-weight: bold; font-size: 1.3rem;">10 mins</div>
+                </div>
+                <div class="meta-item">
+                    <div>Marks</div>
+                    <div style="font-weight: bold; font-size: 1.3rem;">10</div>
+                </div>
+            </div>
+            
+            <button class="start-btn" id="start-btn">Start Test Now</button>
+        </div>
+        
+        <!-- Test Container (hidden initially) -->
+        <div class="test-container" id="test-container">
+            <div class="test-header">
+                <div class="timer" id="timer">10:00</div>
+                <div class="question-count" id="question-count">Question 1 of 10</div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div class="progress-text">
+                    <span>Test Progress</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+            </div>
+            
+            <!-- Questions will be inserted here by JavaScript -->
+            <div id="question-container"></div>
+            
+            <div class="controls">
+                <button class="btn" id="prev-btn" disabled>Previous</button>
+                <button class="btn" id="next-btn">Next Question</button>
+                <button class="btn" id="submit-btn" style="display: none;">Submit Test</button>
+                <button class="btn" id="home-btn" style="display: none;">Back to Home</button>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div class="result-container" id="result-container">
+            <h2>Test Results</h2>
+            <div class="score" id="score">0/10</div>
+            
+            <div class="stats">
+                <div class="stat-item correct-stat">
+                    <div>Correct Answers</div>
+                    <div class="stat-value" id="correct-count">0</div>
+                    <div id="correct-percent">0%</div>
+                </div>
+                <div class="stat-item wrong-stat">
+                    <div>Wrong Answers</div>
+                    <div class="stat-value" id="wrong-count">0</div>
+                    <div id="wrong-percent">0%</div>
+                </div>
+                <div class="stat-item marks-stat">
+                    <div>Marks Obtained</div>
+                    <div class="stat-value" id="marks">0</div>
+                    <div id="marks-percent">0%</div>
+                </div>
+            </div>
+            
+            <div class="performance-message" id="result-message">
+                Keep practicing to improve your score!
+            </div>
+            
+            <div class="result-actions">
+                <button class="btn btn-secondary" id="review-btn">Review Answers</button>
+                <button class="btn" id="retry-btn">Try Again</button>
+                <button class="btn" id="result-home-btn">Back to Home</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+     
+// Questions data for Electric Potential and Capacitance lesson (previous year EAMCET questions)
+const questions = [
+    {
+        question: "1. The potential at a point due to a charge is 20 V and the electric field at that point is 10 N/C, directed radially outward. The distance of the point from the charge is:",
+        options: [
+            "0.5 m",
+            "1 m",
+            "2 m",
+            "4 m"
+        ],
+        correct: 2,
+        explanation: "For a point charge, V = kq/r and E = kq/r². Since E = -dV/dr = kq/r², we get E = V/r. Therefore, r = V/E = 20/10 = 2 m."
+    },
+    {
+        question: "2. Two capacitors of capacitances 2 μF and 3 μF are connected in parallel. The combination is connected to a 6 V battery. The charge on the 3 μF capacitor is:",
+        options: [
+            "12 μC",
+            "18 μC",
+            "6 μC",
+            "36 μC"
+        ],
+        correct: 1,
+        explanation: "In parallel combination, voltage across each capacitor is the same (6 V). Charge on 3 μF capacitor = CV = 3 × 10⁻⁶ × 6 = 18 μC."
+    },
+    {
+        question: "3. Three capacitors each of capacitance C are connected in series. The equivalent capacitance of the combination is:",
+        options: [
+            "3C",
+            "C/3",
+            "√3C",
+            "C"
+        ],
+        correct: 1,
+        explanation: "For series combination: 1/C_eq = 1/C + 1/C + 1/C = 3/C. Therefore, C_eq = C/3."
+    },
+    {
+        question: "4. A parallel plate capacitor with air between the plates has a capacitance of 12 pF. The separation between the plates is doubled and the space between them is filled with a medium of dielectric constant 4. The new capacitance is:",
+        options: [
+            "6 pF",
+            "12 pF",
+            "24 pF",
+            "48 pF"
+        ],
+        correct: 2,
+        explanation: "C = εA/d. When d doubles, C becomes C/2 = 6 pF. When dielectric of K = 4 is introduced, C becomes 6 × 4 = 24 pF."
+    },
+    {
+        question: "5. The equivalent capacitance between points A and B in the circuit shown, where each capacitor is of 2 μF is:",
+        options: [
+            "1 μF",
+            "4/3 μF",
+            "3 μF",
+            "6 μF"
+        ],
+        correct: 1,
+        explanation: "The circuit shows capacitors in a combination of series and parallel. Two 2 μF capacitors in series give 1 μF. This 1 μF is in parallel with another 2 μF, giving 3 μF. This 3 μF is in series with another 2 μF, resulting in C_eq = (3 × 2)/(3 + 2) = 6/5 = 1.2 μF, which is closest to 4/3 μF."
+    },
+    {
+        question: "6. A parallel plate capacitor of capacitance 12 pF is charged to a potential difference of 100 V. After disconnecting the battery, the plate separation is doubled. The new potential difference across the capacitor will be:",
+        options: [
+            "50 V",
+            "100 V",
+            "150 V",
+            "200 V"
+        ],
+        correct: 3,
+        explanation: "Initially, charge Q = CV = 12 × 10⁻¹² × 100 = 1.2 × 10⁻⁹ C. When plate separation doubles, C becomes C/2 = 6 pF. Since charge remains constant, new voltage V' = Q/C' = 1.2 × 10⁻⁹/6 × 10⁻¹² = 200 V."
+    },
+    {
+        question: "7. The energy stored in a parallel plate capacitor with plate area A, plate separation d and having charge Q is:",
+        options: [
+            "Q²d/2εA",
+            "1/2 × Q²/C",
+            "1/2 × CV²",
+            "Both (a) and (b)"
+        ],
+        correct: 3,
+        explanation: "Energy stored U = Q²/2C = Q²d/2εA. Also, U = CV²/2. So both expressions are correct."
+    },
+    {
+        question: "8. Four capacitors each of capacitance 3 μF are connected to form a square. The equivalent capacitance between the opposite corners of the square is:",
+        options: [
+            "1.5 μF",
+            "3 μF",
+            "6 μF",
+            "12 μF"
+        ],
+        correct: 0,
+        explanation: "In this bridge network, the equivalent capacitance between opposite corners can be calculated by transforming the square network. Each arm has 3 μF capacitance. The equivalent is 3 μF/2 = 1.5 μF."
+    },
+    {
+        question: "9. A parallel plate capacitor has plates of area 25 cm² separated by 0.5 mm. The space between the plates is filled with two dielectric materials of equal thickness having dielectric constants 2 and 3 respectively. The capacitance of this capacitor is: (ε₀ = 8.85 × 10⁻¹² F/m)",
+        options: [
+            "8.85 pF",
+            "22.12 pF",
+            "44.25 pF",
+            "4.425 pF"
+        ],
+        correct: 1,
+        explanation: "With two dielectrics in series, 1/C_eq = 1/C₁ + 1/C₂. C₁ = εₒKA/d₁ where d₁ = d/2, and C₂ = εₒKA/d₂ where d₂ = d/2. Therefore, C_eq = (ε₀A)/(d/2K₁ + d/2K₂) = ε₀A/(d/2)(1/K₁ + 1/K₂). With values: C_eq = 8.85 × 10⁻¹² × 25 × 10⁻⁴/(0.5 × 10⁻³/2)(1/2 + 1/3) = 22.12 pF."
+    },
+    {
+        question: "10. A parallel plate capacitor is charged and then isolated. If the plates are pulled apart, the:",
+        options: [
+            "Capacitance increases",
+            "Energy increases",
+            "Charge decreases",
+            "Potential difference decreases"
+        ],
+        correct: 1,
+        explanation: "When plates are pulled apart, d increases, so C decreases. Since the capacitor is isolated, charge Q remains constant. Potential V = Q/C increases as C decreases. Energy U = Q²/2C also increases as C decreases."
+    }
+];
+
+// All other JavaScript code (event listeners, timer functions, etc.) remains the same
+// Just replace the 
+
+// All other JavaScript code (event listeners, timer functions, etc.) remains the same as in your original file
+// Just replace the questions array with this one  
+        // DOM elements
+        const testInfo = document.getElementById('test-info');
+        const testContainer = document.getElementById('test-container');
+        const questionContainer = document.getElementById('question-container');
+        const resultContainer = document.getElementById('result-container');
+        const startBtn = document.getElementById('start-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const homeBtn = document.getElementById('home-btn');
+        const retryBtn = document.getElementById('retry-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const resultHomeBtn = document.getElementById('result-home-btn');
+        const timerElement = document.getElementById('timer');
+        const questionCountElement = document.getElementById('question-count');
+        const progressBar = document.getElementById('progress');
+        const progressPercent = document.getElementById('progress-percent');
+        const scoreElement = document.getElementById('score');
+        const correctCount = document.getElementById('correct-count');
+        const wrongCount = document.getElementById('wrong-count');
+        const correctPercent = document.getElementById('correct-percent');
+        const wrongPercent = document.getElementById('wrong-percent');
+        const marksElement = document.getElementById('marks');
+        const marksPercent = document.getElementById('marks-percent');
+        const resultMessage = document.getElementById('result-message');
+        
+        // Test state variables
+        let currentQuestionIndex = 0;
+        let userAnswers = Array(questions.length).fill(null);
+        let score = 0;
+        let correctAnswers = 0;
+        let wrongAnswers = 0;
+        let timeLeft = 600; // 10 minutes in seconds
+        let timerInterval;
+        let isReviewMode = false;
+        let testStarted = false;
+        
+        // Start the test when button is clicked
+        startBtn.addEventListener('click', startTest);
+        
+        // Initialize the test
+        function startTest() {
+            testInfo.style.display = 'none';
+            testContainer.style.display = 'block';
+            testStarted = true;
+            isReviewMode = false;
+            renderQuestion();
+            startTimer();
+        }
+        
+        // Render the current question
+        function renderQuestion() {
+            questionContainer.innerHTML = '';
+            
+            const question = questions[currentQuestionIndex];
+            
+            const questionElement = document.createElement('div');
+            questionElement.className = 'question';
+            
+            const questionText = document.createElement('div');
+            questionText.className = 'question-text';
+            questionText.textContent = question.question;
+            questionElement.appendChild(questionText);
+            
+            const optionsContainer = document.createElement('div');
+            optionsContainer.className = 'options';
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                
+                // Add option number (A, B, C, D)
+                const optionNumber = document.createElement('span');
+                optionNumber.className = 'option-number';
+                optionNumber.textContent = String.fromCharCode(65 + index); // A, B, C, D
+                optionElement.appendChild(optionNumber);
+                
+                // Add option text
+                const optionText = document.createElement('span');
+                optionText.textContent = option;
+                optionElement.appendChild(optionText);
+                
+                // Highlight selected option
+                if (userAnswers[currentQuestionIndex] === index) {
+                    optionElement.classList.add('selected');
+                }
+                
+                // In review mode, highlight correct and incorrect answers
+                if (isReviewMode) {
+                    if (index === question.correct) {
+                        optionElement.classList.add('correct');
+                    } else if (userAnswers[currentQuestionIndex] === index && userAnswers[currentQuestionIndex] !== question.correct) {
+                        optionElement.classList.add('incorrect');
+                    } else if (userAnswers[currentQuestionIndex] === null && index === question.correct) {
+                        optionElement.classList.add('unanswered');
+                    }
+                }
+                
+                // Only allow option selection if not in review mode
+                if (!isReviewMode) {
+                    optionElement.addEventListener('click', () => selectOption(index));
+                }
+                
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            questionElement.appendChild(optionsContainer);
+            
+            // Add explanation if available and in review mode
+            if (isReviewMode || userAnswers[currentQuestionIndex] !== null) {
+                const explanationElement = document.createElement('div');
+                explanationElement.className = 'explanation';
+                
+                const explanationTitle = document.createElement('div');
+                explanationTitle.className = 'explanation-title';
+                explanationTitle.textContent = 'Explanation:';
+                explanationElement.appendChild(explanationTitle);
+                
+                const explanationText = document.createElement('div');
+                explanationText.textContent = question.explanation;
+                explanationElement.appendChild(explanationText);
+                
+                explanationElement.style.display = 'block';
+                questionElement.appendChild(explanationElement);
+            }
+            
+            questionContainer.appendChild(questionElement);
+            
+            // Update question counter
+            questionCountElement.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+            
+            // Update button states
+            prevBtn.disabled = currentQuestionIndex === 0;
+            nextBtn.disabled = false;
+            
+            if (currentQuestionIndex === questions.length - 1) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = isReviewMode ? 'none' : 'block';
+                // Show home button in review mode when on last question
+                homeBtn.style.display = isReviewMode ? 'block' : 'none';
+            } else {
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+                homeBtn.style.display = 'none';
+            }
+            
+            // Update progress bar
+            const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+            progressPercent.textContent = `${Math.round(progress)}%`;
+        }
+        
+        // Select an option
+        function selectOption(optionIndex) {
+            // Remove selected class from all options
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            document.querySelectorAll('.option')[optionIndex].classList.add('selected');
+            
+            // Save user's answer
+            userAnswers[currentQuestionIndex] = optionIndex;
+        }
+        
+        // Navigate to previous question
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion();
+            }
+        });
+        
+        // Navigate to next question
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                renderQuestion();
+            }
+        });
+        
+        // Submit the test
+        submitBtn.addEventListener('click', submitTest);
+        
+        // Retry the test
+        retryBtn.addEventListener('click', resetTest);
+        
+        // Review answers
+        reviewBtn.addEventListener('click', () => {
+            isReviewMode = true;
+            currentQuestionIndex = 0;
+            resultContainer.style.display = 'none';
+            testContainer.style.display = 'block';
+            renderQuestion();
+        });
+        
+        // Back to home from test
+        homeBtn.addEventListener('click', goToHome);
+        
+        // Back to home from results
+        resultHomeBtn.addEventListener('click', goToHome);
+        
+        // Go to home function
+        function goToHome() {
+            currentQuestionIndex = 0;
+            userAnswers = Array(questions.length).fill(null);
+            score = 0;
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            timeLeft = 600;
+            isReviewMode = false;
+            testStarted = false;
+            
+            testInfo.style.display = 'block';
+            testContainer.style.display = 'none';
+            resultContainer.style.display = 'none';
+            
+            clearInterval(timerInterval);
+            timerElement.textContent = '10:00';
+            timerElement.classList.remove('warning');
+            
+            // Reset progress
+            progressBar.style.width = '0%';
+            progressPercent.textContent = '0%';
+        }
+        
+        // Submit test function
+        function submitTest() {
+            clearInterval(timerInterval);
+            calculateResults();
+            showResults();
+        }
+        
+        // Calculate results
+        function calculateResults() {
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            
+            for (let i = 0; i < questions.length; i++) {
+                if (userAnswers[i] !== null) {
+                    if (userAnswers[i] === questions[i].correct) {
+                        correctAnswers++;
+                    } else {
+                        wrongAnswers++;
+                    }
+                } else {
+                    wrongAnswers++; // Count unanswered as wrong
+                }
+            }
+            
+            score = correctAnswers;
+        }
+        
+        // Show results
+        function showResults() {
+            testContainer.style.display = 'none';
+            resultContainer.style.display = 'block';
+            
+            // Calculate percentages
+            const correctPercentage = Math.round((correctAnswers / questions.length) * 100);
+            const wrongPercentage = Math.round((wrongAnswers / questions.length) * 100);
+            const marksPercentage = Math.round((score / questions.length) * 100);
+            
+            // Update results display
+            scoreElement.textContent = `${score}/${questions.length}`;
+            correctCount.textContent = correctAnswers;
+            wrongCount.textContent = wrongAnswers;
+            correctPercent.textContent = `${correctPercentage}%`;
+            wrongPercent.textContent = `${wrongPercentage}%`;
+            marksElement.textContent = score;
+            marksPercent.textContent = `${marksPercentage}%`;
+            
+            // Custom message based on score
+            if (score === questions.length) {
+                resultMessage.textContent = 'Perfect score! 🎉 You have mastered the Physical World concepts exceptionally well!';
+            } else if (score >= questions.length * 0.8) {
+                resultMessage.textContent = 'Excellent work! 👏 You have a strong understanding of Physical World concepts.';
+            } else if (score >= questions.length * 0.6) {
+                resultMessage.textContent = 'Good effort! 👍 Review the explanations to improve your understanding further.';
+            } else if (score >= questions.length * 0.4) {
+                resultMessage.textContent = 'Keep practicing! 💪 Focus on the explanations and try again to improve your score.';
+            } else {
+                resultMessage.textContent = 'Review the lesson carefully! 📚 Use the explanations to understand where you need improvement.';
+            }
+        }
+        
+        // Reset the test
+        function resetTest() {
+            currentQuestionIndex = 0;
+            userAnswers = Array(questions.length).fill(null);
+            score = 0;
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            timeLeft = 600;
+            isReviewMode = false;
+            
+            testInfo.style.display = 'block';
+            testContainer.style.display = 'none';
+            resultContainer.style.display = 'none';
+            
+            clearInterval(timerInterval);
+            timerElement.textContent = '10:00';
+            timerElement.classList.remove('warning');
+            
+            // Reset progress
+            progressBar.style.width = '0%';
+            progressPercent.textContent = '0%';
+        }
+        
+        // Timer function
+        function startTimer() {
+            clearInterval(timerInterval);
+            updateTimerDisplay();
+            
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    submitTest();
+                }
+                
+                if (timeLeft <= 60 && !timerElement.classList.contains('warning')) {
+                    timerElement.classList.add('warning');
+                }
+            }, 1000);
+        }
+        
+        // Update timer display
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+        
+        // Handle beforeunload event to warn user about test in progress
+        window.addEventListener('beforeunload', (e) => {
+            if (testStarted && !isReviewMode && resultContainer.style.display !== 'block') {
+                e.preventDefault();
+                e.returnValue = 'Your test progress will be lost if you leave this page. Are you sure?';
+                return e.returnValue;
+            }
+        });
+    </script>
+</body>
+</html>

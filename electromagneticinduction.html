@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electromagnetic Induction - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .diagram {
+      max-width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .formula {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+    
+    .svg-container {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    .hand-rule {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Electromagnetic Induction - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Faraday's Laws</h2>
+      <ul>
+        <li><strong>First Law:</strong> EMF is induced when magnetic flux changes</li>
+        <li><strong>Second Law:</strong> Induced EMF ∝ rate of change of flux</li>
+        <li>Formula: ε = -dΦ/dt</li>
+        <li>Lenz's Law: Direction opposes the change causing it</li>
+      </ul>
+      <div class="formula">ε = -N(dΦ/dt) (Faraday's Law)<br>Φ = BAcosθ (Magnetic flux)</div>
+      <div class="svg-container">
+        <svg width="300" height="200" viewBox="0 0 300 200">
+          <!-- Magnet and coil -->
+          <rect x="50" y="50" width="50" height="100" fill="none" stroke="black" stroke-width="2"/>
+          <text x="75" y="80" text-anchor="middle" fill="black">N</text>
+          <text x="75" y="120" text-anchor="middle" fill="black">S</text>
+          
+          <path d="M150 50 Q200 50 200 100 Q200 150 150 150 Q100 150 100 100 Q100 50 150 50" 
+                fill="none" stroke="red" stroke-width="2"/>
+          <path d="M150 70 L170 70" stroke="red" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <text x="160" y="65" text-anchor="middle" fill="black">I</text>
+          
+          <!-- Movement arrow -->
+          <path d="M50 100 L30 100" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <text x="40" y="90" text-anchor="middle" fill="blue">v</text>
+          
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Lenz's Law</h2>
+      <ul>
+        <li>Direction of induced current opposes the change causing it</li>
+        <li>Conservation of energy consequence</li>
+        <li>Right-hand rule for direction determination</li>
+      </ul>
+      <div class="hand-rule">
+        <svg width="150" height="150" viewBox="0 0 150 150">
+          <path d="M75 20 L75 130" stroke="black" stroke-width="2"/>
+          <path d="M20 75 L130 75" stroke="black" stroke-width="2"/>
+          <path d="M75 20 L65 40" stroke="black" stroke-width="1"/>
+          <path d="M75 20 L85 40" stroke="black" stroke-width="1"/>
+          <path d="M130 75 L110 65" stroke="black" stroke-width="1"/>
+          <path d="M130 75 L110 85" stroke="black" stroke-width="1"/>
+          
+          <!-- Right hand -->
+          <path d="M75 75 L75 40" stroke="red" stroke-width="3" marker-end="url(#arrowhead)"/>
+          <text x="75" y="30" text-anchor="middle" fill="black">B</text>
+          
+          <path d="M75 75 L110 75" stroke="blue" stroke-width="3" marker-end="url(#arrowhead)"/>
+          <text x="95" y="85" text-anchor="middle" fill="black">I</text>
+          
+          <path d="M75 75 L75 110" stroke="green" stroke-width="3" marker-end="url(#arrowhead)"/>
+          <text x="85" y="95" text-anchor="middle" fill="black">F</text>
+          
+          <text x="75" y="140" text-anchor="middle" fill="white">Right-Hand Rule</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Motional EMF</h2>
+      <ul>
+        <li>EMF induced in conductor moving in magnetic field</li>
+        <li>Formula: ε = Blv (B⊥v)</li>
+        <li>For non-perpendicular case: ε = Blvsinθ</li>
+        <li>Applications: Generators, rail guns</li>
+      </ul>
+      <div class="formula">ε = Blv (Motional EMF)<br>ε = Blvsinθ (General case)</div>
+      <div class="svg-container">
+        <svg width="300" height="200" viewBox="0 0 300 200">
+          <!-- Rails -->
+          <path d="M50 100 L250 100" stroke="black" stroke-width="3"/>
+          <path d="M50 150 L250 150" stroke="black" stroke-width="3"/>
+          
+          <!-- Moving rod -->
+          <rect x="150" y="100" width="10" height="50" fill="gray"/>
+          
+          <!-- Field lines -->
+          <path d="M100 50 L100 200" stroke="blue" stroke-width="1" stroke-dasharray="5,3"/>
+          <path d="M150 50 L150 200" stroke="blue" stroke-width="1" stroke-dasharray="5,3"/>
+          <path d="M200 50 L200 200" stroke="blue" stroke-width="1" stroke-dasharray="5,3"/>
+          <text x="210" y="100" text-anchor="middle" fill="blue">B (into page)</text>
+          <circle cx="220" cy="100" r="5" fill="none" stroke="blue" stroke-width="1"/>
+          <path d="M215 95 L220 100 L215 105" stroke="blue" stroke-width="1" fill="none"/>
+          
+          <!-- Movement arrow -->
+          <path d="M155 125 L175 125" stroke="red" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <text x="165" y="120" text-anchor="middle" fill="black">v</text>
+          
+          <!-- Current arrow -->
+          <path d="M130 110 L130 140" stroke="green" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <text x="120" y="125" text-anchor="middle" fill="black">I</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. Self & Mutual Induction</h2>
+      <ul>
+        <li><strong>Self Induction:</strong> EMF opposes current change in same coil</li>
+        <li><strong>Mutual Induction:</strong> EMF induced in nearby coil</li>
+        <li>Self inductance: L = NΦ/I</li>
+        <li>Mutual inductance: M = N₂Φ₂/I₁</li>
+      </ul>
+      <div class="formula">L = NΦ/I (Self inductance)<br>M = N₂Φ₂/I₁ (Mutual inductance)<br>ε = -L(dI/dt)</div>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Primary coil -->
+          <path d="M50 50 Q100 30 150 50 Q200 30 250 50" stroke="red" stroke-width="2" fill="none"/>
+          <path d="M50 150 Q100 170 150 150 Q200 170 250 150" stroke="red" stroke-width="2" fill="none"/>
+          <path d="M50 50 L50 150" stroke="red" stroke-width="2"/>
+          <path d="M250 50 L250 150" stroke="red" stroke-width="2"/>
+          <text x="150" y="40" text-anchor="middle" fill="black">Primary (I₁)</text>
+          
+          <!-- Secondary coil -->
+          <path d="M100 70 Q150 50 200 70 Q250 50 300 70" stroke="blue" stroke-width="2" fill="none"/>
+          <path d="M100 130 Q150 150 200 130 Q250 150 300 130" stroke="blue" stroke-width="2" fill="none"/>
+          <path d="M100 70 L100 130" stroke="blue" stroke-width="2"/>
+          <path d="M300 70 L300 130" stroke="blue" stroke-width="2"/>
+          <text x="200" y="60" text-anchor="middle" fill="black">Secondary (ε₂)</text>
+          
+          <!-- Core -->
+          <rect x="100" y="70" width="200" height="60" fill="none" stroke="black" stroke-width="1" stroke-dasharray="5,3"/>
+          <text x="200" y="180" text-anchor="middle" fill="black">Mutual Induction (M = N₂Φ₂/I₁)</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>5. AC Generator</h2>
+      <ul>
+        <li>Converts mechanical to electrical energy</li>
+        <li>EMF: ε = NBAωsinωt</li>
+        <li>Peak EMF: ε₀ = NBAω</li>
+        <li>Frequency = rotation frequency</li>
+      </ul>
+      <div class="formula">ε = NBAωsinωt (AC Generator)<br>ε₀ = NBAω (Peak EMF)</div>
+      <div class="svg-container">
+        <svg width="300" height="250" viewBox="0 0 300 250">
+          <!-- Coil -->
+          <rect x="100" y="50" width="100" height="100" fill="none" stroke="black" stroke-width="2"/>
+          
+          <!-- Axis -->
+          <path d="M50 100 L100 100" stroke="black" stroke-width="3"/>
+          <path d="M200 100 L250 100" stroke="black" stroke-width="3"/>
+          
+          <!-- Rotation arrows -->
+          <path d="M80 80 L60 60" stroke="red" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <path d="M220 120 L240 140" stroke="red" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <text x="70" y="70" text-anchor="middle" fill="black">ω</text>
+          
+          <!-- Slip rings -->
+          <circle cx="270" cy="100" r="15" fill="none" stroke="black" stroke-width="2"/>
+          <circle cx="270" cy="150" r="15" fill="none" stroke="black" stroke-width="2"/>
+          
+          <!-- Brushes -->
+          <rect x="270" y="30" width="5" height="40" fill="gray"/>
+          <rect x="270" y="180" width="5" height="40" fill="gray"/>
+          
+          <!-- Output -->
+          <path d="M270 30 L300 30" stroke="blue" stroke-width="2"/>
+          <path d="M270 220 L300 220" stroke="blue" stroke-width="2"/>
+          <path d="M310 30 L310 220" stroke="blue" stroke-width="2" stroke-dasharray="5,3"/>
+          
+          <!-- EMF graph -->
+          <path d="M310 125 Q340 80 370 125 Q400 170 430 125" stroke="red" stroke-width="2" fill="none"/>
+          <text x="370" y="100" text-anchor="middle" fill="black">ε = ε₀sinωt</text>
+          <text x="150" y="220" text-anchor="middle" fill="black">AC Generator</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>6. Eddy Currents</h2>
+      <ul>
+        <li>Circular currents induced in bulk metals</li>
+        <li>Applications: Braking, induction heating</li>
+        <li>Reduced by laminating metal cores</li>
+        <li>Cause energy loss in transformers</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="300" height="200" viewBox="0 0 300 200">
+          <!-- Metal plate -->
+          <rect x="50" y="50" width="200" height="100" fill="lightgray" stroke="black" stroke-width="2"/>
+          
+          <!-- Magnet -->
+          <rect x="150" y="30" width="30" height="20" fill="none" stroke="black" stroke-width="2"/>
+          <text x="165" y="45" text-anchor="middle" fill="black">N</text>
+          <text x="165" y="25" text-anchor="middle" fill="black">S</text>
+          
+          <!-- Movement arrow -->
+          <path d="M165 10 L165 30" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <text x="175" y="20" text-anchor="middle" fill="black">v</text>
+          
+          <!-- Eddy currents -->
+          <path d="M100 80 A20 20 0 1 0 140 80" stroke="red" stroke-width="2" fill="none"/>
+          <path d="M160 80 A20 20 0 1 0 200 80" stroke="red" stroke-width="2" fill="none"/>
+          <path d="M100 120 A20 20 0 1 1 140 120" stroke="red" stroke-width="2" fill="none"/>
+          <path d="M160 120 A20 20 0 1 1 200 120" stroke="red" stroke-width="2" fill="none"/>
+          
+          <text x="150" y="180" text-anchor="middle" fill="black">Eddy Currents in Moving Metal Plate</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Always check units - convert to SI before calculations</li>
+        <li>For motional EMF problems, identify B, l, v directions</li>
+        <li>Lenz's law determines current direction - practice right-hand rules</li>
+        <li>AC generator formula (ε = NBAωsinωt) is frequently tested</li>
+        <li>Remember difference between self and mutual inductance</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button class="next-btn" onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "What is the SI unit of magnetic flux?", 
+        options: ["Tesla", "Weber", "Henry", "Farad"], 
+        answer: "Weber" 
+      },
+      { 
+        question: "According to Lenz's law, the direction of induced current:", 
+        options: ["Opposes the change causing it", "Supports the change causing it", 
+                 "Is independent of the change", "Is always clockwise"], 
+        answer: "Opposes the change causing it" 
+      },
+      { 
+        question: "What is the motional EMF induced in a 1m conductor moving at 2m/s perpendicular to a 0.5T field?", 
+        options: ["0.5V", "1V", 
+                 "1.5V", "2V"], 
+        answer: "1V" 
+      },
+      { 
+        question: "In an AC generator, when is the induced EMF maximum?", 
+        options: ["When coil is parallel to field", "When coil is perpendicular to field", 
+                 "When coil is at 45° to field", "EMF is constant"], 
+        answer: "When coil is perpendicular to field" 
+      },
+      { 
+        question: "What is reduced by laminating the core of a transformer?", 
+        options: ["Resistance", "Eddy currents", 
+                 "Hysteresis", "Mutual inductance"], 
+        answer: "Eddy currents" 
+      },
+      { 
+        question: "The self-inductance of a coil depends on:", 
+        options: ["Current through it", "Rate of change of current", 
+                 "Its geometry and material", "All of the above"], 
+        answer: "Its geometry and material" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = function() {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            document.getElementById("message").style.color = "lime";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+            document.getElementById("message").style.color = "red";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => {
+            el.classList.add("disabled");
+            if (el.innerText === q.answer) el.classList.add("correct");
+          });
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      document.getElementById("submitBtn").style.display = currentIndex === quizData.length - 1 ? "block" : "none";
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        document.getElementById("submitBtn").style.display = "block";
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

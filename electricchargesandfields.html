@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electric Charges & Fields - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .formula {
+      background-color: #262626;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      margin: 10px 0;
+      color: white;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ff6f00;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ff6f00;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ff6f00;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .diagram {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .diagram img {
+      max-width: 100%;
+      border-radius: 5px;
+      border: 1px solid #444;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #333;
+    }
+    .svg-container {
+      background-color: white;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Electric Charges & Fields - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Electric Charges</h2>
+      <ul>
+        <li><strong>Types:</strong> Positive and Negative charges</li>
+        <li><strong>Properties:</strong>
+          <ul>
+            <li>Quantized (q = ±ne where n ∈ ℤ and e = 1.6×10⁻¹⁹ C)</li>
+            <li>Conserved (total charge remains constant)</li>
+            <li>Additive (like scalars)</li>
+          </ul>
+        </li>
+        <li><strong>Coulomb's Law:</strong> Force between two point charges</li>
+      </ul>
+      <div class="formula">F = k(q₁q₂)/r² where k = 1/(4πε₀) ≈ 9×10⁹ Nm²/C²</div>
+      
+      <div class="diagram">
+        <div class="svg-container">
+          <svg width="300" height="150" viewBox="0 0 300 150">
+            <!-- Coulomb's Law Diagram -->
+            <line x1="50" y1="75" x2="250" y1="75" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5"/>
+            <circle cx="100" cy="75" r="20" fill="#ff5252"/>
+            <text x="100" y="75" text-anchor="middle" fill="white" font-size="12">+q₁</text>
+            <circle cx="200" cy="75" r="20" fill="#2196f3"/>
+            <text x="200" y="75" text-anchor="middle" fill="white" font-size="12">+q₂</text>
+            <text x="150" y="60" text-anchor="middle" fill="#ccc" font-size="10">r</text>
+            <line x1="120" y1="75" x2="180" y1="75" stroke="#ccc" stroke-width="1" marker-end="url(#arrowhead)"/>
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#ccc"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+        <p>Coulomb's Law: Force between two point charges</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Electric Field</h2>
+      <ul>
+        <li><strong>Definition:</strong> Force per unit charge (E = F/q₀)</li>
+        <li><strong>Field due to point charge:</strong> E = kq/r² (radially outward for +ve charge)</li>
+        <li><strong>Dipole field:</strong> Non-uniform field pattern</li>
+        <li><strong>Field lines:</strong> Start from +ve, end at -ve charge</li>
+      </ul>
+      <div class="formula">E = kq/r² (point charge)</div>
+      <div class="formula">E = 2kp/r³ (on axial line of dipole)</div>
+      <div class="formula">E = kp/r³ (on equatorial line of dipole)</div>
+      
+      <div class="diagram">
+        <div class="svg-container">
+          <svg width="300" height="200" viewBox="0 0 300 200">
+            <!-- Electric Field Lines Diagram -->
+            <circle cx="100" cy="100" r="15" fill="#ff5252"/>
+            <text x="100" y="100" text-anchor="middle" fill="white" font-size="10">+</text>
+            <circle cx="200" cy="100" r="15" fill="#2196f3"/>
+            <text x="200" y="100" text-anchor="middle" fill="white" font-size="10">-</text>
+            <!-- Field lines -->
+            <path d="M50,100 Q100,50 100,100 Q100,150 50,100" stroke="#ffeb3b" fill="none" stroke-width="1.5"/>
+            <path d="M250,100 Q200,50 200,100 Q200,150 250,100" stroke="#ffeb3b" fill="none" stroke-width="1.5"/>
+            <path d="M100,50 Q150,100 200,50" stroke="#ffeb3b" fill="none" stroke-width="1.5"/>
+            <path d="M100,150 Q150,100 200,150" stroke="#ffeb3b" fill="none" stroke-width="1.5"/>
+            <path d="M115,100 L185,100" stroke="#ffeb3b" fill="none" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <p>Electric field lines for a dipole</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Gauss's Law</h2>
+      <ul>
+        <li><strong>Statement:</strong> Φ = ∮E·dA = q/ε₀</li>
+        <li>Applications:
+          <ul>
+            <li>Infinite plane sheet: E = σ/2ε₀</li>
+            <li>Infinite line charge: E = λ/2πε₀r</li>
+            <li>Spherical shell: E = kq/r² (r > R), E = 0 (r < R)</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="formula">Φ = q/ε₀ (Gauss's Law)</div>
+      <div class="formula">E = σ/ε₀ (conducting surface)</div>
+      
+      <div class="diagram">
+        <div class="svg-container">
+          <svg width="300" height="200" viewBox="0 0 300 200">
+            <!-- Gaussian Surface Diagram -->
+            <circle cx="150" cy="100" r="80" fill="none" stroke="#4caf50" stroke-width="2"/>
+            <circle cx="150" cy="100" r="5" fill="#ff5252"/>
+            <text x="150" y="100" text-anchor="middle" fill="white" font-size="10" dy="20">+q</text>
+            <text x="150" y="50" text-anchor="middle" fill="#4caf50" font-size="12">Gaussian Surface</text>
+            <!-- Field lines -->
+            <line x1="150" y1="100" x2="180" y1="70" stroke="#ffeb3b" stroke-width="1.5"/>
+            <line x1="150" y1="100" x2="120" y1="70" stroke="#ffeb3b" stroke-width="1.5"/>
+            <line x1="150" y1="100" x2="180" y1="130" stroke="#ffeb3b" stroke-width="1.5"/>
+            <line x1="150" y1="100" x2="120" y1="130" stroke="#ffeb3b" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <p>Gaussian surface around a point charge</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. Electric Potential</h2>
+      <ul>
+        <li><strong>Definition:</strong> Work done per unit charge (V = W/q₀)</li>
+        <li><strong>Potential due to point charge:</strong> V = kq/r</li>
+        <li><strong>Potential difference:</strong> ΔV = V₂ - V₁ = -∫E·dl</li>
+        <li><strong>Equipotential surfaces:</strong> Perpendicular to field lines</li>
+      </ul>
+      <div class="formula">V = kq/r (point charge)</div>
+      <div class="formula">V = kpcosθ/r² (dipole potential)</div>
+      <div class="formula">E = -dV/dr (relation between E and V)</div>
+    </div>
+
+    <div class="section">
+      <h2>5. Conductors & Capacitors</h2>
+      <table>
+        <tr>
+          <th>Concept</th>
+          <th>Description</th>
+          <th>Formula</th>
+        </tr>
+        <tr>
+          <td>Conductor</td>
+          <td>Charge resides on surface, E=0 inside</td>
+          <td>E = σ/ε₀</td>
+        </tr>
+        <tr>
+          <td>Capacitance</td>
+          <td>Charge storing ability</td>
+          <td>C = Q/V</td>
+        </tr>
+        <tr>
+          <td>Parallel Plate</td>
+          <td>Uniform field between plates</td>
+          <td>C = ε₀A/d</td>
+        </tr>
+        <tr>
+          <td>Energy</td>
+          <td>Stored in capacitor</td>
+          <td>U = ½CV²</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>6. Important Formulas</h2>
+      <div class="formula">Coulomb's Law: F = k(q₁q₂)/r²</div>
+      <div class="formula">Electric Field: E = F/q₀ = kq/r²</div>
+      <div class="formula">Gauss's Law: Φ = ∮E·dA = q/ε₀</div>
+      <div class="formula">Electric Potential: V = kq/r</div>
+      <div class="formula">Capacitance: C = Q/V = ε₀A/d</div>
+      <div class="formula">Energy: U = ½CV² = ½QV = ½Q²/C</div>
+      <div class="formula">Dipole moment: p = q×2a</div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Remember the difference between E and V (E is vector, V is scalar)</li>
+        <li>Practice drawing field lines for different charge configurations</li>
+        <li>Understand the application of Gauss's law for symmetric charge distributions</li>
+        <li>Memorize all formulas and their units</li>
+        <li>Practice problems on capacitor combinations</li>
+        <li>Learn the behavior of conductors in electrostatic equilibrium</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "What is the force between two 1C charges separated by 1m in vacuum?", 
+        options: ["9×10⁹ N (repulsive)", "9×10⁹ N (attractive)", "1 N (repulsive)", "1 N (attractive)"], 
+        answer: "9×10⁹ N (repulsive)" 
+      },
+      { 
+        question: "Which of the following is true about electric field lines?", 
+        options: ["They intersect each other", "They start from negative charges", "They are closer where field is stronger", "They are scalar quantities"], 
+        answer: "They are closer where field is stronger" 
+      },
+      { 
+        question: "What is the electric field inside a charged spherical conductor?", 
+        options: ["Constant", "Varies as 1/r", "Varies as 1/r²", "Zero"], 
+        answer: "Zero" 
+      },
+      { 
+        question: "The work done in moving a charge between two points on an equipotential surface is:", 
+        options: ["Positive", "Negative", "Zero", "Infinite"], 
+        answer: "Zero" 
+      },
+      { 
+        question: "What happens to the capacitance when the distance between parallel plates is doubled?", 
+        options: ["Doubles", "Halves", "Quadruples", "Remains same"], 
+        answer: "Halves" 
+      },
+      { 
+        question: "The SI unit of electric flux is:", 
+        options: ["N/C", "N·m/C", "V·m", "Both B and C"], 
+        answer: "Both B and C" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = () => {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        alert("✅ You've reached the end. Click 'Submit All Answers'.");
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chemical Kinetics - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ff6f00;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #ff6f00;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ff6f00;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ff6f00;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .math {
+      font-family: "Cambria Math", serif;
+      color: #ff9800;
+    }
+    .disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .equation {
+      text-align: center;
+      margin: 15px 0;
+      font-size: 1.1rem;
+      color: #ff9800;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    table, th, td {
+      border: 1px solid #444;
+    }
+    th, td {
+      padding: 8px 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #333;
+      color: #ff6f00;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Chemical Kinetics - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Introduction to Chemical Kinetics</h2>
+      <ul>
+        <li>Chemical kinetics is the study of rates of chemical reactions and factors affecting these rates.</li>
+        <li>It investigates how quickly reactants are consumed and products are formed.</li>
+        <li>Key parameters include reaction rate, rate constant, reaction order, and activation energy.</li>
+        <li>Chemical kinetics helps understand reaction mechanisms and optimize reaction conditions.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Rate of Reaction</h2>
+      <ul>
+        <li><strong>Definition:</strong> The change in concentration of reactants or products per unit time.</li>
+        <li>For a reaction: aA + bB → cC + dD, rate can be expressed as:</li>
+        <div class="equation">Rate = -1/a × d[A]/dt = -1/b × d[B]/dt = 1/c × d[C]/dt = 1/d × d[D]/dt</div>
+        <li>The negative sign indicates that reactant concentrations decrease with time.</li>
+        <li><strong>Units:</strong> Usually mol L<sup>-1</sup> s<sup>-1</sup> or M s<sup>-1</sup></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Rate Law and Order of Reaction</h2>
+      <ul>
+        <li><strong>Rate Law:</strong> An equation showing how reaction rate depends on concentrations of reactants.</li>
+        <li>For reaction aA + bB → Products: Rate = k[A]<sup>x</sup>[B]<sup>y</sup></li>
+        <li>Where k is the rate constant, x and y are the orders with respect to reactants A and B.</li>
+        <li><strong>Overall Order</strong> = x + y</li>
+        <li><strong>Types of Reactions Based on Order:</strong>
+          <ul>
+            <li><strong>Zero Order:</strong> Rate = k; rate independent of concentration</li>
+            <li><strong>First Order:</strong> Rate = k[A]; rate proportional to concentration</li>
+            <li><strong>Second Order:</strong> Rate = k[A]<sup>2</sup> or Rate = k[A][B]; rate proportional to square of concentration</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. Integrated Rate Laws</h2>
+      <ul>
+        <li>Integrated rate laws relate concentration directly to time.</li>
+        <li><strong>Zero Order:</strong> [A]<sub>t</sub> = [A]<sub>0</sub> - kt</li>
+        <li><strong>First Order:</strong> ln[A]<sub>t</sub> = ln[A]<sub>0</sub> - kt</li>
+        <li><strong>Second Order:</strong> 1/[A]<sub>t</sub> = 1/[A]<sub>0</sub> + kt</li>
+        <li>These laws help determine reaction order from experimental data.</li>
+      </ul>
+      <table>
+        <tr>
+          <th>Order</th>
+          <th>Rate Law</th>
+          <th>Integrated Form</th>
+          <th>Half-life</th>
+          <th>Units of k</th>
+        </tr>
+        <tr>
+          <td>Zero</td>
+          <td>Rate = k</td>
+          <td>[A]<sub>t</sub> = [A]<sub>0</sub> - kt</td>
+          <td>t<sub>1/2</sub> = [A]<sub>0</sub>/2k</td>
+          <td>mol L<sup>-1</sup> s<sup>-1</sup></td>
+        </tr>
+        <tr>
+          <td>First</td>
+          <td>Rate = k[A]</td>
+          <td>ln[A]<sub>t</sub> = ln[A]<sub>0</sub> - kt</td>
+          <td>t<sub>1/2</sub> = 0.693/k</td>
+          <td>s<sup>-1</sup></td>
+        </tr>
+        <tr>
+          <td>Second</td>
+          <td>Rate = k[A]<sup>2</sup></td>
+          <td>1/[A]<sub>t</sub> = 1/[A]<sub>0</sub> + kt</td>
+          <td>t<sub>1/2</sub> = 1/(k[A]<sub>0</sub>)</td>
+          <td>L mol<sup>-1</sup> s<sup>-1</sup></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>5. Half-life of a Reaction</h2>
+      <ul>
+        <li><strong>Definition:</strong> Time taken for the concentration of a reactant to reduce to half its initial value.</li>
+        <li>For first-order reactions, half-life is independent of initial concentration: t<sub>1/2</sub> = 0.693/k</li>
+        <li>For zero-order reactions: t<sub>1/2</sub> = [A]<sub>0</sub>/2k</li>
+        <li>For second-order reactions: t<sub>1/2</sub> = 1/(k[A]<sub>0</sub>)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. Factors Affecting Reaction Rate</h2>
+      <ul>
+        <li><strong>Nature of Reactants:</strong> Physical state, chemical nature, and bond strength affect reaction rates.</li>
+        <li><strong>Concentration:</strong> Higher concentrations generally increase reaction rates.</li>
+        <li><strong>Temperature:</strong> Most reaction rates increase with temperature (Arrhenius equation).</li>
+        <li><strong>Presence of Catalyst:</strong> Catalysts increase reaction rates by providing an alternative pathway with lower activation energy.</li>
+        <li><strong>Surface Area:</strong> Increasing surface area of solid reactants increases reaction rates.</li>
+        <li><strong>Pressure:</strong> For gaseous reactions, increasing pressure often increases reaction rates.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. Arrhenius Equation</h2>
+      <ul>
+        <li>The Arrhenius equation relates the rate constant to temperature:</li>
+        <div class="equation">k = A e<sup>(-Ea/RT)</sup></div>
+        <li>Where:
+          <ul>
+            <li>k = rate constant</li>
+            <li>A = frequency factor or pre-exponential factor</li>
+            <li>E<sub>a</sub> = activation energy</li>
+            <li>R = gas constant (8.314 J/mol·K)</li>
+            <li>T = absolute temperature (K)</li>
+          </ul>
+        </li>
+        <li>The logarithmic form is useful for determining activation energy:</li>
+        <div class="equation">ln k = ln A - E<sub>a</sub>/RT</div>
+        <li>A plot of ln k vs. 1/T gives a straight line with slope = -E<sub>a</sub>/R</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>8. Collision Theory and Reaction Mechanism</h2>
+      <ul>
+        <li><strong>Collision Theory:</strong> For a reaction to occur, molecules must collide with:
+          <ul>
+            <li>Sufficient energy (greater than activation energy)</li>
+            <li>Proper orientation</li>
+          </ul>
+        </li>
+        <li><strong>Reaction Mechanism:</strong> The sequence of elementary steps by which a reaction occurs.</li>
+        <li><strong>Elementary Step:</strong> A single-step reaction with no intermediates.</li>
+        <li><strong>Rate-Determining Step:</strong> The slowest step in a reaction mechanism that controls the overall reaction rate.</li>
+        <li><strong>Molecularity:</strong> The number of molecules or atoms coming together in an elementary step.</li>
+      </ul>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Understand the difference between order and molecularity of reactions.</li>
+        <li>Practice calculating reaction rates, rate constants, and half-lives.</li>
+        <li>Memorize the integrated rate equations and their graphical representations.</li>
+        <li>Learn to determine reaction order from experimental data.</li>
+        <li>Know how to apply the Arrhenius equation to calculate activation energy.</li>
+        <li>Focus on numerical problems related to first-order reactions, as they are most common in exams.</li>
+        <li>Understand how various factors affect reaction rates and be able to explain why.</li>
+        <li>Practice interpreting reaction mechanisms and identifying rate-determining steps.</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+
+    <script>
+      const quizData = [
+        { 
+          question: "For a first-order reaction, the half-life is:", 
+          options: [
+            "Directly proportional to initial concentration", 
+            "Inversely proportional to initial concentration", 
+            "Independent of initial concentration", 
+            "Equal to the rate constant"
+          ], 
+          answer: "Independent of initial concentration" 
+        },
+        { 
+          question: "Which plot would give a straight line for a second-order reaction?", 
+          options: [
+            "[A] vs. time", 
+            "ln[A] vs. time", 
+            "1/[A] vs. time", 
+            "log[A] vs. log(time)"
+          ], 
+          answer: "1/[A] vs. time" 
+        },
+        { 
+          question: "The unit of rate constant for a zero-order reaction is:", 
+          options: [
+            "s⁻¹", 
+            "L mol⁻¹ s⁻¹", 
+            "mol L⁻¹ s⁻¹", 
+            "No units"
+          ], 
+          answer: "mol L⁻¹ s⁻¹" 
+        },
+        { 
+          question: "According to the Arrhenius equation, how does the rate constant vary with temperature?", 
+          options: [
+            "Decreases exponentially with increasing temperature", 
+            "Increases exponentially with increasing temperature", 
+            "Increases linearly with increasing temperature", 
+            "Is independent of temperature"
+          ], 
+          answer: "Increases exponentially with increasing temperature" 
+        },
+        { 
+          question: "What is the overall order of the reaction: Rate = k[A]²[B]?", 
+          options: [
+            "1", 
+            "2", 
+            "3", 
+            "4"
+          ], 
+          answer: "3" 
+        },
+        { 
+          question: "Which factor does NOT affect the rate of a chemical reaction?", 
+          options: [
+            "Concentration of reactants", 
+            "Temperature", 
+            "Enthalpy change of reaction", 
+            "Presence of catalyst"
+          ], 
+          answer: "Enthalpy change of reaction" 
+        }
+      ];
+
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerText = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerText = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+
+      function tryAgain() {
+        loadQuestion();
+      }
+
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+
+      window.onload = loadQuestion;
+    </script>
+
+  </body>
+</html>

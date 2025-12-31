@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electrochemistry - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ff6f00;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #ff6f00;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ff6f00;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ff6f00;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .math {
+      font-family: "Cambria Math", serif;
+      color: #ff9800;
+    }
+    .disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .equation {
+      text-align: center;
+      margin: 15px 0;
+      font-size: 1.1rem;
+      color: #ff9800;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Electrochemistry - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Introduction to Electrochemistry</h2>
+      <ul>
+        <li>Electrochemistry is the branch of chemistry that deals with the relationship between electricity and chemical reactions.</li>
+        <li>It involves the study of chemical changes caused by the passage of an electric current and the production of electrical energy by chemical reactions.</li>
+        <li>Key concepts include oxidation-reduction reactions, electrochemical cells, and electrolysis.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Redox Reactions</h2>
+      <ul>
+        <li><strong>Oxidation:</strong> Loss of electrons (increase in oxidation number)</li>
+        <li><strong>Reduction:</strong> Gain of electrons (decrease in oxidation number)</li>
+        <li>A species that loses electrons is called a <strong>reducing agent</strong> (gets oxidized)</li>
+        <li>A species that gains electrons is called an <strong>oxidizing agent</strong> (gets reduced)</li>
+        <li><strong>Redox reaction:</strong> A reaction where both oxidation and reduction occur simultaneously</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Electrochemical Cells</h2>
+      <ul>
+        <li><strong>Galvanic/Voltaic Cell:</strong> Converts chemical energy into electrical energy</li>
+        <li><strong>Electrolytic Cell:</strong> Uses electrical energy to drive a non-spontaneous chemical reaction</li>
+        <li><strong>Components of a Galvanic Cell:</strong>
+          <ul>
+            <li><strong>Anode:</strong> The electrode where oxidation occurs (negative electrode)</li>
+            <li><strong>Cathode:</strong> The electrode where reduction occurs (positive electrode)</li>
+            <li><strong>Salt Bridge:</strong> Maintains electrical neutrality by allowing ion movement</li>
+            <li><strong>External Circuit:</strong> Allows electron flow from anode to cathode</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. Cell Potential (Electromotive Force)</h2>
+      <ul>
+        <li>The cell potential (E<sub>cell</sub>) is the measure of the potential difference between two half-cells</li>
+        <li>Standard cell potential (E°<sub>cell</sub>) is measured under standard conditions (1M, 1 atm, 25°C)</li>
+        <li>E<sub>cell</sub> = E<sub>cathode</sub> - E<sub>anode</sub></li>
+        <li>For a spontaneous reaction, E<sub>cell</sub> > 0</li>
+        <li><strong>Nernst Equation:</strong> Relates cell potential to concentration</li>
+        <div class="equation">E = E° - (RT/nF) ln Q</div>
+        <li>At 25°C, this simplifies to:</li>
+        <div class="equation">E = E° - (0.0592/n) log Q</div>
+        <li>Where Q is the reaction quotient, n is the number of electrons transferred, and F is Faraday's constant</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>5. Electrochemical Series</h2>
+      <ul>
+        <li>The electrochemical series arranges elements according to their standard electrode potentials</li>
+        <li>More positive potential indicates higher tendency to be reduced (stronger oxidizing agent)</li>
+        <li>More negative potential indicates higher tendency to be oxidized (stronger reducing agent)</li>
+        <li>Elements at the top of the series can displace elements below them from their salt solutions</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. Electrolysis</h2>
+      <ul>
+        <li>Electrolysis is the process of using electricity to drive a non-spontaneous chemical reaction</li>
+        <li>Follows Faraday's Laws of Electrolysis:
+          <ul>
+            <li><strong>First Law:</strong> The mass of a substance produced at an electrode is directly proportional to the quantity of electricity passed</li>
+            <li><strong>Second Law:</strong> For the same quantity of electricity, the masses of different substances liberated at the electrodes are proportional to their chemical equivalents</li>
+          </ul>
+        </li>
+        <li><strong>Quantitative Relationship:</strong></li>
+        <div class="equation">m = (M × I × t) / (n × F)</div>
+        <li>Where m is mass, M is molar mass, I is current, t is time, n is number of electrons, and F is Faraday's constant (96,500 C/mol)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. Applications of Electrochemistry</h2>
+      <ul>
+        <li><strong>Batteries:</strong> Devices that convert chemical energy to electrical energy</li>
+        <li><strong>Fuel Cells:</strong> Continuously convert chemical energy to electrical energy</li>
+        <li><strong>Electrolytic Refining:</strong> Purification of metals</li>
+        <li><strong>Electroplating:</strong> Coating one metal with another using electrolysis</li>
+        <li><strong>Corrosion:</strong> Electrochemical oxidation of metals in reaction with an oxidant</li>
+      </ul>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Remember the direction of electron flow: anode to cathode in galvanic cells</li>
+        <li>Practice calculating cell potentials and applying the Nernst equation</li>
+        <li>Understand the difference between galvanic and electrolytic cells</li>
+        <li>Memorize the electrochemical series for common elements</li>
+        <li>Know how to apply Faraday's laws for numerical problems</li>
+        <li>Familiarize yourself with common industrial applications of electrochemistry</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+
+    <script>
+      const quizData = [
+        { 
+          question: "Which of the following occurs at the anode in a galvanic cell?", 
+          options: [
+            "Reduction", 
+            "Oxidation", 
+            "Neither oxidation nor reduction", 
+            "Both oxidation and reduction"
+          ], 
+          answer: "Oxidation" 
+        },
+        { 
+          question: "What is the value of Faraday's constant?", 
+          options: [
+            "9.65 C/mol", 
+            "965 C/mol", 
+            "9650 C/mol", 
+            "96500 C/mol"
+          ], 
+          answer: "96500 C/mol" 
+        },
+        { 
+          question: "In a galvanic cell, electrons flow from:", 
+          options: [
+            "Cathode to anode", 
+            "Anode to cathode", 
+            "Salt bridge to electrodes", 
+            "There is no electron flow"
+          ], 
+          answer: "Anode to cathode" 
+        },
+        { 
+          question: "A cell with positive cell potential (E°cell > 0) indicates:", 
+          options: [
+            "A non-spontaneous reaction", 
+            "A spontaneous reaction", 
+            "An equilibrium state", 
+            "None of the above"
+          ], 
+          answer: "A spontaneous reaction" 
+        },
+        { 
+          question: "Which of the following is NOT an application of electrolysis?", 
+          options: [
+            "Electroplating", 
+            "Metal refining", 
+            "Dry cell batteries", 
+            "Production of aluminum"
+          ], 
+          answer: "Dry cell batteries" 
+        },
+        { 
+          question: "According to the Nernst equation at 25°C, what happens to cell potential when the concentration of products increases?", 
+          options: [
+            "Increases", 
+            "Decreases", 
+            "Remains unchanged", 
+            "First increases then decreases"
+          ], 
+          answer: "Decreases" 
+        }
+      ];
+
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerText = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerText = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+
+      function tryAgain() {
+        loadQuestion();
+      }
+
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+
+      window.onload = loadQuestion;
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics Lessons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+        }
+        .sidebar {
+            width: 300px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+        .sidebar h2 {
+            text-align: center;
+            color: #f4a261;
+        }
+        .lesson-list {
+            list-style: none;
+            padding: 0;
+        }
+        .lesson-list li {
+            padding: 10px;
+            border-bottom: 1px solid #f4a261;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .lesson-list li:hover {
+            background: #f4a261;
+            color: black;
+        }
+        .content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 24px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Mathematics Lessons</h2>
+        <ul class="lesson-list">
+            <li onclick="loadLesson('onem.html')">1. Functions</li>
+            <li onclick="loadLesson('twom.html')">2. Mathematical Induction</li>
+            <li onclick="loadLesson('threem.html')">3. Matrices</li>
+            <li onclick="loadLesson('fourm.html')">4. Addition of Vectors</li>
+            <li onclick="loadLesson('fivem.html')">5. Product of Vectors</li>
+            <li onclick="loadLesson('sixm.html')">6. Trigonometric Ratios up to Transformations</li>
+            <li onclick="loadLesson('sevenm.html')">7. Trigonometric Equations</li>
+            <li onclick="loadLesson('eightm.html')">8. Inverse Trigonometric Functions</li>
+            <li onclick="loadLesson('ninem.html')">9. Hyperbolic Functions</li>
+            <li onclick="loadLesson('tenm.html')">10. Properties of Triangles</li>
+            <li onclick="loadLesson('elevenm.html')">11. Measurement of Angles</li>
+            <li onclick="loadLesson('twelvem.html')">12. Limits and Continuity</li>
+            <li onclick="loadLesson('thirteenm.html')">13. Differentiation</li>
+            <li onclick="loadLesson('fourteenm.html')">14. Applications of Derivatives</li>
+            <li onclick="loadLesson('fifteenm.html')">15. Locus</li>
+            <li onclick="loadLesson('sixteenm.html')">16. Straight Lines</li>
+            <li onclick="loadLesson('seventeenm.html')">17. Pair of Straight Lines</li>
+            <li onclick="loadLesson('eighteenm.html')">18. Circles</li>
+            <li onclick="loadLesson('nineteenm.html')">19. System of Circles</li>
+            <li onclick="loadLesson('twentym.html')">20. Conic Sections</li>
+             
+        </ul>
+    </div>
+    <div class="content">
+        <iframe id="lessonFrame" src=""></iframe>
+    </div>
+
+    <script>
+        function loadLesson(lesson) {
+            document.getElementById('lessonFrame').src = lesson;
+        }
+    </script>
+</body>
+</html>

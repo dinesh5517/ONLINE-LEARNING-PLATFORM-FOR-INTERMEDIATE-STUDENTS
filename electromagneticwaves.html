@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electromagnetic Waves - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .diagram {
+      max-width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .formula {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+    
+    .svg-container {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    .em-spectrum {
+      width: 100%;
+      height: 120px;
+      position: relative;
+      background: linear-gradient(to right, 
+        #8d0000, #ff0000, #ffa500, #ffff00, 
+        #00ff00, #00ffff, #0000ff, #800080);
+      border-radius: 5px;
+      margin: 15px 0;
+    }
+    
+    .em-label {
+      position: absolute;
+      font-size: 12px;
+      color: black;
+      font-weight: bold;
+      transform: translateX(-50%);
+    }
+    
+    .em-arrow {
+      position: absolute;
+      width: 2px;
+      height: 20px;
+      background-color: black;
+      bottom: 0;
+      transform: translateX(-50%);
+    }
+    
+    .wavelength-bar {
+      position: absolute;
+      bottom: -30px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 12px;
+    }
+    
+    .frequency-bar {
+      position: absolute;
+      top: -30px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Electromagnetic Waves - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Introduction to Electromagnetic Waves</h2>
+      <ul>
+        <li><strong>EM Waves:</strong> Self-propagating waves consisting of oscillating electric and magnetic fields</li>
+        <li>Produced by accelerating charges</li>
+        <li>Do not require a medium (can travel through vacuum)</li>
+        <li>Travel at speed of light (c = 3×10⁸ m/s in vacuum)</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Wave representation -->
+          <path d="M50 100 Q75 50 100 100 Q125 150 150 100 Q175 50 200 100 Q225 150 250 100 Q275 50 300 100" stroke="red" stroke-width="2" fill="none"/>
+          <text x="175" y="40" text-anchor="middle" fill="black">Electric Field (E)</text>
+          <path d="M50 100 Q75 150 100 100 Q125 50 150 100 Q175 150 200 100 Q225 50 250 100 Q275 150 300 100" stroke="blue" stroke-width="2" fill="none"/>
+          <text x="175" y="170" text-anchor="middle" fill="black">Magnetic Field (B)</text>
+          
+          <!-- Direction of propagation -->
+          <path d="M325 100 L350 100" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <text x="325" y="85" text-anchor="middle" fill="black">Direction of</text>
+          <text x="325" y="95" text-anchor="middle" fill="black">Propagation</text>
+          
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+      <div class="formula">c = νλ (Speed of light = Frequency × Wavelength)<br>c = 1/√(ε₀μ₀) = 3×10⁸ m/s</div>
+    </div>
+
+    <div class="section">
+      <h2>2. Maxwell's Equations</h2>
+      <ul>
+        <li><strong>Gauss's Law (Electric):</strong> ∮E⃗·dA⃗ = q/ε₀</li>
+        <li><strong>Gauss's Law (Magnetic):</strong> ∮B⃗·dA⃗ = 0</li>
+        <li><strong>Faraday's Law:</strong> ∮E⃗·dl⃗ = -dΦᵦ/dt</li>
+        <li><strong>Ampere-Maxwell Law:</strong> ∮B⃗·dl⃗ = μ₀I + μ₀ε₀·dΦₑ/dt</li>
+        <li>These equations describe the generation and propagation of EM waves</li>
+      </ul>
+      <div class="formula">E = cB (In an EM wave, electric and magnetic fields are related)<br>E ⊥ B (Electric and magnetic fields are perpendicular to each other)</div>
+    </div>
+
+    <div class="section">
+      <h2>3. EM Wave Characteristics</h2>
+      <ul>
+        <li><strong>Transverse Nature:</strong> E, B, and direction of propagation are mutually perpendicular</li>
+        <li><strong>Energy Transport:</strong> EM waves carry energy and momentum</li>
+        <li><strong>Energy Density:</strong> u = ½ε₀E² + B²/2μ₀ = ε₀E²</li>
+        <li><strong>Poynting Vector:</strong> S = (E×B)/μ₀ (gives energy flow per unit area per unit time)</li>
+      </ul>
+      <div class="formula">Intensity (I) = Average value of |S| = ε₀cE₀²/2<br>Radiation Pressure (P) = I/c (for total absorption) or P = 2I/c (for total reflection)</div>
+    </div>
+
+    <div class="section">
+      <h2>4. Electromagnetic Spectrum</h2>
+      <div class="em-spectrum">
+        <div class="frequency-bar">Increasing Frequency →</div>
+        <div class="wavelength-bar">← Increasing Wavelength</div>
+        
+        <div class="em-label" style="left: 5%;">Radio</div>
+        <div class="em-arrow" style="left: 5%;"></div>
+        
+        <div class="em-label" style="left: 15%;">Microwave</div>
+        <div class="em-arrow" style="left: 15%;"></div>
+        
+        <div class="em-label" style="left: 30%;">Infrared</div>
+        <div class="em-arrow" style="left: 30%;"></div>
+        
+        <div class="em-label" style="left: 42%;">Visible</div>
+        <div class="em-arrow" style="left: 42%;"></div>
+        
+        <div class="em-label" style="left: 55%;">UV</div>
+        <div class="em-arrow" style="left: 55%;"></div>
+        
+        <div class="em-label" style="left: 70%;">X-rays</div>
+        <div class="em-arrow" style="left: 70%;"></div>
+        
+        <div class="em-label" style="left: 90%;">Gamma</div>
+        <div class="em-arrow" style="left: 90%;"></div>
+      </div>
+      
+      <ul>
+        <li><strong>Radio Waves:</strong> λ ~ 10³ m to 10⁻¹ m (Communication, AM/FM radio, TV)</li>
+        <li><strong>Microwaves:</strong> λ ~ 10⁻¹ m to 10⁻³ m (Cooking, radar, satellite communication)</li>
+        <li><strong>Infrared:</strong> λ ~ 10⁻³ m to 7×10⁻⁷ m (Night vision, heating, remote controls)</li>
+        <li><strong>Visible Light:</strong> λ ~ 7×10⁻⁷ m to 4×10⁻⁷ m (Human vision)</li>
+        <li><strong>Ultraviolet:</strong> λ ~ 4×10⁻⁷ m to 10⁻⁸ m (Disinfection, vitamin D synthesis)</li>
+        <li><strong>X-rays:</strong> λ ~ 10⁻⁸ m to 10⁻¹¹ m (Medical imaging, airport security)</li>
+        <li><strong>Gamma Rays:</strong> λ < 10⁻¹¹ m (Cancer treatment, nuclear medicine)</li>
+      </ul>
+      <div class="formula">E = hν = hc/λ (Energy of EM wave, where h = 6.63×10⁻³⁴ Js is Planck's constant)</div>
+    </div>
+
+    <div class="section">
+      <h2>5. Propagation of EM Waves</h2>
+      <ul>
+        <li><strong>In Vacuum:</strong> Speed c = 3×10⁸ m/s</li>
+        <li><strong>In Medium:</strong> Speed v = c/n (where n is the refractive index)</li>
+        <li><strong>Attenuation:</strong> Intensity decreases with distance I ∝ 1/r²</li>
+        <li><strong>Wavefront:</strong> Surface of constant phase</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="300" height="200" viewBox="0 0 300 200">
+          <!-- Point source and wavefronts -->
+          <circle cx="150" cy="100" r="5" fill="black"/>
+          <text x="150" y="85" text-anchor="middle" fill="black">Source</text>
+          
+          <circle cx="150" cy="100" r="20" fill="none" stroke="black" stroke-width="1"/>
+          <circle cx="150" cy="100" r="40" fill="none" stroke="black" stroke-width="1"/>
+          <circle cx="150" cy="100" r="60" fill="none" stroke="black" stroke-width="1"/>
+          <circle cx="150" cy="100" r="80" fill="none" stroke="black" stroke-width="1"/>
+          
+          <path d="M150 100 L230 100" stroke="black" stroke-width="1" marker-end="url(#arrowhead2)"/>
+          <text x="190" y="90" text-anchor="middle" fill="black">Ray</text>
+          
+          <text x="150" y="180" text-anchor="middle" fill="black">Spherical Wavefronts</text>
+          
+          <defs>
+            <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>6. Polarization</h2>
+      <ul>
+        <li><strong>Definition:</strong> Restriction of E-field oscillations to a single plane</li>
+        <li><strong>Types:</strong> Linear, Circular, Elliptical</li>
+        <li><strong>Polarizers:</strong> Devices that produce polarized light (e.g., Polaroid filters)</li>
+        <li><strong>Malus' Law:</strong> I = I₀cos²θ (θ is angle between polarizer axis and polarization direction)</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="350" height="170" viewBox="0 0 350 170">
+          <!-- Unpolarized light -->
+          <path d="M50 85 L100 85" stroke="black" stroke-width="2"/>
+          <line x1="100" y1="85" x2="120" y2="55" stroke="blue" stroke-width="2"/>
+          <line x1="100" y1="85" x2="120" y2="115" stroke="blue" stroke-width="2"/>
+          <line x1="100" y1="85" x2="130" y2="85" stroke="blue" stroke-width="2"/>
+          <line x1="100" y1="85" x2="120" y2="65" stroke="blue" stroke-width="2"/>
+          <line x1="100" y1="85" x2="120" y2="105" stroke="blue" stroke-width="2"/>
+          <text x="75" y="60" text-anchor="middle" fill="white">Unpolarized</text>
+          
+          <!-- Polarizer -->
+          <rect x="150" y="45" width="10" height="80" fill="gray" stroke="black"/>
+          <path d="M150 45 L160 125" stroke="black" stroke-width="1" stroke-dasharray="2,2"/>
+          <path d="M150 125 L160 45" stroke="black" stroke-width="1" stroke-dasharray="2,2"/>
+          <text x="155" y="140" text-anchor="middle" fill="white">Polarizer</text>
+          
+          <!-- Polarized light -->
+          <path d="M180 85 L240 85" stroke="black" stroke-width="2"/>
+          <line x1="200" y1="85" x2="220" y2="55" stroke="blue" stroke-width="2"/>
+          <line x1="220" y1="85" x2="240" y2="55" stroke="blue" stroke-width="2"/>
+          <line x1="240" y1="85" x2="260" y2="55" stroke="blue" stroke-width="2"/>
+          <line x1="260" y1="85" x2="280" y2="55" stroke="blue" stroke-width="2"/>
+          <text x="230" y="60" text-anchor="middle" fill="white">Polarized</text>
+          
+          <path d="M165 15 L300 15" stroke="black" stroke-width="1"/>
+          <text x="270" y="30" text-anchor="start" fill="white">Direction of propagation</text>
+          <polygon points="295,15 300,15 300,12 305,17 300,22 300,19 295,19" fill="black"/>
+        </svg>
+      </div>
+      <div class="formula">I = I₀cos²θ (Malus' Law)</div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Remember the mutual perpendicularity of E, B, and direction of propagation</li>
+        <li>Memorize the formula relating wavelength and frequency: c = νλ</li>
+        <li>Know the EM spectrum order (Radio → Micro → IR → Visible → UV → X → Gamma)</li>
+        <li>Practice problems on intensity calculations, polarization, and energy transport</li>
+        <li>Understand the physical significance of the Poynting vector and radiation pressure</li>
+        <li>Relate Maxwell's equations to the properties of EM waves</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button class="next-btn" onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "Electromagnetic waves are produced by:", 
+        options: ["Static charges", "Stationary magnets", "Accelerating charges", "Nuclear decay only"], 
+        answer: "Accelerating charges" 
+      },
+      { 
+        question: "In an electromagnetic wave, the electric field and magnetic field are:", 
+        options: ["Parallel to each other", "Perpendicular to each other", "Parallel to direction of propagation", "At 45° to each other"], 
+        answer: "Perpendicular to each other" 
+      },
+      { 
+        question: "Which part of the electromagnetic spectrum has the highest frequency?", 
+        options: ["X-rays", "Ultraviolet rays", "Gamma rays", "Microwaves"], 
+        answer: "Gamma rays" 
+      },
+      { 
+        question: "What is the speed of electromagnetic waves in vacuum?", 
+        options: ["3 × 10⁸ m/s", "3 × 10⁶ m/s", "3 × 10⁴ m/s", "Depends on wavelength"], 
+        answer: "3 × 10⁸ m/s" 
+      },
+      { 
+        question: "According to Malus' Law, if polarized light passes through an analyzer with its axis at 60° to the polarization direction, what fraction of intensity gets transmitted?", 
+        options: ["1/4", "1/2", "1/8", "1/16"], 
+        answer: "1/4" 
+      },
+      { 
+        question: "Which equation correctly represents the Poynting vector?", 
+        options: ["S = E × B", "S = (E × B)/μ₀", "S = E⋅B", "S = |E|/|B|"], 
+        answer: "S = (E × B)/μ₀" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = function() {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            document.getElementById("message").style.color = "lime";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+            document.getElementById("message").style.color = "red";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => {
+            el.classList.add("disabled");
+            if (el.innerText === q.answer) el.classList.add("correct");
+          });
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      document.getElementById("submitBtn").style.display = currentIndex === quizData.length - 1 ? "block" : "none";
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        document.getElementById("submitBtn").style.display = "block";
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

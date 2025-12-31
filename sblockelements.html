@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>s-Block Elements - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .diagram {
+      max-width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .formula {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+    
+    .svg-container {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: center;
+    }
+    
+    th {
+      background-color: #333;
+      color: #ff6f00;
+    }
+    
+    .element-box {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #ff6f00;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 5px;
+      border-radius: 5px;
+      background-color: #333;
+    }
+    
+    .atom-number {
+      font-size: 10px;
+      align-self: flex-start;
+      padding-left: 5px;
+    }
+    
+    .element-symbol {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+    .element-name {
+      font-size: 10px;
+    }
+    
+    .element-mass {
+      font-size: 10px;
+      align-self: flex-end;
+      padding-right: 5px;
+    }
+    
+    .flame-test {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+    }
+    
+    .flame {
+      width: 80px;
+      height: 120px;
+      position: relative;
+    }
+    
+    .flame-color {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50% 50% 20% 20%;
+    }
+    
+    .flame-label {
+      position: absolute;
+      bottom: -25px;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>s-Block Elements - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Alkali Metals (Group 1)</h2>
+      <ul>
+        <li><strong>Elements:</strong> Li, Na, K, Rb, Cs, Fr</li>
+        <li><strong>Electronic Configuration:</strong> [Noble gas] ns<sup>1</sup></li>
+        <li><strong>Properties:</strong>
+          <ul>
+            <li>Soft, silvery-white metals</li>
+            <li>Low melting points</li>
+            <li>Highly reactive (stored in oil)</li>
+            <li>Strong reducing agents</li>
+          </ul>
+        </li>
+        <li><strong>Trends:</strong>
+          <ul>
+            <li>Atomic size increases down the group</li>
+            <li>Ionization energy decreases</li>
+            <li>Reactivity increases</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div style="display: flex; justify-content: center; margin: 15px 0;">
+        <div class="element-box">
+          <span class="atom-number">3</span>
+          <span class="element-symbol">Li</span>
+          <span class="element-name">Lithium</span>
+          <span class="element-mass">6.94</span>
+        </div>
+        <div class="element-box">
+          <span class="atom-number">11</span>
+          <span class="element-symbol">Na</span>
+          <span class="element-name">Sodium</span>
+          <span class="element-mass">22.99</span>
+        </div>
+        <div class="element-box">
+          <span class="atom-number">19</span>
+          <span class="element-symbol">K</span>
+          <span class="element-name">Potassium</span>
+          <span class="element-mass">39.10</span>
+        </div>
+        <div class="element-box">
+          <span class="atom-number">37</span>
+          <span class="element-symbol">Rb</span>
+          <span class="element-name">Rubidium</span>
+          <span class="element-mass">85.47</span>
+        </div>
+        <div class="element-box">
+          <span class="atom-number">55</span>
+          <span class="element-symbol">Cs</span>
+          <span class="element-name">Cesium</span>
+          <span class="element-mass">132.91</span>
+        </div>
+      </div>
+      
+      <div class="formula">
+        <strong>Important Reactions:</strong><br>
+        4Na + O<sub>2</sub> → 2Na<sub>2</sub>O (oxide)<br>
+        2Na + O<sub>2</sub> → Na<sub>2</sub>O<sub>2</sub> (peroxide)<br>
+        2Na + 2H<sub>2</sub>O → 2NaOH + H<sub>2</sub>↑
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Alkaline Earth Metals (Group 2)</h2>
+      <ul>
+        <li><strong>Elements:</strong> Be, Mg, Ca, Sr, Ba, Ra</li>
+        <li><strong>Electronic Configuration:</strong> [Noble gas] ns<sup>2</sup></li>
+        <li><strong>Properties:</strong>
+          <ul>
+            <li>Harder than alkali metals</li>
+            <li>Higher melting points</li>
+            <li>Less reactive than Group 1</li>
+            <li>Form divalent cations</li>
+          </ul>
+        </li>
+        <li><strong>Trends:</strong>
+          <ul>
+            <li>Atomic size increases down the group</li>
+            <li>Ionization energy decreases</li>
+            <li>Solubility of hydroxides increases</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div style="display: flex; justify-content: center; margin: 15px 0;">
+        <div class="element-box">
+          <span class="atom-number">4</span>
+          <span class="element-symbol">Be</span>
+          <span class="element-name">Beryllium</span>
+          <span class="element-mass">9.01</span>
+        </div>
+        <div class="element-box">
+          <span class="atom-number">12</span>
+          <span class="element-symbol">Mg</span>
+          <span class="element-name">Magnesium</span>
+          <span class="element-mass">24.31</span>
+        </div>
+        <div class="element-box">
+          <span class="atom-number">20</span>
+          <span class="element-symbol">Ca</span>
+          <span class="element-name">Calcium</span>
+          <span class="element-mass">40.08</span>
+        </div>
+        <div class="element-box">
+          <span class="atom-number">38</span>
+          <span class="element-symbol">Sr</span>
+          <span class="element-name">Strontium</span>
+          <span class="element-mass">87.62</span>
+        </div>
+        <div class="element-box">
+          <span class="atom-number">56</span>
+          <span class="element-symbol">Ba</span>
+          <span class="element-name">Barium</span>
+          <span class="element-mass">137.33</span>
+        </div>
+      </div>
+      
+      <div class="formula">
+        <strong>Important Reactions:</strong><br>
+        Ca + 2H<sub>2</sub>O → Ca(OH)<sub>2</sub> + H<sub>2</sub>↑<br>
+        Mg + 2HCl → MgCl<sub>2</sub> + H<sub>2</sub>↑<br>
+        BaO<sub>2</sub> + H<sub>2</sub>SO<sub>4</sub> → BaSO<sub>4</sub> + H<sub>2</sub>O<sub>2</sub>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Flame Tests and Colors</h2>
+      <div class="flame-test">
+        <div class="flame">
+          <div class="flame-color" style="background: linear-gradient(to top, #ff0000, #ff6600);"></div>
+          <div class="flame-label">Li - Crimson</div>
+        </div>
+        <div class="flame">
+          <div class="flame-color" style="background: linear-gradient(to top, #ffff00, #ffcc00);"></div>
+          <div class="flame-label">Na - Yellow</div>
+        </div>
+        <div class="flame">
+          <div class="flame-color" style="background: linear-gradient(to top, #ff00ff, #cc00ff);"></div>
+          <div class="flame-label">K - Lilac</div>
+        </div>
+        <div class="flame">
+          <div class="flame-color" style="background: linear-gradient(to top, #ff9900, #ff6600);"></div>
+          <div class="flame-label">Ca - Brick Red</div>
+        </div>
+        <div class="flame">
+          <div class="flame-color" style="background: linear-gradient(to top, #ff00ff, #9900cc);"></div>
+          <div class="flame-label">Sr - Crimson</div>
+        </div>
+        <div class="flame">
+          <div class="flame-color" style="background: linear-gradient(to top, #00ccff, #0099ff);"></div>
+          <div class="flame-label">Ba - Apple Green</div>
+        </div>
+      </div>
+      
+      <table>
+        <tr>
+          <th>Element</th>
+          <th>Flame Color</th>
+          <th>Wavelength (nm)</th>
+        </tr>
+        <tr>
+          <td>Lithium (Li)</td>
+          <td>Crimson red</td>
+          <td>670.8</td>
+        </tr>
+        <tr>
+          <td>Sodium (Na)</td>
+          <td>Bright yellow</td>
+          <td>589.2</td>
+        </tr>
+        <tr>
+          <td>Potassium (K)</td>
+          <td>Lilac</td>
+          <td>766.5</td>
+        </tr>
+        <tr>
+          <td>Calcium (Ca)</td>
+          <td>Brick red</td>
+          <td>622.0</td>
+        </tr>
+        <tr>
+          <td>Strontium (Sr)</td>
+          <td>Crimson</td>
+          <td>689.2</td>
+        </tr>
+        <tr>
+          <td>Barium (Ba)</td>
+          <td>Apple green</td>
+          <td>553.5</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>4. Important Compounds</h2>
+      <ul>
+        <li><strong>Sodium Carbonate (Na<sub>2</sub>CO<sub>3</sub>):</strong>
+          <ul>
+            <li>Preparation: Solvay process</li>
+            <li>Uses: Glass, soap, water softening</li>
+          </ul>
+        </li>
+        <li><strong>Sodium Hydroxide (NaOH):</strong>
+          <ul>
+            <li>Preparation: Chlor-alkali process</li>
+            <li>Uses: Soap, paper, petroleum refining</li>
+          </ul>
+        </li>
+        <li><strong>Calcium Oxide (CaO):</strong>
+          <ul>
+            <li>Preparation: Thermal decomposition of CaCO<sub>3</sub></li>
+            <li>Uses: Cement, steel production</li>
+          </ul>
+        </li>
+        <li><strong>Plaster of Paris (CaSO<sub>4</sub>·½H<sub>2</sub>O):</strong>
+          <ul>
+            <li>Preparation: Heating gypsum at 120°C</li>
+            <li>Uses: Casts, molds, fireproofing</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div class="formula">
+        <strong>Solvay Process Reactions:</strong><br>
+        NaCl + NH<sub>3</sub> + CO<sub>2</sub> + H<sub>2</sub>O → NaHCO<sub>3</sub> + NH<sub>4</sub>Cl<br>
+        2NaHCO<sub>3</sub> → Na<sub>2</sub>CO<sub>3</sub> + CO<sub>2</sub> + H<sub>2</sub>O
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>5. Biological Importance</h2>
+      <table>
+        <tr>
+          <th>Element</th>
+          <th>Biological Role</th>
+          <th>Deficiency Effects</th>
+        </tr>
+        <tr>
+          <td>Na<sup>+</sup>, K<sup>+</sup></td>
+          <td>Nerve impulse transmission, osmotic balance</td>
+          <td>Muscle cramps, fatigue</td>
+        </tr>
+        <tr>
+          <td>Mg<sup>2+</sup></td>
+          <td>Chlorophyll component, enzyme cofactor</td>
+          <td>Chlorosis in plants, muscle spasms</td>
+        </tr>
+        <tr>
+          <td>Ca<sup>2+</sup></td>
+          <td>Bone/teeth formation, blood clotting</td>
+          <td>Osteoporosis, rickets</td>
+        </tr>
+      </table>
+      
+      <div class="svg-container">
+        <svg width="400" height="200" viewBox="0 0 400 200">
+          <!-- Biological importance -->
+          <circle cx="100" cy="100" r="50" fill="#5dade2" opacity="0.5"/>
+          <text x="100" y="100" text-anchor="middle">Na<sup>+</sup>/K<sup>+</sup> pump</text>
+          
+          <circle cx="200" cy="100" r="50" fill="#58d68d" opacity="0.5"/>
+          <text x="200" y="100" text-anchor="middle">Mg in chlorophyll</text>
+          
+          <circle cx="300" cy="100" r="50" fill="#f5b041" opacity="0.5"/>
+          <text x="300" y="100" text-anchor="middle">Ca in bones</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>EAMCET Problem-Solving Tips</h2>
+      <ul>
+        <li>Remember flame test colors (use mnemonic: "LiNa Ki Ruby Cse Baar" for Li-Red, Na-Yellow, K-Lilac)</li>
+        <li>For solubility trends:
+          <ul>
+            <li>Hydroxides: Increases down Group 1 and 2</li>
+            <li>Sulfates: Decreases down Group 2</li>
+            <li>Carbonates: Insoluble except Group 1</li>
+          </ul>
+        </li>
+        <li>Important industrial processes:
+          <ul>
+            <li>Solvay process (Na<sub>2</sub>CO<sub>3</sub>)</li>
+            <li>Down's process (Na metal)</li>
+            <li>Chlor-alkali process (NaOH)</li>
+          </ul>
+        </li>
+        <li>Anomalous behavior:
+          <ul>
+            <li>Li resembles Mg (diagonal relationship)</li>
+            <li>Be is amphoteric</li>
+          </ul>
+        </li>
+        <li>Memorize important compounds:
+          <ul>
+            <li>Washing soda: Na<sub>2</sub>CO<sub>3</sub>·10H<sub>2</sub>O</li>
+            <li>Baking soda: NaHCO<sub>3</sub></li>
+            <li>Plaster of Paris: CaSO<sub>4</sub>·½H<sub>2</sub>O</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>s-Block Elements Quiz</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button class="next-btn" onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 10</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "Which alkali metal has the highest hydration energy?", 
+        options: ["Li", "Na", "K", "Cs"], 
+        answer: "Li",
+        explanation: "Lithium has the smallest size and highest charge density, resulting in strongest hydration"
+      },
+      { 
+        question: "What is the product when calcium reacts with water?", 
+        options: [
+          "CaO + H<sub>2</sub>", 
+          "Ca(OH)<sub>2</sub> + H<sub>2</sub>", 
+          "CaH<sub>2</sub> + O<sub>2</sub>", 
+          "No reaction"
+        ], 
+        answer: "Ca(OH)<sub>2</sub> + H<sub>2</sub>",
+        explanation: "Ca + 2H<sub>2</sub>O → Ca(OH)<sub>2</sub> + H<sub>2</sub> (less vigorous than Group 1 metals)"
+      },
+      { 
+        question: "Which compound is used in plaster casts for fractures?", 
+        options: [
+          "Gypsum (CaSO<sub>4</sub>·2H<sub>2</sub>O)", 
+          "Plaster of Paris (CaSO<sub>4</sub>·½H<sub>2</sub>O)", 
+          "Limestone (CaCO<sub>3</sub>)", 
+          "Quicklime (CaO)"
+        ], 
+        answer: "Plaster of Paris (CaSO<sub>4</sub>·½H<sub>2</sub>O)",
+        explanation: "Plaster of Paris hardens when mixed with water, making it ideal for casts"
+      },
+      { 
+        question: "Which s-block element shows diagonal relationship with aluminum?", 
+        options: ["Li", "Be", "Mg", "B"], 
+        answer: "Be",
+        explanation: "Beryllium shows diagonal relationship with aluminum (similar charge/size ratio)"
+      },
+      { 
+        question: "What is the flame color of potassium?", 
+        options: ["Yellow", "Crimson", "Lilac", "Green"], 
+        answer: "Lilac",
+        explanation: "Potassium gives characteristic lilac/purple flame in flame test"
+      },
+      { 
+        question: "Which process is used for manufacturing sodium carbonate?", 
+        options: [
+          "Contact process", 
+          "Haber process", 
+          "Solvay process", 
+          "Ostwald process"
+        ], 
+        answer: "Solvay process",
+        explanation: "Solvay process uses NaCl, NH<sub>3</sub>, and CO<sub>2</sub> to produce Na<sub>2</sub>CO<sub>3</sub>"
+      },
+      { 
+        question: "Which ion is responsible for the transmission of nerve impulses?", 
+        options: [
+          "Na<sup>+</sup> and K<sup>+</sup>", 
+          "Ca<sup>2+</sup> and Mg<sup>2+</sup>", 
+          "Li<sup>+</sup> and Be<sup>2+</sup>", 
+          "Ba<sup>2+</sup> and Sr<sup>2+</sup>"
+        ], 
+        answer: "Na<sup>+</sup> and K<sup>+</sup>",
+        explanation: "Sodium-potassium pump maintains membrane potential in neurons"
+      },
+      { 
+        question: "Which alkaline earth metal sulfate is insoluble in water?", 
+        options: ["MgSO<sub>4</sub>", "CaSO<sub>4</sub>", "SrSO<sub>4</sub>", "BaSO<sub>4</sub>"], 
+        answer: "BaSO<sub>4</sub>",
+        explanation: "Solubility of sulfates decreases down Group 2 (BaSO<sub>4</sub> is least soluble)"
+      },
+      { 
+        question: "What is the product when sodium peroxide reacts with water?", 
+        options: [
+          "NaOH + O<sub>2</sub>", 
+          "NaOH + H<sub>2</sub>O<sub>2</sub>", 
+          "Na<sub>2</sub>O + H<sub>2</sub>O", 
+          "NaH + H<sub>2</sub>O<sub>2</sub>"
+        ], 
+        answer: "NaOH + H<sub>2</sub>O<sub>2</sub>",
+        explanation: "Na<sub>2</sub>O<sub>2</sub> + 2H<sub>2</sub>O → 2NaOH + H<sub>2</sub>O<sub>2</sub>"
+      },
+      { 
+        question: "Which element is essential for chlorophyll formation in plants?", 
+        options: ["Sodium", "Potassium", "Magnesium", "Calcium"], 
+        answer: "Magnesium",
+        explanation: "Mg<sup>2+</sup> is the central atom in chlorophyll's porphyrin ring"
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerHTML = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerHTML = q.answer + (q.explanation ? `<br><br>Explanation: ${q.explanation}` : "");
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerHTML = opt;
+        li.onclick = function() {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerHTML = "🎉 Correct Answer!";
+            document.getElementById("message").style.color = "lime";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerHTML = "❌ Wrong Answer!";
+            document.getElementById("message").style.color = "red";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => {
+            el.classList.add("disabled");
+            if (el.innerHTML === q.answer) el.classList.add("correct");
+          });
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      document.getElementById("submitBtn").style.display = currentIndex === quizData.length - 1 ? "block" : "none";
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        document.getElementById("submitBtn").style.display = "block";
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      currentIndex = 0;
+      score = 0;
+      loadQuestion();
+      document.getElementById("finalScore").style.display = "none";
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerHTML = `🎯 Final Score: ${score} out of ${quizData.length}<br><br>${getPerformanceMessage(score/quizData.length)}`;
+    }
+
+    function getPerformanceMessage(percentage) {
+      if (percentage >= 0.9) return "Excellent! You've mastered s-block elements!";
+      if (percentage >= 0.7) return "Great job! You have a strong understanding!";
+      if (percentage >= 0.5) return "Good effort! Review the concepts you missed!";
+      return "Keep practicing! Focus on trends and important compounds!";
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

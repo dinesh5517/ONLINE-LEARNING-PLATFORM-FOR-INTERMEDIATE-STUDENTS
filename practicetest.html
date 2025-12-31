@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAMCET Papers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+        }
+        .sidebar {
+            width: 300px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+        .sidebar h2 {
+            text-align: center;
+            color: #f4a261;
+        }
+        .lesson-list {
+            list-style: none;
+            padding: 0;
+        }
+        .lesson-list li {
+            padding: 10px;
+            border-bottom: 1px solid #f4a261;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .lesson-list li:hover {
+            background: #f4a261;
+            color: black;
+        }
+        .content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>EAMCET Papers</h2>
+        <ul class="lesson-list">
+            <!-- EAMCET Papers from 2016 to 2024 with 4 Sets Each -->
+            <script>
+                for (let year = 2020; year <= 2024; year++) {
+                    for (let set = 1; set <= 4; set++) {
+                        document.write(`<li>${year} EAMCET Paper - Set ${set}</li>`);
+                    }
+                }
+            </script>
+        </ul>
+    </div>
+    <div class="content">
+        <p>Welcome to the EAMCET Papers Portal</p>
+    </div>
+</body>
+</html>

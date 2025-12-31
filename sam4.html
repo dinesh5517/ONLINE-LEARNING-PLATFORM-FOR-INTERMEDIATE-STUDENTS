@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAMCET Learning Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #004466;
+            --primary-dark: #003355;
+            --secondary-color: #ff6b35;
+            --light-color: #f7f7f7;
+            --dark-color: #333;
+            --gray-color: #777;
+            --light-gray: #eaeaea;
+            --success-color: #388e3c;
+            --error-color: #d32f2f;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --marquee-color: #ffcc00;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            color: var(--primary-color);
+            font-size: 1.75rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            z-index: 1;
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-item {
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark-color);
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .profile-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            z-index: 1;
+            padding: 0.5rem 0;
+        }
+        
+        .profile-dropdown a {
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark-color);
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .profile-dropdown a:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .profile-dropdown .divider {
+            height: 1px;
+            background-color: var(--light-gray);
+            margin: 0.5rem 0;
+        }
+        
+        /* Marquee Styles */
+        .marquee-container {
+            background-color: var(--marquee-color);
+            padding: 0.75rem 0;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Subjects Section */
+        .subjects {
+            padding: 4rem 2rem;
+            background-color: #f9f9f9;
+        }
+        
+        .subjects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .subject-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .subject-image {
+            height: 150px;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .subject-content {
+            padding: 1.5rem;
+        }
+        
+        .subject-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .subject-description {
+            color: var(--gray-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .subject-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .subject-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* PYQs Section */
+        .pyqs {
+            padding: 4rem 2rem;
+        }
+        
+        .pyqs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pyqs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 2rem 2rem 1rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            text-decoration: none;
+        }
+        
+        .footer-logo-icon {
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .footer-logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .footer-about {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .footer-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-link a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-link a:hover {
+            opacity: 1;
+        }
+        
+        .footer-message {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-style: italic;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header>
+        <div class="navbar">
+            <a href="main.html" class="logo">
+                <i class="fas fa-graduation-cap logo-icon"></i>
+                <span class="logo-text">EAMCET Prep</span>
+            </a>
+            
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="subjects.html" class="nav-link">Subjects <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="physics.html" class="dropdown-item">Physics</a>
+                        <a href="chemistry.html" class="dropdown-item">Chemistry</a>
+                        <a href="maths.html" class="dropdown-item">Mathematics</a>
+                        <a href="biology.html" class="dropdown-item">Biology</a>
+                    </div>
+                </div>
+                
+                <div class="dropdown">
+                    <a href="pyqs.html" class="nav-link">PYQs <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="physics-pyq.html" class="dropdown-item">Physics PYQs</a>
+                        <a href="chemistry-pyq.html" class="dropdown-item">Chemistry PYQs</a>
+                        <a href="maths-pyq.html" class="dropdown-item">Maths PYQs</a>
+                        <a href="biology-pyq.html" class="dropdown-item">Biology PYQs</a>
+                    </div>
+                </div>
+                
+                <a href="practice-tests.html" class="nav-link">Practice Tests</a>
+                <a href="study-materials.html" class="nav-link">Study Materials</a>
+                <a href="search.html" class="nav-link">Search</a>
+            </div>
+            
+            <div class="user-profile" id="user-profile">
+                <div class="user-avatar" id="user-avatar"></div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                    <a href="my-courses.html"><i class="fas fa-book"></i> My Courses</a>
+                    <a href="test-results.html"><i class="fas fa-chart-line"></i> Test Results</a>
+                    <div class="divider"></div>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Marquee Banner -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>"In this website you will get short notes and important formulas for all subjects regarding EAMCET and PYQs practice questions."</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to EAMCET Prep, <span id="user-greeting"></span></h1>
+            <p class="hero-subtitle">
+                Continue your journey to ace the EAMCET exam with personalized study plans and practice tests.
+            </p>
+            <a href="study-plan.html" class="subject-button">Continue Learning</a>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section class="subjects">
+        <div class="subjects-container">
+            <h2 class="section-title">Your Subjects</h2>
+            <div class="subjects-grid">
+                <div class="subject-card" onclick="window.location.href='physics.html'">
+                    <div class="subject-image">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Physics</h3>
+                        <p class="subject-description">
+                            Master concepts with interactive lessons and problem-solving techniques.
+                        </p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 65%;">65% Complete</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subject-card" onclick="window.location.href='chemistry.html'">
+                    <div class="subject-image">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Chemistry</h3>
+                        <p class="subject-description">
+                            Learn organic, inorganic and physical chemistry with practical examples.
+                        </p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 45%;">45% Complete</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subject-card" onclick="window.location.href='maths.html'">
+                    <div class="subject-image">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Mathematics</h3>
+                        <p class="subject-description">
+                            Master algebra, calculus, trigonometry and more with our interactive lessons.
+                        </p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 30%;">30% Complete</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PYQs Section -->
+    <section class="pyqs">
+        <div class="pyqs-container">
+            <h2 class="section-title">Recommended Practice Tests</h2>
+            <div class="pyqs-grid">
+                <div class="subject-card" onclick="window.location.href='physics-test.html'">
+                    <div class="subject-image" style="background-color: #2c3e50;">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Physics Test Series</h3>
+                        <p class="subject-description">
+                            Practice with 10+ mock tests based on previous year patterns.
+                        </p>
+                        <div class="test-info">
+                            <span><i class="fas fa-check-circle"></i> 3 Completed</span>
+                            <span><i class="fas fa-clock"></i> 7 Remaining</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subject-card" onclick="window.location.href='chemistry-test.html'">
+                    <div class="subject-image" style="background-color: #2c3e50;">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Chemistry Test Series</h3>
+                        <p class="subject-description">
+                            Comprehensive tests covering all important topics.
+                        </p>
+                        <div class="test-info">
+                            <span><i class="fas fa-check-circle"></i> 1 Completed</span>
+                            <span><i class="fas fa-clock"></i> 9 Remaining</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subject-card" onclick="window.location.href='full-length-test.html'">
+                    <div class="subject-image" style="background-color: #2c3e50;">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="subject-content">
+                        <h3 class="subject-title">Full Length Mock Test</h3>
+                        <p class="subject-description">
+                            Simulate the actual exam experience with timed tests.
+                        </p>
+                        <div class="test-info">
+                            <span><i class="fas fa-check-circle"></i> 0 Completed</span>
+                            <span><i class="fas fa-clock"></i> 5 Available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Activity Section -->
+    <section class="subjects" style="background-color: white;">
+        <div class="subjects-container">
+            <h2 class="section-title">Your Recent Activity</h2>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                    <span>Completed Physics - Electromagnetism chapter</span>
+                    <span class="activity-time">2 hours ago</span>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-chart-line" style="color: var(--primary-color);"></i>
+                    <span>Scored 85% in Chemistry Practice Test 3</span>
+                    <span class="activity-time">1 day ago</span>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-book" style="color: var(--secondary-color);"></i>
+                    <span>Added Organic Chemistry notes to favorites</span>
+                    <span class="activity-time">2 days ago</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="main.html" class="footer-logo">
+                    <i class="fas fa-graduation-cap footer-logo-icon"></i>
+                    <span class="footer-logo-text">EAMCET Prep</span>
+                </a>
+                <p class="footer-about">
+                    Empowering students to achieve their engineering and medical dreams through quality education.
+                </p>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="main.html">Home</a></li>
+                    <li class="footer-link"><a href="subjects.html">Subjects</a></li>
+                    <li class="footer-link"><a href="pyqs.html">PYQs</a></li>
+                    <li class="footer-link"><a href="practice-tests.html">Practice Tests</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Account</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="profile.html">My Profile</a></li>
+                    <li class="footer-link"><a href="my-courses.html">My Courses</a></li>
+                    <li class="footer-link"><a href="test-results.html">Test Results</a></li>
+                    <li class="footer-link"><a href="settings.html">Settings</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Contact</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="mailto:support@eamcetprep.com"><i class="fas fa-envelope"></i> support@eamcetprep.com</a></li>
+                    <li class="footer-link"><a href="tel:+919876543210"><i class="fas fa-phone"></i> +91 9876543210</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-message">
+            "Success is the sum of small efforts, repeated day in and day out." - Keep studying and stay motivated!
+        </div>
+    </footer>
+
+    <script>
+        // Check authentication status on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser')) || 
+                              JSON.parse(sessionStorage.getItem('currentUser'));
+            
+            if (!currentUser) {
+                // Redirect to login if not authenticated
+                window.location.href = 'login.html';
+            } else {
+                // Update UI for logged in user
+                updateUserProfile(currentUser);
+            }
+            
+            // Setup event listeners
+            setupEventListeners();
+        });
+
+        function updateUserProfile(user) {
+            // Update greeting
+            document.getElementById('user-greeting').textContent = user.name || user.email.split('@')[0];
+            
+            // Update avatar
+            const avatar = document.getElementById('user-avatar');
+            avatar.textContent = user.name ? user.name.charAt(0).toUpperCase() : user.email.charAt(0).toUpperCase();
+            
+            // Random avatar color
+            const colors = ['#004466', '#2c3e50', '#8e44ad', '#e74c3c', '#16a085'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            avatar.style.backgroundColor = randomColor;
+        }
+
+        function setupEventListeners() {
+            // Toggle profile dropdown
+            const userProfile = document.getElementById('user-profile');
+            const dropdown = document.getElementById('profile-dropdown');
+            
+            userProfile.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function() {
+                dropdown.style.display = 'none';
+            });
+            
+            // Logout functionality
+            document.getElementById('logout-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                logoutUser();
+            });
+        }
+
+        function logoutUser() {
+            // Clear user session
+            localStorage.removeItem('currentUser');
+            sessionStorage.removeItem('currentUser');
+            
+            // Redirect to login page
+            window.location.href = 'login.html';
+        }
+
+        // Simulated database functions (in a real app, these would call your backend)
+        function getUserProgress(userId) {
+            // This would be an API call in a real application
+            return {
+                physics: 65,
+                chemistry: 45,
+                maths: 30,
+                completedTests: {
+                    physics: 3,
+                    chemistry: 1,
+                    fullLength: 0
+                }
+            };
+        }
+
+        function getRecentActivity(userId) {
+            // This would be an API call in a real application
+            return [
+                {
+                    type: 'completed',
+                    subject: 'Physics',
+                    chapter: 'Electromagnetism',
+                    time: '2 hours ago'
+                },
+                {
+                    type: 'test',
+                    subject: 'Chemistry',
+                    testNumber: 3,
+                    score: 85,
+                    time: '1 day ago'
+                },
+                {
+                    type: 'saved',
+                    subject: 'Chemistry',
+                    category: 'Organic Chemistry',
+                    time: '2 days ago'
+                }
+            ];
+        }
+    </script>
+</body>
+</html>

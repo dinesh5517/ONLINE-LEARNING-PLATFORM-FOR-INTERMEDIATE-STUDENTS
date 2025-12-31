@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Current Electricity - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .diagram {
+      max-width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .formula {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+    
+    .svg-container {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Current Electricity - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Electric Current & Ohm's Law</h2>
+      <ul>
+        <li><strong>Current (I):</strong> Flow of charge per unit time (I = Q/t)</li>
+        <li>Unit: Ampere (A) = C/s</li>
+        <li><strong>Ohm's Law:</strong> V = IR (V ∝ I at constant temperature)</li>
+        <li>Resistance (R) depends on: Material, Length, Cross-section, Temperature</li>
+      </ul>
+      <div class="formula">V = IR (Ohm's Law)<br>R = ρL/A (Resistance formula)</div>
+      <div class="svg-container">
+        <svg width="300" height="150" viewBox="0 0 300 150">
+          <rect x="50" y="50" width="200" height="50" fill="none" stroke="black" stroke-width="2"/>
+          <text x="150" y="85" text-anchor="middle" fill="black">Resistor (R)</text>
+          <path d="M20 75 L50 75" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <text x="35" y="70" text-anchor="middle" fill="black">I</text>
+          <path d="M250 75 L280 75" stroke="black" stroke-width="2"/>
+          <text x="265" y="90" text-anchor="middle" fill="black">V</text>
+          <path d="M265 60 L280 75 L265 90" stroke="black" stroke-width="1" fill="none"/>
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Series & Parallel Circuits</h2>
+      <ul>
+        <li><strong>Series:</strong> Same current, voltage divides</li>
+        <li><strong>Parallel:</strong> Same voltage, current divides</li>
+        <li>Series R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + ...</li>
+        <li>Parallel 1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + ...</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="400" height="200" viewBox="0 0 400 200">
+          <!-- Series Circuit -->
+          <path d="M50 50 L100 50" stroke="black" stroke-width="2"/>
+          <rect x="100" y="30" width="50" height="40" fill="none" stroke="black" stroke-width="2"/>
+          <text x="125" y="55" text-anchor="middle" fill="black">R1</text>
+          <path d="M150 50 L200 50" stroke="black" stroke-width="2"/>
+          <rect x="200" y="30" width="50" height="40" fill="none" stroke="black" stroke-width="2"/>
+          <text x="225" y="55" text-anchor="middle" fill="black">R2</text>
+          <path d="M250 50 L300 50" stroke="black" stroke-width="2"/>
+          <text x="175" y="20" text-anchor="middle" fill="white">Series Circuit</text>
+          
+          <!-- Parallel Circuit -->
+          <path d="M50 120 L100 120" stroke="black" stroke-width="2"/>
+          <path d="M100 120 L100 150" stroke="black" stroke-width="2"/>
+          <rect x="100" y="150" width="50" height="40" fill="none" stroke="black" stroke-width="2"/>
+          <text x="125" y="175" text-anchor="middle" fill="black">R1</text>
+          <path d="M150 150 L150 120 L250 120" stroke="black" stroke-width="2"/>
+          <path d="M100 120 L100 90" stroke="black" stroke-width="2"/>
+          <rect x="100" y="50" width="50" height="40" fill="none" stroke="black" stroke-width="2"/>
+          <text x="125" y="75" text-anchor="middle" fill="black">R2</text>
+          <path d="M150 90 L150 120" stroke="black" stroke-width="2"/>
+          <path d="M250 120 L300 120" stroke="black" stroke-width="2"/>
+          <text x="175" y="140" text-anchor="middle" fill="white">Parallel Circuit</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Kirchhoff's Laws</h2>
+      <ul>
+        <li><strong>Junction Rule (KCL):</strong> ΣI<sub>in</sub> = ΣI<sub>out</sub></li>
+        <li><strong>Loop Rule (KVL):</strong> ΣV = 0 in any closed loop</li>
+        <li>Applications: Complex circuit analysis</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <rect x="50" y="50" width="100" height="100" fill="none" stroke="black" stroke-width="2"/>
+          <path d="M150 100 L200 100" stroke="black" stroke-width="2"/>
+          <rect x="200" y="80" width="50" height="40" fill="none" stroke="black" stroke-width="2"/>
+          <text x="225" y="105" text-anchor="middle" fill="black">R</text>
+          <path d="M250 100 L300 100" stroke="black" stroke-width="2"/>
+          <path d="M300 100 L300 50 L50 50" stroke="black" stroke-width="2"/>
+          
+          <circle cx="150" cy="100" r="5" fill="black"/>
+          <text x="150" y="125" text-anchor="middle" fill="white">Junction (KCL applies)</text>
+          
+          <path d="M50 150 L300 150 L300 100" stroke="black" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+          <text x="175" y="180" text-anchor="middle" fill="white">Closed Loop (KVL applies)</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. Electrical Power & Energy</h2>
+      <ul>
+        <li><strong>Power (P):</strong> P = VI = I²R = V²/R</li>
+        <li>Unit: Watt (W)</li>
+        <li><strong>Energy (E):</strong> E = Pt = VIt</li>
+        <li>Commercial unit: 1 kWh = 3.6×10⁶ J</li>
+      </ul>
+      <div class="formula">P = VI = I²R = V²/R (Power formulas)<br>E = VIt (Energy formula)</div>
+    </div>
+
+    <div class="section">
+      <h2>5. Heating Effect of Current</h2>
+      <ul>
+        <li><strong>Joule's Law:</strong> H = I²Rt</li>
+        <li>Applications: Electric heater, fuse, bulb</li>
+        <li>Efficiency η = (Useful output/Total input) × 100%</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="300" height="150" viewBox="0 0 300 150">
+          <rect x="50" y="50" width="200" height="50" fill="none" stroke="black" stroke-width="2"/>
+          <text x="150" y="80" text-anchor="middle" fill="black">Heating Element</text>
+          <path d="M20 75 L50 75" stroke="black" stroke-width="2"/>
+          <text x="35" y="70" text-anchor="middle" fill="black">I</text>
+          <path d="M250 75 L280 75" stroke="black" stroke-width="2"/>
+          
+          <!-- Heat waves -->
+          <path d="M100 30 Q125 15 150 30 Q175 15 200 30" stroke="red" stroke-width="2" fill="none"/>
+          <path d="M100 110 Q125 95 150 110 Q175 95 200 110" stroke="red" stroke-width="2" fill="none"/>
+          <text x="150" y="130" text-anchor="middle" fill="white">Heat (H = I²Rt)</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>6. Wheatstone Bridge & Meter Bridge</h2>
+      <ul>
+        <li>Balanced condition: P/Q = R/S</li>
+        <li>Applications: Unknown resistance measurement</li>
+        <li>Meter bridge: Practical form of Wheatstone bridge</li>
+      </ul>
+      <div class="svg-container">
+        <svg width="350" height="200" viewBox="0 0 350 200">
+          <!-- Wheatstone Bridge -->
+          <path d="M50 100 L150 100" stroke="black" stroke-width="2"/>
+          <path d="M150 100 L150 50" stroke="black" stroke-width="2"/>
+          <path d="M150 100 L150 150" stroke="black" stroke-width="2"/>
+          <path d="M150 50 L250 50" stroke="black" stroke-width="2"/>
+          <path d="M150 150 L250 150" stroke="black" stroke-width="2"/>
+          <path d="M250 50 L250 150 L250 100" stroke="black" stroke-width="2"/>
+          <path d="M250 100 L300 100" stroke="black" stroke-width="2"/>
+          
+          <text x="100" y="70" text-anchor="middle" fill="black">P</text>
+          <text x="100" y="130" text-anchor="middle" fill="black">Q</text>
+          <text x="200" y="70" text-anchor="middle" fill="black">R</text>
+          <text x="200" y="130" text-anchor="middle" fill="black">S</text>
+          
+          <circle cx="150" cy="100" r="5" fill="black"/>
+          <circle cx="250" cy="100" r="5" fill="black"/>
+          
+          <path d="M150 100 L250 100" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+          <text x="200" y="120" text-anchor="middle" fill="white">Galvanometer</text>
+          <text x="175" y="180" text-anchor="middle" fill="white">Wheatstone Bridge (P/Q = R/S when balanced)</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Memorize all three forms of power formula (P = VI = I²R = V²/R)</li>
+        <li>Practice complex circuit problems using Kirchhoff's laws</li>
+        <li>Remember the balanced condition for Wheatstone bridge</li>
+        <li>Pay attention to units - convert all to SI units before solving</li>
+        <li>For meter bridge problems, remember the formula: X = R(100-l)/l</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button class="toggle-answer-btn" onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button class="next-btn" onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+  
+  <script>
+    const quizData = [
+      { 
+        question: "What is the unit of electric current?", 
+        options: ["Volt", "Ohm", "Ampere", "Watt"], 
+        answer: "Ampere" 
+      },
+      { 
+        question: "According to Ohm's Law, if voltage doubles while resistance remains constant, what happens to current?", 
+        options: ["Halves", "Doubles", "Quadruples", "Remains same"], 
+        answer: "Doubles" 
+      },
+      { 
+        question: "In a parallel circuit, which quantity remains the same across all components?", 
+        options: ["Current", "Voltage", "Resistance", "Power"], 
+        answer: "Voltage" 
+      },
+      { 
+        question: "Which law states that the algebraic sum of currents at a junction is zero?", 
+        options: ["Ohm's Law", "Kirchhoff's Current Law", "Kirchhoff's Voltage Law", "Joule's Law"], 
+        answer: "Kirchhoff's Current Law" 
+      },
+      { 
+        question: "What is the power dissipated in a 10Ω resistor with 2A current flowing through it?", 
+        options: ["20W", "40W", "100W", "200W"], 
+        answer: "40W" 
+      },
+      { 
+        question: "In a balanced Wheatstone bridge, what is the relationship between resistances?", 
+        options: ["P/Q = R/S", "P+Q = R+S", "P×Q = R×S", "P-Q = R-S"], 
+        answer: "P/Q = R/S" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = function() {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            document.getElementById("message").style.color = "lime";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+            document.getElementById("message").style.color = "red";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => {
+            el.classList.add("disabled");
+            if (el.innerText === q.answer) el.classList.add("correct");
+          });
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      document.getElementById("submitBtn").style.display = currentIndex === quizData.length - 1 ? "block" : "none";
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        document.getElementById("submitBtn").style.display = "block";
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

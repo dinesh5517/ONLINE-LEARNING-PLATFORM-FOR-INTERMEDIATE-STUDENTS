@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Functions - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ff6f00;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #ff6f00;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ff6f00;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ff6f00;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .math {
+      font-family: "Cambria Math", serif;
+      color: #ff9800;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Functions - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Definition and Basics</h2>
+      <ul>
+        <li>A function <span class="math">f: A → B</span> is a relation that assigns each element of set A to exactly one element of set B.</li>
+        <li><strong>Domain:</strong> Set of all possible input values (A)</li>
+        <li><strong>Codomain:</strong> Set of possible output values (B)</li>
+        <li><strong>Range:</strong> Actual set of output values produced by the function</li>
+        <li>Types of functions based on elements:
+          <ul>
+            <li>One-one (Injective): Each element in B has at most one pre-image in A</li>
+            <li>Onto (Surjective): Range = Codomain</li>
+            <li>Bijective: Both one-one and onto</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Types of Functions</h2>
+      <ul>
+        <li><strong>Polynomial:</strong> <span class="math">f(x) = aₙxⁿ + aₙ₋₁xⁿ⁻¹ + ... + a₀</span></li>
+        <li><strong>Rational:</strong> Ratio of two polynomials <span class="math">P(x)/Q(x)</span></li>
+        <li><strong>Exponential:</strong> <span class="math">f(x) = aˣ</span> (a > 0, a ≠ 1)</li>
+        <li><strong>Logarithmic:</strong> <span class="math">f(x) = logₐx</span></li>
+        <li><strong>Trigonometric:</strong> sin(x), cos(x), tan(x), etc.</li>
+        <li><strong>Modulus:</strong> <span class="math">f(x) = |x|</span></li>
+        <li><strong>Greatest Integer:</strong> <span class="math">f(x) = [x]</span></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Composite and Inverse Functions</h2>
+      <ul>
+        <li><strong>Composite:</strong> <span class="math">(g∘f)(x) = g(f(x))</span></li>
+        <li><strong>Inverse:</strong> If <span class="math">f: A → B</span> is bijective, then <span class="math">f⁻¹: B → A</span> exists</li>
+        <li>To find inverse: Solve <span class="math">y = f(x)</span> for x in terms of y</li>
+        <li>Property: <span class="math">f(f⁻¹(x)) = f⁻¹(f(x)) = x</span></li>
+        <li>Graphs of <span class="math">f</span> and <span class="math">f⁻¹</span> are symmetric about <span class="math">y = x</span> line</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. Even and Odd Functions</h2>
+      <ul>
+        <li><strong>Even:</strong> <span class="math">f(-x) = f(x)</span> (symmetric about y-axis)</li>
+        <li><strong>Odd:</strong> <span class="math">f(-x) = -f(x)</span> (symmetric about origin)</li>
+        <li>Any function can be written as sum of even and odd functions:
+          <span class="math">f(x) = [f(x)+f(-x)]/2 + [f(x)-f(-x)]/2</span>
+        </li>
+        <li>Examples:
+          <ul>
+            <li>Even: x², cos(x), |x|</li>
+            <li>Odd: x³, sin(x), tan(x)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>5. Periodic Functions</h2>
+      <ul>
+        <li>A function is periodic if <span class="math">f(x+T) = f(x)</span> for some T > 0</li>
+        <li><strong>Fundamental period:</strong> Smallest such T</li>
+        <li>Examples:
+          <ul>
+            <li>sin(x), cos(x): Period <span class="math">2π</span></li>
+            <li>tan(x): Period <span class="math">π</span></li>
+            <li>sin²x: Period <span class="math">π</span></li>
+          </ul>
+        </li>
+        <li>If f(x) has period T, then f(ax+b) has period <span class="math">T/|a|</span></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. Important Formulas</h2>
+      <ul>
+        <li><span class="math">(f∘g)⁻¹ = g⁻¹∘f⁻¹</span></li>
+        <li>Domain restrictions:
+          <ul>
+            <li><span class="math">√f(x)</span>: <span class="math">f(x) ≥ 0</span></li>
+            <li><span class="math">1/f(x)</span>: <span class="math">f(x) ≠ 0</span></li>
+            <li><span class="math">log(f(x))</span>: <span class="math">f(x) > 0</span></li>
+          </ul>
+        </li>
+        <li>Periodicity combinations:
+          <ul>
+            <li>Sum of periodic functions with same period T is periodic with period T</li>
+            <li>Product of periodic functions with same period T is periodic with period T</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Practice identifying domain and range of various functions</li>
+        <li>Master function composition and inversion techniques</li>
+        <li>Memorize standard periods of trigonometric functions</li>
+        <li>Understand graphical interpretations of functions</li>
+        <li>Practice problems involving piecewise-defined functions</li>
+        <li>Focus on problems combining multiple function concepts</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+        <h2>Quiz: Test Your Knowledge</h2>
+        <div id="quiz-box">
+          <div class="question" id="question">Loading...</div>
+          <ul class="options" id="options"></ul>
+          <div class="message" id="message"></div>
+          <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+          <div class="button-group">
+            <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="tryAgain()">Try Again</button>
+            <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+          </div>
+          <div class="slider-bar" id="progress">Question 1 of 6</div>
+          <div id="finalScore"></div>
+        </div>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+  
+    <script>
+      const quizData = [
+        { 
+          question: "Which of the following is NOT a function?", 
+          options: [
+            "f = {(1,2), (2,3), (3,4)}", 
+            "f = {(1,2), (1,3), (2,4)}", 
+            "f(x) = x²", 
+            "f(x) = sin(x)"
+          ], 
+          answer: "f = {(1,2), (1,3), (2,4)" 
+        },
+        { 
+          question: "The function f(x) = x³ is:", 
+          options: [
+            "Even function", 
+            "Odd function", 
+            "Neither even nor odd", 
+            "Both even and odd"
+          ], 
+          answer: "Odd function" 
+        },
+        { 
+          question: "What is the period of the function f(x) = sin(3x)?", 
+          options: [
+            "π", 
+            "2π", 
+            "2π/3", 
+            "π/3"
+          ], 
+          answer: "2π/3" 
+        },
+        { 
+          question: "If f(x) = 2x + 3 and g(x) = x², what is (g∘f)(x)?", 
+          options: [
+            "2x² + 3", 
+            "4x² + 12x + 9", 
+            "x² + 2x + 3", 
+            "4x² + 9"
+          ], 
+          answer: "4x² + 12x + 9" 
+        },
+        { 
+          question: "The domain of the function f(x) = √(4 - x²) is:", 
+          options: [
+            "(-∞, ∞)", 
+            "[0, ∞)", 
+            "[-2, 2]", 
+            "(0, 2]"
+          ], 
+          answer: "[-2, 2]" 
+        },
+        { 
+          question: "Which function is bijective?", 
+          options: [
+            "f: ℝ → ℝ, f(x) = x²", 
+            "f: ℝ → ℝ, f(x) = x³", 
+            "f: ℝ → [0,∞), f(x) = x²", 
+            "f: ℝ → [-1,1], f(x) = sin(x)"
+          ], 
+          answer: "f: ℝ → ℝ, f(x) = x³" 
+        }
+      ];
+  
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+  
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerText = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+  
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerText = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+  
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+  
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+  
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+  
+      function tryAgain() {
+        loadQuestion();
+      }
+  
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+  
+      window.onload = loadQuestion;
+    </script>
+  
+  </body>
+</html>

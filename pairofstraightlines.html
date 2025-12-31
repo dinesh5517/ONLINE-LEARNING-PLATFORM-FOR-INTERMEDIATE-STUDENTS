@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pair of Straight Lines - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ffa500;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ffa500;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ffa500;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #4CAF50;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .formula {
+      background-color: #262626;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      margin: 10px 0;
+      color: white;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ffa500;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #4CAF50;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #4CAF50;
+    }
+
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Pair of Straight Lines - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Basic Concepts</h2>
+      <ul>
+        <li>A pair of straight lines is represented by a general second degree equation: ax² + 2hxy + by² + 2gx + 2fy + c = 0</li>
+        <li>The condition for this equation to represent a pair of straight lines is: abc + 2fgh - af² - bg² - ch² = 0</li>
+        <li>This is called the <strong>determinant condition</strong> or <strong>∆ = 0</strong></li>
+      </ul>
+      <div class="formula">∆ = |a h g| = abc + 2fgh - af² - bg² - ch²
+                           |h b f|
+                           |g f c|</div>
+    </div>
+
+    <div class="section">
+      <h2>2. Angle Between the Lines</h2>
+      <ul>
+        <li>The angle θ between the lines is given by: tanθ = ±(2√(h²-ab))/(a+b)</li>
+        <li>If a + b = 0, the lines are perpendicular (θ = 90°)</li>
+        <li>If h² = ab, the lines are parallel or coincident</li>
+      </ul>
+      <div class="formula">θ = tan⁻¹(2√(h²-ab)/(a+b))</div>
+    </div>
+
+    <div class="section">
+      <h2>3. Point of Intersection</h2>
+      <ul>
+        <li>The point of intersection (x₀, y₀) of the lines is found by solving:
+          ∂S/∂x = 0 and ∂S/∂y = 0, where S is the general equation</li>
+        <li>Coordinates of the point of intersection are:
+          x₀ = (hf - bg)/(ab - h²), y₀ = (gh - af)/(ab - h²)</li>
+      </ul>
+      <div class="formula">x₀ = (hf - bg)/(ab - h²), y₀ = (gh - af)/(ab - h²)</div>
+    </div>
+
+    <div class="section">
+      <h2>4. Combined Equation</h2>
+      <ul>
+        <li>If the individual equations of the lines are l₁: a₁x + b₁y + c₁ = 0 and l₂: a₂x + b₂y + c₂ = 0</li>
+        <li>Their combined equation is: (a₁x + b₁y + c₁)(a₂x + b₂y + c₂) = 0</li>
+      </ul>
+      <div class="formula">(a₁x + b₁y + c₁)(a₂x + b₂y + c₂) = 0</div>
+    </div>
+
+    <div class="section">
+      <h2>5. Homogeneous Second Degree Equation</h2>
+      <ul>
+        <li>For the homogeneous equation ax² + 2hxy + by² = 0:
+          <ul>
+            <li>Always passes through the origin</li>
+            <li>Represents two straight lines through the origin</li>
+            <li>The angle between them is tan⁻¹(2√(h²-ab)/(a+b))</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="formula">ax² + 2hxy + by² = 0 ⇒ y = [-h ± √(h²-ab)]x/b</div>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Memorize the condition for pair of straight lines (∆ = 0)</li>
+        <li>Practice finding the angle between lines quickly using the formula</li>
+        <li>Understand how to find the point of intersection of the lines</li>
+        <li>Remember special cases (perpendicular, parallel lines)</li>
+        <li>Solve at least 20 problems from previous EAMCET papers on this topic</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-box">
+        <div class="question" id="question">Loading...</div>
+        <ul class="options" id="options"></ul>
+        <div class="message" id="message"></div>
+        <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+        <div class="button-group">
+          <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+          <button onclick="nextQuestion()">Next</button>
+          <button onclick="tryAgain()">Try Again</button>
+          <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+        </div>
+        <div class="slider-bar" id="progress">Question 1 of 6</div>
+        <div id="finalScore"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 EAMCET Prep Platform. All rights reserved.
+  </footer>
+
+  <script>
+    const quizData = [
+      { 
+        question: "What is the condition for ax² + 2hxy + by² + 2gx + 2fy + c = 0 to represent a pair of straight lines?", 
+        options: [
+          "h² = ab", 
+          "abc + 2fgh - af² - bg² - ch² = 0", 
+          "a + b = 0", 
+          "h² > ab"
+        ], 
+        answer: "abc + 2fgh - af² - bg² - ch² = 0" 
+      },
+      { 
+        question: "If the pair of lines represented by 3x² + 8xy - 3y² = 0 are perpendicular, what is the relation between the coefficients?", 
+        options: [
+          "a = b", 
+          "a + b = 0", 
+          "h² = ab", 
+          "h = 0"
+        ], 
+        answer: "a + b = 0" 
+      },
+      { 
+        question: "What is the angle between the lines represented by x² - y² = 0?", 
+        options: [
+          "0°", 
+          "30°", 
+          "45°", 
+          "90°"
+        ], 
+        answer: "90°" 
+      },
+      { 
+        question: "The point of intersection of the pair of lines 6x² + 5xy - 4y² + 7x + 13y - 3 = 0 is:", 
+        options: [
+          "(1, 1)", 
+          "(-1, 1)", 
+          "(1, -1)", 
+          "(-1, -1)"
+        ], 
+        answer: "(1, -1)" 
+      },
+      { 
+        question: "For what value of λ does the equation 12x² - 10xy + 2y² + 11x - 5y + λ = 0 represent a pair of straight lines?", 
+        options: [
+          "1", 
+          "2", 
+          "3", 
+          "4"
+        ], 
+        answer: "2" 
+      },
+      { 
+        question: "If the lines represented by 3x² - 2mxy - 3y² = 0 are perpendicular to each other, then m equals:", 
+        options: [
+          "0", 
+          "1", 
+          "2", 
+          "3"
+        ], 
+        answer: "0" 
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = () => {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        alert("✅ You've reached the end. Click 'Submit All Answers'.");
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      const btn = document.getElementById("answerBtn");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+      btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+    }
+
+    function tryAgain() {
+      currentIndex = 0;
+      score = 0;
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").style.display = "block";
+      document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>

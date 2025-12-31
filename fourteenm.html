@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAMCET Master - Applications of Derivative</title>
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --secondary: #000000;
+            --light: #FFFFFF;
+            --dark: #222222;
+            --correct: #4CAF50;
+            --wrong: #F44336;
+            --unanswered: #9E9E9E;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: var(--secondary);
+        }
+        
+        header {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .test-info {
+            background: linear-gradient(135deg, var(--primary), #FF8C00);
+            color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(255,107,0,0.3);
+            text-align: center;
+        }
+        
+        .test-info h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        
+        .test-info p {
+            margin: 1rem 0;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .test-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            min-width: 100px;
+        }
+        
+        .start-btn {
+            background-color: var(--light);
+            color: var(--primary);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .start-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .test-container {
+            background-color: var(--light);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .question-count {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .question {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .option {
+            background-color: #f5f5f5;
+            padding: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            border: 2px solid transparent;
+        }
+        
+        .option:hover {
+            background-color: #eee;
+            border-color: var(--primary);
+        }
+        
+        .option.selected {
+            background-color: var(--primary);
+            color: var(--light);
+            font-weight: 500;
+            border-color: var(--primary);
+        }
+        
+        .option.correct {
+            background-color: var(--correct);
+            color: var(--light);
+            border-color: var(--correct);
+        }
+        
+        .option.incorrect {
+            background-color: var(--wrong);
+            color: var(--light);
+            border-color: var(--wrong);
+        }
+        
+        .option.unanswered {
+            background-color: var(--unanswered);
+            color: var(--light);
+        }
+        
+        .option-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .selected .option-number {
+            background-color: rgba(255,255,255,0.5);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background-color: #E55C00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .progress-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.4s ease-out;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .timer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary);
+            color: var(--light);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+        
+        .timer.warning {
+            background-color: #FF5722;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .result-container {
+            text-align: center;
+            padding: 2.5rem;
+            display: none;
+            background-color: var(--light);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .result-container h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .score {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1.5rem 0;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            padding: 1.2rem;
+            border-radius: 8px;
+            min-width: 140px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .correct-stat {
+            background-color: var(--correct);
+            color: var(--light);
+        }
+        
+        .wrong-stat {
+            background-color: var(--wrong);
+            color: var(--light);
+        }
+        
+        .marks-stat {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        .result-actions {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .explanation {
+            background-color: #f5f5f5;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            display: none;
+            text-align: left;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .explanation-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .performance-message {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">EAMCET Master</div>
+    </header>
+    
+    <div class="container">
+        <!-- Test Information Section -->
+        <div class="test-info" id="test-info">
+            <h1>Applications of Derivative Practice Test</h1>
+            <p>Test your knowledge with previous year EAMCET questions from the Applications of derivative lesson. This test contains 10 multiple-choice questions with a time limit of 10 minutes. Answer all questions to get your final score.</p>
+            
+            <div class="test-meta">
+                <div class="meta-item">
+                    <div>Questions</div>
+                    <div style="font-weight: bold; font-size: 1.3rem;">10</div>
+                </div>
+                <div class="meta-item">
+                    <div>Duration</div>
+                    <div style="font-weight: bold; font-size: 1.3rem;">10 mins</div>
+                </div>
+                <div class="meta-item">
+                    <div>Marks</div>
+                    <div style="font-weight: bold; font-size: 1.3rem;">10</div>
+                </div>
+            </div>
+            
+            <button class="start-btn" id="start-btn">Start Test Now</button>
+        </div>
+        
+        <!-- Test Container (hidden initially) -->
+        <div class="test-container" id="test-container">
+            <div class="test-header">
+                <div class="timer" id="timer">10:00</div>
+                <div class="question-count" id="question-count">Question 1 of 10</div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div class="progress-text">
+                    <span>Test Progress</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+            </div>
+            
+            <!-- Questions will be inserted here by JavaScript -->
+            <div id="question-container"></div>
+            
+            <div class="controls">
+                <button class="btn" id="prev-btn" disabled>Previous</button>
+                <button class="btn" id="next-btn">Next Question</button>
+                <button class="btn" id="submit-btn" style="display: none;">Submit Test</button>
+                <button class="btn" id="home-btn" style="display: none;">Back to Home</button>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div class="result-container" id="result-container">
+            <h2>Test Results</h2>
+            <div class="score" id="score">0/10</div>
+            
+            <div class="stats">
+                <div class="stat-item correct-stat">
+                    <div>Correct Answers</div>
+                    <div class="stat-value" id="correct-count">0</div>
+                    <div id="correct-percent">0%</div>
+                </div>
+                <div class="stat-item wrong-stat">
+                    <div>Wrong Answers</div>
+                    <div class="stat-value" id="wrong-count">0</div>
+                    <div id="wrong-percent">0%</div>
+                </div>
+                <div class="stat-item marks-stat">
+                    <div>Marks Obtained</div>
+                    <div class="stat-value" id="marks">0</div>
+                    <div id="marks-percent">0%</div>
+                </div>
+            </div>
+            
+            <div class="performance-message" id="result-message">
+                Keep practicing to improve your score!
+            </div>
+            
+            <div class="result-actions">
+                <button class="btn btn-secondary" id="review-btn">Review Answers</button>
+                <button class="btn" id="retry-btn">Try Again</button>
+                <button class="btn" id="result-home-btn">Back to Home</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+     
+
+// All other JavaScript code (event listeners, timer functions, etc.) remains the same
+// Just replace the 
+const questions = [
+    {
+        question: "1. What does the first derivative f'(x) tell us about a function f(x)?",
+        options: [
+            "The concavity of the function",
+            "The slope/rate of change at any point",
+            "The area under the curve",
+            "The roots of the function"
+        ],
+        correct: 1,
+        explanation: "The first derivative represents the instantaneous rate of change or slope of the tangent line at any point x."
+    },
+    {
+        question: "2. How do you find critical points of a function?",
+        options: [
+            "Set f(x) = 0 and solve",
+            "Set f'(x) = 0 or where f'(x) is undefined",
+            "Find where f''(x) = 0",
+            "Calculate f'(a) for any point a"
+        ],
+        correct: 1,
+        explanation: "Critical points occur where the first derivative is zero or undefined (horizontal tangent or sharp corner)."
+    },
+    {
+        question: "3. A function is increasing when:",
+        options: [
+            "f'(x) > 0",
+            "f'(x) < 0",
+            "f''(x) > 0",
+            "f(x) > 0"
+        ],
+        correct: 0,
+        explanation: "When the derivative is positive, the function is increasing (moving upward as x increases)."
+    },
+    {
+        question: "4. What does the second derivative f''(x) tell us?",
+        options: [
+            "The velocity of the function",
+            "The concavity and acceleration",
+            "The maximum value",
+            "The x-intercepts"
+        ],
+        correct: 1,
+        explanation: "The second derivative indicates concavity (upward if positive, downward if negative) and the rate of change of the rate of change (acceleration)."
+    },
+    {
+        question: "5. In optimization problems, we find absolute extrema by:",
+        options: [
+            "Only checking where f'(x) = 0",
+            "Checking critical points and endpoints",
+            "Only checking where f''(x) = 0",
+            "Finding where f(x) = 0"
+        ],
+        correct: 1,
+        explanation: "To find absolute maxima/minima, evaluate the function at all critical points AND at the endpoints of the domain."
+    },
+    {
+        question: "6. Related rates problems use:",
+        options: [
+            "Only the first derivative",
+            "Implicit differentiation",
+            "Only the second derivative",
+            "Integration"
+        ],
+        correct: 1,
+        explanation: "Related rates problems use implicit differentiation to find how different changing quantities affect each other through their derivatives."
+    },
+    {
+        question: "7. What does it mean if f'(c) = 0 and f''(c) < 0?",
+        options: [
+            "There's a local minimum at x = c",
+            "There's a local maximum at x = c",
+            "There's an inflection point at x = c",
+            "The function is undefined at x = c"
+        ],
+        correct: 1,
+        explanation: "Second derivative test: f'(c)=0 and f''(c)<0 indicates a local maximum at x=c."
+    },
+    {
+        question: "8. Marginal cost in economics is:",
+        options: [
+            "The derivative of the cost function",
+            "The integral of the cost function",
+            "The second derivative of the cost function",
+            "The cost function itself"
+        ],
+        correct: 0,
+        explanation: "Marginal cost is the derivative of the cost function, representing the cost to produce one more unit."
+    },
+    {
+        question: "9. Newton's Method uses derivatives to:",
+        options: [
+            "Find areas under curves",
+            "Approximate roots of equations",
+            "Calculate average rates of change",
+            "Find indefinite integrals"
+        ],
+        correct: 1,
+        explanation: "Newton's Method uses the tangent line approximation to iteratively find better approximations to roots (zeros) of a function."
+    },
+    {
+        question: "10. What is linear approximation?",
+        options: [
+            "Using the secant line to estimate values",
+            "Using the tangent line to approximate functions near a point",
+            "A method for solving differential equations",
+            "Finding the average slope between two points"
+        ],
+        correct: 1,
+        explanation: "L(x) = f(a) + f'(a)(x-a) uses the tangent line at x=a to approximate f(x) near a."
+    },
+    {
+        question: "11. In physics, if s(t) represents position, then s'(t) represents:",
+        options: [
+            "Acceleration",
+            "Velocity",
+            "Jerk",
+            "Displacement"
+        ],
+        correct: 1,
+        explanation: "The first derivative of position with respect to time is velocity."
+    },
+    {
+        question: "12. What is L'Hôpital's Rule used for?",
+        options: [
+            "Finding derivatives of composite functions",
+            "Evaluating limits of indeterminate forms",
+            "Solving differential equations",
+            "Approximating areas"
+        ],
+        correct: 1,
+        explanation: "L'Hôpital's Rule evaluates limits of indeterminate forms (0/0 or ∞/∞) by taking derivatives of numerator and denominator."
+    },
+    {
+        question: "13. What does the Mean Value Theorem state?",
+        options: [
+            "There exists c where f'(c) = [f(b)-f(a)]/(b-a)",
+            "The average value equals the instantaneous value",
+            "All continuous functions are differentiable",
+            "The derivative equals the integral"
+        ],
+        correct: 0,
+        explanation: "MVT: If f is continuous on [a,b] and differentiable on (a,b), then ∃c∈(a,b) where the instantaneous rate equals the average rate."
+    },
+    {
+        question: "14. Elasticity in economics measures:",
+        options: [
+            "How much consumers love a product",
+            "Responsiveness of quantity demanded to price changes",
+            "The curvature of the demand curve",
+            "The profit margin percentage"
+        ],
+        correct: 1,
+        explanation: "Elasticity E = (p/q)(dq/dp) uses the derivative to measure how demand changes with price."
+    },
+    {
+        question: "15. What is a differential used for?",
+        options: [
+            "To find exact function values",
+            "To approximate small changes in functions",
+            "To solve indefinite integrals",
+            "To determine concavity"
+        ],
+        correct: 1,
+        explanation: "dy = f'(x)dx estimates small changes (Δy ≈ dy) in the dependent variable."
+    }
+];
+// All other JavaScript code (event listeners, timer functions, etc.) remains the same as in your original file
+// Just replace the questions array with this one  
+        // DOM elements
+        const testInfo = document.getElementById('test-info');
+        const testContainer = document.getElementById('test-container');
+        const questionContainer = document.getElementById('question-container');
+        const resultContainer = document.getElementById('result-container');
+        const startBtn = document.getElementById('start-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const homeBtn = document.getElementById('home-btn');
+        const retryBtn = document.getElementById('retry-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const resultHomeBtn = document.getElementById('result-home-btn');
+        const timerElement = document.getElementById('timer');
+        const questionCountElement = document.getElementById('question-count');
+        const progressBar = document.getElementById('progress');
+        const progressPercent = document.getElementById('progress-percent');
+        const scoreElement = document.getElementById('score');
+        const correctCount = document.getElementById('correct-count');
+        const wrongCount = document.getElementById('wrong-count');
+        const correctPercent = document.getElementById('correct-percent');
+        const wrongPercent = document.getElementById('wrong-percent');
+        const marksElement = document.getElementById('marks');
+        const marksPercent = document.getElementById('marks-percent');
+        const resultMessage = document.getElementById('result-message');
+        
+        // Test state variables
+        let currentQuestionIndex = 0;
+        let userAnswers = Array(questions.length).fill(null);
+        let score = 0;
+        let correctAnswers = 0;
+        let wrongAnswers = 0;
+        let timeLeft = 600; // 10 minutes in seconds
+        let timerInterval;
+        let isReviewMode = false;
+        let testStarted = false;
+        
+        // Start the test when button is clicked
+        startBtn.addEventListener('click', startTest);
+        
+        // Initialize the test
+        function startTest() {
+            testInfo.style.display = 'none';
+            testContainer.style.display = 'block';
+            testStarted = true;
+            isReviewMode = false;
+            renderQuestion();
+            startTimer();
+        }
+        
+        // Render the current question
+        function renderQuestion() {
+            questionContainer.innerHTML = '';
+            
+            const question = questions[currentQuestionIndex];
+            
+            const questionElement = document.createElement('div');
+            questionElement.className = 'question';
+            
+            const questionText = document.createElement('div');
+            questionText.className = 'question-text';
+            questionText.textContent = question.question;
+            questionElement.appendChild(questionText);
+            
+            const optionsContainer = document.createElement('div');
+            optionsContainer.className = 'options';
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                
+                // Add option number (A, B, C, D)
+                const optionNumber = document.createElement('span');
+                optionNumber.className = 'option-number';
+                optionNumber.textContent = String.fromCharCode(65 + index); // A, B, C, D
+                optionElement.appendChild(optionNumber);
+                
+                // Add option text
+                const optionText = document.createElement('span');
+                optionText.textContent = option;
+                optionElement.appendChild(optionText);
+                
+                // Highlight selected option
+                if (userAnswers[currentQuestionIndex] === index) {
+                    optionElement.classList.add('selected');
+                }
+                
+                // In review mode, highlight correct and incorrect answers
+                if (isReviewMode) {
+                    if (index === question.correct) {
+                        optionElement.classList.add('correct');
+                    } else if (userAnswers[currentQuestionIndex] === index && userAnswers[currentQuestionIndex] !== question.correct) {
+                        optionElement.classList.add('incorrect');
+                    } else if (userAnswers[currentQuestionIndex] === null && index === question.correct) {
+                        optionElement.classList.add('unanswered');
+                    }
+                }
+                
+                // Only allow option selection if not in review mode
+                if (!isReviewMode) {
+                    optionElement.addEventListener('click', () => selectOption(index));
+                }
+                
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            questionElement.appendChild(optionsContainer);
+            
+            // Add explanation if available and in review mode
+            if (isReviewMode || userAnswers[currentQuestionIndex] !== null) {
+                const explanationElement = document.createElement('div');
+                explanationElement.className = 'explanation';
+                
+                const explanationTitle = document.createElement('div');
+                explanationTitle.className = 'explanation-title';
+                explanationTitle.textContent = 'Explanation:';
+                explanationElement.appendChild(explanationTitle);
+                
+                const explanationText = document.createElement('div');
+                explanationText.textContent = question.explanation;
+                explanationElement.appendChild(explanationText);
+                
+                explanationElement.style.display = 'block';
+                questionElement.appendChild(explanationElement);
+            }
+            
+            questionContainer.appendChild(questionElement);
+            
+            // Update question counter
+            questionCountElement.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+            
+            // Update button states
+            prevBtn.disabled = currentQuestionIndex === 0;
+            nextBtn.disabled = false;
+            
+            if (currentQuestionIndex === questions.length - 1) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = isReviewMode ? 'none' : 'block';
+                // Show home button in review mode when on last question
+                homeBtn.style.display = isReviewMode ? 'block' : 'none';
+            } else {
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+                homeBtn.style.display = 'none';
+            }
+            
+            // Update progress bar
+            const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+            progressPercent.textContent = `${Math.round(progress)}%`;
+        }
+        
+        // Select an option
+        function selectOption(optionIndex) {
+            // Remove selected class from all options
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            document.querySelectorAll('.option')[optionIndex].classList.add('selected');
+            
+            // Save user's answer
+            userAnswers[currentQuestionIndex] = optionIndex;
+        }
+        
+        // Navigate to previous question
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion();
+            }
+        });
+        
+        // Navigate to next question
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                renderQuestion();
+            }
+        });
+        
+        // Submit the test
+        submitBtn.addEventListener('click', submitTest);
+        
+        // Retry the test
+        retryBtn.addEventListener('click', resetTest);
+        
+        // Review answers
+        reviewBtn.addEventListener('click', () => {
+            isReviewMode = true;
+            currentQuestionIndex = 0;
+            resultContainer.style.display = 'none';
+            testContainer.style.display = 'block';
+            renderQuestion();
+        });
+        
+        // Back to home from test
+        homeBtn.addEventListener('click', goToHome);
+        
+        // Back to home from results
+        resultHomeBtn.addEventListener('click', goToHome);
+        
+        // Go to home function
+        function goToHome() {
+            currentQuestionIndex = 0;
+            userAnswers = Array(questions.length).fill(null);
+            score = 0;
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            timeLeft = 600;
+            isReviewMode = false;
+            testStarted = false;
+            
+            testInfo.style.display = 'block';
+            testContainer.style.display = 'none';
+            resultContainer.style.display = 'none';
+            
+            clearInterval(timerInterval);
+            timerElement.textContent = '10:00';
+            timerElement.classList.remove('warning');
+            
+            // Reset progress
+            progressBar.style.width = '0%';
+            progressPercent.textContent = '0%';
+        }
+        
+        // Submit test function
+        function submitTest() {
+            clearInterval(timerInterval);
+            calculateResults();
+            showResults();
+        }
+        
+        // Calculate results
+        function calculateResults() {
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            
+            for (let i = 0; i < questions.length; i++) {
+                if (userAnswers[i] !== null) {
+                    if (userAnswers[i] === questions[i].correct) {
+                        correctAnswers++;
+                    } else {
+                        wrongAnswers++;
+                    }
+                } else {
+                    wrongAnswers++; // Count unanswered as wrong
+                }
+            }
+            
+            score = correctAnswers;
+        }
+        
+        // Show results
+        function showResults() {
+            testContainer.style.display = 'none';
+            resultContainer.style.display = 'block';
+            
+            // Calculate percentages
+            const correctPercentage = Math.round((correctAnswers / questions.length) * 100);
+            const wrongPercentage = Math.round((wrongAnswers / questions.length) * 100);
+            const marksPercentage = Math.round((score / questions.length) * 100);
+            
+            // Update results display
+            scoreElement.textContent = `${score}/${questions.length}`;
+            correctCount.textContent = correctAnswers;
+            wrongCount.textContent = wrongAnswers;
+            correctPercent.textContent = `${correctPercentage}%`;
+            wrongPercent.textContent = `${wrongPercentage}%`;
+            marksElement.textContent = score;
+            marksPercent.textContent = `${marksPercentage}%`;
+            
+            // Custom message based on score
+            if (score === questions.length) {
+                resultMessage.textContent = 'Perfect score! 🎉 You have mastered the Physical World concepts exceptionally well!';
+            } else if (score >= questions.length * 0.8) {
+                resultMessage.textContent = 'Excellent work! 👏 You have a strong understanding of Physical World concepts.';
+            } else if (score >= questions.length * 0.6) {
+                resultMessage.textContent = 'Good effort! 👍 Review the explanations to improve your understanding further.';
+            } else if (score >= questions.length * 0.4) {
+                resultMessage.textContent = 'Keep practicing! 💪 Focus on the explanations and try again to improve your score.';
+            } else {
+                resultMessage.textContent = 'Review the lesson carefully! 📚 Use the explanations to understand where you need improvement.';
+            }
+        }
+        
+        // Reset the test
+        function resetTest() {
+            currentQuestionIndex = 0;
+            userAnswers = Array(questions.length).fill(null);
+            score = 0;
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            timeLeft = 600;
+            isReviewMode = false;
+            
+            testInfo.style.display = 'block';
+            testContainer.style.display = 'none';
+            resultContainer.style.display = 'none';
+            
+            clearInterval(timerInterval);
+            timerElement.textContent = '10:00';
+            timerElement.classList.remove('warning');
+            
+            // Reset progress
+            progressBar.style.width = '0%';
+            progressPercent.textContent = '0%';
+        }
+        
+        // Timer function
+        function startTimer() {
+            clearInterval(timerInterval);
+            updateTimerDisplay();
+            
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    submitTest();
+                }
+                
+                if (timeLeft <= 60 && !timerElement.classList.contains('warning')) {
+                    timerElement.classList.add('warning');
+                }
+            }, 1000);
+        }
+        
+        // Update timer display
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+        
+        // Handle beforeunload event to warn user about test in progress
+        window.addEventListener('beforeunload', (e) => {
+            if (testStarted && !isReviewMode && resultContainer.style.display !== 'block') {
+                e.preventDefault();
+                e.returnValue = 'Your test progress will be lost if you leave this page. Are you sure?';
+                return e.returnValue;
+            }
+        });
+    </script>
+</body>
+</html>

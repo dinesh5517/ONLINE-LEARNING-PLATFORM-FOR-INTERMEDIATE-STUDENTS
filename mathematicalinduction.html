@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mathematical Induction - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ff6f00;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #ff6f00;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ff6f00;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ff6f00;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .math {
+      font-family: "Cambria Math", serif;
+      color: #ff9800;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mathematical Induction - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Introduction to Mathematical Induction</h2>
+      <ul>
+        <li>Mathematical induction is a proof technique used to prove statements about natural numbers.</li>
+        <li>It consists of         two main steps:
+            <ul>
+              <li><strong>Base Case:</strong> Verify that the statement holds for the initial value (usually n = 1).</li>
+              <li><strong>Inductive Step:</strong> Assume the statement holds for some arbitrary natural number k, then prove it holds for k + 1.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="section">
+        <h2>2. Steps of Mathematical Induction</h2>
+        <ul>
+          <li><strong>Base Case:</strong> Show that the statement is true for n = 1.</li>
+          <li><strong>Inductive Hypothesis:</strong> Assume the statement is true for n = k.</li>
+          <li><strong>Inductive Conclusion:</strong> Prove that the statement is true for n = k + 1.</li>
+        </ul>
+      </div>
+  
+      <div class="section">
+        <h2>3. Example of Mathematical Induction</h2>
+        <ul>
+          <li>Prove: For all n ≥ 1, the sum of the first n natural numbers is given by:
+            <span class="math">S(n) = 1 + 2 + ... + n = \frac{n(n + 1)}{2}</span>
+          </li>
+          <li><strong>Base Case:</strong> For n = 1, <span class="math">S(1) = 1 = \frac{1(1 + 1)}{2}</span> (True)</li>
+          <li><strong>Inductive Step:</strong> Assume true for n = k:
+            <span class="math">S(k) = \frac{k(k + 1)}{2}</span>. Now prove for n = k + 1:
+            <span class="math">S(k + 1) = S(k) + (k + 1) = \frac{k(k + 1)}{2} + (k + 1) = \frac{k(k + 1) + 2(k + 1)}{2} = \frac{(k + 1)(k + 2)}{2}</span> (True)
+          </li>
+        </ul>
+      </div>
+  
+      <div class="section">
+        <h2>4. Strong Induction</h2>
+        <ul>
+          <li>In strong induction, the inductive hypothesis assumes the statement is true for all values less than or equal to k, rather than just k itself.</li>
+          <li>This method is useful when the proof for k + 1 depends on several previous cases.</li>
+        </ul>
+      </div>
+  
+      <div class="section">
+        <h2>5. Common Applications</h2>
+        <ul>
+          <li>Proving formulas for sums and products.</li>
+          <li>Establishing properties of sequences and series.</li>
+          <li>Demonstrating the correctness of algorithms.</li>
+          <li>Proving inequalities.</li>
+        </ul>
+      </div>
+  
+      <div class="section tips">
+        <h2>Tips for EAMCET</h2>
+        <ul>
+          <li>Understand the difference between weak and strong induction.</li>
+          <li>Practice various examples to solidify your understanding.</li>
+          <li>Read proofs carefully, identifying base cases and inductive steps.</li>
+          <li>Work on problems that require both types of induction.</li>
+          <li>Review common formulas and identities frequently used in proofs.</li>
+        </ul>
+      </div>
+  
+      <!-- Quiz Section -->
+      <div class="quiz">
+        <h2>Quiz: Test Your Knowledge</h2>
+        <div id="quiz-box">
+          <div class="question" id="question">Loading...</div>
+          <ul class="options" id="options"></ul>
+          <div class="message" id="message"></div>
+          <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+          <div class="button-group">
+            <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="tryAgain()">Try Again</button>
+            <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+          </div>
+          <div class="slider-bar" id="progress">Question 1 of 6</div>
+          <div id="finalScore"></div>
+        </div>
+      </div>
+    
+      <footer>
+        &copy; 2025 EAMCET Prep Platform. All      rights reserved.
+    </footer>
+  
+    <script>
+      const quizData = [
+        { 
+          question: "What is the first step in mathematical induction?", 
+          options: [
+            "Inductive Hypothesis", 
+            "Base Case", 
+            "Inductive Conclusion", 
+            "Proof by Contradiction"
+          ], 
+          answer: "Base Case" 
+        },
+        { 
+          question: "In strong induction, what do we assume?", 
+          options: [
+            "The statement is true for n = k only", 
+            "The statement is true for all n < k", 
+            "The statement is false for some n", 
+            "The statement is true for n = k + 1"
+          ], 
+          answer: "The statement is true for all n < k" 
+        },
+        { 
+          question: "What is the formula for the sum of the first n natural numbers?", 
+          options: [
+            "n(n + 1)", 
+            "n(n + 1)/2", 
+            "n²", 
+            "(n + 1)²/2"
+          ], 
+          answer: "n(n + 1)/2" 
+        },
+        { 
+          question: "If S(k) is true, what do we need to prove for induction?", 
+          options: [
+            "S(k) is true for all k", 
+            "S(k + 1) is true", 
+            "S(k - 1) is true", 
+            "None of the above"
+          ], 
+          answer: "S(k + 1) is true" 
+        },
+        { 
+          question: "Which of the following is NOT a method of proof?", 
+          options: [
+            "Direct Proof", 
+            "Proof by Induction", 
+            "Proof by Exhaustion", 
+            "Proof by Substitution"
+          ], 
+          answer: "Proof by Substitution" 
+        },
+        { 
+          question: "In mathematical induction, what do we do after proving the base case?", 
+          options: [
+            "Stop", 
+            "Prove the inductive step", 
+            "Reprove the base case", 
+            "None of the above"
+          ], 
+          answer: "Prove the inductive step" 
+        }
+      ];
+  
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+  
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerText = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+  
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerText = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+  
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+  
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+  
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+  
+      function tryAgain() {
+        loadQuestion();
+      }
+  
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+  
+      window.onload = loadQuestion;
+    </script>
+  
+  </body>
+</html>
+
+  

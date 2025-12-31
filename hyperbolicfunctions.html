@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hyperbolic Functions - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color:  #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+ 
+    button {
+      margin-top: 20px;
+      background-color:  #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid  #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color:  #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid  #ff6f00;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid  #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color:  #ff6f00;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color:  #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color:  #ff6f00;
+    }
+    .next-btn,
+    .toggle-answer-btn {
+      margin-top: 20px;
+      background-color:  #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid  #ff6f00;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color:  #ff6f00;
+    }
+    .formula {
+      font-family: 'Courier New', monospace;
+      color: #FFC107;
+      background-color: #333;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .property-box {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+    .graph {
+      text-align: center;
+      margin: 15px 0;
+      color:  #ff6f00;
+      font-style: italic;
+    }
+    .identity {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hyperbolic Functions - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Basic Definitions -->
+    <div class="section">
+      <h2>1. Basic Hyperbolic Functions</h2>
+      <table>
+        <tr>
+          <th>Function</th>
+          <th>Definition</th>
+          <th>Domain</th>
+          <th>Range</th>
+        </tr>
+        <tr>
+          <td>sinh x</td>
+          <td class="formula">(eˣ - e⁻ˣ)/2</td>
+          <td>ℝ</td>
+          <td>ℝ</td>
+        </tr>
+        <tr>
+          <td>cosh x</td>
+          <td class="formula">(eˣ + e⁻ˣ)/2</td>
+          <td>ℝ</td>
+          <td>[1, ∞)</td>
+        </tr>
+        <tr>
+          <td>tanh x</td>
+          <td class="formula">sinh x / cosh x</td>
+          <td>ℝ</td>
+          <td>(-1, 1)</td>
+        </tr>
+        <tr>
+          <td>coth x</td>
+          <td class="formula">cosh x / sinh x</td>
+          <td>ℝ - {0}</td>
+          <td>(-∞,-1) ∪ (1,∞)</td>
+        </tr>
+        <tr>
+          <td>sech x</td>
+          <td class="formula">1 / cosh x</td>
+          <td>ℝ</td>
+          <td>(0, 1]</td>
+        </tr>
+        <tr>
+          <td>cosech x</td>
+          <td class="formula">1 / sinh x</td>
+          <td>ℝ - {0}</td>
+          <td>ℝ - {0}</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Graphs -->
+    <div class="section">
+      <h2>2. Graphs of Hyperbolic Functions</h2>
+      <div class="graph">
+        <strong>sinh x:</strong> Strictly increasing, passes through origin, odd function
+      </div>
+      <div class="graph">
+        <strong>cosh x:</strong> Even function, minimum at (0,1), shaped like hanging cable
+      </div>
+      <div class="graph">
+        <strong>tanh x:</strong> Strictly increasing, horizontal asymptotes at y=±1
+      </div>
+      <ul>
+        <li>cosh x is called the "catenary curve" (shape of hanging chain)</li>
+        <li>sinh x and tanh x are odd functions</li>
+        <li>cosh x and sech x are even functions</li>
+      </ul>
+    </div>
+
+    <!-- Identities -->
+    <div class="section">
+      <h2>3. Hyperbolic Identities</h2>
+      
+      <div class="identity">
+        <strong>Fundamental Identity:</strong>
+        <div class="formula">cosh²x - sinh²x = 1</div>
+      </div>
+      
+      <div class="identity">
+        <strong>Addition Formulas:</strong>
+        <div class="formula">sinh(x±y) = sinh x cosh y ± cosh x sinh y</div>
+        <div class="formula">cosh(x±y) = cosh x cosh y ± sinh x sinh y</div>
+      </div>
+      
+      <div class="identity">
+        <strong>Double Angle Formulas:</strong>
+        <div class="formula">sinh(2x) = 2 sinh x cosh x</div>
+        <div class="formula">cosh(2x) = cosh²x + sinh²x = 2cosh²x - 1 = 1 + 2sinh²x</div>
+      </div>
+      
+      <div class="identity">
+        <strong>Other Important Identities:</strong>
+        <div class="formula">1 - tanh²x = sech²x</div>
+        <div class="formula">coth²x - 1 = cosech²x</div>
+        <div class="formula">sinh(-x) = -sinh x</div>
+        <div class="formula">cosh(-x) = cosh x</div>
+      </div>
+    </div>
+
+    <!-- Derivatives -->
+    <div class="section">
+      <h2>4. Derivatives of Hyperbolic Functions</h2>
+      <table>
+        <tr>
+          <th>Function</th>
+          <th>Derivative</th>
+        </tr>
+        <tr>
+          <td>sinh x</td>
+          <td class="formula">cosh x</td>
+        </tr>
+        <tr>
+          <td>cosh x</td>
+          <td class="formula">sinh x</td>
+        </tr>
+        <tr>
+          <td>tanh x</td>
+          <td class="formula">sech²x</td>
+        </tr>
+        <tr>
+          <td>coth x</td>
+          <td class="formula">-cosech²x</td>
+        </tr>
+        <tr>
+          <td>sech x</td>
+          <td class="formula">-sech x tanh x</td>
+        </tr>
+        <tr>
+          <td>cosech x</td>
+          <td class="formula">-cosech x coth x</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Integrals -->
+    <div class="section">
+      <h2>5. Integrals of Hyperbolic Functions</h2>
+      <table>
+        <tr>
+          <th>Function</th>
+          <th>Integral</th>
+        </tr>
+        <tr>
+          <td>sinh x</td>
+          <td class="formula">cosh x + C</td>
+        </tr>
+        <tr>
+          <td>cosh x</td>
+          <td class="formula">sinh x + C</td>
+        </tr>
+        <tr>
+          <td>tanh x</td>
+          <td class="formula">ln|cosh x| + C</td>
+        </tr>
+        <tr>
+          <td>coth x</td>
+          <td class="formula">ln|sinh x| + C</td>
+        </tr>
+        <tr>
+          <td>sech x</td>
+          <td class="formula">2tan⁻¹(eˣ) + C</td>
+        </tr>
+        <tr>
+          <td>cosech x</td>
+          <td class="formula">ln|tanh(x/2)| + C</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Inverse Hyperbolic -->
+    <div class="section">
+      <h2>6. Inverse Hyperbolic Functions</h2>
+      <table>
+        <tr>
+          <th>Function</th>
+          <th>Definition</th>
+          <th>Domain</th>
+        </tr>
+        <tr>
+          <td>sinh⁻¹x</td>
+          <td class="formula">ln(x + √(x²+1))</td>
+          <td>ℝ</td>
+        </tr>
+        <tr>
+          <td>cosh⁻¹x</td>
+          <td class="formula">ln(x + √(x²-1))</td>
+          <td>[1, ∞)</td>
+        </tr>
+        <tr>
+          <td>tanh⁻¹x</td>
+          <td class="formula">½ ln((1+x)/(1-x))</td>
+          <td>(-1, 1)</td>
+        </tr>
+        <tr>
+          <td>coth⁻¹x</td>
+          <td class="formula">½ ln((x+1)/(x-1))</td>
+          <td>(-∞,-1) ∪ (1,∞)</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Applications -->
+    <div class="section">
+      <h2>7. Applications</h2>
+      <ul>
+        <li>Catenary curves (hanging cables, arches)</li>
+        <li>Special relativity (Lorentz transformations)</li>
+        <li>Heat transfer problems</li>
+        <li>Electrical engineering (transmission lines)</li>
+        <li>Complex analysis</li>
+        <li>Integration of certain functions</li>
+      </ul>
+    </div>
+
+    <div class="section tips">
+      <h2>Tips for EAMCET</h2>
+      <ul>
+        <li>Memorize the definitions in terms of exponential functions</li>
+        <li>Learn all fundamental identities (especially cosh²x - sinh²x = 1)</li>
+        <li>Practice differentiation and integration of hyperbolic functions</li>
+        <li>Understand the relationship with trigonometric functions</li>
+        <li>Focus on graphical behavior of each function</li>
+        <li>Remember the domains and ranges of inverse hyperbolic functions</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz">
+        <h2>Quiz: Test Your Knowledge</h2>
+        <div id="quiz-box">
+          <div class="question" id="question">Loading...</div>
+          <ul class="options" id="options"></ul>
+          <div class="message" id="message"></div>
+          <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+          <div class="button-group">
+            <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="tryAgain()">Try Again</button>
+            <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+          </div>
+          <div class="slider-bar" id="progress">Question 1 of 6</div>
+          <div id="finalScore"></div>
+        </div>
+      </div>
+    </div>
+  
+    <footer>
+      &copy; 2025 EAMCET Prep Platform. All rights reserved.
+    </footer>
+  
+    <script>
+      const quizData = [
+        { question: "What is the derivative of sinh(3x)?", options: ["3cosh(3x)", "cosh(3x)", "3sinh(3x)", "-3cosh(3x)"], answer: "3cosh(3x)" },
+        { question: "Which identity is correct for hyperbolic functions?", options: ["cosh²x + sinh²x = 1", "cosh²x - sinh²x = 1", "sinh²x - cosh²x = 1", "tanh²x + sech²x = 0"], answer: "cosh²x - sinh²x = 1" },
+        { question: "What is the range of tanh x?", options: ["ℝ", "[0, ∞)", "(-1, 1)", "(-∞, ∞)"], answer: "(-1, 1)" },
+        { question: "Which function is called the 'catenary curve'?", options: ["sinh x", "cosh x", "tanh x", "sech x"], answer: "cosh x" },
+        { question: "What is ∫sech²x dx?", options: ["tanh x + C", "-tanh x + C", "coth x + C", "-coth x + C"], answer: "tanh x + C" },
+        { question: "The inverse of sinh x is:", options: ["ln(x + √(x²+1))", "ln(x - √(x²-1))", "½ln((1+x)/(1-x))", "ln(x + √(x²-1))"], answer: "ln(x + √(x²+1))" }
+      ];
+  
+      let currentIndex = 0;
+      let score = 0;
+      let answered = false;
+  
+      function loadQuestion() {
+        const q = quizData[currentIndex];
+        document.getElementById("question").innerText = q.question;
+        const optionList = document.getElementById("options");
+        document.getElementById("message").style.display = "none";
+        document.getElementById("answerBox").style.display = "none";
+        document.getElementById("correctAnswer").innerText = q.answer;
+        answered = false;
+  
+        optionList.innerHTML = "";
+        q.options.forEach(opt => {
+          const li = document.createElement("li");
+          li.innerText = opt;
+          li.onclick = () => {
+            if (answered) return;
+            answered = true;
+            if (opt === q.answer) {
+              li.classList.add("correct");
+              document.getElementById("message").innerText = "🎉 Correct Answer!";
+              score++;
+            } else {
+              li.classList.add("incorrect");
+              document.getElementById("message").innerText = "❌ Wrong Answer!";
+            }
+            document.getElementById("message").style.display = "block";
+            document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+          };
+          optionList.appendChild(li);
+        });
+  
+        document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+      }
+  
+      function nextQuestion() {
+        if (currentIndex < quizData.length - 1) {
+          currentIndex++;
+          loadQuestion();
+        } else {
+          alert("✅ You've reached the end. Click 'Submit All Answers'.");
+        }
+      }
+  
+      function toggleAnswer() {
+        const box = document.getElementById("answerBox");
+        const btn = document.getElementById("answerBtn");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+        btn.innerText = box.style.display === "none" ? "Show Answer" : "Hide Answer";
+      }
+  
+      function tryAgain() {
+        loadQuestion();
+      }
+  
+      function submitQuiz() {
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("finalScore").innerText = `🎯 Final Score: ${score} out of ${quizData.length}`;
+      }
+  
+      window.onload = loadQuestion;
+    </script>
+  
+  </body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Addition of Vectors - EAMCET Prep</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      background-color: #ff6f00;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #ff6f00;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tips {
+      background-color: #262626;
+      border-left: 5px solid #ffa500;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .quiz {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #ff6f00;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .quiz h2 {
+      color: #ffa500;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options li {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options li:hover {
+      background-color: #ff6f00;
+    }
+
+    .correct {
+      background-color: lime !important;
+    }
+
+    .incorrect {
+      background-color: red !important;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .answer-box {
+      margin-top: 10px;
+      display: none;
+      font-style: italic;
+      color: lime;
+      font-weight: bold;
+    }
+
+    .slider-bar {
+      margin-top: 15px;
+      color: #ffa500;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    #finalScore {
+      font-size: 1.3rem;
+      color: #00ff00;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Addition of Vectors - EAMCET Short Notes</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Notes Section -->
+    <div class="section">
+      <h2>1. Introduction to Vectors</h2>
+      <ul>
+        <li>A vector is a quantity that has both magnitude and direction.</li>
+        <li>Notation: Vectors are represented by bold letters (e.g., **A**) or with an arrow above the letter (e.g., →A).</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Types of Vectors</h2>
+      <ul>
+        <li><strong>Zero Vector:</strong> A vector with zero magnitude and no specific
+            direction.</li>
+            <li><strong>Unit Vector:</strong> A vector with a magnitude of one, used to indicate direction.</li>
+            <li><strong>Equal Vectors:</strong> Vectors that have the same magnitude and direction.</li>
+          </ul>
+        </div>
+    
+        <div class="section">
+          <h2>3. Addition of Vectors</h2>
+          <ul>
+            <li>Vectors can be added graphically using the head-to-tail method or algebraically by adding their components.</li>
+            <li><strong>Head-to-Tail Method:</strong> Place the tail of the second vector at the head of the first vector. The resultant vector is drawn from the tail of the first to the head of the second.</li>
+            <li><strong>Algebraic Addition:</strong> For vectors A(x1, y1) and B(x2, y2), the resultant R is given by R = A + B = (x1 + x2, y1 + y2).</li>
+          </ul>
+        </div>
+    
+        <div class="section">
+          <h2>4. Properties of Vector Addition</h2>
+          <ul>
+            <li>Commutative Property: A + B = B + A</li>
+            <li>Associative Property: (A + B) + C = A + (B + C)</li>
+            <li>Existence of Zero Vector: A + 0 = A</li>
+          </ul>
+        </div>
+    
+        <div class="section">
+          <h2>5. Important Formulas</h2>
+          <ul>
+            <li>Magnitude of a vector: |A| = √(x² + y²)</li>
+            <li>Resultant of two vectors: R = √(A² + B² + 2AB cos θ) where θ is the angle between them.</li>
+            <li>Unit vector in the direction of A: ê = A / |A|</li>
+          </ul>
+        </div>
+    
+        <div class="section tips">
+          <h2>Tips for EAMCET</h2>
+          <ul>
+            <li>Practice solving problems involving vector addition in different configurations.</li>
+            <li>Understand how to break vectors into components for easier calculations.</li>
+            <li>Familiarize yourself with graphical representation of vectors.</li>
+            <li>Memorize key properties and formulas for quick recall during exams.</li>
+          </ul>
+        </div>
+    
+        <!-- Quiz Section -->
+        <div class="quiz">
+          <h2>Quiz: Test Your Knowledge</h2>
+          <div id="quiz-box">
+            <div class="question" id="question">Loading...</div>
+            <ul class="options" id="options"></ul>
+            <div class="message" id="message"></div>
+            <div class="answer-box" id="answerBox">Correct Answer: <span id="correctAnswer"></span></div>
+            <div class="button-group">
+              <button onclick="toggleAnswer()" id="answerBtn">Show Answer</button>
+              <button onclick="nextQuestion()">Next</button>
+              <button onclick="tryAgain()">Try Again</button>
+              <button onclick="submitQuiz()" id="submitBtn">Submit All Answers</button>
+            </div>
+            <div class="slider-bar" id="progress">Question 1 of 6</div>
+            <div id="finalScore"></div>
+          </div>
+        </div>
+    
+      </div>
+    
+      <footer>
+        &copy; 2025 EAMCET Prep Platform. All rights reserved.
+      </footer>
+    
+      <script>
+    const quizData = [
+  { question: "What is the result of adding vectors A(2, 3) and B(1, 4)?", options: ["(3, 7)", "(2, 7)", "(3, 4)", "(1, 1)"], answer: "(3, 7)" },
+  { question: "Which method can be used to add vectors graphically?", options: ["Head-to-tail method", "Matrix multiplication", "Scalar addition", "None of the above"], answer: "Head-to-tail method" },
+  { question: "If A = (5, 2) and B = (3, -2), what is A + B?", options: ["(8, 0)", "(2, 4)", "(1, 1)", "(6, 4)"], answer: "(8, 0)" },
+  { question: "What is a unit vector?", options: ["A vector with magnitude zero", "A vector with magnitude one", "A vector in the opposite direction", "None of the above"], answer: "A vector with magnitude one" },
+  { question: "Which property states that A + B = B + A?", options: ["Associative Property", "Commutative Property", "Distributive Property", "Identity Property"], answer: "Commutative Property" },
+  { question: "What is the magnitude of vector A = (3, 4)?", options: ["5", "7", "6", "10"], answer: "5" }
+];
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const q = quizData[currentIndex];
+      document.getElementById("question").innerText = q.question;
+      const optionList = document.getElementById("options");
+      document.getElementById("message").style.display = "none";
+      document.getElementById("answerBox").style.display = "none";
+      document.getElementById("correctAnswer").innerText = q.answer;
+      answered = false;
+
+      optionList.innerHTML = "";
+      q.options.forEach(opt => {
+        const li = document.createElement("li");
+        li.innerText = opt;
+        li.onclick = () => {
+          if (answered) return;
+          answered = true;
+          if (opt === q.answer) {
+            li.classList.add("correct");
+            document.getElementById("message").innerText = "🎉 Correct Answer!";
+            score++;
+          } else {
+            li.classList.add("incorrect");
+            document.getElementById("message").innerText = "❌ Wrong Answer!";
+          }
+          document.getElementById("message").style.display = "block";
+          document.querySelectorAll("#options li").forEach(el => el.classList.add("disabled"));
+        };
+        optionList.appendChild(li);
+      });
+
+      document.getElementById("progress").innerText = `Question ${currentIndex + 1} of ${quizData.length}`;
+    }
+
+    function nextQuestion() {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        alert("✅ You've reached the end. Click 'Submit All Answers'.");
+      }
+    }
+
+    function toggleAnswer() {
+      const box = document.getElementById("answerBox");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+    }
+
+    function tryAgain() {
+      currentIndex = 0;
+      score = 0;
+      loadQuestion();
+      document.getElementById("finalScore").style.display = "none";
+    }
+
+    function submitQuiz() {
+      document.getElementById("finalScore").innerText = `🎯 Your Score: ${score} out of ${quizData.length}`;
+      document.getElementById("finalScore").style.display = "block";
+    }
+
+    // Load the first question on page load
+    window.onload = loadQuestion;
+  </script>
+
+</body>
+</html>
+

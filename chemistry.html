@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry Lessons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+        }
+        .sidebar {
+            width: 300px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+        .sidebar h2 {
+            text-align: center;
+            color: #f4a261;
+        }
+        .lesson-list {
+            list-style: none;
+            padding: 0;
+        }
+        .lesson-list li {
+            padding: 10px;
+            border-bottom: 1px solid #f4a261;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .lesson-list li:hover {
+            background: #f4a261;
+            color: black;
+        }
+        .content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 24px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Chemistry Lessons</h2>
+        <ul class="lesson-list">
+            <li onclick="loadLesson('somebasicconcepts.html')">1. Some Basic Concepts of Chemistry</li>
+            <li onclick="loadLesson('structureofatom.html')">2. Structure of Atom</li>
+            <li onclick="loadLesson('classificationofelements.html')">3. Classification of Elements and Periodicity in Properties</li>
+            <li onclick="loadLesson('periodictable.html')">*******Periodic Table Diagram </li>
+            <li onclick="loadLesson('chemicalbonding.html')">4. Chemical Bonding and Molecular Structure</li>
+            <li onclick="loadLesson('statesofmatter.html')">5. States of Matter: Gases and Liquids</li>
+            <li onclick="loadLesson('thermodynamics.html')">6. Thermodynamics</li>
+            <li onclick="loadLesson('equilibrium.html')">7. Equilibrium</li>
+            <li onclick="loadLesson('redoxreactions.html')">8. Redox Reactions</li>
+            <li onclick="loadLesson('hydrogen.html')">9. Hydrogen</li>
+            <li onclick="loadLesson('sblockelements.html')">10. The s-Block Element (Alkali and Alkaline Earth Metals)</li>
+            <li onclick="loadLesson('pblockelements1.html')">11. Some p-Block Elements</li>
+            <li onclick="loadLesson('organicchemistry.html')">12. Organic Chemistry - Some Basic Principles and Techniques</li>
+            <li onclick="loadLesson('hydrocarbons.html')">13. Hydrocarbons</li>
+            <li onclick="loadLesson('environmentalchemistry.html')">14. Environmental Chemistry</li>    
+            <li onclick="loadLesson('solidstate.html')">15. Solid State</li>
+            <li onclick="loadLesson('solutions.html')">16. Solutions</li>
+            <li onclick="loadLesson('electrochemistry.html')">17. Electrochemistry</li>
+            <li onclick="loadLesson('chemicalkinetics.html')">18. Chemical Kinetics</li>
+            <li onclick="loadLesson('surfacechemistry.html')">19. Surface Chemistry</li>
+            <li onclick="loadLesson('isolationofelements.html')">20. General Principles and Processes of Isolation of Elements</li>
+            </ul>
+    </div>
+    <div class="content">
+        <iframe id="lessonFrame" src=""></iframe>
+    </div>
+    
+    <script>
+        function loadLesson(lesson) {
+            document.getElementById('lessonFrame').src = lesson;
+        }
+    </script>
+</body>
+</html>
